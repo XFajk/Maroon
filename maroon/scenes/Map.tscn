@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://crnv72bti5td8"]
+
+[node name="Map" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.737427, 0.678772, 1.07855)
+flip_faces = true
+size = Vector3(2.47485, 2.35754, 3.1571)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.471852, -0.2413, 1.93222)
+size = Vector3(0.599121, 0.52832, 0.627441)
