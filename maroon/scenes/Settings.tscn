@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw3f8paoawyo1"]
+
+[ext_resource type="FontFile" uid="uid://dnna625fx6e6x" path="res://assets/Fonts/Begok.ttf" id="1_gjdwx"]
+[ext_resource type="Script" path="res://src/SettingsManager.gd" id="1_jib34"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k7yd"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Settings" type="Panel"]
+offset_right = 680.0
+offset_bottom = 420.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1k7yd")
+script = ExtResource("1_jib34")
+
+[node name="BackToMainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 320.0
+offset_right = 620.0
+offset_bottom = 390.0
+theme_override_fonts/font = ExtResource("1_gjdwx")
+theme_override_font_sizes/font_size = 40
+text = "back to main menu"
+
+[node name="SoundsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 100.0
+offset_right = 259.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("1_gjdwx")
+theme_override_font_sizes/font_size = 30
+text = "sounds
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 100.0
+offset_right = 584.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("1_gjdwx")
+theme_override_font_sizes/font_size = 30
+text = "music
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sounds" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 250.0
+offset_bottom = 110.0
+value = 100.0
+rounded = true
+
+[node name="Music" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 20.0
+offset_right = 580.0
+offset_bottom = 120.0
+value = 100.0
+rounded = true
+scrollable = false
+
+[connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="value_changed" from="Sounds" to="." method="_on_sounds_value_changed"]
+[connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
