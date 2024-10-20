@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://p858ceob4lx3"
-path="res://.godot/imported/Tree2.blend-ed71ae604f85ee1647f5459e514caa5e.scn"
+uid="uid://bb3cqdl5fhall"
+path="res://.godot/imported/BedsideTable.blend-1e709ba810b569b0865aee08a084a827.scn"
 
 [deps]
 
-source_file="res://assets/Enviroment/Tree2.blend"
-dest_files=["res://.godot/imported/Tree2.blend-ed71ae604f85ee1647f5459e514caa5e.scn"]
+source_file="res://assets/Enviroment/BedsideTable.blend"
+dest_files=["res://.godot/imported/BedsideTable.blend-1e709ba810b569b0865aee08a084a827.scn"]
 
 [params]
 
