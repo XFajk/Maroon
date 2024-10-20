@@ -1,2 +1,2 @@
 # Maroon
-a game abound being strandet on a planet
+a game abound being stranded on a planet
