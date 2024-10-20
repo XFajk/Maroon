@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0jnnj2b0u0cg"]
+[gd_scene load_steps=4 format=3 uid="uid://b0jnnj2b0u0cg"]
+
+[ext_resource type="Script" path="res://src/Player.gd" id="1_dqc7k"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w28sf"]
+radius = 0.3
+height = 1.8
+radial_segments = 8
+rings = 6
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_52p76"]
 radius = 0.3
 height = 1.8
 
 [node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_dqc7k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_w28sf")
+skeleton = NodePath("../Collision")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_52p76")
@@ -15,7 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.598592, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="Control" type="Control" parent="Head/Camera3D"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Head/Camera3D/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
