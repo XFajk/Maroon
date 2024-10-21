@@ -16,7 +16,7 @@ var direction = Vector3.ZERO
 
 # gravity variables
 @export var gravity = -20
-@export var jump_height = 20
+@export var jump_height = 450
 @export var terminal_velocity = -100
 var vertical_speed = 0.0
 

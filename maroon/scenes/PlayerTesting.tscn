@@ -42,5 +42,3 @@ skeleton = NodePath("../..")
 [node name="Player" parent="." instance=ExtResource("1_mooo8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, -1)
 running_speed = 300
-acceleration = 20
-jump_height = 450
