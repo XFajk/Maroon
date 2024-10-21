@@ -56,8 +56,9 @@ func manage_gravity(delta: float) -> void:
 func manage_interaction() -> void:
 	var object: Node = InteractionRay.get_collider()
 	if object != null:
-		if object.is_in_group("Interactible"):
+		if object.is_in_group("Interactable"):
 			object.interact(self)
+			
 
 func standing(delta: float) -> void:
 	

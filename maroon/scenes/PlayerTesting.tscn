@@ -20,7 +20,7 @@ size = Vector3(11, 0.3, 11)
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, -0.12941, 0.482963, -0.25, 0.724444, 0.642402, -0.433013, -0.677077, 0.595035, 2, 4, -1)
 
-[node name="Cube" type="StaticBody3D" parent="."]
+[node name="Cube" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.65, 2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
@@ -41,4 +41,9 @@ skeleton = NodePath("../..")
 
 [node name="Player" parent="." instance=ExtResource("1_mooo8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, -1)
+movment_speed = 200
 running_speed = 300
+acceleration = 15
+gravity = -20
+jump_height = 450
+terminal_velocity = -100
