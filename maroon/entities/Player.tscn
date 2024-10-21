@@ -35,8 +35,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainLayer" type="CanvasLayer" parent="Head/Eyes/PlayerUI"]
-
 [node name="PostProcessing" type="CanvasLayer" parent="Head/Eyes/PlayerUI"]
 
 [node name="OrangeFilter" type="ColorRect" parent="Head/Eyes/PlayerUI/PostProcessing"]
