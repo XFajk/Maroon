@@ -4,6 +4,7 @@ enum PlayerState {
 	STANDING,
 	MOVING,
 	JUMPING,
+	IN_MENU
 }
 
 var state: PlayerState = PlayerState.STANDING
@@ -53,7 +54,11 @@ func manage_gravity(delta: float) -> void:
 	velocity.y = vertical_speed
 	
 func manage_interaction() -> void:
-	pass
+	var object: Node = InteractionRay.get_collider()
+	if object != null:
+		if object.is_in_group("Interactable"):
+			object.interact(self)
+			
 
 func standing(delta: float) -> void:
 	

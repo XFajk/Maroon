@@ -35,8 +35,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainLayer" type="CanvasLayer" parent="Head/Eyes/PlayerUI"]
-
 [node name="PostProcessing" type="CanvasLayer" parent="Head/Eyes/PlayerUI"]
 
 [node name="OrangeFilter" type="ColorRect" parent="Head/Eyes/PlayerUI/PostProcessing"]
@@ -49,8 +47,3 @@ grow_vertical = 2
 
 [node name="InteractionRay" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-
-[node name="Feet" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.898043, 0)
-
-[node name="GroundCheck" type="RayCast3D" parent="Feet"]
