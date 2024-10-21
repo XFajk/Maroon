@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcyk4plwj43uq"
-path.s3tc="res://.godot/imported/rocket_cabin_rocket_cabin_bake.png-b3fe2bc26caa7c94c826415993030701.s3tc.ctex"
+uid="uid://cmxmqresk0ecd"
+path.s3tc="res://.godot/imported/enviroment_terrain_mask_rgb_layers.png-5bb9a5625ee4719621c6d0a552a19036.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "fc8c3862c8d3717e8ab630da3790e684"
+"md5": "fe4b99b220f3e96a053106289d35aac1"
 }
 
 [deps]
 
-source_file="res://assets/Rocket/rocket_cabin_rocket_cabin_bake.png"
-dest_files=["res://.godot/imported/rocket_cabin_rocket_cabin_bake.png-b3fe2bc26caa7c94c826415993030701.s3tc.ctex"]
+source_file="res://assets/Ground/enviroment_terrain_mask_rgb_layers.png"
+dest_files=["res://.godot/imported/enviroment_terrain_mask_rgb_layers.png-5bb9a5625ee4719621c6d0a552a19036.s3tc.ctex"]
 
 [params]
 
