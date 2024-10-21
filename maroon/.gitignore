@@ -4,3 +4,4 @@
 
 # Blender avoid trash
 *.blend1
+.DS_Store
