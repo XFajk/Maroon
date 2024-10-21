@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://crnv72bti5td8"]
+[gd_scene load_steps=12 format=4 uid="uid://crnv72bti5td8"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_m0cj0"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Ground/sand.png" id="2_ta1gj"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c6qc5msveylbs" path="res://assets/Ground/rock.png" id="4_gwb2p"]
 [ext_resource type="Texture2D" uid="uid://crqhcbuiy2xlt" path="res://assets/Ground/terrain_mask_rgb_layers.png" id="5_7euhf"]
 [ext_resource type="Texture2D" uid="uid://psalotcvexhl" path="res://assets/Ground/ground.png" id="6_rfpov"]
-[ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="8_7lpe3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tat6"]
 render_priority = 0
@@ -70,6 +69,3 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/terrain_collision"]
 shape = SubResource("ConcavePolygonShape3D_hktal")
-
-[node name="Player" parent="." instance=ExtResource("8_7lpe3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.0399, 0)
