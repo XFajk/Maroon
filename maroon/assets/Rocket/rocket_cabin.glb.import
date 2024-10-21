@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnbuin3xlsts4"
-path="res://.godot/imported/radio.glb-bc29de3725c0c97c4ece6c71fc7611f9.scn"
+uid="uid://bdspfi42gpbts"
+path="res://.godot/imported/rocket_cabin.glb-55b2992b177c30876a39e50aa08a94ad.scn"
 
 [deps]
 
-source_file="res://assets/RadioTower/radio.glb"
-dest_files=["res://.godot/imported/radio.glb-bc29de3725c0c97c4ece6c71fc7611f9.scn"]
+source_file="res://assets/Rocket/rocket_cabin.glb"
+dest_files=["res://.godot/imported/rocket_cabin.glb-55b2992b177c30876a39e50aa08a94ad.scn"]
 
 [params]
 

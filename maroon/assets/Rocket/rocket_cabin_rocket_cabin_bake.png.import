@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxun4owqus8sb"
-path.s3tc="res://.godot/imported/radio_satelite_color_baked.png-648b05eb3018b685f3707a71b8786cd8.s3tc.ctex"
+uid="uid://bcyk4plwj43uq"
+path.s3tc="res://.godot/imported/rocket_cabin_rocket_cabin_bake.png-b3fe2bc26caa7c94c826415993030701.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "50e6cea59c758356d608c1f1b138f667"
+"md5": "fc8c3862c8d3717e8ab630da3790e684"
 }
 
 [deps]
 
-source_file="res://assets/RadioTower/radio_satelite_color_baked.png"
-dest_files=["res://.godot/imported/radio_satelite_color_baked.png-648b05eb3018b685f3707a71b8786cd8.s3tc.ctex"]
+source_file="res://assets/Rocket/rocket_cabin_rocket_cabin_bake.png"
+dest_files=["res://.godot/imported/rocket_cabin_rocket_cabin_bake.png-b3fe2bc26caa7c94c826415993030701.s3tc.ctex"]
 
 [params]
 
