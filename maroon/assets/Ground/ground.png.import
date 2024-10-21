@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://psalotcvexhl"
-path.s3tc="res://.godot/imported/ground.png-b636f812d98ff1fb53c03976c1f97658.s3tc.ctex"
+path.s3tc="res://.godot/imported/ground.png-673271eeeb2d2777787f0fa18dd4ce4d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/enviroment/ground.png"
-dest_files=["res://.godot/imported/ground.png-b636f812d98ff1fb53c03976c1f97658.s3tc.ctex"]
+source_file="res://assets/Ground/ground.png"
+dest_files=["res://.godot/imported/ground.png-673271eeeb2d2777787f0fa18dd4ce4d.s3tc.ctex"]
 
 [params]
 

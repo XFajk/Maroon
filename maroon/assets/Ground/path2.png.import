@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crqhcbuiy2xlt"
-path="res://.godot/imported/terrain_mask_rgb_layers.png-839b56e1e40cad3fac51d912578e291f.ctex"
+uid="uid://bf43n31b85qfw"
+path.s3tc="res://.godot/imported/path2.png-9131aa1b34e8eaa6679afa38dd8f5ea3.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/enviroment/terrain_mask_rgb_layers.png"
-dest_files=["res://.godot/imported/terrain_mask_rgb_layers.png-839b56e1e40cad3fac51d912578e291f.ctex"]
+source_file="res://assets/Ground/path2.png"
+dest_files=["res://.godot/imported/path2.png-9131aa1b34e8eaa6679afa38dd8f5ea3.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

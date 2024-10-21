@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://crnv72bti5td8"]
+[gd_scene load_steps=13 format=4 uid="uid://crnv72bti5td8"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_m0cj0"]
-[ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/enviroment/sand.png" id="2_ta1gj"]
-[ext_resource type="Texture2D" uid="uid://bf43n31b85qfw" path="res://assets/enviroment/path2.png" id="3_ltop3"]
-[ext_resource type="Texture2D" uid="uid://c6qc5msveylbs" path="res://assets/enviroment/rock.png" id="4_gwb2p"]
-[ext_resource type="Texture2D" uid="uid://crqhcbuiy2xlt" path="res://assets/enviroment/terrain_mask_rgb_layers.png" id="5_7euhf"]
-[ext_resource type="Texture2D" uid="uid://psalotcvexhl" path="res://assets/enviroment/ground.png" id="6_rfpov"]
+[ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Ground/sand.png" id="2_ta1gj"]
+[ext_resource type="Texture2D" uid="uid://bf43n31b85qfw" path="res://assets/Ground/path2.png" id="3_ltop3"]
+[ext_resource type="Texture2D" uid="uid://c6qc5msveylbs" path="res://assets/Ground/rock.png" id="4_gwb2p"]
+[ext_resource type="Texture2D" uid="uid://crqhcbuiy2xlt" path="res://assets/Ground/terrain_mask_rgb_layers.png" id="5_7euhf"]
+[ext_resource type="Texture2D" uid="uid://psalotcvexhl" path="res://assets/Ground/ground.png" id="6_rfpov"]
+[ext_resource type="PackedScene" uid="uid://bnbuin3xlsts4" path="res://assets/RadioTower/radio.glb" id="7_ut5at"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_557kl"]
 render_priority = 0
@@ -65,3 +66,11 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/terrain_collision"]
 shape = SubResource("ConcavePolygonShape3D_7uhvb")
+
+[node name="radio" parent="." instance=ExtResource("7_ut5at")]
+transform = Transform3D(0.909708, 0, 0.415249, 0, 1, 0, -0.415249, 0, 0.909708, -300.211, 81.6719, -31.4615)
+
+[node name="RadioTower" parent="radio" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47501, 5.2169, -77.9409)
+
+[editable path="radio"]

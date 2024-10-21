@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6qc5msveylbs"
-path.s3tc="res://.godot/imported/rock.png-3369da43f084c46172d71e5d5eee5bc9.s3tc.ctex"
+uid="uid://4tcs5wpp15ht"
+path.s3tc="res://.godot/imported/sand.png-02af501446068d09f1bcdd9a2e8c0381.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/enviroment/rock.png"
-dest_files=["res://.godot/imported/rock.png-3369da43f084c46172d71e5d5eee5bc9.s3tc.ctex"]
+source_file="res://assets/Ground/sand.png"
+dest_files=["res://.godot/imported/sand.png-02af501446068d09f1bcdd9a2e8c0381.s3tc.ctex"]
 
 [params]
 
