@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://cuymiuyqg0pji"]
+[gd_scene load_steps=8 format=4 uid="uid://cuymiuyqg0pji"]
 
-[ext_resource type="Texture2D" uid="uid://3gvd6vxs85bw" path="res://assets/Doors/main_door_a_main_door_a_bake_hi.png" id="1_1exr4"]
+[ext_resource type="Script" path="res://src/MainDoor.gd" id="1_pcqlw"]
+[ext_resource type="Texture2D" uid="uid://3gvd6vxs85bw" path="res://assets/Doors/main_door_a_main_door_a_bake_hi.png" id="2_8cdtc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb6s7"]
 resource_name = "main_door_a_baked"
 cull_mode = 2
-albedo_texture = ExtResource("1_1exr4")
+albedo_texture = ExtResource("2_8cdtc")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_aw4s4"]
@@ -43,7 +44,11 @@ shadow_mesh = SubResource("ArrayMesh_aw4s4")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vv8gn"]
 size = Vector3(1.75676, 2.25879, 0.243683)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yc134"]
+size = Vector3(8.97552, 3.61618, 9.80609)
+
 [node name="MainDoor" type="StaticBody3D"]
+script = ExtResource("1_pcqlw")
 
 [node name="MainDoor" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.74462e-08, 0, 0.0964776, 0, 1.12112, 0, -0.856669, 0, -4.21717e-09, -0.0151211, 1.12111, -0.0022956)
@@ -53,3 +58,9 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.016542, 1.12141, 0.00454038)
 shape = SubResource("BoxShape3D_vv8gn")
+
+[node name="OpeningRange" type="Area3D" parent="."]
+
+[node name="Range" type="CollisionShape3D" parent="OpeningRange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0171814, 1.46068, 0.0392151)
+shape = SubResource("BoxShape3D_yc134")

@@ -127,3 +127,12 @@ shape = SubResource("ConcavePolygonShape3D_br4we")
 
 [node name="Doors" parent="." instance=ExtResource("3_s32fk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08183, 0, 0.296031)
+
+[node name="Doors2" parent="." instance=ExtResource("3_s32fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14089, 0, -1.50789)
+
+[node name="Doors3" parent="." instance=ExtResource("3_s32fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27218, 0, 0.296031)
+
+[node name="Doors4" parent="." instance=ExtResource("3_s32fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83036, 0, -1.50789)
