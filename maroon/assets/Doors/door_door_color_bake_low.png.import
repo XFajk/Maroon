@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djck6iwhyw7os"
+uid="uid://rytiqc7q4ayi"
 path.s3tc="res://.godot/imported/door_door_color_bake_low.png-480ab23072476611ad48d7926dbdc51c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "0ec5337f0887d190a6fdeb37517291a4"
 }
 
 [deps]
