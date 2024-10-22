@@ -141,3 +141,13 @@ func jumping(delta: float) -> void:
 	vertical_speed = jump_height*delta
 	velocity.y = vertical_speed
 	state = PlayerState.STANDING
+
+
+
+
+func _on_in_warehouse_detector_area_entered(area: Area3D) -> void:
+	pass # Replace with function body.
+
+
+func _on_in_warehouse_detector_area_exited(area: Area3D) -> void:
+	pass # Replace with function body.
