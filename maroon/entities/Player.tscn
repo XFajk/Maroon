@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0jnnj2b0u0cg"]
+[gd_scene load_steps=10 format=3 uid="uid://b0jnnj2b0u0cg"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_dqc7k"]
 [ext_resource type="Shader" path="res://src/shaders/Fog.gdshader" id="2_fqqal"]
+[ext_resource type="PackedScene" uid="uid://dtmo3ahg8vh6x" path="res://entities/Radar.tscn" id="3_obdw2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jeoj"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w28sf"]
 radius = 0.3
@@ -21,10 +25,15 @@ shader_parameter/depth_strength = 24.0
 [sub_resource type="QuadMesh" id="QuadMesh_effy5"]
 size = Vector2(0.5, 0.5)
 
+[sub_resource type="Environment" id="Environment_l4vdw"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_dqc7k")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_4jeoj")
 mesh = SubResource("CapsuleMesh_w28sf")
 skeleton = NodePath("../Collision")
 
@@ -44,10 +53,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Eyes"]
+[node name="PostProcessingLayers" type="Node3D" parent="Head/Eyes"]
+visible = false
+
+[node name="FogLayer" type="MeshInstance3D" parent="Head/Eyes/PostProcessingLayers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0961392)
 material_override = SubResource("ShaderMaterial_7x24k")
 mesh = SubResource("QuadMesh_effy5")
+skeleton = NodePath("../..")
+
+[node name="Radar" parent="Head/Eyes" instance=ExtResource("3_obdw2")]
+position = Vector2(1100, 560)
 
 [node name="InteractionRay" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l4vdw")
