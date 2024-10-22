@@ -21,10 +21,15 @@ var direction = Vector3.ZERO
 @export var terminal_velocity = -100
 var vertical_speed = 0.0
 
-@onready var GroundCheck: RayCast3D = $Feet/GroundCheck
+# interaction variables
 @onready var InteractionRay: RayCast3D = $Head/InteractionRay
 
+# mouse motion variables
 @onready var Head = $Head
+
+# radar system variables
+@export var RadarSystem: Node = null 
+@onready var RadarPoinsts: Node2D = $Head/Eyes/Radar/Points
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -33,6 +38,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x*Global.mouse_sens))
 		Head.rotate_x(deg_to_rad(-event.relative.y*Global.mouse_sens))
+		Head.rotation.x = deg_to_rad(clamp(Head.rotation_degrees.x, -70, 70))
 		
 func _physics_process(delta: float) -> void:
 	
@@ -56,9 +62,24 @@ func manage_gravity(delta: float) -> void:
 func manage_interaction() -> void:
 	var object: Node = InteractionRay.get_collider()
 	if object != null:
-		if object.is_in_group("Interactable"):
+		if object.is_in_group("Interactable") and Input.is_action_just_pressed("interact"):
 			object.interact(self)
 			
+func manage_radar() -> void:
+	if RadarSystem == null: 
+		return
+		
+	RadarPoinsts.topdown_player_position = Vector2(global_position.x, global_position.z)
+	RadarPoinsts.topdown_player_angle = global_rotation.y
+	
+	# append points to the radar
+	for child in RadarSystem.get_children():
+		RadarPoinsts.points.append(Vector2(child.global_position.x, child.global_position.z))
+	
+	# only queue a redraw when there is something to draw
+	if RadarSystem.get_child_count() > 0:
+		RadarPoinsts.queue_redraw()
+		
 
 func standing(delta: float) -> void:
 	
@@ -81,6 +102,7 @@ func standing(delta: float) -> void:
 	velocity = velocity.move_toward(Vector3.ZERO, acceleration*delta)
 	
 	manage_interaction()
+	manage_radar()
 
 func moving(delta: float) -> void:
 	
@@ -112,9 +134,20 @@ func moving(delta: float) -> void:
 		velocity = velocity.move_toward(direction*goal_speed, acceleration*delta)
 	
 	manage_interaction()
+	manage_radar()
 	
 	
 func jumping(delta: float) -> void:
 	vertical_speed = jump_height*delta
 	velocity.y = vertical_speed
 	state = PlayerState.STANDING
+
+
+
+
+func _on_in_warehouse_detector_area_entered(area: Area3D) -> void:
+	pass # Replace with function body.
+
+
+func _on_in_warehouse_detector_area_exited(area: Area3D) -> void:
+	pass # Replace with function body.

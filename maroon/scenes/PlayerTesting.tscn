@@ -1,44 +1,82 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl2mvkokf1m7j"]
+[gd_scene load_steps=11 format=3 uid="uid://cl2mvkokf1m7j"]
 
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="1_mooo8"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xhjxv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e34lc"]
-albedo_color = Color(1, 0.262745, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_r3811"]
+[ext_resource type="PackedScene" uid="uid://c26b0bi76xmjk" path="res://scenes/Warehouse.tscn" id="2_uj32t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
-size = Vector3(11, 0.3, 11)
+size = Vector3(100, 0.3, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c13b4"]
+shading_mode = 2
+albedo_color = Color(1, 0.133333, 1, 1)
+metallic_specular = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_fw0xp"]
-size = Vector3(11, 0.3, 11)
+material = SubResource("StandardMaterial3D_c13b4")
+size = Vector3(100, 0.3, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gbt2"]
+size = Vector3(0.2, 1.47551, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ug8r5"]
+size = Vector3(0.2, 1.4, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j4cu"]
+albedo_color = Color(1, 0.243137, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uoxkq"]
+material = SubResource("StandardMaterial3D_2j4cu")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.05
+radial_segments = 6
+rings = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lsd5"]
+size = Vector3(37.9331, 9.72754, 27.3552)
 
 [node name="PlayerTesting" type="Node3D"]
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, -0.12941, 0.482963, -0.25, 0.724444, 0.642402, -0.433013, -0.677077, 0.595035, 2, 4, -1)
-
-[node name="Cube" type="StaticBody3D" parent="." groups=["Interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.65, 2)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
-shape = SubResource("BoxShape3D_xhjxv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
-material_override = SubResource("StandardMaterial3D_e34lc")
-mesh = SubResource("BoxMesh_r3811")
-
 [node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1787, 0, 0)
 shape = SubResource("BoxShape3D_6n38a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_fw0xp")
 skeleton = NodePath("../..")
 
+[node name="warehouse2" parent="." instance=ExtResource("2_uj32t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.42391, 2)
+
+[node name="PositionDownloader" type="StaticBody3D" parent="warehouse2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.754, 0.735599, -11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/PositionDownloader"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0377564, 0)
+shape = SubResource("BoxShape3D_1gbt2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="warehouse2/PositionDownloader"]
+mesh = SubResource("BoxMesh_ug8r5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="warehouse2/PositionDownloader"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.713215, 0)
+mesh = SubResource("CylinderMesh_uoxkq")
+
+[node name="InWarehouseDetector" type="Area3D" parent="warehouse2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/InWarehouseDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642334, 4.36377, -0.555649)
+shape = SubResource("BoxShape3D_2lsd5")
+
 [node name="Player" parent="." instance=ExtResource("1_mooo8")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, -1)
+
 running_speed = 300
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, 26)
+
+[node name="RadarSystem" type="Node" parent="."]
+
+[connection signal="area_entered" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_area_entered"]
+[connection signal="area_exited" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_area_exited"]
