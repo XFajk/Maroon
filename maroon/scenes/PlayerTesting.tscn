@@ -72,6 +72,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642334, 4.36377, -0.555649
 shape = SubResource("BoxShape3D_2lsd5")
 
 [node name="Player" parent="." instance=ExtResource("1_mooo8")]
+
+running_speed = 300
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, 26)
 
 [node name="RadarSystem" type="Node" parent="."]

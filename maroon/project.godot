@@ -26,6 +26,7 @@ window/stretch/mode="canvas_items"
 
 [global_group]
 
+Player=""
 Interactable="an object in this group needs to be intereactable"
 
 [input]
