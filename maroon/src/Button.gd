@@ -9,10 +9,5 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func interact(player: CharacterBody3D) -> void:
 	button_pressed.emit(button_name)

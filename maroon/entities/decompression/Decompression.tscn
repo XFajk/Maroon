@@ -24,7 +24,7 @@ button_name = "inside"
 [node name="MainDoor" parent="." instance=ExtResource("4_v2ma3")]
 
 [node name="Doors" parent="." instance=ExtResource("5_x10vh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.11083)
+transform = Transform3D(1, 0, 0, 0, 0.95, 0, 0, 0, 1.1, 0, 0, -3.11083)
 
 [node name="DecompTimer" type="Timer" parent="."]
 one_shot = true

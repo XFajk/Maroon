@@ -9,8 +9,6 @@ var is_opened: bool = false
 var is_locked: bool = true
 var door_progress = 0 #0 -> Closed, 1 -> Fully opened
 
-func _ready() -> void:
-	pass
 
 func _process(delta: float) -> void:
 	if is_locked:

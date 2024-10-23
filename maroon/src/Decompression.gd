@@ -12,17 +12,16 @@ var is_decompressing: bool = false
 
 var entering: bool #used to determine which door to open after decompressing
 
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_button_pressed(button_name) -> void:
 	if button_name == "outside":
 		outside_door.is_locked = false
 		entering = true
+		unlocked_timer.start(unlocked_time)
 	if button_name == "inside":
 		inside_door.is_locked = false
 		entering = false
+		unlocked_timer.start(unlocked_time)
 	if button_name == "decomp":
 		inside_door.is_locked = true
 		outside_door.is_locked = true
@@ -37,6 +36,7 @@ func _on_decomp_timer_timeout() -> void:
 	else:
 		outside_door.is_locked = false
 	unlocked_timer.start(unlocked_time)
+	entering = not entering
 
 
 func _on_unlocked_timer_timeout() -> void:
