@@ -29,6 +29,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.11083)
 [node name="DecompTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="UnlockedTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="button_pressed" from="DecompPanel" to="." method="_on_button_pressed"]
 [connection signal="button_pressed" from="OutsideButton" to="." method="_on_button_pressed"]
 [connection signal="button_pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="DecompTimer" to="." method="_on_decomp_timer_timeout"]
+[connection signal="timeout" from="UnlockedTimer" to="." method="_on_unlocked_timer_timeout"]
