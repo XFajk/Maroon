@@ -11,7 +11,7 @@ extends Node3D
 @export var opened_by_button = false
 
 var is_opened: bool = false
-var is_locked: bool = false
+@export var is_locked: bool = false
 var door_progress = 0 #0 -> Closed, 1 -> Fully opened
 
 func _ready() -> void:
@@ -19,7 +19,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if is_locked:
-		pass
+		if door_progress > 0:
+			door_progress -= door_speed * delta
 	elif is_opened and door_progress < 1:
 		door_progress += door_speed * delta
 	elif not is_opened and door_progress > 0:

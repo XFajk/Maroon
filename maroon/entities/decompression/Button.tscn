@@ -86,7 +86,7 @@ shadow_mesh = SubResource("ArrayMesh_lrevc")
 [sub_resource type="BoxShape3D" id="BoxShape3D_2c6er"]
 size = Vector3(0.0725098, 0.307251, 0.3125)
 
-[node name="Button" type="StaticBody3D"]
+[node name="Button" type="StaticBody3D" groups=["Interactable"]]
 script = ExtResource("1_hbds1")
 
 [node name="Casing" type="MeshInstance3D" parent="."]

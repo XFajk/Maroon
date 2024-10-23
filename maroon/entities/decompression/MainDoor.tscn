@@ -64,3 +64,6 @@ shape = SubResource("BoxShape3D_vv8gn")
 [node name="Range" type="CollisionShape3D" parent="OpeningRange"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0171814, 1.46068, 0.0392151)
 shape = SubResource("BoxShape3D_yc134")
+
+[connection signal="body_entered" from="OpeningRange" to="." method="_on_opening_range_body_entered"]
+[connection signal="body_exited" from="OpeningRange" to="." method="_on_opening_range_body_exited"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=15 format=4 uid="uid://dj241vy41r8u8"]
 
 [ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="2_g88ia"]
-[ext_resource type="PackedScene" path="res://entities/Doors.tscn" id="3_s32fk"]
+[ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Doors.tscn" id="3_s32fk"]
+[ext_resource type="PackedScene" uid="uid://bx5iid1dm86vb" path="res://entities/decompression/Decompression.tscn" id="4_wprk7"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rgnpo"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -97,7 +98,7 @@ data = PackedVector3Array(1.2214, 3.424, -0.1209, 1.2214, 3.5872, -0.2841, 1.221
 [node name="BaseAlpha" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_g88ia")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13426, 9.07281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13426, 8.43863)
 
 [node name="temp_floor" type="StaticBody3D" parent="."]
 
@@ -136,3 +137,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27218, 0, 0.296031)
 
 [node name="Doors4" parent="." instance=ExtResource("3_s32fk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83036, 0, -1.50789)
+
+[node name="Decompression" parent="." instance=ExtResource("4_wprk7")]
+
+[node name="DecompPanel" parent="Decompression" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.564957, 0.997627, 4.01017)
+
+[node name="OutsideButton" parent="Decompression" index="1"]
+transform = Transform3D(0.968483, 0, 0.249079, 0, 1, 0, -0.249079, 0, 0.968483, 0.0401635, 1.03316, 7.10169)
+
+[node name="Button" parent="Decompression" index="2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.75686, 0.785291, 3.52395)
+
+[node name="MainDoor" parent="Decompression" index="3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 5.78238)
+
+[node name="Doors" parent="Decompression" index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3.632)
+is_locked = true
+
+[editable path="Decompression"]

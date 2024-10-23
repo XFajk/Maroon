@@ -2,7 +2,7 @@ extends StaticBody3D
 
 signal button_pressed
 
-@export var button_name = "" #for decompression the names "outside_button" and "inside_button" are used
+var button_name = "decomp"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
