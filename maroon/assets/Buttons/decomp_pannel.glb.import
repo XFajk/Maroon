@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cmy1rap44cg5a"
-path="res://.godot/imported/decomp_panel.glb-0bc2a5f44b21e7706f39b8f93b6db736.scn"
+uid="uid://b4ew5j056neit"
+path="res://.godot/imported/decomp_pannel.glb-a2c9e00f8bfc820dd22716122da7f58f.scn"
 
 [deps]
 
-source_file="res://assets/Buttons/decomp_panel.glb"
-dest_files=["res://.godot/imported/decomp_panel.glb-0bc2a5f44b21e7706f39b8f93b6db736.scn"]
+source_file="res://assets/Buttons/decomp_pannel.glb"
+dest_files=["res://.godot/imported/decomp_pannel.glb-a2c9e00f8bfc820dd22716122da7f58f.scn"]
 
 [params]
 

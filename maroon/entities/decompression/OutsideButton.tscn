@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://tt2tb8hreau4"]
+[gd_scene load_steps=10 format=4 uid="uid://tt2tb8hreau4"]
 
+[ext_resource type="Script" path="res://src/Button.gd" id="1_bgltr"]
 [ext_resource type="Texture2D" uid="uid://dug41xpo0ga5e" path="res://assets/Buttons/button_on_pole_btn_on_pole_baked.png" id="1_yu5yg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkljm"]
@@ -85,8 +86,12 @@ shadow_mesh = SubResource("ArrayMesh_owof7")
 [sub_resource type="BoxShape3D" id="BoxShape3D_uiaj3"]
 size = Vector3(0.347107, 1.67682, 0.313354)
 
-[node name="OutsideButton" type="StaticBody3D"]
+[node name="OutsideButton" type="StaticBody3D" node_paths=PackedStringArray("button") groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4348, 1.3438, 0.959982)
+script = ExtResource("1_bgltr")
+button = NodePath("Casing_001/Button_001")
+button_depth = 0.016
+button_press_direction = Vector3(1, -1, 0)
 
 [node name="Casing_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0104718, 0, 0.999945, 0, 1, 0, -0.999945, 0, -0.0104718, -1.43439, -0.994139, -0.971185)
