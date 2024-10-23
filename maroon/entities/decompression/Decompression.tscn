@@ -32,6 +32,8 @@ one_shot = true
 [node name="UnlockedTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="SubViewport" type="SubViewport" parent="."]
+
 [connection signal="button_pressed" from="DecompPanel" to="." method="_on_button_pressed"]
 [connection signal="button_pressed" from="OutsideButton" to="." method="_on_button_pressed"]
 [connection signal="button_pressed" from="Button" to="." method="_on_button_pressed"]

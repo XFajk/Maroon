@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://de0g4m3hjcojg"]
+[gd_scene load_steps=13 format=4 uid="uid://de0g4m3hjcojg"]
 
 [ext_resource type="Script" path="res://src/DecompPanel.gd" id="1_56x41"]
 [ext_resource type="Texture2D" uid="uid://cihi42lcmigw3" path="res://assets/Buttons/decomp_panel_decomp_panel_baked_hi.png" id="1_gj438"]
@@ -69,6 +69,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6pi3r")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_lbm0u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddsk7"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_lbm0u")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spr44"]
 resource_name = "button"
 cull_mode = 2
@@ -112,15 +118,17 @@ shadow_mesh = SubResource("ArrayMesh_0ak3t")
 [sub_resource type="BoxShape3D" id="BoxShape3D_m515f"]
 size = Vector3(0.112061, 0.325439, 0.319092)
 
-[node name="DecompPanel" type="StaticBody3D" groups=["Interactable"]]
+[node name="DecompPanel" type="StaticBody3D" node_paths=PackedStringArray("button") groups=["Interactable"]]
 script = ExtResource("1_56x41")
+button = NodePath("Panel/Button")
 
 [node name="Panel" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_2p27a")
 skeleton = NodePath("")
+surface_material_override/1 = SubResource("StandardMaterial3D_ddsk7")
 
 [node name="Button" type="MeshInstance3D" parent="Panel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0458058, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0)
 mesh = SubResource("ArrayMesh_vmeet")
 skeleton = NodePath("")
 

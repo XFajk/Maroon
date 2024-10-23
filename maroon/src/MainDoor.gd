@@ -2,7 +2,7 @@ extends StaticBody3D
 
 @onready var opening_area = $OpeningRange
 
-@export var door_height = 2.3 #meters
+@export var door_height = 2.2 #meters
 @export var door_speed = 2
 
 var is_opened: bool = false

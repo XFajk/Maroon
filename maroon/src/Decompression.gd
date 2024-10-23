@@ -23,10 +23,11 @@ func _on_button_pressed(button_name) -> void:
 		entering = false
 		unlocked_timer.start(unlocked_time)
 	if button_name == "decomp":
-		inside_door.is_locked = true
-		outside_door.is_locked = true
-		is_decompressing = true
-		decomp_timer.start(decompressing_time)
+		if not is_decompressing:
+			inside_door.is_locked = true
+			outside_door.is_locked = true
+			is_decompressing = true
+			decomp_timer.start(decompressing_time)
 
 
 func _on_decomp_timer_timeout() -> void:
