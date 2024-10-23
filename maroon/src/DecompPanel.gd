@@ -14,6 +14,19 @@ var button_progress = 0
 var button_state = 0 # 0 -> innactive, 1 -> going down, 2 -> going back up
 
 
+@onready var decomp_viewport = $DecompViewport
+@onready var panel_mesh: MeshInstance3D = $Panel
+var text: String = "ready"
+var color: Color = Color(222, 137, 0)
+
+
+func _ready() -> void:
+	var screen_material: StandardMaterial3D = StandardMaterial3D.new()
+	var viewport_texture: ViewportTexture = decomp_viewport.get_texture()
+	screen_material.albedo_texture = viewport_texture
+	panel_mesh.set_surface_override_material(1, screen_material)
+
+
 func _process(delta: float) -> void:
 	if button_state == 1 and button_progress >= 1:
 		button_state = 2
@@ -28,7 +41,10 @@ func _process(delta: float) -> void:
 		button_progress -= button_speed * delta * 5
 	
 	button.position = button_press_direction * button_progress * button_depth
-	button.position.x += -0.04 # correction because the models pos wasnt applied in blender
+	
+	
+	decomp_viewport.color = color
+	decomp_viewport.text = text
 
 
 func interact(player: CharacterBody3D) -> void:

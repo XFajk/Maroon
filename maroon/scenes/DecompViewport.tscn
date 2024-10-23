@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://cyb5uhhpsmsbv"]
-
-[node name="DecompViewport" type="SubViewport"]
-
-[node name="Node2D" type="Node2D" parent="."]

@@ -141,7 +141,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83036, 0, -1.50789)
 [node name="Decompression" parent="." instance=ExtResource("4_wprk7")]
 
 [node name="DecompPanel" parent="Decompression" index="0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.795885, 0.997627, 4.82312)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.795885, 1.27123, 4.73462)
 
 [node name="OutsideButton" parent="Decompression" index="1"]
 transform = Transform3D(0.968483, 0, 0.249079, 0, 1, 0, -0.249079, 0, 0.968483, 0.249144, 1.03316, 6.74252)

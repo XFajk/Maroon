@@ -9,6 +9,9 @@
 
 [node name="Decompression" type="Node3D"]
 script = ExtResource("1_fq67e")
+decomp_text_color = Color(0.815686, 0.45098, 0.0980392, 1)
+ready_text_color = Color(0.552941, 0.698039, 0.109804, 1)
+done_text_color = Color(0.141176, 0.729412, 0.67451, 1)
 
 [node name="DecompPanel" parent="." instance=ExtResource("1_llf4b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.69881)
@@ -32,10 +35,12 @@ one_shot = true
 [node name="UnlockedTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="TextUpdate" type="Timer" parent="."]
+autostart = true
 
 [connection signal="button_pressed" from="DecompPanel" to="." method="_on_button_pressed"]
 [connection signal="button_pressed" from="OutsideButton" to="." method="_on_button_pressed"]
 [connection signal="button_pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="DecompTimer" to="." method="_on_decomp_timer_timeout"]
 [connection signal="timeout" from="UnlockedTimer" to="." method="_on_unlocked_timer_timeout"]
+[connection signal="timeout" from="TextUpdate" to="." method="_on_text_update_timeout"]

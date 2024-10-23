@@ -2,11 +2,10 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cihi42lcmigw3"
-path.s3tc="res://.godot/imported/decomp_panel_decomp_panel_baked_hi.png-c31f3b90dbb73db49473bbb9fc29ee8f.s3tc.ctex"
+uid="uid://bjrhwosbe36si"
+path="res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-e3abde8c8e8f5b15086233eb9ac54d7b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "7bc35851395ade86b2b2f145271b994b"
@@ -14,12 +13,12 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/Buttons/decomp_panel_decomp_panel_baked_hi.png"
-dest_files=["res://.godot/imported/decomp_panel_decomp_panel_baked_hi.png-c31f3b90dbb73db49473bbb9fc29ee8f.s3tc.ctex"]
+source_file="res://assets/Buttons/decomp_pannel_decomp_panel_baked_hi.png"
+dest_files=["res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-e3abde8c8e8f5b15086233eb9ac54d7b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
