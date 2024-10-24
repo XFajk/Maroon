@@ -58,7 +58,7 @@ func manage_gravity(delta: float) -> void:
 	else:
 		vertical_speed = 0
 	if is_on_ceiling():
-		vertical_speed = 0
+		vertical_speed = -20
 		
 	velocity.y = vertical_speed
 	
@@ -83,7 +83,12 @@ func manage_radar() -> void:
 	if RadarSystem.get_child_count() > 0:
 		RadarPoinsts.queue_redraw()
 		
-
+func manage_mouse() -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else: 
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 func standing(delta: float) -> void:
 	
 	state = PlayerState.STANDING
@@ -106,6 +111,7 @@ func standing(delta: float) -> void:
 	
 	manage_interaction()
 	manage_radar()
+	manage_mouse()
 
 func moving(delta: float) -> void:
 	
@@ -138,6 +144,7 @@ func moving(delta: float) -> void:
 	
 	manage_interaction()
 	manage_radar()
+	manage_mouse()
 	
 	
 func jumping(delta: float) -> void:
