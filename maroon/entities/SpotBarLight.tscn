@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnadaqr1i786c"]
+
+[ext_resource type="PackedScene" uid="uid://dpts4tk1n4xqx" path="res://assets/Enviroment/BarLight.blend" id="1_tnke0"]
+[ext_resource type="Script" path="res://src/FlickeringLight.gd" id="2_spwiq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jk5k"]
+emission_enabled = true
+emission = Color(0.843128, 1, 0.412127, 1)
+emission_energy_multiplier = 16.0
+rim_tint = 0.89
+
+[node name="SpotBarLight" instance=ExtResource("1_tnke0")]
+script = ExtResource("2_spwiq")
+flickering_frequency = 10.0
+
+[node name="Cylinder" parent="." index="0"]
+visibility_range_end = 100.0
+surface_material_override/0 = SubResource("StandardMaterial3D_6jk5k")
+
+[node name="Cube" parent="." index="1"]
+visibility_range_end = 100.0
+
+[node name="Cylinder_002" parent="." index="2"]
+visibility_range_end = 100.0
+
+[node name="Cylinder_001" parent="." index="3"]
+visibility_range_end = 100.0
+
+[node name="Light" type="SpotLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.110782, 4.84242e-09)
+light_color = Color(0.921742, 1, 0.747966, 1)
+light_energy = 2.0
+light_indirect_energy = 0.0
+spot_range = 10.162
+spot_angle = 40.0

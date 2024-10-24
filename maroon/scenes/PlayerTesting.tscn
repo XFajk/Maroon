@@ -162,7 +162,7 @@ transform = Transform3D(0.173627, -0.0027033, 0.984808, 0.0155677, 0.999879, -7.
 transform = Transform3D(0.999455, -0.0329982, 0, 0.0329982, 0.999455, 0, 0, 0, 1, -13.2484, 1.87448, -8.577)
 
 [node name="Player" parent="." node_paths=PackedStringArray("RadarSystem") instance=ExtResource("1_mooo8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8038, 3.42312, 10.093)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8038, 3.78489, 10.093)
 running_speed = 300
 RadarSystem = NodePath("../RadarSystem")
 
