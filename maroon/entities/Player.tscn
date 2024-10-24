@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.598592, 0)
 environment = ExtResource("4_dfq0i")
 
 [node name="Radar" parent="Head/Eyes" instance=ExtResource("3_obdw2")]
-position = Vector2(422, 218)
+position = Vector2(240, 225)
 
 [node name="PostProcessingLayers" type="Node3D" parent="Head/Eyes"]
 visible = false
