@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdu0tthrseb6f"]
+
+[ext_resource type="Script" path="res://src/CableManager.gd" id="1_ihftu"]
+[ext_resource type="Texture2D" uid="uid://bykvjl5kmqudo" path="res://assets/Minigames/Cables/sprite_0.png" id="2_l6j85"]
+[ext_resource type="Texture2D" uid="uid://c635yux0luqd6" path="res://assets/Minigames/Cables/cablecover.png" id="3_g7q6y"]
+[ext_resource type="Texture2D" uid="uid://bdfx0bjdys4bv" path="res://assets/Minigames/Cables/cableframe.png" id="3_uijrx"]
+[ext_resource type="Texture2D" uid="uid://eo4mm6fcbms8" path="res://assets/Minigames/Cables/sprite_1.png" id="4_i00td"]
+[ext_resource type="Texture2D" uid="uid://b8xl0aehlcv1k" path="res://assets/Minigames/Cables/sprite_2.png" id="5_46ow3"]
+[ext_resource type="Texture2D" uid="uid://c65u86x6ksgm" path="res://assets/Minigames/Cables/sprite_3.png" id="6_0guhg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_xor4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr0rc"]
+size = Vector2(5.6, 3.3)
+
+[node name="Cables" type="Node2D"]
+script = ExtResource("1_ihftu")
+
+[node name="Background" type="MeshInstance2D" parent="."]
+modulate = Color(0.226707, 0.226708, 0.226707, 1)
+position = Vector2(677, 374)
+scale = Vector2(1458, 870)
+mesh = SubResource("QuadMesh_xor4c")
+
+[node name="CableFrame" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(10, 10)
+texture = ExtResource("3_uijrx")
+
+[node name="Redcable" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(250, 200)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("2_l6j85")
+
+[node name="Red" type="Area2D" parent="Redcable"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Redcable/Red"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Redcable2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1030, 200)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("2_l6j85")
+flip_h = true
+
+[node name="Red2" type="Area2D" parent="Redcable2"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Redcable2/Red2"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Bluecable" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(250, 300)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("4_i00td")
+
+[node name="Blue" type="Area2D" parent="Bluecable"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bluecable/Blue"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Bluecable2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1030, 300)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("4_i00td")
+flip_h = true
+
+[node name="Blue2" type="Area2D" parent="Bluecable2"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bluecable2/Blue2"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Greencable" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(250, 400)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("5_46ow3")
+
+[node name="Green" type="Area2D" parent="Greencable"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Greencable/Green"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Greencable2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1030, 400)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("5_46ow3")
+flip_h = true
+
+[node name="Green2" type="Area2D" parent="Greencable2"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Greencable2/Green2"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Yellowcable" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(250, 500)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("6_0guhg")
+
+[node name="Yellow" type="Area2D" parent="Yellowcable"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yellowcable/Yellow"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Yellowcable2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1030, 500)
+scale = Vector2(3.71875, 3.71875)
+texture = ExtResource("6_0guhg")
+flip_h = true
+
+[node name="Yellow2" type="Area2D" parent="Yellowcable2"]
+scale = Vector2(2.68908, 2.68908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yellowcable2/Yellow2"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vr0rc")
+
+[node name="Cover" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(10, 10)
+texture = ExtResource("3_g7q6y")
+
+[connection signal="mouse_entered" from="Redcable/Red" to="." method="_on_red_mouse_entered"]
+[connection signal="mouse_entered" from="Redcable2/Red2" to="." method="_on_red_2_mouse_entered"]
+[connection signal="mouse_entered" from="Bluecable/Blue" to="." method="_on_blue_mouse_entered"]
+[connection signal="mouse_entered" from="Bluecable2/Blue2" to="." method="_on_blue_2_mouse_entered"]
+[connection signal="mouse_entered" from="Greencable/Green" to="." method="_on_green_mouse_entered"]
+[connection signal="mouse_entered" from="Greencable2/Green2" to="." method="_on_green_2_mouse_entered"]
+[connection signal="mouse_entered" from="Yellowcable/Yellow" to="." method="_on_yellow_mouse_entered"]
+[connection signal="mouse_entered" from="Yellowcable2/Yellow2" to="." method="_on_yellow_2_mouse_entered"]

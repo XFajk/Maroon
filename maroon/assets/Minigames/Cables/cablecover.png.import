@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq7gjiqrismnk"
-path="res://.godot/imported/Radar.png-3fbff633619d65278dcbceb44df654fd.ctex"
+uid="uid://c635yux0luqd6"
+path="res://.godot/imported/cablecover.png-678eb37b1ad0093755ac91fc651335ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Radar.png"
-dest_files=["res://.godot/imported/Radar.png-3fbff633619d65278dcbceb44df654fd.ctex"]
+source_file="res://assets/Minigames/Cables/cablecover.png"
+dest_files=["res://.godot/imported/cablecover.png-678eb37b1ad0093755ac91fc651335ad.ctex"]
 
 [params]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwc47fat8iww"]
+
+[ext_resource type="Texture2D" uid="uid://bkg6anpg4qd2s" path="res://assets/Minigames/pipes.png" id="1_3o0c0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oufhc"]
+atlas = ExtResource("1_3o0c0")
+region = Rect2(0, 0, 32, 32)
+
+[node name="Pipe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_oufhc")

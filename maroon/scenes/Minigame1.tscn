@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbs54qe4o7bsn"]
+
+[ext_resource type="Script" path="res://src/PipegameManager.gd" id="1_hs8jb"]
+
+[node name="Minigame1" type="Node2D"]
+script = ExtResource("1_hs8jb")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 252.0
+offset_bottom = 176.0
+columns = 10
