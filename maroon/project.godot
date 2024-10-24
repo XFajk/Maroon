@@ -24,8 +24,18 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://entities/": "green",
+"res://scenes/": "blue",
+"res://src/": "red"
+}
+
 [global_group]
 
+Player=""
 Interactable="an object in this group needs to be intereactable"
 
 [input]

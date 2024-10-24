@@ -28,7 +28,7 @@ shader_parameter/depth_strength = 3.0
 material = SubResource("ShaderMaterial_o64os")
 size = Vector2(0.5, 0.5)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_dqc7k")
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
