@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cndlcny5sc2yd"]
 
 [ext_resource type="PackedScene" uid="uid://csbnvhttclvxr" path="res://assets/Ground/warehouse.glb" id="1_ovflg"]
-[ext_resource type="ArrayOccluder3D" path="res://scenes/Warehouse.occ" id="2_7ksrf"]
+[ext_resource type="ArrayOccluder3D" uid="uid://7d7mmartbobl" path="res://scenes/Warehouse.occ" id="2_7ksrf"]
 [ext_resource type="PackedScene" uid="uid://dnadaqr1i786c" path="res://entities/BarLight.tscn" id="3_xh3qg"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7v2dr"]
