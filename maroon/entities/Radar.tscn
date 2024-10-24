@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtmo3ahg8vh6x"]
 
-[ext_resource type="Texture2D" uid="uid://cq7gjiqrismnk" path="res://assets/Radar.png" id="1_dx4ax"]
+[ext_resource type="Texture2D" uid="uid://cq7gjiqrismnk" path="res://assets/radar.png" id="1_dx4ax"]
 [ext_resource type="Script" path="res://src/RadarPoinstsManager.gd" id="2_e4qgv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_iqk1f"]
@@ -9,14 +9,14 @@
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.262745, 0.0705882, 0, 1)
-scale = Vector2(236, 236)
+scale = Vector2(64, 64)
 mesh = SubResource("QuadMesh_iqk1f")
 
 [node name="Points" type="Node2D" parent="."]
 script = ExtResource("2_e4qgv")
 zoom = 5.0
+radar_radius = 32.0
 
 [node name="Radar" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(3.6875, 3.70312)
 texture = ExtResource("1_dx4ax")

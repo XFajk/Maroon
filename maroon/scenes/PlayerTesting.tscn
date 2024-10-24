@@ -1,45 +1,181 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl2mvkokf1m7j"]
+[gd_scene load_steps=20 format=3 uid="uid://cl2mvkokf1m7j"]
 
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="1_mooo8"]
+[ext_resource type="Script" path="res://src/triger_managers/TrigerManagerWarehouse.gd" id="2_b8fyr"]
+[ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse.tscn" id="2_uj32t"]
+[ext_resource type="Texture2D" uid="uid://dk5sb1ruv52lx" path="res://assets/icon.svg" id="3_doyje"]
+[ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://GameEnviroment.tres" id="3_vrgm7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
-size = Vector3(11, 0.3, 11)
+size = Vector3(100, 0.3, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c13b4"]
+shading_mode = 2
+albedo_color = Color(1, 0.133333, 1, 1)
+metallic_specular = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_fw0xp"]
-size = Vector3(11, 0.3, 11)
+material = SubResource("StandardMaterial3D_c13b4")
+size = Vector3(100, 0.3, 100)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xhjxv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gbt2"]
+size = Vector3(0.2, 1.47551, 0.2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e34lc"]
-albedo_color = Color(1, 0.262745, 0, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_ug8r5"]
+size = Vector3(0.2, 1.4, 0.2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_r3811"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j4cu"]
+albedo_color = Color(1, 0.243137, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uoxkq"]
+material = SubResource("StandardMaterial3D_2j4cu")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.05
+radial_segments = 6
+rings = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lsd5"]
+size = Vector3(37.9331, 9.72754, 27.3552)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6rag5"]
+size = Vector3(5.56, 5, 5.91)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfylt"]
+size = Vector3(4.6, 5, 4.58)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_604m0"]
+size = Vector3(0.64, 5, 9.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4jin"]
+size = Vector3(8.11, 5, 0.82)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8veqx"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k4bpn"]
+size = Vector3(0.8, 0.8, 0.8)
 
 [node name="PlayerTesting" type="Node3D"]
+
+[node name="Monster" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5068, -7.30944, 2)
+pixel_size = 0.02
+shaded = true
+double_sided = false
+texture = ExtResource("3_doyje")
+
+[node name="DisapearTimer" type="Timer" parent="Monster"]
+
+[node name="TrigerTimer" type="Timer" parent="Monster"]
+one_shot = true
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1787, 0, 0)
 shape = SubResource("BoxShape3D_6n38a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_fw0xp")
 skeleton = NodePath("../..")
 
+[node name="warehouse2" parent="." instance=ExtResource("2_uj32t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.42391, 2)
+
+[node name="PositionDownloader" type="StaticBody3D" parent="warehouse2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.754, 0.735599, -11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/PositionDownloader"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0377564, 0)
+shape = SubResource("BoxShape3D_1gbt2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="warehouse2/PositionDownloader"]
+mesh = SubResource("BoxMesh_ug8r5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="warehouse2/PositionDownloader"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.713215, 0)
+mesh = SubResource("CylinderMesh_uoxkq")
+
+[node name="InWarehouseDetector" type="Area3D" parent="warehouse2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/InWarehouseDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642334, 4.36377, -0.555649)
+shape = SubResource("BoxShape3D_2lsd5")
+
+[node name="TrigerManager" type="Node" parent="warehouse2" node_paths=PackedStringArray("RadarSystem", "FallingCube", "Monster", "HorrorTrigrer1", "MonsterPosition1", "HorrorTrigrer3", "MonsterPosition3", "HorrorTrigrer4", "HorrorTrigrer5")]
+script = ExtResource("2_b8fyr")
+RadarSystem = NodePath("../../RadarSystem")
+FallingCube = NodePath("../FallingCube")
+Monster = NodePath("../../Monster")
+HorrorTrigrer1 = NodePath("../HorrorTriger1")
+MonsterPosition1 = NodePath("../MonsterPosition1")
+HorrorTrigrer3 = NodePath("../HorrorTriger3")
+MonsterPosition3 = NodePath("../MonsterPosition3")
+HorrorTrigrer4 = NodePath("../HorrorTriger4")
+HorrorTrigrer5 = NodePath("../HorrorTriger5")
+
+[node name="HorrorTriger1" type="Area3D" parent="warehouse2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3443, 1.05458, 7.67379)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/HorrorTriger1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45576, 0)
+shape = SubResource("BoxShape3D_6rag5")
+
+[node name="HorrorTriger3" type="Area3D" parent="warehouse2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35551, 2.87764, 7.81201)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/HorrorTriger3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.952679)
+shape = SubResource("BoxShape3D_bfylt")
+
+[node name="HorrorTriger4" type="Area3D" parent="warehouse2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6666, 2.4306, 4.82677)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/HorrorTriger4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10416, 0, -0.369339)
+shape = SubResource("BoxShape3D_604m0")
+
+[node name="HorrorTriger5" type="Area3D" parent="warehouse2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9022, 2.4306, 2.19924)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/HorrorTriger5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.680162, 0, 0)
+shape = SubResource("BoxShape3D_g4jin")
+
+[node name="FallingCube" type="RigidBody3D" parent="warehouse2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71592, 5.53403, -4.57266)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/FallingCube"]
+shape = SubResource("BoxShape3D_8veqx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="warehouse2/FallingCube"]
+transform = Transform3D(0.999983, 0.00586427, 0, -0.00586427, 0.999983, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_k4bpn")
+
+[node name="MonsterPosition3" type="Node3D" parent="warehouse2"]
+transform = Transform3D(0.173627, -0.0027033, 0.984808, 0.0155677, 0.999879, -7.45058e-09, -0.984688, 0.0153312, 0.173648, -2.95921, 1.38401, 1.27002)
+
+[node name="MonsterPosition1" type="Node3D" parent="warehouse2"]
+transform = Transform3D(0.999455, -0.0329982, 0, 0.0329982, 0.999455, 0, 0, 0, 1, -13.2484, 1.87448, -8.577)
+
 [node name="Player" parent="." node_paths=PackedStringArray("RadarSystem") instance=ExtResource("1_mooo8")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 2, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, 26)
 running_speed = 300
-RadarSystem = NodePath("../Node")
+RadarSystem = NodePath("../RadarSystem")
 
-[node name="Node" type="Node" parent="."]
+[node name="RadarSystem" type="Node" parent="."]
 
-[node name="Cube" type="StaticBody3D" parent="Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.65, 2)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_vrgm7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Cube"]
-shape = SubResource("BoxShape3D_xhjxv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Cube"]
-material_override = SubResource("StandardMaterial3D_e34lc")
-mesh = SubResource("BoxMesh_r3811")
+[connection signal="timeout" from="Monster/DisapearTimer" to="warehouse2/TrigerManager" method="_on_disapear_timer_timeout"]
+[connection signal="timeout" from="Monster/TrigerTimer" to="warehouse2/TrigerManager" method="_on_triger_3_timer_timeout"]
+[connection signal="area_entered" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_area_entered"]
+[connection signal="area_exited" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_area_exited"]
+[connection signal="body_entered" from="warehouse2/HorrorTriger1" to="warehouse2/TrigerManager" method="_on_horro_triger_1_body_entered"]
+[connection signal="body_entered" from="warehouse2/HorrorTriger3" to="warehouse2/TrigerManager" method="_on_horro_triger_3_body_entered"]
+[connection signal="body_entered" from="warehouse2/HorrorTriger4" to="warehouse2/TrigerManager" method="_on_horro_triger_4_body_entered"]
+[connection signal="body_entered" from="warehouse2/HorrorTriger5" to="warehouse2/TrigerManager" method="_on_horro_triger_5_body_entered"]
