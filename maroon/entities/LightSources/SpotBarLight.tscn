@@ -11,7 +11,6 @@ rim_tint = 0.89
 
 [node name="SpotBarLight" instance=ExtResource("1_tnke0")]
 script = ExtResource("2_spwiq")
-flickering_frequency = 10.0
 
 [node name="Cylinder" parent="." index="0"]
 visibility_range_end = 100.0

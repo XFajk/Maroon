@@ -31,7 +31,8 @@ folder_colors={
 "res://assets/": "yellow",
 "res://entities/": "green",
 "res://scenes/": "blue",
-"res://src/": "red"
+"res://src/": "red",
+"res://vfx/": "teal"
 }
 
 [global_group]
