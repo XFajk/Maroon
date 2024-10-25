@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0jnnj2b0u0cg"]
+[gd_scene load_steps=12 format=3 uid="uid://b0jnnj2b0u0cg"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_dqc7k"]
 [ext_resource type="Shader" path="res://src/shaders/Fog.gdshader" id="2_fqqal"]
 [ext_resource type="PackedScene" uid="uid://dtmo3ahg8vh6x" path="res://entities/Radar.tscn" id="3_obdw2"]
 [ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://GameEnviroment.tres" id="4_dfq0i"]
+[ext_resource type="FontFile" uid="uid://lfke2fc11udm" path="res://assets/Fonts/prstartk.ttf" id="4_xb8ew"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jeoj"]
 albedo_color = Color(1, 0, 0, 1)
@@ -17,6 +18,12 @@ rings = 6
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_52p76"]
 radius = 0.3
 height = 1.8
+
+[sub_resource type="LabelSettings" id="LabelSettings_shxdg"]
+font = ExtResource("4_xb8ew")
+font_size = 8
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o64os"]
 resource_local_to_scene = true
@@ -45,8 +52,63 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.598592, 0)
 [node name="Eyes" type="Camera3D" parent="Head"]
 environment = ExtResource("4_dfq0i")
 
-[node name="Radar" parent="Head/Eyes" instance=ExtResource("3_obdw2")]
-position = Vector2(240, 225)
+[node name="PlayerUI" type="Control" parent="Head/Eyes"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Radar" parent="Head/Eyes/PlayerUI" instance=ExtResource("3_obdw2")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Head/Eyes/PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -209.0
+offset_top = -43.0
+offset_right = 139.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Pixel.TTF][font_size=10]hello my name is jeff I love playing games can we play  a game no go fuck your self you dirty bitch I hope you die dont show your face you god dam bitch "
+scroll_active = false
+scroll_following = true
+
+[node name="Label" type="Label" parent="Head/Eyes/PlayerUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -183.0
+offset_top = -68.0
+offset_right = 112.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "hello my name is jeff I love playing games can we play  a game no go fuck your self you dirty bitch I hope you die dont show your face you god dam bitch "
+label_settings = SubResource("LabelSettings_shxdg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
 
 [node name="PostProcessingLayers" type="Node3D" parent="Head/Eyes"]
 visible = false
