@@ -29,7 +29,7 @@ var vertical_speed = 0.0
 
 # radar system variables
 @export var RadarSystem: Node = null 
-@onready var RadarPoinsts: Node2D = $Head/Eyes/Radar/Points
+@onready var RadarPoinsts: Node2D = $Head/Eyes/PlayerUI/Radar/Points
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
