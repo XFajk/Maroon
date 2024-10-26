@@ -15,7 +15,7 @@ var LightBarShader: StandardMaterial3D
 var Sparks = preload("res://vfx/Sparks.tscn")
 
 func _ready() -> void:
-	visible = false
+	visible = true
 	on_value = Light.light_energy
 	LightBarShader = LightBar.get_surface_override_material(1)
 

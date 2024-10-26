@@ -101,7 +101,7 @@ data = PackedVector3Array(1.2214, 3.424, -0.1209, 1.2214, 3.5872, -0.2841, 1.221
 albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 314.0
+emission_energy_multiplier = 1000.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_jxccw"]
 material = SubResource("StandardMaterial3D_ce4cl")
@@ -204,6 +204,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.40308, 2.7, -1.29282)
 chance_of_flickering = 5.0
 chance_of_sparks = 1.0
 
+[connection signal="decompresing" from="Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="decompresing" from="Decompression" to="SpotBarLight" method="_on_decompression_decompresing"]
 [connection signal="decompresing" from="Decompression" to="SpotBarLight2" method="_on_decompression_decompresing"]
 [connection signal="decompresing" from="Decompression" to="CapitanLight" method="_on_decompression_decompresing"]
