@@ -23,6 +23,7 @@ var vertical_speed = 0.0
 
 # interaction variables
 @onready var InteractionRay: RayCast3D = $Head/InteractionRay
+var interactible_object: Object = null
 
 # mouse motion variables
 @onready var Head = $Head
@@ -66,10 +67,20 @@ func manage_gravity(delta: float) -> void:
 	velocity.y = vertical_speed
 	
 func manage_interaction() -> void:
+	if interactible_object != null:
+		interactible_object.stop_showing_interaction()
+	
 	var object: Node = InteractionRay.get_collider()
+	
 	if object != null:
 		if object.is_in_group("Interactable") and Input.is_action_just_pressed("interact"):
 			object.interact(self)
+			interactible_object = object
+		elif object.is_in_group("Interactable"):
+			object.show_interaction()
+			interactible_object = object
+		else:
+			interactible_object = null
 			
 func manage_radar() -> void:
 	if RadarSystem == null: 
@@ -92,6 +103,7 @@ func manage_mouse() -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else: 
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
 func standing(delta: float) -> void:
 	
 	state = PlayerState.STANDING
