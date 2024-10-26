@@ -19,12 +19,15 @@ var button_state = 0 # 0 -> innactive, 1 -> going down, 2 -> going back up
 var text: String = "ready"
 var color: Color = Color(222, 137, 0)
 
+@export var outlines: Array[MeshInstance3D]
 
 func _ready() -> void:
 	var screen_material: StandardMaterial3D = StandardMaterial3D.new()
 	var viewport_texture: ViewportTexture = decomp_viewport.get_texture()
 	screen_material.albedo_texture = viewport_texture
 	panel_mesh.set_surface_override_material(1, screen_material)
+	
+	stop_showing_interaction()
 
 
 func _process(delta: float) -> void:
@@ -46,7 +49,23 @@ func _process(delta: float) -> void:
 	decomp_viewport.color = color
 	decomp_viewport.text = text
 
-
 func interact(player: CharacterBody3D) -> void:
 	button_pressed.emit(button_name)
 	button_state = 1
+	
+func stop_showing_interaction() -> void:
+	
+	if outlines.size() < 1:
+		return
+		
+	for outline in outlines:
+		outline.visible = false
+	
+func show_interaction() -> void:
+	
+	if outlines.size() < 1:
+		return
+		
+	for outline in outlines:
+		outline.visible = true
+		
