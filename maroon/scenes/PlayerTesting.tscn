@@ -1,13 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cl2mvkokf1m7j"]
+[gd_scene load_steps=20 format=3 uid="uid://cl2mvkokf1m7j"]
 
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="1_mooo8"]
 [ext_resource type="Script" path="res://src/triger_managers/TrigerManagerWarehouse.gd" id="2_b8fyr"]
 [ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse.tscn" id="2_uj32t"]
 [ext_resource type="Texture2D" uid="uid://dk5sb1ruv52lx" path="res://assets/icon.svg" id="3_doyje"]
-[ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://GameEnviroment.tres" id="3_vrgm7"]
-[ext_resource type="PackedScene" uid="uid://dmi0yswxefqhp" path="res://vfx/Fire.tscn" id="6_r5y8y"]
-[ext_resource type="PackedScene" uid="uid://br7ws6jj4qwx1" path="res://vfx/DecompresionSmoke.tscn" id="7_a87dn"]
-[ext_resource type="PackedScene" uid="uid://47nep8pvl6sm" path="res://vfx/Sparks.tscn" id="8_rpp2n"]
+[ext_resource type="Environment" uid="uid://dympl0t5gddd1" path="res://OutsideEnviroment.tres" id="5_ipdry"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
 size = Vector3(100, 0.3, 100)
@@ -165,28 +162,19 @@ transform = Transform3D(0.173627, -0.0027033, 0.984808, 0.0155677, 0.999879, -7.
 transform = Transform3D(0.999455, -0.0329982, 0, 0.0329982, 0.999455, 0, 0, 0, 1, -13.2484, 1.87448, -8.577)
 
 [node name="Player" parent="." node_paths=PackedStringArray("RadarSystem") instance=ExtResource("1_mooo8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8038, 3.78489, 10.093)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8038, 3.78489, 34.9247)
 running_speed = 300
 RadarSystem = NodePath("../RadarSystem")
 
 [node name="RadarSystem" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("3_vrgm7")
-
-[node name="Fire" parent="." instance=ExtResource("6_r5y8y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.77467, 0.571514, 26.2249)
-
-[node name="DecompresionSmoke" parent="." instance=ExtResource("7_a87dn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2812, 0.628739, 27.4388)
-
-[node name="Sparks" parent="." instance=ExtResource("8_rpp2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5099, 0.704606, 28.3672)
+environment = ExtResource("5_ipdry")
 
 [connection signal="timeout" from="Monster/DisapearTimer" to="warehouse2/TrigerManager" method="_on_disapear_timer_timeout"]
 [connection signal="timeout" from="Monster/TrigerTimer" to="warehouse2/TrigerManager" method="_on_triger_3_timer_timeout"]
-[connection signal="area_entered" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_area_entered"]
-[connection signal="area_exited" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_area_exited"]
+[connection signal="body_entered" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_body_entered"]
+[connection signal="body_exited" from="warehouse2/InWarehouseDetector" to="Player" method="_on_in_warehouse_detector_body_exited"]
 [connection signal="body_entered" from="warehouse2/HorrorTriger1" to="warehouse2/TrigerManager" method="_on_horro_triger_1_body_entered"]
 [connection signal="body_entered" from="warehouse2/HorrorTriger3" to="warehouse2/TrigerManager" method="_on_horro_triger_3_body_entered"]
 [connection signal="body_entered" from="warehouse2/HorrorTriger4" to="warehouse2/TrigerManager" method="_on_horro_triger_4_body_entered"]

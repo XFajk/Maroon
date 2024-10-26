@@ -6,25 +6,28 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_iqk1f"]
 
-[node name="Radar" type="Node2D"]
+[node name="Radar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.262745, 0.0705882, 0, 1)
-position = Vector2(197, -7)
+position = Vector2(198, -52)
 scale = Vector2(64, 64)
 mesh = SubResource("QuadMesh_iqk1f")
 
 [node name="Points" type="Node2D" parent="."]
-position = Vector2(197, -7)
+position = Vector2(198, -52)
 script = ExtResource("2_e4qgv")
 zoom = 5.0
 radar_radius = 32.0
 
 [node name="Radar" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(197, -7)
+position = Vector2(198, -52)
 texture = ExtResource("1_dx4ax")
 
 [node name="RadarUi" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(1, -45)
 texture = ExtResource("3_yoxsd")

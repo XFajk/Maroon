@@ -1,5 +1,8 @@
 extends Node3D
 
+@onready var DecompWent = $DecompWent
+@onready var DecompSmoke = $DecompWent/DecompresionSmoke
+
 @onready var inside_door = $Doors
 @onready var outside_door = $MainDoor
 
@@ -21,6 +24,10 @@ var is_unlocked: bool = false
 
 var entering: bool #used to determine which door to open after decompressing
 
+signal decompresing(entering: bool)
+
+func _ready() -> void:
+	DecompSmoke.get_node("Smoke").emitting = false
 
 func _process(delta: float) -> void:
 	if is_decompressing:
@@ -54,6 +61,10 @@ func _on_button_pressed(button_name) -> void:
 		unlocked_timer.start(unlocked_time)
 	if button_name == "decomp":
 		if not is_decompressing:
+			
+			DecompSmoke.get_node("Smoke").emitting = true
+			decompresing.emit(entering)
+			
 			inside_door.is_locked = true
 			outside_door.is_locked = true
 			is_decompressing = true
@@ -62,6 +73,7 @@ func _on_button_pressed(button_name) -> void:
 
 
 func _on_decomp_timer_timeout() -> void:
+	DecompSmoke.get_node("Smoke").emitting = false
 	is_decompressing = false
 	is_unlocked = true
 	if entering:
