@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bx5iid1dm86vb"]
 
 [ext_resource type="Script" path="res://src/Decompression.gd" id="1_fq67e"]
-[ext_resource type="PackedScene" uid="uid://de0g4m3hjcojg" path="res://entities/decompression/DecompPanel.tscn" id="1_llf4b"]
+[ext_resource type="PackedScene" path="res://entities/decompression/DecompPanel.tscn" id="1_llf4b"]
 [ext_resource type="PackedScene" uid="uid://tt2tb8hreau4" path="res://entities/decompression/OutsideButton.tscn" id="2_f4xwr"]
 [ext_resource type="PackedScene" uid="uid://clc0dq31ycx4u" path="res://entities/decompression/Button.tscn" id="3_00k4b"]
 [ext_resource type="PackedScene" uid="uid://cuymiuyqg0pji" path="res://entities/decompression/MainDoor.tscn" id="4_v2ma3"]

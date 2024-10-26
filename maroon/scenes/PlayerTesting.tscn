@@ -146,7 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.680162, 0, 0)
 shape = SubResource("BoxShape3D_g4jin")
 
 [node name="FallingCube" type="RigidBody3D" parent="warehouse2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71592, 5.53403, -4.57266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.16781, 5.53403, -4.57266)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/FallingCube"]
 shape = SubResource("BoxShape3D_8veqx")
