@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cl2mvkokf1m7j"]
+[gd_scene load_steps=22 format=3 uid="uid://cl2mvkokf1m7j"]
 
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="1_mooo8"]
 [ext_resource type="Script" path="res://src/triger_managers/TrigerManagerWarehouse.gd" id="2_b8fyr"]
 [ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse.tscn" id="2_uj32t"]
 [ext_resource type="Texture2D" uid="uid://dk5sb1ruv52lx" path="res://assets/icon.svg" id="3_doyje"]
+[ext_resource type="Texture2D" uid="uid://d1ay0fpdvl3ya" path="res://assets/Warehouse/crate_texture_3.png" id="4_gbu7r"]
 [ext_resource type="Environment" uid="uid://dympl0t5gddd1" path="res://OutsideEnviroment.tres" id="5_ipdry"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
@@ -55,6 +56,10 @@ size = Vector3(0.8, 0.8, 0.8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_k4bpn"]
 size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqh2l"]
+albedo_texture = ExtResource("4_gbu7r")
+uv1_scale = Vector3(3.01, 2, 3.035)
 
 [node name="PlayerTesting" type="Node3D"]
 
@@ -146,7 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.680162, 0, 0)
 shape = SubResource("BoxShape3D_g4jin")
 
 [node name="FallingCube" type="RigidBody3D" parent="warehouse2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71592, 5.53403, -4.57266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.16513, 5.87735, -3.86908)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="warehouse2/FallingCube"]
 shape = SubResource("BoxShape3D_8veqx")
@@ -154,6 +159,7 @@ shape = SubResource("BoxShape3D_8veqx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="warehouse2/FallingCube"]
 transform = Transform3D(0.999983, 0.00586427, 0, -0.00586427, 0.999983, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_k4bpn")
+surface_material_override/0 = SubResource("StandardMaterial3D_cqh2l")
 
 [node name="MonsterPosition3" type="Node3D" parent="warehouse2"]
 transform = Transform3D(0.173627, -0.0027033, 0.984808, 0.0155677, 0.999879, -7.45058e-09, -0.984688, 0.0153312, 0.173648, -2.95921, 1.38401, 1.27002)

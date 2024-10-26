@@ -18,6 +18,7 @@ func _ready() -> void:
 	visible = true
 	on_value = Light.light_energy
 	LightBarShader = LightBar.get_surface_override_material(1)
+	print(LightBarShader)
 
 func _physics_process(delta: float) -> void:
 	if chance_of_flickering > randi_range(0, 100):
