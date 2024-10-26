@@ -5,7 +5,7 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://b1000stgxfqoa" path="res://scenes/BaseAlpha.occ" id="3_m4vrc"]
 [ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Doors.tscn" id="3_s32fk"]
 [ext_resource type="PackedScene" uid="uid://bx5iid1dm86vb" path="res://entities/decompression/Decompression.tscn" id="4_wprk7"]
-[ext_resource type="PackedScene" uid="uid://bhxyebbl7k6p2" path="res://scenes/OmniBarLight.tscn" id="5_8baq3"]
+[ext_resource type="PackedScene" uid="uid://bhxyebbl7k6p2" path="res://entities/LightSources/OmniBarLight.tscn" id="5_8baq3"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rgnpo"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -205,6 +205,10 @@ chance_of_flickering = 5.0
 chance_of_sparks = 1.0
 
 [connection signal="decompresing" from="Decompression" to="Player" method="_on_decompression_decompresing"]
+[connection signal="decompresing" from="Decompression" to="SpotBarLight" method="_on_decompression_decompresing"]
+[connection signal="decompresing" from="Decompression" to="SpotBarLight2" method="_on_decompression_decompresing"]
+[connection signal="decompresing" from="Decompression" to="CapitanLight" method="_on_decompression_decompresing"]
+[connection signal="decompresing" from="Decompression" to="SpotBarLight4" method="_on_decompression_decompresing"]
 
 [editable path="Decompression"]
 [editable path="CapitanLight"]
