@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck60vyhohjp6l"
-path.s3tc="res://.godot/imported/chair_1_chair_1_color_baked.png-bdffd342c07a18646acd5ea605251b39.s3tc.ctex"
+uid="uid://bsu3afv8b2hrx"
+path.s3tc="res://.godot/imported/table_1_table_1_color_baked_lo.png-c85887e41e43ef7413a3895a678af616.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c7cfcf95cb1e9792453521e4cfbeda37"
+"md5": "51ee0a0b009b7a36f43c5270ef8dcdb4"
 }
 
 [deps]
 
-source_file="res://assets/BaseAlpha/chair_1_chair_1_color_baked.png"
-dest_files=["res://.godot/imported/chair_1_chair_1_color_baked.png-bdffd342c07a18646acd5ea605251b39.s3tc.ctex"]
+source_file="res://assets/Furniture/table_1_table_1_color_baked_lo.png"
+dest_files=["res://.godot/imported/table_1_table_1_color_baked_lo.png-c85887e41e43ef7413a3895a678af616.s3tc.ctex"]
 
 [params]
 
