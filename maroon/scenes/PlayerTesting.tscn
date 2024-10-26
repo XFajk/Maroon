@@ -83,7 +83,7 @@ mesh = SubResource("BoxMesh_fw0xp")
 skeleton = NodePath("../..")
 
 [node name="warehouse2" parent="." instance=ExtResource("2_uj32t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.42391, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08903, 0.490149, 1.97732)
 
 [node name="PositionDownloader" type="StaticBody3D" parent="warehouse2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.754, 0.735599, -11)
