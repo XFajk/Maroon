@@ -9,6 +9,7 @@ bg_color = Color(0.176471, 0.176471, 0.176471, 1)
 [node name="Settings" type="Panel"]
 offset_right = 680.0
 offset_bottom = 420.0
+scale = Vector2(0.705895, 0.642901)
 theme_override_styles/panel = SubResource("StyleBoxFlat_1k7yd")
 script = ExtResource("1_jib34")
 

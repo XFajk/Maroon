@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://njlnmy0ssvk5"
+path.s3tc="res://.godot/imported/log_monitor_log_display_color_baked.png-35c4b27c2dd1d32e809dfb2c73b6337d.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "8f1ebd44d18fb3081f45076bdce94442"
+}
+
+[deps]
+
+source_file="res://assets/Enviroment/log_monitor_log_display_color_baked.png"
+dest_files=["res://.godot/imported/log_monitor_log_display_color_baked.png-35c4b27c2dd1d32e809dfb2c73b6337d.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
