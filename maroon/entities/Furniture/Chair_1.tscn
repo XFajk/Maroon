@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsvfqow30ymyu"]
+[gd_scene load_steps=9 format=4 uid="uid://dsvfqow30ymyu"]
 
-[ext_resource type="Texture2D" uid="uid://ck60vyhohjp6l" path="res://assets/BaseAlpha/chair_1_chair_1_color_baked.png" id="1_rlj53"]
+[ext_resource type="Texture2D" uid="uid://ck60vyhohjp6l" path="res://assets/Furniture/chair_1_chair_1_color_baked.png" id="1_rlj53"]
+[ext_resource type="Script" path="res://src/Levitating.gd" id="1_ywejt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx7uw"]
 resource_name = "chair_1_baked"
@@ -74,12 +75,13 @@ shadow_mesh = SubResource("ArrayMesh_kr38y")
 albedo_color = Color(0.0627451, 0.670588, 0.866667, 1)
 emission_enabled = true
 emission = Color(0.0627451, 0.670588, 0.866667, 1)
-emission_energy_multiplier = 5.0
+emission_energy_multiplier = 16.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pjy4k"]
 size = Vector3(0.586487, 1.58447, 0.762207)
 
 [node name="Chair1" type="StaticBody3D"]
+script = ExtResource("1_ywejt")
 
 [node name="Chair" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0946851, 0, 0, 0, 0.0361703, 0, 0, 0, 0.0361703, 0, 1.01928, -0.415432)
@@ -90,3 +92,10 @@ surface_material_override/1 = SubResource("StandardMaterial3D_1re5t")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00405903, 0.292725, -0.0778809)
 shape = SubResource("BoxShape3D_pjy4k")
+
+[node name="UnderLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.291649, 0)
+light_color = Color(0, 0.639216, 1, 1)
+light_energy = 0.6
+shadow_enabled = true
+omni_range = 1.37653

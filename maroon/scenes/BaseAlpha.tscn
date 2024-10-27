@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=22 format=4 uid="uid://dj241vy41r8u8"]
 
 [ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="2_g88ia"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Doors.tscn" id="3_s32fk"]
 [ext_resource type="PackedScene" uid="uid://bx5iid1dm86vb" path="res://entities/decompression/Decompression.tscn" id="4_wprk7"]
 [ext_resource type="PackedScene" uid="uid://bhxyebbl7k6p2" path="res://entities/LightSources/OmniBarLight.tscn" id="5_8baq3"]
+[ext_resource type="Script" path="res://src/Cullable.gd" id="5_ilohb"]
+[ext_resource type="PackedScene" uid="uid://dsvfqow30ymyu" path="res://entities/Furniture/Chair_1.tscn" id="8_nnc7h"]
+[ext_resource type="PackedScene" uid="uid://dehwnnkg4wlq8" path="res://entities/Furniture/Table1.tscn" id="9_yt1vd"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rgnpo"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -148,18 +151,6 @@ shape = SubResource("ConcavePolygonShape3D_br4we")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00877, 11.2565, -0.768568)
 mesh = SubResource("SphereMesh_jxccw")
 
-[node name="Doors" parent="." instance=ExtResource("3_s32fk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08183, 0, 0.296031)
-
-[node name="Doors2" parent="." instance=ExtResource("3_s32fk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14089, 0, -1.50789)
-
-[node name="Doors3" parent="." instance=ExtResource("3_s32fk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27218, 0, 0.296031)
-
-[node name="Doors4" parent="." instance=ExtResource("3_s32fk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83036, 0, -1.50789)
-
 [node name="Decompression" parent="." instance=ExtResource("4_wprk7")]
 
 [node name="DecompPanel" parent="Decompression" index="0"]
@@ -181,34 +172,67 @@ is_locked = true
 [node name="DecompWent" parent="Decompression" index="8"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.33013e-08, 2.33999, 4.69394)
 
-[node name="SpotBarLight" parent="." instance=ExtResource("5_8baq3")]
+[node name="Cullable" type="Node3D" parent="."]
+script = ExtResource("5_ilohb")
+
+[node name="Lights" type="Node3D" parent="Cullable"]
+
+[node name="SpotBarLight" parent="Cullable/Lights" instance=ExtResource("5_8baq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0390602, 2.7, 0.18994)
 chance_of_flickering = 1.0
 
-[node name="SpotBarLight2" parent="." instance=ExtResource("5_8baq3")]
+[node name="SpotBarLight2" parent="Cullable/Lights" instance=ExtResource("5_8baq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.865, 2.7, -1.29282)
 chance_of_flickering = 5.0
 chance_of_sparks = 1.0
 
-[node name="CapitanLight" parent="." instance=ExtResource("5_8baq3")]
+[node name="CapitanLight" parent="Cullable/Lights" instance=ExtResource("5_8baq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.73813, 2.7, -1.3736)
 chance_of_flickering = 30.0
 off_value = 0.0
 chance_of_sparks = 0.1
 
-[node name="Light" parent="CapitanLight" index="1"]
-light_energy = 0.5
-
-[node name="SpotBarLight4" parent="." instance=ExtResource("5_8baq3")]
+[node name="SpotBarLight4" parent="Cullable/Lights" instance=ExtResource("5_8baq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.40308, 2.7, -1.29282)
 chance_of_flickering = 5.0
 chance_of_sparks = 1.0
 
+[node name="Doors" type="Node3D" parent="Cullable"]
+
+[node name="Doors1" parent="Cullable/Doors" instance=ExtResource("3_s32fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08183, 0, 0.296031)
+
+[node name="Doors2" parent="Cullable/Doors" instance=ExtResource("3_s32fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14089, 0, -1.50789)
+
+[node name="Doors3" parent="Cullable/Doors" instance=ExtResource("3_s32fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27218, 0, 0.296031)
+
+[node name="Doors4" parent="Cullable/Doors" instance=ExtResource("3_s32fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83036, 0, -1.50789)
+
+[node name="Furniture" type="Node3D" parent="Cullable"]
+
+[node name="Chair1" parent="Cullable/Furniture" instance=ExtResource("8_nnc7h")]
+transform = Transform3D(-0.0679456, 0, 0.997689, 0, 1, 0, -0.997689, 0, -0.0679456, -1.0839, 0.227542, -2.69013)
+
+[node name="Chair2" parent="Cullable/Furniture" instance=ExtResource("8_nnc7h")]
+transform = Transform3D(0.00274022, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00274022, -1.0839, 0.237715, -1.54463)
+
+[node name="Chair3" parent="Cullable/Furniture" instance=ExtResource("8_nnc7h")]
+transform = Transform3D(0.486808, 0, -0.873509, 0, 1, 0, 0.873509, 0, 0.486808, 0.214692, 0.226842, -0.399308)
+
+[node name="Chair4" parent="Cullable/Furniture" instance=ExtResource("8_nnc7h")]
+transform = Transform3D(-0.085504, 0, -0.996338, 0, 1, 0, 0.996338, 0, -0.085504, 1.14654, 0.223687, -2.77617)
+
+[node name="Chair5" parent="Cullable/Furniture" instance=ExtResource("8_nnc7h")]
+transform = Transform3D(-0.300972, 0, -0.953633, 0, 1, 0, 0.953633, 0, -0.300972, 1.18499, 0.208171, -1.71622)
+
+[node name="table_1" parent="." instance=ExtResource("9_yt1vd")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.332263, -1.83144)
+
 [connection signal="decompresing" from="Decompression" to="Player" method="_on_decompression_decompresing"]
-[connection signal="decompresing" from="Decompression" to="SpotBarLight" method="_on_decompression_decompresing"]
-[connection signal="decompresing" from="Decompression" to="SpotBarLight2" method="_on_decompression_decompresing"]
-[connection signal="decompresing" from="Decompression" to="CapitanLight" method="_on_decompression_decompresing"]
-[connection signal="decompresing" from="Decompression" to="SpotBarLight4" method="_on_decompression_decompresing"]
+
+[connection signal="decompresing" from="Decompression" to="Cullable" method="_on_decompression_decompresing"]
 
 [editable path="Decompression"]
-[editable path="CapitanLight"]

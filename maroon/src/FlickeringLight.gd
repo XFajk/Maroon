@@ -28,10 +28,3 @@ func _physics_process(delta: float) -> void:
 	else:
 		Light.light_energy = on_value
 		LightBarShader.emission_energy_multiplier = on_bar_value
-
-
-func _on_decompression_decompresing(entering: bool) -> void:
-	if entering:
-		visible = true
-	else:
-		visible = false
