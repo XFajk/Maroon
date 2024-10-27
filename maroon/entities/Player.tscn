@@ -4,7 +4,7 @@
 [ext_resource type="Environment" uid="uid://dympl0t5gddd1" path="res://OutsideEnviroment.tres" id="2_lqr8s"]
 [ext_resource type="PackedScene" uid="uid://dtmo3ahg8vh6x" path="res://entities/Radar.tscn" id="3_obdw2"]
 [ext_resource type="FontFile" uid="uid://lfke2fc11udm" path="res://assets/Fonts/prstartk.ttf" id="4_xb8ew"]
-[ext_resource type="Texture2D" uid="uid://3ekwtx6picii" path="res://assets/circle.svg" id="5_74ql2"]
+[ext_resource type="Texture2D" uid="uid://3ekwtx6picii" path="res://assets/Misc/circle.svg" id="5_74ql2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jeoj"]
 albedo_color = Color(1, 0, 0, 1)

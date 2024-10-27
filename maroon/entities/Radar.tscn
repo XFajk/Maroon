@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtmo3ahg8vh6x"]
 
-[ext_resource type="Texture2D" uid="uid://cq7gjiqrismnk" path="res://assets/radar.png" id="1_dx4ax"]
-[ext_resource type="Script" path="res://src/RadarPoinstsManager.gd" id="2_e4qgv"]
-[ext_resource type="Texture2D" uid="uid://ctaw802ayyevk" path="res://assets/RadarUI.png" id="3_yoxsd"]
+[ext_resource type="Texture2D" uid="uid://cq7gjiqrismnk" path="res://assets/Misc/radar.png" id="1_dx4ax"]
+[ext_resource type="Script" path="res://src/2d_scenes/RadarPointsManager.gd" id="2_e4qgv"]
+[ext_resource type="Texture2D" uid="uid://ctaw802ayyevk" path="res://assets/Misc/RadarUI.png" id="3_yoxsd"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_iqk1f"]
 

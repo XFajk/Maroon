@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="1_mooo8"]
 [ext_resource type="Script" path="res://src/triger_managers/TrigerManagerWarehouse.gd" id="2_b8fyr"]
-[ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse.tscn" id="2_uj32t"]
-[ext_resource type="Texture2D" uid="uid://dk5sb1ruv52lx" path="res://assets/icon.svg" id="3_doyje"]
-[ext_resource type="Texture2D" uid="uid://d1ay0fpdvl3ya" path="res://assets/Warehouse/crate_texture_3.png" id="4_gbu7r"]
+[ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse/Warehouse.tscn" id="2_uj32t"]
+[ext_resource type="Texture2D" uid="uid://dk5sb1ruv52lx" path="res://assets/Misc/icon.svg" id="3_doyje"]
+[ext_resource type="Texture2D" uid="uid://d1ay0fpdvl3ya" path="res://assets/Enviroment/Buildings/Warehouse/crate_texture_3.png" id="4_gbu7r"]
 [ext_resource type="Environment" uid="uid://dympl0t5gddd1" path="res://OutsideEnviroment.tres" id="5_ipdry"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
