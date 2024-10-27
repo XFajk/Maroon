@@ -8,5 +8,5 @@ glow_enabled = true
 glow_intensity = 8.0
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
-fog_density = 0.0626
-fog_height_density = -0.029
+fog_sun_scatter = 0.15
+fog_density = 0.065

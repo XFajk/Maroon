@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://br7ws6jj4qwx1"]
+
+[ext_resource type="Texture2D" uid="uid://cx6q0v5n4uwh7" path="res://assets/vfx/smoke2.png" id="1_s1rib"]
+
+[sub_resource type="Curve" id="Curve_oytpp"]
+_data = [Vector2(0, 0.528), 0.0, 0.0, 0, 0, Vector2(1, 0.172), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_86kkh"]
+curve = SubResource("Curve_oytpp")
+
+[sub_resource type="Curve" id="Curve_o8t5a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.448), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5pjom"]
+curve = SubResource("Curve_o8t5a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_15vms"]
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 4.6
+initial_velocity_max = 4.9
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_5pjom")
+alpha_curve = SubResource("CurveTexture_86kkh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqcov"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_s1rib")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_lfki7"]
+material = SubResource("StandardMaterial3D_xqcov")
+
+[node name="DecompresionSmoke" type="Node3D"]
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+visibility_range_end = 50.0
+amount = 20
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_15vms")
+draw_pass_1 = SubResource("QuadMesh_lfki7")

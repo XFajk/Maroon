@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://yik8egtca6op"
+path.s3tc="res://.godot/imported/jerry_can_jerry_can_color_baked.png-42805d752592b11cd667e5c5f3e25096.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e6d9a30896ad6fb1c7b0369d17cc588f"
+}
+
+[deps]
+
+source_file="res://assets/Interactables/jerry_can_jerry_can_color_baked.png"
+dest_files=["res://.godot/imported/jerry_can_jerry_can_color_baked.png-42805d752592b11cd667e5c5f3e25096.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
