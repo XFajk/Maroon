@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dauagn728u8wh"
-path.s3tc="res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"
+uid="uid://br1qt31waq5km"
+path.s3tc="res://.godot/imported/main_door_a_main_door_a_bake_hi.png-821c1d204683fe0be98eaf705cbed375.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "dee71d53ac110c6a629bb9032d251c69"
+}
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/textures/halogen_semi_metal.png"
-dest_files=["res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"]
+source_file="res://assets/Interiors/Doors/main_door_a_main_door_a_bake_hi.png"
+dest_files=["res://.godot/imported/main_door_a_main_door_a_bake_hi.png-821c1d204683fe0be98eaf705cbed375.s3tc.ctex"]
 
 [params]
 

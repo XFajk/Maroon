@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dauagn728u8wh"
-path.s3tc="res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"
+uid="uid://b2pjmm6e4qinc"
+path.s3tc="res://.godot/imported/button_btn_color_baked.png-5f3d73a2b8e4cf415778d6cb56a90bc7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "e4e8b1ce5c9404dffddf83088723442f"
+}
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/textures/halogen_semi_metal.png"
-dest_files=["res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"]
+source_file="res://assets/Interiors/Buttons/button_btn_color_baked.png"
+dest_files=["res://.godot/imported/button_btn_color_baked.png-5f3d73a2b8e4cf415778d6cb56a90bc7.s3tc.ctex"]
 
 [params]
 
