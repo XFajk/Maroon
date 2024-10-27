@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=4 uid="uid://crnv72bti5td8"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_m0cj0"]
-[ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Ground/sand.png" id="2_ta1gj"]
-[ext_resource type="Texture2D" uid="uid://bf43n31b85qfw" path="res://assets/Ground/path2.png" id="3_ltop3"]
-[ext_resource type="Texture2D" uid="uid://c6qc5msveylbs" path="res://assets/Ground/rock.png" id="4_gwb2p"]
-[ext_resource type="Texture2D" uid="uid://crqhcbuiy2xlt" path="res://assets/Ground/terrain_mask_rgb_layers.png" id="5_7euhf"]
-[ext_resource type="Texture2D" uid="uid://psalotcvexhl" path="res://assets/Ground/ground.png" id="6_rfpov"]
+[ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_ta1gj"]
+[ext_resource type="Texture2D" uid="uid://bf43n31b85qfw" path="res://assets/Enviroment/Ground/textures/path2.png" id="3_ltop3"]
+[ext_resource type="Texture2D" uid="uid://c6qc5msveylbs" path="res://assets/Enviroment/Ground/textures/rock.png" id="4_gwb2p"]
+[ext_resource type="Texture2D" uid="uid://crqhcbuiy2xlt" path="res://assets/Enviroment/Ground/textures/terrain_mask_rgb_layers.png" id="5_7euhf"]
+[ext_resource type="Texture2D" uid="uid://psalotcvexhl" path="res://assets/Enviroment/Ground/textures/ground.png" id="6_rfpov"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tat6"]
 render_priority = 0

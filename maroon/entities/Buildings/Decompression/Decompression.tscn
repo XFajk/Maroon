@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bx5iid1dm86vb"]
+
+[ext_resource type="Script" path="res://src/objects/decompression/Decompression.gd" id="1_fq67e"]
+[ext_resource type="PackedScene" uid="uid://de0g4m3hjcojg" path="res://entities/Buildings/Decompression/DecompPanel.tscn" id="1_llf4b"]
+[ext_resource type="PackedScene" uid="uid://tt2tb8hreau4" path="res://entities/Buildings/Buttons/OutsideButton.tscn" id="2_f4xwr"]
+[ext_resource type="PackedScene" uid="uid://clc0dq31ycx4u" path="res://entities/Buildings/Buttons/Button.tscn" id="3_00k4b"]
+[ext_resource type="PackedScene" uid="uid://cuymiuyqg0pji" path="res://entities/Buildings/Decompression/MainDoor.tscn" id="4_v2ma3"]
+[ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Buildings/Doors.tscn" id="5_x10vh"]
+[ext_resource type="PackedScene" uid="uid://be868v3fbfw58" path="res://assets/Interiors/Decompression/decomp_vent.glb" id="7_xedbw"]
+[ext_resource type="PackedScene" uid="uid://br7ws6jj4qwx1" path="res://vfx/DecompresionSmoke.tscn" id="8_gthfr"]
+
+[node name="Decompression" type="Node3D"]
+script = ExtResource("1_fq67e")
+decomp_text_color = Color(0.815686, 0.45098, 0.0980392, 1)
+ready_text_color = Color(0.552941, 0.698039, 0.109804, 1)
+done_text_color = Color(0.141176, 0.729412, 0.67451, 1)
+
+[node name="DecompPanel" parent="." instance=ExtResource("1_llf4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.69881)
+
+[node name="OutsideButton" parent="." instance=ExtResource("2_f4xwr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4348, 1.3438, 2.98028)
+button_name = "outside"
+
+[node name="Button" parent="." instance=ExtResource("3_00k4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.86565)
+button_name = "inside"
+
+[node name="MainDoor" parent="." instance=ExtResource("4_v2ma3")]
+
+[node name="Doors" parent="." instance=ExtResource("5_x10vh")]
+transform = Transform3D(1, 0, 0, 0, 0.95, 0, 0, 0, 1.1, 0, 0, -3.11083)
+
+[node name="DecompTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="UnlockedTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TextUpdate" type="Timer" parent="."]
+autostart = true
+
+[node name="DecompWent" parent="." instance=ExtResource("7_xedbw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.99824)
+
+[node name="DecompresionSmoke" parent="DecompWent" instance=ExtResource("8_gthfr")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.62521, -5.46576e-08)
+
+[connection signal="button_pressed" from="DecompPanel" to="." method="_on_button_pressed"]
+[connection signal="button_pressed" from="OutsideButton" to="." method="_on_button_pressed"]
+[connection signal="button_pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="DecompTimer" to="." method="_on_decomp_timer_timeout"]
+[connection signal="timeout" from="UnlockedTimer" to="." method="_on_unlocked_timer_timeout"]
+[connection signal="timeout" from="TextUpdate" to="." method="_on_text_update_timeout"]

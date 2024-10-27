@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0jnnj2b0u0cg"]
+[gd_scene load_steps=11 format=3 uid="uid://b0jnnj2b0u0cg"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_dqc7k"]
 [ext_resource type="Environment" uid="uid://dympl0t5gddd1" path="res://OutsideEnviroment.tres" id="2_lqr8s"]
 [ext_resource type="PackedScene" uid="uid://dtmo3ahg8vh6x" path="res://entities/Radar.tscn" id="3_obdw2"]
 [ext_resource type="FontFile" uid="uid://lfke2fc11udm" path="res://assets/Fonts/prstartk.ttf" id="4_xb8ew"]
-[ext_resource type="Texture2D" uid="uid://3ekwtx6picii" path="res://assets/circle.svg" id="5_74ql2"]
+[ext_resource type="Texture2D" uid="uid://3ekwtx6picii" path="res://assets/Misc/circle.svg" id="5_74ql2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jeoj"]
 albedo_color = Color(1, 0, 0, 1)
@@ -24,6 +24,9 @@ font = ExtResource("4_xb8ew")
 font_size = 8
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_001jw"]
+size = Vector3(0.01, 0.01, 10)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_dqc7k")
@@ -59,6 +62,9 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Points" parent="Head/Eyes/PlayerUI/Radar" index="1"]
+zoom = 2.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Head/Eyes/PlayerUI"]
 visible = false
@@ -119,5 +125,14 @@ expand_mode = 1
 
 [node name="InteractionRay" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -1.8, 0)
+
+[node name="PersceptionShape" type="Area3D" parent="Head" groups=["Player"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/PersceptionShape"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+shape = SubResource("BoxShape3D_001jw")
 
 [editable path="Head/Eyes/PlayerUI/Radar"]
