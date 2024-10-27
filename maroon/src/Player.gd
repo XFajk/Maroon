@@ -15,6 +15,11 @@ var state: PlayerState = PlayerState.STANDING
 @export var acceleration = 15
 var direction = Vector3.ZERO
 
+# stamina variables
+@onready var StaminaBar: HSlider = $Head/Eyes/PlayerUI/StaminaBar
+@export var stamina_recharge_speed = 10
+@export var stamina_depletion_speed = 5
+
 # gravity variables
 @export var gravity = -20
 @export var jump_height = 450
@@ -123,6 +128,8 @@ func standing(delta: float) -> void:
 	
 	velocity = velocity.move_toward(Vector3.ZERO, acceleration*delta)
 	
+	StaminaBar.value += stamina_recharge_speed*delta
+	
 	manage_interaction()
 	manage_radar()
 	manage_mouse()
@@ -152,8 +159,12 @@ func moving(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		var goal_speed = movment_speed*delta
-		if Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("sprint") and StaminaBar.value > 0:
+			StaminaBar.value -= stamina_depletion_speed*delta
 			goal_speed = running_speed*delta
+		else:
+			StaminaBar.value += stamina_recharge_speed*delta
+
 		velocity = velocity.move_toward(direction*goal_speed, acceleration*delta)
 	
 	manage_interaction()
