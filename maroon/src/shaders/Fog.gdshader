@@ -17,4 +17,3 @@ void fragment() {
 	ALBEDO.rgb += vec3(1.0, 0.3, 0.0)/80.0;
 	ALPHA = screen_color.a;
 }
-
