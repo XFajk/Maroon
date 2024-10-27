@@ -62,7 +62,7 @@ func manage_gravity(delta: float) -> void:
 	else:
 		vertical_speed = 0
 	if is_on_ceiling():
-		vertical_speed = -20
+		vertical_speed = -0.1
 		
 	velocity.y = vertical_speed
 	

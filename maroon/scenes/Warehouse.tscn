@@ -1,6 +1,8 @@
-[gd_scene load_steps=47 format=4 uid="uid://cndlcny5sc2yd"]
+[gd_scene load_steps=58 format=4 uid="uid://cndlcny5sc2yd"]
 
+[ext_resource type="Script" path="res://src/Warehouse.gd" id="1_dxulc"]
 [ext_resource type="Texture2D" uid="uid://bxou6jtg6nx7w" path="res://assets/Warehouse/warehouse_warehouse_color_bake.png" id="1_ghtl6"]
+[ext_resource type="Texture2D" uid="uid://d1ay0fpdvl3ya" path="res://assets/Warehouse/crate_texture_3.png" id="1_lk8tp"]
 [ext_resource type="ArrayOccluder3D" uid="uid://7d7mmartbobl" path="res://scenes/Warehouse.occ" id="2_7ksrf"]
 [ext_resource type="Shape3D" uid="uid://mwelf35gy3rk" path="res://assets/Warehouse/regal_collision.tres" id="2_ph8kx"]
 [ext_resource type="Texture2D" uid="uid://dcaccthm2rnva" path="res://assets/Warehouse/warehouse_regal_1_color_bake.png" id="2_s8bgt"]
@@ -8,6 +10,33 @@
 [ext_resource type="PackedScene" uid="uid://dnadaqr1i786c" path="res://entities/LightSources/SpotBarLight.tscn" id="3_xh3qg"]
 [ext_resource type="Texture2D" uid="uid://du1stjwyesaku" path="res://assets/Warehouse/warehouse_regal_3_color_bake.png" id="4_7rie7"]
 [ext_resource type="Texture2D" uid="uid://g3277iirb8yl" path="res://assets/Warehouse/warehouse_regal_4_color_bake.png" id="5_mncbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqqg3"]
+size = Vector3(37.8, 7.7, 27.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1drn7"]
+size = Vector3(5.85339, 5.1, 8.35527)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iu83a"]
+size = Vector3(5.8, 5.1, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sj8xr"]
+size = Vector3(2.3, 4.5, 2.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dcbmx"]
+size = Vector3(4.9, 5.2, 5.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4pn8"]
+size = Vector3(0.34, 2.889, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_otfk5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_35kvv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5totr"]
+albedo_texture = ExtResource("1_lk8tp")
+uv1_scale = Vector3(3.1, 2.05, 2.05)
+uv1_offset = Vector3(-0.06, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a13gt"]
 resource_name = "warehouse_baked"
@@ -554,16 +583,102 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3s5wd")
 
-[node name="warehouse2" type="StaticBody3D"]
+[node name="Warehouse" type="StaticBody3D" node_paths=PackedStringArray("FallingBox", "MonsterStartSpot1", "MonsterStartSpot2", "MonsterStartSpot3", "MonsterFinishSpot1", "MonsterFinishSpot2", "EventTrigger1", "EventTrigger2", "EventTrigger3", "EventTrigger4", "EventTrigger5")]
+script = ExtResource("1_dxulc")
+FallingBox = NodePath("Gameplay/FallingBox")
+MonsterStartSpot1 = NodePath("Gameplay/MonsterStartSpot1")
+MonsterStartSpot2 = NodePath("Gameplay/MonsterStartSpot2")
+MonsterStartSpot3 = NodePath("Gameplay/MonsterStartSpot3")
+MonsterFinishSpot1 = NodePath("Gameplay/MonsterFinishSpot1")
+MonsterFinishSpot2 = NodePath("Gameplay/MonsterFinishSpot2")
+EventTrigger1 = NodePath("Gameplay/EventTrigger1")
+EventTrigger2 = NodePath("Gameplay/EventTriggee2")
+EventTrigger3 = NodePath("Gameplay/EventTrigger3")
+EventTrigger4 = NodePath("Gameplay/EventTrigger4")
+EventTrigger5 = NodePath("Gameplay/EventTrigger5")
 
-[node name="warehouse" type="MeshInstance3D" parent="."]
+[node name="MainCollision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499999, 3.35, -0.25)
+shape = SubResource("BoxShape3D_gqqg3")
+
+[node name="Gameplay" type="Node3D" parent="."]
+
+[node name="EventTrigger1" type="Area3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7194, 2.66765, 6.45765)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTrigger1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588195, 0.107452)
+shape = SubResource("BoxShape3D_1drn7")
+
+[node name="EventTriggee2" type="Area3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7194, 2.66765, 2.17239)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTriggee2"]
+shape = SubResource("BoxShape3D_iu83a")
+
+[node name="EventTrigger3" type="Area3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21944, 2.56765, 9.55765)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTrigger3"]
+shape = SubResource("BoxShape3D_sj8xr")
+
+[node name="EventTrigger4" type="Area3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8806, 2.66765, 8.05765)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTrigger4"]
+shape = SubResource("BoxShape3D_dcbmx")
+
+[node name="EventTrigger5" type="Area3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.10454, 2.83555, 5.84563)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTrigger5"]
+shape = SubResource("BoxShape3D_t4pn8")
+
+[node name="FallingBox" type="RigidBody3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 6, -5.2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/FallingBox"]
+shape = SubResource("BoxShape3D_otfk5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Gameplay/FallingBox"]
+mesh = SubResource("BoxMesh_35kvv")
+surface_material_override/0 = SubResource("StandardMaterial3D_5totr")
+
+[node name="MonsterFinishSpot1" type="Node3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9, 1.6, -8.7)
+
+[node name="MonsterStartSpot1" type="Node3D" parent="Gameplay"]
+transform = Transform3D(0.981111, 0, -0.193447, 0, 1, 0, 0.193447, 0, 0.981111, -13.1712, 1.6, -8.7)
+
+[node name="MonsterFinishSpot2" type="Node3D" parent="Gameplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54253, 1.6, -11.9528)
+
+[node name="MonsterStartSpot2" type="Node3D" parent="Gameplay"]
+transform = Transform3D(0.689253, 0, 0.724521, 0, 1, 0, -0.724521, 0, 0.689253, -2.97555, 1.6, 1.84777)
+
+[node name="MonsterStartSpot3" type="Node3D" parent="Gameplay"]
+transform = Transform3D(-0.0313584, 0, 0.999508, 0, 1, 0, -0.999508, 0, -0.0313584, 6.59576, 1.47681, 6.0928)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5805, -0.108483, 13.6841)
+visible = false
 mesh = SubResource("ArrayMesh_0c2vn")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5805, -0.108483, 13.6841)
+visible = false
 shape = SubResource("ConcavePolygonShape3D_swx6x")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+visible = false
+occluder = ExtResource("2_7ksrf")
 
 [node name="regal_collision_011" type="StaticBody3D" parent="."]
 transform = Transform3D(0.998751, 0, -0.0499744, 0, 1, 0, 0.0499744, 0, 0.998751, 3.6219, 2.6717, -8.72916)
@@ -606,7 +721,7 @@ transform = Transform3D(-0.999991, 0, 0.00416126, 0, 1, 0, -0.00416126, 0, -0.99
 shape = ExtResource("2_ph8kx")
 
 [node name="regal_003" type="MeshInstance3D" parent="regal_collision_017"]
-transform = Transform3D(0.964425, 0, 0.00169463, 0, 1.00586, 0, -0.00179762, 0, 1.02304, 0.00895977, -2.68735, -0.118467)
+transform = Transform3D(-0.964425, 0, -0.00178553, 0, 1.00586, 0, 0.00168322, 0, -1.02304, 0.00895977, -2.68735, -0.118467)
 mesh = SubResource("ArrayMesh_pevb5")
 skeleton = NodePath("")
 
@@ -731,9 +846,6 @@ transform = Transform3D(0.964426, 0, 0.00169463, 0, 1.00586, 0, -0.00179762, 0, 
 mesh = SubResource("ArrayMesh_pb268")
 skeleton = NodePath("")
 
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-occluder = ExtResource("2_7ksrf")
-
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.69554, 0)
 
@@ -777,3 +889,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0878, 0.213265, 9.84849)
 chance_of_flickering = 10.0
 off_value = 0.0
 chance_of_sparks = 2.0
+
+[connection signal="body_entered" from="Gameplay/EventTrigger1" to="." method="_on_event_trigger_1_body_entered"]
+[connection signal="body_exited" from="Gameplay/EventTrigger1" to="." method="_on_event_trigger_1_body_exited"]
+[connection signal="body_entered" from="Gameplay/EventTriggee2" to="." method="_on_event_triggee_2_body_entered"]
+[connection signal="body_entered" from="Gameplay/EventTrigger3" to="." method="_on_event_trigger_3_body_entered"]
+[connection signal="body_entered" from="Gameplay/EventTrigger4" to="." method="_on_event_trigger_4_body_entered"]
+[connection signal="area_entered" from="Gameplay/EventTrigger5" to="." method="_on_event_trigger_5_area_entered"]
