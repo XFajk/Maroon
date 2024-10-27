@@ -34,6 +34,9 @@ func _on_event_trigger_1_body_entered(body: Node3D) -> void:
 
 
 func _on_event_trigger_1_body_exited(body: Node3D) -> void:
+	if not body.is_in_group("Player"):
+		return
+		
 	tween_finish()
 	EventTrigger1.queue_free()
 

@@ -29,7 +29,7 @@ var interactible_object: Object = null
 @onready var Head = $Head
 
 # radar system variables
-@export var RadarSystem: Node = null 
+@export var RadarSystem: Node3D = null 
 @onready var RadarPoinsts: Node2D = $Head/Eyes/PlayerUI/Radar/Points
 
 var InEnv = preload("res://InsideEnviroment.tres")
@@ -93,9 +93,8 @@ func manage_radar() -> void:
 	for child in RadarSystem.get_children():
 		RadarPoinsts.points.append(Vector2(child.global_position.x, child.global_position.z))
 	
-	# only queue a redraw when there is something to draw
-	if RadarSystem.get_child_count() > 0:
-		RadarPoinsts.queue_redraw()
+
+	RadarPoinsts.queue_redraw()
 		
 func manage_mouse() -> void:
 	if Input.is_action_just_pressed("ui_cancel"):

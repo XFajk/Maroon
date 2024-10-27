@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cndlcny5sc2yd"]
+[gd_scene load_steps=60 format=4 uid="uid://cndlcny5sc2yd"]
 
 [ext_resource type="Script" path="res://src/Warehouse.gd" id="1_dxulc"]
 [ext_resource type="Texture2D" uid="uid://bxou6jtg6nx7w" path="res://assets/Warehouse/warehouse_warehouse_color_bake.png" id="1_ghtl6"]
@@ -7,9 +7,11 @@
 [ext_resource type="Shape3D" uid="uid://mwelf35gy3rk" path="res://assets/Warehouse/regal_collision.tres" id="2_ph8kx"]
 [ext_resource type="Texture2D" uid="uid://dcaccthm2rnva" path="res://assets/Warehouse/warehouse_regal_1_color_bake.png" id="2_s8bgt"]
 [ext_resource type="Texture2D" uid="uid://danq6yqnudif0" path="res://assets/Warehouse/warehouse_regal_2_color_bake.png" id="3_7hn0i"]
+[ext_resource type="PackedScene" uid="uid://duqmxbq43pmj3" path="res://entities/Interactibles/JarryCan.tscn" id="3_sin5p"]
 [ext_resource type="PackedScene" uid="uid://dnadaqr1i786c" path="res://entities/LightSources/SpotBarLight.tscn" id="3_xh3qg"]
 [ext_resource type="Texture2D" uid="uid://du1stjwyesaku" path="res://assets/Warehouse/warehouse_regal_3_color_bake.png" id="4_7rie7"]
 [ext_resource type="Texture2D" uid="uid://g3277iirb8yl" path="res://assets/Warehouse/warehouse_regal_4_color_bake.png" id="5_mncbx"]
+[ext_resource type="PackedScene" uid="uid://cijyfmplcl8b4" path="res://entities/Furniture/TableWarehouse.tscn" id="12_75hd6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqqg3"]
 size = Vector3(37.8, 7.7, 27.7)
@@ -626,8 +628,6 @@ shape = SubResource("BoxShape3D_sj8xr")
 
 [node name="EventTrigger4" type="Area3D" parent="Gameplay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8806, 2.66765, 8.05765)
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTrigger4"]
 shape = SubResource("BoxShape3D_dcbmx")
@@ -665,19 +665,25 @@ transform = Transform3D(0.689253, 0, 0.724521, 0, 1, 0, -0.724521, 0, 0.689253, 
 [node name="MonsterStartSpot3" type="Node3D" parent="Gameplay"]
 transform = Transform3D(-0.0313584, 0, 0.999508, 0, 1, 0, -0.999508, 0, -0.0313584, 6.59576, 1.47681, 6.0928)
 
+[node name="JarryCan" parent="Gameplay" instance=ExtResource("3_sin5p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8288, 0.233052, 8.52746)
+
+[node name="JarryCan2" parent="Gameplay" instance=ExtResource("3_sin5p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35658, 0.233052, 9.45211)
+
+[node name="JarryCan3" parent="Gameplay" instance=ExtResource("3_sin5p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981886, 0.233052, -10.5351)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5805, -0.108483, 13.6841)
-visible = false
 mesh = SubResource("ArrayMesh_0c2vn")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5805, -0.108483, 13.6841)
-visible = false
 shape = SubResource("ConcavePolygonShape3D_swx6x")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-visible = false
 occluder = ExtResource("2_7ksrf")
 
 [node name="regal_collision_011" type="StaticBody3D" parent="."]
@@ -889,6 +895,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0878, 0.213265, 9.84849)
 chance_of_flickering = 10.0
 off_value = 0.0
 chance_of_sparks = 2.0
+
+[node name="table_warehouse" parent="." instance=ExtResource("12_75hd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.583, 1.09197, 8.55585)
 
 [connection signal="body_entered" from="Gameplay/EventTrigger1" to="." method="_on_event_trigger_1_body_entered"]
 [connection signal="body_exited" from="Gameplay/EventTrigger1" to="." method="_on_event_trigger_1_body_exited"]

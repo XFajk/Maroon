@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl2mvkokf1m7j"]
+[gd_scene load_steps=10 format=3 uid="uid://cl2mvkokf1m7j"]
 
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="1_mooo8"]
 [ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse.tscn" id="2_uj32t"]
 [ext_resource type="Texture2D" uid="uid://dk5sb1ruv52lx" path="res://assets/icon.svg" id="3_doyje"]
+[ext_resource type="PackedScene" uid="uid://cv7vixmsbsgv" path="res://entities/Interactibles/SdCard.tscn" id="5_ptwun"]
 [ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://InsideEnviroment.tres" id="6_vrj6l"]
+[ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactibles/LogMonitor.tscn" id="6_xj3sp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
 size = Vector3(100, 0.3, 100)
@@ -43,15 +45,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8038, 3.78489, 34.9247)
 running_speed = 300
 RadarSystem = NodePath("../RadarSystem")
 
-[node name="RadarSystem" type="Node" parent="."]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_vrj6l")
 
 [node name="Warehouse" parent="." node_paths=PackedStringArray("Player", "Monster") instance=ExtResource("2_uj32t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2916, 1.33567, 0)
 Player = NodePath("../Player")
 Monster = NodePath("../Monster")
+
+[node name="JarryCan" parent="Warehouse/Gameplay" index="11" node_paths=PackedStringArray("downloadeble_positions", "RadarSystem")]
+downloadeble_positions = [NodePath("../JarryCan2")]
+RadarSystem = NodePath("../../../RadarSystem")
+
+[node name="JarryCan2" parent="Warehouse/Gameplay" index="12" node_paths=PackedStringArray("downloadeble_positions", "RadarSystem")]
+downloadeble_positions = [NodePath("../JarryCan3")]
+RadarSystem = NodePath("../../../RadarSystem")
+
+[node name="JarryCan3" parent="Warehouse/Gameplay" index="13" node_paths=PackedStringArray("RadarSystem")]
+RadarSystem = NodePath("../../../RadarSystem")
+
+[node name="RadarSystem" type="Node3D" parent="."]
+
+[node name="SdCard" parent="RadarSystem" node_paths=PackedStringArray("downloadeble_positions", "RadarSystem") instance=ExtResource("5_ptwun")]
+transform = Transform3D(0.999993, -0.00363028, 0, 0.00363028, 0.999993, 0, 0, 0, 1, 32.7227, 2.48357, 7.29034)
+downloadeble_positions = [NodePath("../../Warehouse/Gameplay/JarryCan")]
+RadarSystem = NodePath("..")
+
+[node name="log_monitor" parent="." instance=ExtResource("6_xj3sp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.4627, 2.69303, 5.45144)
 
 [connection signal="body_entered" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_entered"]
 [connection signal="body_exited" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_exited"]

@@ -63,6 +63,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="Points" parent="Head/Eyes/PlayerUI/Radar" index="1"]
+zoom = 2.0
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Head/Eyes/PlayerUI"]
 visible = false
 layout_mode = 1
@@ -122,8 +125,7 @@ expand_mode = 1
 
 [node name="InteractionRay" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-collision_mask = 2
-collide_with_areas = true
+target_position = Vector3(0, -1.8, 0)
 
 [node name="PersceptionShape" type="Area3D" parent="Head" groups=["Player"]]
 collision_layer = 2
