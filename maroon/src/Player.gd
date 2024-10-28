@@ -37,14 +37,20 @@ var interactible_object: Object = null
 @export var RadarSystem: Node3D = null 
 @onready var RadarPoinsts: Node2D = $Head/Eyes/PlayerUI/Radar/Points
 
+# pause variables
+@onready var PauseMenu: Control = $Head/Eyes/PlayerUI/PauseMenu
+
+
+# enviroment transition variables
 var InEnv = preload("res://InsideEnviroment.tres")
 var OutEnv = preload("res://OutsideEnviroment.tres")
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	PauseMenu.hide()
 	
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(deg_to_rad(-event.relative.x*Global.mouse_sens))
 		Head.rotate_x(deg_to_rad(-event.relative.y*Global.mouse_sens))
 		Head.rotation.x = deg_to_rad(clamp(Head.rotation_degrees.x, -70, 70))
@@ -105,8 +111,12 @@ func manage_mouse() -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			PauseMenu.show()
+			Engine.time_scale = 0.0
 		else: 
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Engine.time_scale = 1.0
+			PauseMenu.hide()
 			
 func standing(delta: float) -> void:
 	
@@ -180,41 +190,31 @@ func jumping(delta: float) -> void:
 
 func _on_in_warehouse_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		var tween = get_tree().create_tween()
-		var Env: Environment = Head.get_node("Eyes").environment.duplicate()
-		tween.tween_property(Env, "background_color", InEnv.background_color, 0.1)
-		tween.tween_property(Env, "background_energy_multiplier", InEnv.background_energy_multiplier, 0.1)
-		tween.tween_property(Env, "fog_light_color", InEnv.fog_light_color, 0.1)
-		tween.tween_property(Env, "fog_density", InEnv.fog_density, 0.1)
-		Head.get_node("Eyes").environment = Env
+		tween_camera_env_to(InEnv)
 		
 
 func _on_in_warehouse_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		var tween = get_tree().create_tween()
-		var Env: Environment = Head.get_node("Eyes").environment.duplicate()
-		tween.tween_property(Env, "background_color", OutEnv.background_color, 0.1)
-		tween.tween_property(Env, "background_energy_multiplier", OutEnv.background_energy_multiplier, 0.1)
-		tween.tween_property(Env, "fog_light_color", OutEnv.fog_light_color, 0.1)
-		tween.tween_property(Env, "fog_density", OutEnv.fog_density, 0.1)
-		Head.get_node("Eyes").environment = Env
+		tween_camera_env_to(OutEnv)
 
 
 func _on_decompression_decompresing(entering: bool) -> void:
 	if entering:
-		var tween = get_tree().create_tween()
-		var Env: Environment = Head.get_node("Eyes").environment.duplicate()
-		tween.tween_property(Env, "background_color", InEnv.background_color, 0.1)
-		tween.tween_property(Env, "background_energy_multiplier", InEnv.background_energy_multiplier, 0.1)
-		tween.tween_property(Env, "fog_light_color", InEnv.fog_light_color, 0.1)
-		tween.tween_property(Env, "fog_density", InEnv.fog_density, 0.1)
-		Head.get_node("Eyes").environment = Env
+		tween_camera_env_to(InEnv)
 	else:
-		var tween = get_tree().create_tween()
-		var Env: Environment = Head.get_node("Eyes").environment.duplicate()
-		tween.tween_property(Env, "background_color", OutEnv.background_color, 0.1)
-		tween.tween_property(Env, "background_energy_multiplier", OutEnv.background_energy_multiplier, 0.1)
-		tween.tween_property(Env, "fog_light_color", OutEnv.fog_light_color, 0.1)
-		tween.tween_property(Env, "fog_density", OutEnv.fog_density, 0.1)
-		Head.get_node("Eyes").environment = Env
-		
+		tween_camera_env_to(OutEnv)
+	
+func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.1) -> void:
+	var tween = get_tree().create_tween()
+	
+	# get the Camera enviroment
+	var Env: Environment = Head.get_node("Eyes").environment.duplicate()
+	
+	# transition the enviroment to the desired envirioment
+	tween.tween_property(Env, "background_color", goal_env.background_color, transition_speed)
+	tween.tween_property(Env, "background_energy_multiplier", goal_env.background_energy_multiplier, transition_speed)
+	tween.tween_property(Env, "fog_light_color", goal_env.fog_light_color, transition_speed)
+	tween.tween_property(Env, "fog_density", goal_env.fog_density, transition_speed)
+	
+	# set the new planned to change enviroment to the cameras enviroment
+	Head.get_node("Eyes").environment = Env
