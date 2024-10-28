@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://vbvbsmfjuejb"]
+[gd_scene load_steps=11 format=4 uid="uid://vbvbsmfjuejb"]
 
 [ext_resource type="Texture2D" uid="uid://y3f7ci5cfu2q" path="res://assets/Objects/log_monitor_log_display_color_baked.png" id="1_4yy5i"]
+[ext_resource type="Script" path="res://src/objects/LogMonitor.gd" id="1_cgas0"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_qlc53"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmv21"]
@@ -92,7 +93,10 @@ _surfaces = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_2qv3x"]
 size = Vector3(0.689209, 0.561279, 0.199524)
 
-[node name="LogMonitor" type="StaticBody3D"]
+[node name="LogMonitor" type="StaticBody3D" node_paths=PackedStringArray("outlines") groups=["Interactable"]]
+script = ExtResource("1_cgas0")
+log_mointor_transiton_speed = 0.5
+outlines = [NodePath("LogMonitor/OutlineMesh")]
 
 [node name="LogMonitor" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.00656428, 0, 0, 0, 0.00656428, 0, 0, 0, 0.00656428, 0.277863, -0.183458, 0.119051)
@@ -107,3 +111,6 @@ surface_material_override/0 = ExtResource("2_qlc53")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000366211, -0.00305176, 0.121796)
 shape = SubResource("BoxShape3D_2qv3x")
+
+[node name="CameraPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0488706, 0.0689765, 0.246528)
