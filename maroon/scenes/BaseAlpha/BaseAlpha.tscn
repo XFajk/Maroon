@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=22 format=4 uid="uid://dj241vy41r8u8"]
 
 [ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/Enviroment/Buildings/BaseAlpha/textures/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="2_g88ia"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Buildings/Doors.tscn" id="3_s32fk"]
 [ext_resource type="PackedScene" uid="uid://bx5iid1dm86vb" path="res://entities/Buildings/Decompression/Decompression.tscn" id="4_wprk7"]
 [ext_resource type="PackedScene" uid="uid://bhxyebbl7k6p2" path="res://entities/Buildings/LightSources/OmniBarLight.tscn" id="5_8baq3"]
-[ext_resource type="Script" path="res://src/functions/Cullable.gd" id="5_ilohb"]
 [ext_resource type="PackedScene" uid="uid://dsvfqow30ymyu" path="res://entities/Buildings/Furniture/Chair_1.tscn" id="8_nnc7h"]
 [ext_resource type="PackedScene" uid="uid://dehwnnkg4wlq8" path="res://entities/Buildings/Furniture/Table1.tscn" id="9_yt1vd"]
 [ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="10_34tm8"]
@@ -173,8 +172,7 @@ is_locked = true
 [node name="DecompWent" parent="Decompression" index="8"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.33013e-08, 2.33999, 4.69394)
 
-[node name="Cullable" type="Node3D" parent="."]
-script = ExtResource("5_ilohb")
+[node name="Cullable" type="Node3D" parent="." groups=["InsideObj"]]
 
 [node name="Lights" type="Node3D" parent="Cullable"]
 

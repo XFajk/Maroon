@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dnadaqr1i786c" path="res://entities/Buildings/LightSources/SpotBarLight.tscn" id="3_xh3qg"]
 [ext_resource type="Texture2D" uid="uid://du1stjwyesaku" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_3_color_bake.png" id="4_7rie7"]
 [ext_resource type="Texture2D" uid="uid://g3277iirb8yl" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_4_color_bake.png" id="5_mncbx"]
-[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/TableWarehouse.tscn" id="12_75hd6"]
+[ext_resource type="PackedScene" uid="uid://cijyfmplcl8b4" path="res://entities/Buildings/Furniture/TableWarehouse.tscn" id="12_75hd6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqqg3"]
 size = Vector3(37.8, 7.7, 27.7)

@@ -18,6 +18,7 @@ config/icon="res://assets/Misc/icon.svg"
 [autoload]
 
 Global="*res://src/Global.gd"
+Saving="*res://src/Saving.gd"
 
 [display]
 
@@ -40,6 +41,9 @@ folder_colors={
 
 Player=""
 Interactable="an object in this group needs to be intereactable"
+Savable="All nodes that have some state that needs to be saved"
+InsideObj="for Object that are inside"
+OutsideObj="for objects that are outside"
 
 [input]
 
