@@ -4,7 +4,7 @@ enum PlayerState {
 	STANDING,
 	MOVING,
 	JUMPING,
-	IN_MENU
+	IN_LOG_MONITOR
 }
 
 var state: PlayerState = PlayerState.STANDING
@@ -31,7 +31,8 @@ var vertical_speed = 0.0
 var interactible_object: Object = null
 
 # mouse motion variables
-@onready var Head = $Head
+@onready var Head: Node3D = $Head
+@onready var Eyes: Camera3D = $Head/Eyes
 
 # radar system variables
 @export var RadarSystem: Node3D = null 
@@ -40,6 +41,7 @@ var interactible_object: Object = null
 # pause variables
 @onready var PauseMenu: Control = $Head/Eyes/PlayerUI/PauseMenu
 
+@onready var PlayerUI: Control = $Head/Eyes/PlayerUI
 
 # enviroment transition variables
 var InEnv = preload("res://InsideEnviroment.tres")
@@ -50,7 +52,7 @@ func _ready() -> void:
 	PauseMenu.hide()
 	
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and state != PlayerState.IN_LOG_MONITOR and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(deg_to_rad(-event.relative.x*Global.mouse_sens))
 		Head.rotate_x(deg_to_rad(-event.relative.y*Global.mouse_sens))
 		Head.rotation.x = deg_to_rad(clamp(Head.rotation_degrees.x, -70, 70))
@@ -64,6 +66,8 @@ func _physics_process(delta: float) -> void:
 			moving(delta)
 		PlayerState.JUMPING:
 			jumping(delta)
+		PlayerState.IN_LOG_MONITOR:
+			reading_logs(delta)
 			
 	move_and_slide()
 	
@@ -73,7 +77,7 @@ func manage_gravity(delta: float) -> void:
 	else:
 		vertical_speed = 0
 	if is_on_ceiling():
-		vertical_speed = -0.1
+		vertical_speed = -2.0
 		
 	velocity.y = vertical_speed
 	
@@ -186,6 +190,16 @@ func jumping(delta: float) -> void:
 	vertical_speed = jump_height*delta
 	velocity.y = vertical_speed
 	state = PlayerState.STANDING
+	
+func reading_logs(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		var tween = get_tree().create_tween()
+		tween.set_parallel()
+		tween.finished.connect(return_to_standing)
+		
+		tween.tween_property(Eyes, "global_position", Head.global_position, 0.5)
+		tween.tween_property(Eyes, "global_rotation", Head.global_rotation, 0.5)
+		PlayerUI.show()
 
 
 func _on_in_warehouse_detector_body_entered(body: Node3D) -> void:
@@ -204,8 +218,9 @@ func _on_decompression_decompresing(entering: bool) -> void:
 	else:
 		tween_camera_env_to(OutEnv)
 	
-func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.1) -> void:
+func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -> void:
 	var tween = get_tree().create_tween()
+	tween.set_parallel()
 	
 	# get the Camera enviroment
 	var Env: Environment = Head.get_node("Eyes").environment.duplicate()
@@ -218,3 +233,6 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.1) -
 	
 	# set the new planned to change enviroment to the cameras enviroment
 	Head.get_node("Eyes").environment = Env
+	
+func return_to_standing() -> void:
+	state = PlayerState.STANDING

@@ -2,6 +2,7 @@ extends StaticBody3D
 
 @export var downloadeble_positions: Array[Node3D]
 @export var RadarSystem: Node3D = null
+
 @export var outlines: Array[MeshInstance3D]
 
 func _ready() -> void:
