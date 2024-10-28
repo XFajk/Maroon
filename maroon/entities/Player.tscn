@@ -38,7 +38,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_001jw"]
 size = Vector3(0.01, 0.01, 10)
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" groups=["Player", "Savable"]]
 script = ExtResource("1_dqc7k")
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]

@@ -64,7 +64,7 @@ RadarSystem = NodePath("../../../RadarSystem")
 [node name="JarryCan3" parent="Warehouse/Gameplay" index="13" node_paths=PackedStringArray("RadarSystem")]
 RadarSystem = NodePath("../../../RadarSystem")
 
-[node name="RadarSystem" type="Node3D" parent="."]
+[node name="RadarSystem" type="Node3D" parent="." groups=["Savable"]]
 
 [node name="SdCard" parent="RadarSystem" node_paths=PackedStringArray("downloadeble_positions", "RadarSystem") instance=ExtResource("5_ptwun")]
 transform = Transform3D(0.999993, -0.00363028, 0, 0.00363028, 0.999993, 0, 0, 0, 1, 32.7227, 2.48357, 7.29034)
@@ -73,6 +73,10 @@ RadarSystem = NodePath("..")
 
 [node name="log_monitor" parent="." instance=ExtResource("6_xj3sp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.4627, 2.69303, 5.45144)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." groups=["OutsideObj"]]
+transform = Transform3D(1, 0, 0, 0, 0.241854, 0.970313, 0, -0.970313, 0.241854, 0, 33.2697, 0)
+shadow_transmittance_bias = -16.0
 
 [connection signal="body_entered" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_entered"]
 [connection signal="body_exited" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_exited"]

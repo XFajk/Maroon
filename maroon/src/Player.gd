@@ -46,8 +46,14 @@ var interactible_object: Object = null
 # enviroment transition variables
 var InEnv = preload("res://InsideEnviroment.tres")
 var OutEnv = preload("res://OutsideEnviroment.tres")
+var inside: bool = false
 
 func _ready() -> void:
+	for obj in get_tree().get_nodes_in_group("InsideObj"):
+		obj.hide()
+	for obj in get_tree().get_nodes_in_group("OutsideObj"):
+		obj.show()
+	Saving.load()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	PauseMenu.hide()
 	
@@ -191,7 +197,9 @@ func jumping(delta: float) -> void:
 	velocity.y = vertical_speed
 	state = PlayerState.STANDING
 	
-func reading_logs(_delta: float) -> void:
+	StaminaBar.value += stamina_recharge_speed*delta
+	
+func reading_logs(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		var tween = get_tree().create_tween()
 		tween.set_parallel()
@@ -200,22 +208,44 @@ func reading_logs(_delta: float) -> void:
 		tween.tween_property(Eyes, "global_position", Head.global_position, 0.5)
 		tween.tween_property(Eyes, "global_rotation", Head.global_rotation, 0.5)
 		PlayerUI.show()
+		
+	StaminaBar.value += stamina_recharge_speed*delta
 
 
 func _on_in_warehouse_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
+		inside = true
+		for obj in get_tree().get_nodes_in_group("OutsideObj"):
+			obj.hide()
+		for obj in get_tree().get_nodes_in_group("InsideObj"):
+			obj.show()
 		tween_camera_env_to(InEnv)
 		
 
 func _on_in_warehouse_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
+		inside = false
+		for obj in get_tree().get_nodes_in_group("InsideObj"):
+			obj.hide()
+		for obj in get_tree().get_nodes_in_group("OutsideObj"):
+			obj.show()
 		tween_camera_env_to(OutEnv)
 
 
 func _on_decompression_decompresing(entering: bool) -> void:
 	if entering:
+		inside = true
+		for obj in get_tree().get_nodes_in_group("OutsideObj"):
+			obj.hide()
+		for obj in get_tree().get_nodes_in_group("InsideObj"):
+			obj.show()
 		tween_camera_env_to(InEnv)
 	else:
+		inside = false
+		for obj in get_tree().get_nodes_in_group("InsideObj"):
+			obj.hide()
+		for obj in get_tree().get_nodes_in_group("OutsideObj"):
+			obj.show()
 		tween_camera_env_to(OutEnv)
 	
 func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -> void:
@@ -223,7 +253,7 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -
 	tween.set_parallel()
 	
 	# get the Camera enviroment
-	var Env: Environment = Head.get_node("Eyes").environment.duplicate()
+	var Env: Environment = Eyes.environment.duplicate()
 	
 	# transition the enviroment to the desired envirioment
 	tween.tween_property(Env, "background_color", goal_env.background_color, transition_speed)
@@ -232,7 +262,38 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -
 	tween.tween_property(Env, "fog_density", goal_env.fog_density, transition_speed)
 	
 	# set the new planned to change enviroment to the cameras enviroment
-	Head.get_node("Eyes").environment = Env
+	Eyes.environment = Env
 	
 func return_to_standing() -> void:
 	state = PlayerState.STANDING
+	
+	
+func saveout() -> Dictionary:
+	return {
+		"position": global_position,
+		"rotation": global_rotation,
+		"state": state,
+		"inside": inside,
+	}
+	
+	
+func loadin(save_data: Dictionary) -> void:
+	global_position = str_to_var("Vector3" + save_data.get("position"))
+	global_rotation = str_to_var("Vector3" + save_data.get("rotation"))
+	
+	state =  int(save_data.get("state"))
+	
+	inside = bool(save_data.get("inside"))
+	if inside:
+		Eyes.environment = InEnv.duplicate()
+		for obj in get_tree().get_nodes_in_group("OutsideObj"):
+			obj.hide()
+		for obj in get_tree().get_nodes_in_group("InsideObj"):
+			obj.show()
+	else:
+		Eyes.environment = OutEnv.duplicate()
+		for obj in get_tree().get_nodes_in_group("InsideObj"):
+			obj.hide()
+		for obj in get_tree().get_nodes_in_group("OutsideObj"):
+			obj.show()
+	
