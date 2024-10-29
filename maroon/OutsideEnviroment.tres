@@ -1,4 +1,4 @@
-[gd_resource type="Environment" format=3 uid="uid://dympl0t5gddd1"]
+[gd_resource type="Environment" format=3 uid="uid://b7o2wou01tnsp"]
 
 [resource]
 background_mode = 1
@@ -9,5 +9,5 @@ glow_intensity = 8.0
 fog_enabled = true
 fog_light_color = Color(0.50342, 0.18974, 1.92523e-07, 1)
 fog_light_energy = 0.1
-fog_density = 0.3
+fog_density = 0.03
 fog_depth_end = 620.5
