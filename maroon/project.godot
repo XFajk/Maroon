@@ -24,7 +24,6 @@ Saving="*res://src/Saving.gd"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [file_customization]
