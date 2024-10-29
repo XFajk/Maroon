@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://crnv72bti5td8"]
+[gd_scene load_steps=28 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]

@@ -1,11 +1,11 @@
 extends Node
 
-func load() -> void:
-	if not FileAccess.file_exists("user://gamedata.save"):
+func load(save_file_name: String = "user://gamedata.save") -> void:
+	if not FileAccess.file_exists(save_file_name):
 		print("Error save file dosent exist")
 		return # Error! We don't have a save to load.
 
-	var data_file: FileAccess = FileAccess.open("user://gamedata.save", FileAccess.READ)
+	var data_file: FileAccess = FileAccess.open(save_file_name, FileAccess.READ)
 	var saved_data: Dictionary = parse_file(data_file)
 	
 	print(saved_data)
@@ -34,15 +34,15 @@ func load() -> void:
 			saved_node.add_to_group("OnRadar")
 			
 	
-func save() -> void:
+func save(save_file_name: String = "user://gamedata.save") -> void:
 	var savables: Array[Node] = get_tree().get_nodes_in_group("Savable")
 	
 	# get previouse savedata
-	var data_file: FileAccess = FileAccess.open("user://gamedata.save", FileAccess.READ)
+	var data_file: FileAccess = FileAccess.open(save_file_name, FileAccess.READ)
 	var save_data: Dictionary = parse_file(data_file)
 	data_file.close()
 	
-	var save_file: FileAccess = FileAccess.open("user://gamedata.save", FileAccess.WRITE)
+	var save_file: FileAccess = FileAccess.open(save_file_name, FileAccess.WRITE)
 	
 	for savable in savables:
 		if not savable.has_method("saveout"):
@@ -69,8 +69,8 @@ func save() -> void:
 	print(json_string)
 	save_file.store_string(json_string)
 	
-func delete() -> void:
-	FileAccess.open("user://gamedata.save", FileAccess.WRITE).close()
+func delete(save_file_name: String = "user://gamedata.save") -> void:
+	FileAccess.open(save_file_name, FileAccess.WRITE).close()
 	
 	
 func parse_file(file: FileAccess) -> Dictionary:
