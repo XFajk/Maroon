@@ -22,11 +22,26 @@ extends StaticBody3D
 @export var EventTrigger4: Area3D = null
 @export var EventTrigger5: Area3D = null
 
+var track_player: bool = false
+
+func _physics_process(delta: float) -> void:
+	if track_player:
+		var local_player_pos = to_local(Player.global_position)
+		
+		EventTrigger5.position.z = local_player_pos.z
+		MonsterStartSpot3.position.z = local_player_pos.z
+		
+		Monster.global_position = MonsterStartSpot3.global_position
+		Monster.global_rotation = MonsterStartSpot3.global_rotation
+	
+
 func _on_event_trigger_1_body_entered(body: Node3D) -> void:
 
 	if not body.is_in_group("Player"):
 		return
 		
+	track_player = true
+	
 	Monster.global_position = MonsterStartSpot3.global_position
 	Monster.global_rotation = MonsterStartSpot3.global_rotation
 
@@ -36,6 +51,7 @@ func _on_event_trigger_1_body_exited(body: Node3D) -> void:
 		return
 		
 	tween_finish()
+	track_player = false
 	EventTrigger1.queue_free()
 
 
@@ -102,6 +118,7 @@ func _on_event_trigger_5_area_entered(area: Area3D) -> void:
 		return
 	
 	EventTrigger5.queue_free()
+	track_player = false
 	tween_finish()
 	
 

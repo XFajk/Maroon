@@ -17,7 +17,7 @@
 size = Vector3(37.8, 7.7, 27.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1drn7"]
-size = Vector3(5.85339, 5.1, 8.35527)
+size = Vector3(8.2, 5.1, 8.355)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iu83a"]
 size = Vector3(5.8, 5.1, 0.3)
@@ -29,7 +29,7 @@ size = Vector3(2.3, 4.5, 2.1)
 size = Vector3(4.9, 5.2, 5.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4pn8"]
-size = Vector3(0.34, 2.889, 1)
+size = Vector3(0.34, 4.279, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otfk5"]
 
@@ -608,7 +608,7 @@ shape = SubResource("BoxShape3D_gqqg3")
 [node name="Gameplay" type="Node3D" parent="."]
 
 [node name="EventTrigger1" type="Area3D" parent="Gameplay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7194, 2.66765, 6.45765)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8242, 2.66765, 6.45765)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTrigger1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588195, 0.107452)
@@ -633,7 +633,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8806, 2.66765, 8.05765)
 shape = SubResource("BoxShape3D_dcbmx")
 
 [node name="EventTrigger5" type="Area3D" parent="Gameplay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.10454, 2.83555, 5.84563)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.10454, 2.06976, 9.60508)
 collision_layer = 2
 collision_mask = 2
 
@@ -663,7 +663,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54253, 1.6, -11.9528)
 transform = Transform3D(0.689253, 0, 0.724521, 0, 1, 0, -0.724521, 0, 0.689253, -2.97555, 1.6, 1.84777)
 
 [node name="MonsterStartSpot3" type="Node3D" parent="Gameplay"]
-transform = Transform3D(-0.0313584, 0, 0.999508, 0, 1, 0, -0.999508, 0, -0.0313584, 6.59576, 1.47681, 6.0928)
+transform = Transform3D(-0.0313584, 0, 0.999508, 0, 1, 0, -0.999508, 0, -0.0313584, 6.59576, 1.47681, 9.85225)
 
 [node name="JarryCan" parent="Gameplay" instance=ExtResource("3_sin5p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8288, 0.233052, 8.52746)

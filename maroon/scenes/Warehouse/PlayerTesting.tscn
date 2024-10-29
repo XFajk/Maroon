@@ -49,7 +49,7 @@ RadarSystem = NodePath("../RadarSystem")
 environment = ExtResource("6_vrj6l")
 
 [node name="Warehouse" parent="." node_paths=PackedStringArray("Player", "Monster") instance=ExtResource("2_uj32t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2916, 1.33567, 0)
+transform = Transform3D(0.594261, 0, 0.804272, 0, 1, 0, -0.804272, 0, 0.594261, 14.2196, 1.33567, 1.50925)
 Player = NodePath("../Player")
 Monster = NodePath("../Monster")
 
@@ -64,7 +64,8 @@ RadarSystem = NodePath("../../../RadarSystem")
 [node name="JarryCan3" parent="Warehouse/Gameplay" index="13" node_paths=PackedStringArray("RadarSystem")]
 RadarSystem = NodePath("../../../RadarSystem")
 
-[node name="RadarSystem" type="Node3D" parent="." groups=["Savable"]]
+[node name="RadarSystem" type="Node3D" parent="."]
+transform = Transform3D(0.594261, 0, 0.804272, 0, 1, 0, -0.804272, 0, 0.594261, 5.13235, 0, 13.8079)
 
 [node name="SdCard" parent="RadarSystem" node_paths=PackedStringArray("downloadeble_positions", "RadarSystem") instance=ExtResource("5_ptwun")]
 transform = Transform3D(0.999993, -0.00363028, 0, 0.00363028, 0.999993, 0, 0, 0, 1, 32.7227, 2.48357, 7.29034)
@@ -72,7 +73,7 @@ downloadeble_positions = [NodePath("../../Warehouse/Gameplay/JarryCan")]
 RadarSystem = NodePath("..")
 
 [node name="log_monitor" parent="." instance=ExtResource("6_xj3sp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.4627, 2.69303, 5.45144)
+transform = Transform3D(0.804272, 0, -0.594262, 0, 1, 0, 0.594262, 0, 0.804272, 29.4024, 2.69303, -9.86567)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." groups=["OutsideObj"]]
 transform = Transform3D(1, 0, 0, 0, 0.241854, 0.970313, 0, -0.970313, 0.241854, 0, 33.2697, 0)
