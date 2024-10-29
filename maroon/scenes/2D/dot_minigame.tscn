@@ -1,0 +1,151 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb77v47iokomk"]
+
+[ext_resource type="Texture2D" uid="uid://3ekwtx6picii" path="res://assets/Misc/circle.svg" id="1_dlxsp"]
+[ext_resource type="Script" path="res://src/2d_scenes/dot_minigame.gd" id="1_hibkg"]
+[ext_resource type="Script" path="res://src/2d_scenes/Dot.gd" id="3_q2n3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ns4aj"]
+
+[node name="DotMinigame" type="Node2D"]
+script = ExtResource("1_hibkg")
+
+[node name="Dot" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(50, 33)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot2" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(425, 233)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot2"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot2/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot3" type="Sprite2D" parent="."]
+modulate = Color(0.861035, 0.000633016, 0.868951, 1)
+position = Vector2(50, 83)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot3"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot3/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot4" type="Sprite2D" parent="."]
+modulate = Color(0.861035, 0.000633016, 0.868951, 1)
+position = Vector2(425, 183)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot4"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot4/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot5" type="Sprite2D" parent="."]
+modulate = Color(3.08037e-06, 0.583288, 0.782315, 1)
+position = Vector2(50, 133)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot5"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot5/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot6" type="Sprite2D" parent="."]
+modulate = Color(3.08037e-06, 0.583288, 0.782315, 1)
+position = Vector2(425, 83)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot6"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot6/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot7" type="Sprite2D" parent="."]
+modulate = Color(0.329585, 0.487854, 0.228243, 1)
+position = Vector2(50, 233)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot7"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot7/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot8" type="Sprite2D" parent="."]
+modulate = Color(0.329585, 0.487854, 0.228243, 1)
+position = Vector2(425, 33)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot8"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot8/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot9" type="Sprite2D" parent="."]
+modulate = Color(0.594718, 0.384874, 6.73831e-07, 1)
+position = Vector2(50, 183)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot9"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot9/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[node name="Dot10" type="Sprite2D" parent="."]
+modulate = Color(0.594718, 0.384874, 6.73831e-07, 1)
+position = Vector2(425, 133)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dlxsp")
+
+[node name="Area2D" type="Area2D" parent="Dot10"]
+scale = Vector2(3, 3)
+script = ExtResource("3_q2n3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dot10/Area2D"]
+shape = SubResource("CircleShape2D_ns4aj")
+
+[connection signal="input_event" from="Dot/Area2D" to="Dot/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot2/Area2D" to="Dot2/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot3/Area2D" to="Dot3/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot4/Area2D" to="Dot4/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot5/Area2D" to="Dot5/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot6/Area2D" to="Dot6/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot7/Area2D" to="Dot7/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot8/Area2D" to="Dot8/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot9/Area2D" to="Dot9/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Dot10/Area2D" to="Dot10/Area2D" method="_on_Area2D_input_event"]
