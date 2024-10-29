@@ -44,6 +44,7 @@ Interactable="an object in this group needs to be intereactable"
 Savable="All nodes that have some state that needs to be saved"
 InsideObj="for Object that are inside"
 OutsideObj="for objects that are outside"
+OnRadar="every object in this group should be shown on the player radar"
 
 [input]
 

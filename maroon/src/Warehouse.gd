@@ -59,7 +59,7 @@ func _on_event_triggee_2_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("Player"):
 		return
 		
-	FallingBox.apply_impulse(Vector3(1, 0, -1).normalized()*4)
+	FallingBox.apply_impulse((-transform.basis.z + transform.basis.x).normalized()*4)
 	EventTrigger2.queue_free()
 
 

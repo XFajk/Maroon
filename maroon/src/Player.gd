@@ -35,7 +35,6 @@ var interactible_object: Object = null
 @onready var Eyes: Camera3D = $Head/Eyes
 
 # radar system variables
-@export var RadarSystem: Node3D = null 
 @onready var RadarPoinsts: Node2D = $Head/Eyes/PlayerUI/Radar/Points
 
 # pause variables
@@ -104,14 +103,12 @@ func manage_interaction() -> void:
 			interactible_object = null
 			
 func manage_radar() -> void:
-	if RadarSystem == null: 
-		return
 		
 	RadarPoinsts.topdown_player_position = Vector2(global_position.x, global_position.z)
 	RadarPoinsts.topdown_player_angle = global_rotation.y
 	
 	# append points to the radar
-	for child in RadarSystem.get_children():
+	for child in get_tree().get_nodes_in_group("OnRadar"):
 		RadarPoinsts.points.append(Vector2(child.global_position.x, child.global_position.z))
 	
 
