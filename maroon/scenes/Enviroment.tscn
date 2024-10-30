@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://4nwnlfj6nevh"]
+[gd_scene load_steps=89 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]
@@ -40,6 +40,7 @@
 [ext_resource type="ArrayMesh" uid="uid://fgotcero64dp" path="res://assets/Enviroment/Scattered/Tubes/LOD1/tube5_lod1.tres" id="34_dbe0s"]
 [ext_resource type="Shape3D" uid="uid://c44n8sfuunu5w" path="res://assets/Enviroment/Scattered/Tubes/collisions/tube4_coll.tres" id="36_ckgdf"]
 [ext_resource type="Shape3D" uid="uid://cnmvsgcuboun5" path="res://assets/Enviroment/Scattered/Tubes/collisions/tube5_coll.tres" id="39_4h1lu"]
+[ext_resource type="Script" path="res://src/enviroment/NavigationMeshGeneration.gd" id="41_2vmo6"]
 [ext_resource type="Image" uid="uid://bpn38k27nx6a5" path="res://assets/Enviroment/Scattered/Areas/tree_area_pernament.png" id="41_w1rk7"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hktal"]
@@ -198,6 +199,11 @@ mesh = ExtResource("33_bj685")
 transform_format = 1
 mesh = ExtResource("34_dbe0s")
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_geffq"]
+geometry_parsed_geometry_type = 1
+agent_radius = 2.82
+filter_baking_aabb = AABB(70, 0, -150, 150, 30, 275)
+
 [sub_resource type="MultiMesh" id="MultiMesh_cmq32"]
 transform_format = 1
 mesh = ExtResource("10_oix7m")
@@ -241,7 +247,7 @@ mesh = ExtResource("19_gh8dd")
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.167, 23.0438, 77.0071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.0747, 23.0438, -96.3412)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -444,7 +450,17 @@ multimesh = SubResource("MultiMesh_t8mn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Scattering/Tubes/Tube5/Collider"]
 shape = ExtResource("39_4h1lu")
 
-[node name="TreesPermanent" type="Node3D" parent="Scattering" node_paths=PackedStringArray("ground", "player", "objects") groups=["Savable"]]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_geffq")
+script = ExtResource("41_2vmo6")
+
+[node name="Ground" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground"]
+shape = SubResource("ConcavePolygonShape3D_hktal")
+
+[node name="TreesPermanent" type="Node3D" parent="NavigationRegion3D" node_paths=PackedStringArray("ground", "player", "objects") groups=["Savable"]]
+process_priority = 1
 script = ExtResource("7_bb35f")
 ground = NodePath("../../Ground")
 player = NodePath("../../Player")
@@ -456,86 +472,87 @@ close_correction_range = 2.0
 lod_0_end = 200
 lod_1_end = 400
 lod_2_end = 400
+collision_generation_range = 0
 placement_map = ExtResource("41_w1rk7")
 
-[node name="Tree1" type="Node3D" parent="Scattering/TreesPermanent"]
+[node name="Tree1" type="Node3D" parent="NavigationRegion3D/TreesPermanent"]
 
-[node name="Tree1LOD0" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree1"]
+[node name="Tree1LOD0" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree1"]
 multimesh = SubResource("MultiMesh_cmq32")
 
-[node name="Tree1LOD1" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree1"]
+[node name="Tree1LOD1" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree1"]
 multimesh = SubResource("MultiMesh_hx2h1")
 
-[node name="Tree1LOD2" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree1"]
+[node name="Tree1LOD2" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree1"]
 multimesh = SubResource("MultiMesh_t8mn2")
 
-[node name="Collider" type="StaticBody3D" parent="Scattering/TreesPermanent/Tree1"]
+[node name="Collider" type="StaticBody3D" parent="NavigationRegion3D/TreesPermanent/Tree1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scattering/TreesPermanent/Tree1/Collider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TreesPermanent/Tree1/Collider"]
 shape = ExtResource("12_owcfo")
 
-[node name="Tree2" type="Node3D" parent="Scattering/TreesPermanent"]
+[node name="Tree2" type="Node3D" parent="NavigationRegion3D/TreesPermanent"]
 
-[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree2"]
+[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree2"]
 multimesh = SubResource("MultiMesh_w3hc4")
 
-[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree2"]
+[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree2"]
 multimesh = SubResource("MultiMesh_hjb43")
 
-[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree2"]
+[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree2"]
 multimesh = SubResource("MultiMesh_u512w")
 
-[node name="Collider" type="StaticBody3D" parent="Scattering/TreesPermanent/Tree2"]
+[node name="Collider" type="StaticBody3D" parent="NavigationRegion3D/TreesPermanent/Tree2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scattering/TreesPermanent/Tree2/Collider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TreesPermanent/Tree2/Collider"]
 shape = ExtResource("15_max6l")
 
-[node name="Tree3" type="Node3D" parent="Scattering/TreesPermanent"]
+[node name="Tree3" type="Node3D" parent="NavigationRegion3D/TreesPermanent"]
 
-[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree3"]
+[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree3"]
 multimesh = SubResource("MultiMesh_qxl8p")
 
-[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree3"]
+[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree3"]
 multimesh = SubResource("MultiMesh_2jqdo")
 
-[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree3"]
+[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree3"]
 multimesh = SubResource("MultiMesh_k1hn8")
 
-[node name="Collider" type="StaticBody3D" parent="Scattering/TreesPermanent/Tree3"]
+[node name="Collider" type="StaticBody3D" parent="NavigationRegion3D/TreesPermanent/Tree3"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scattering/TreesPermanent/Tree3/Collider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TreesPermanent/Tree3/Collider"]
 shape = ExtResource("18_sqb0u")
 
-[node name="Tree4" type="Node3D" parent="Scattering/TreesPermanent"]
+[node name="Tree4" type="Node3D" parent="NavigationRegion3D/TreesPermanent"]
 
-[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree4"]
+[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree4"]
 multimesh = SubResource("MultiMesh_57wyc")
 
-[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree4"]
+[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree4"]
 multimesh = SubResource("MultiMesh_gsdjn")
 
-[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree4"]
+[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree4"]
 multimesh = SubResource("MultiMesh_8chyj")
 
-[node name="Collider" type="StaticBody3D" parent="Scattering/TreesPermanent/Tree4"]
+[node name="Collider" type="StaticBody3D" parent="NavigationRegion3D/TreesPermanent/Tree4"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scattering/TreesPermanent/Tree4/Collider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TreesPermanent/Tree4/Collider"]
 shape = ExtResource("21_syssg")
 
-[node name="Tree5" type="Node3D" parent="Scattering/TreesPermanent"]
+[node name="Tree5" type="Node3D" parent="NavigationRegion3D/TreesPermanent"]
 
-[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree5"]
+[node name="Tree2LOD0" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree5"]
 multimesh = SubResource("MultiMesh_7bwjg")
 
-[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree5"]
+[node name="Tree2LOD1" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree5"]
 multimesh = SubResource("MultiMesh_1tt2f")
 
-[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="Scattering/TreesPermanent/Tree5"]
+[node name="Tree2LOD2" type="MultiMeshInstance3D" parent="NavigationRegion3D/TreesPermanent/Tree5"]
 multimesh = SubResource("MultiMesh_nqj0d")
 
-[node name="Collider" type="StaticBody3D" parent="Scattering/TreesPermanent/Tree5"]
+[node name="Collider" type="StaticBody3D" parent="NavigationRegion3D/TreesPermanent/Tree5"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scattering/TreesPermanent/Tree5/Collider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TreesPermanent/Tree5/Collider"]
 shape = ExtResource("24_topo3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

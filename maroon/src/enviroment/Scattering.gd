@@ -44,6 +44,7 @@ var data_loaded = false
 var all_collisions = false
 
 func _ready() -> void:
+	print(self)
 	# Squaring all directional ranges because later distance_squared_to() is used for performance
 	close_correction_range = close_correction_range * close_correction_range
 	lod_0_end = lod_0_end * lod_0_end

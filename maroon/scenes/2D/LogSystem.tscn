@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ivangfjirdyr"]
 
-[ext_resource type="Theme" uid="uid://0r3v8866d32d" path="res://LogSystemUiTheme.tres" id="1_l8yyt"]
+[ext_resource type="Theme" uid="uid://bi2ttgy84sji1" path="res://LogSystemUiTheme.tres" id="1_l8yyt"]
 [ext_resource type="Script" path="res://src/2d_scenes/LogSystem.gd" id="1_ufjdd"]
 [ext_resource type="AudioStream" uid="uid://bq4dt4cuv8cpp" path="res://assets/Sounds/select.wav" id="4_elx4t"]
 [ext_resource type="Script" path="res://src/2d_scenes/LogSystemTemplateButton.gd" id="5_6gstm"]
