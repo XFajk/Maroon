@@ -53,6 +53,7 @@ func _on_event_trigger_1_body_exited(body: Node3D) -> void:
 	tween_finish()
 	track_player = false
 	EventTrigger1.queue_free()
+	EventTrigger5.queue_free()
 
 
 func _on_event_triggee_2_body_entered(body: Node3D) -> void:
