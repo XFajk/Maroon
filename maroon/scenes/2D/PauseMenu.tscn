@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://t66mrmfhd273"]
 
-[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="1_kwpcb"]
 [ext_resource type="Script" path="res://src/2d_scenes/PauseMenu.gd" id="1_of43u"]
+[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="2_2ysqf"]
 
 [node name="PauseMenu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,17 +30,17 @@ anchor_top = 0.0925926
 anchor_right = 0.602083
 anchor_bottom = 0.207407
 grow_horizontal = 2
-theme = ExtResource("1_kwpcb")
+theme = ExtResource("2_2ysqf")
 text = "Paused"
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.377083
-anchor_top = 0.292593
-anchor_right = 0.625
-anchor_bottom = 0.777778
+anchor_left = 0.330208
+anchor_top = 0.255111
+anchor_right = 0.669792
+anchor_bottom = 0.906963
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -49,23 +50,29 @@ layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_kwpcb")
+theme = ExtResource("2_2ysqf")
 text = "Resume"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_kwpcb")
+theme = ExtResource("2_2ysqf")
 disabled = true
 button_mask = 0
 text = "Options
 "
 
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2ysqf")
+text = "Save Game"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_kwpcb")
+theme = ExtResource("2_2ysqf")
 text = "Quit
 "
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

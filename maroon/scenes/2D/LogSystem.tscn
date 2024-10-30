@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=3 uid="uid://ivangfjirdyr"]
+
+[ext_resource type="Theme" uid="uid://0r3v8866d32d" path="res://LogSystemUiTheme.tres" id="1_l8yyt"]
+[ext_resource type="Script" path="res://src/2d_scenes/LogSystem.gd" id="1_ufjdd"]
+[ext_resource type="Script" path="res://src/2d_scenes/LogSystemTemplateButton.gd" id="5_6gstm"]
+
+[node name="LogSystem" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ufjdd")
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0930766, 0.025166, 0, 1)
+
+[node name="Text" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LogContent" type="RichTextLabel" parent="Text"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = 38.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_l8yyt")
+bbcode_enabled = true
+text = "ERROR NO TEXT FOUND"
+
+[node name="DevisionLine" type="ColorRect" parent="Text"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 32.0
+offset_right = -9.0
+offset_bottom = 35.0
+grow_horizontal = 2
+color = Color(0.937255, 0.580392, 0.2, 1)
+
+[node name="Title" type="Control" parent="Text"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+
+[node name="Name" type="Label" parent="Text/Title"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_right = 225.0
+offset_bottom = 13.5
+grow_vertical = 2
+theme = ExtResource("1_l8yyt")
+text = "<TITLE>"
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="Date" type="Label" parent="Text/Title"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -106.97
+offset_top = -12.5
+offset_right = -5.97
+offset_bottom = 10.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_l8yyt")
+text = "<DATE>"
+
+[node name="Buttons" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0333333
+anchor_right = 0.2625
+anchor_bottom = 0.966667
+offset_left = 4.24
+offset_right = 4.24
+grow_vertical = 2
+theme = ExtResource("1_l8yyt")
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonsVerticalContainer" type="VBoxContainer" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="TemplateButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+size_flags_horizontal = 0
+theme = ExtResource("1_l8yyt")
+script = ExtResource("5_6gstm")

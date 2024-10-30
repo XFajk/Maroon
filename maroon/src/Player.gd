@@ -52,7 +52,7 @@ func _ready() -> void:
 		obj.hide()
 	for obj in get_tree().get_nodes_in_group("OutsideObj"):
 		obj.show()
-	Saving.delete()
+	#Saving.delete()
 	Saving.load()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	PauseMenu.hide()
@@ -276,6 +276,7 @@ func saveout() -> Dictionary:
 	
 	
 func loadin(save_data: Dictionary) -> void:
+	# setting the player position and rotation
 	global_position = str_to_var("Vector3" + save_data.get("position"))
 	global_rotation = str_to_var("Vector3" + save_data.get("rotation"))
 	
