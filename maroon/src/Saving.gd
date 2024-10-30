@@ -1,6 +1,9 @@
 extends Node
 
+var default_file = "user://gamedata.save"
+
 func load(save_file_name: String = "user://gamedata.save") -> void:
+	print("loading")
 	if not FileAccess.file_exists(save_file_name):
 		print("Error save file dosent exist")
 		return # Error! We don't have a save to load.
@@ -8,7 +11,7 @@ func load(save_file_name: String = "user://gamedata.save") -> void:
 	var data_file: FileAccess = FileAccess.open(save_file_name, FileAccess.READ)
 	var saved_data: Dictionary = parse_file(data_file)
 	
-	print(saved_data)
+	#print(saved_data)
 	
 	for saved_node_path in saved_data.keys():
 		var saved_node = get_node(saved_node_path)
@@ -35,12 +38,12 @@ func load(save_file_name: String = "user://gamedata.save") -> void:
 			
 	
 func save(save_file_name: String = "user://gamedata.save") -> void:
+	print("saving")
 	var savables: Array[Node] = get_tree().get_nodes_in_group("Savable")
 	
 	# get previouse savedata
 	var data_file: FileAccess = FileAccess.open(save_file_name, FileAccess.READ)
 	var save_data: Dictionary = parse_file(data_file)
-	data_file.close()
 	
 	var save_file: FileAccess = FileAccess.open(save_file_name, FileAccess.WRITE)
 	
@@ -66,7 +69,7 @@ func save(save_file_name: String = "user://gamedata.save") -> void:
 			save_data[str(node.get_path())] = {"on_radar": true}
 	
 	var json_string: String = JSON.stringify(save_data)
-	print(json_string)
+	#print(json_string)
 	save_file.store_string(json_string)
 	
 func delete(save_file_name: String = "user://gamedata.save") -> void:
@@ -74,6 +77,9 @@ func delete(save_file_name: String = "user://gamedata.save") -> void:
 	
 	
 func parse_file(file: FileAccess) -> Dictionary:
+	if file == null:
+		return{}
+	
 	var json = JSON.new()
 	var parse_result: Error = json.parse(file.get_as_text())
 	

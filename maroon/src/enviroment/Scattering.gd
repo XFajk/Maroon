@@ -13,6 +13,7 @@ extends  Node3D
 @export var scale_min: float = 0.8
 @export var scale_max: float = 1.3
 @export var random_offset_max: float = 6
+@export var z_offset: float = -0.15
 @export var close_correction_range: float = 1.5
 
 @export var lod_0_end: int = 50
@@ -31,11 +32,16 @@ extends  Node3D
 @export var scaling: float = 4.57 # 4.57 works best for this project
 
 var white_pixel_positions: Array
-var unpacked_groups: Array
+var unpacked_groups: Array # SAVED
 var used_positions: Array # contains every used pos as a list [group_name, index, Transform3D]
-var grouped_data: Dictionary
+var grouped_data: Dictionary # SAVED
 var group_names: Array
 var collision_shapes: Dictionary
+
+var generated = false
+var data_loaded = false
+
+var all_collisions = false
 
 func _ready() -> void:
 	# Squaring all directional ranges because later distance_squared_to() is used for performance
@@ -45,19 +51,26 @@ func _ready() -> void:
 	lod_2_end = lod_2_end * lod_2_end
 	collision_generation_range = collision_generation_range * collision_generation_range
 	
-	load_placement_map()
-	
-	ray_cast = RayCast3D.new()
-	add_child(ray_cast)
-	
 	unpacked_groups = unpack_groups(objects)
 	
-	obj_ammount = obj_ammount / group_names.size()
-	
-	for group in unpacked_groups:
-		spawn_objects(group)
-	
-	grouped_data = group_data(used_positions)
+	if not generated:
+		load_placement_map() # only once
+		
+		ray_cast = RayCast3D.new() # only once
+		add_child(ray_cast) # only once
+		
+		for group in objects:
+			group_names.append(group.get_name())
+		
+		unpacked_groups = unpack_groups(objects)
+		
+		for group in unpacked_groups: # only once
+			spawn_objects(group)
+		
+		grouped_data = group_data(used_positions) # only once
+		Saving.save()
+		
+		obj_ammount = obj_ammount / objects.size()
 	
 	for key in group_names: # set all the orginal collider StaticBodies out of range
 		collision_shapes[key].global_position = Vector3(0, -10000, 0)
@@ -66,7 +79,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for group in unpacked_groups:
 		calculate_lods(group, grouped_data[group[1]])
-
 
 func load_placement_map():
 	white_pixel_positions = []
@@ -117,7 +129,6 @@ func unpack_groups(objects: Array):
 			else:
 				print("ERROR: loading group " + group.get_name)
 		unpacked_groups.append([mesh_group, group.get_name()])
-		group_names.append(group.get_name())
 	return unpacked_groups
 
 
@@ -149,9 +160,11 @@ func spawn_objects(group: Array):
 		var position_horisontal = get_random_point() # random horisontal pos from the map
 		position_horisontal = Vector2(position_horisontal.x-image_size/2, position_horisontal.y-image_size/2)
 		position_horisontal = Vector2(position_horisontal.x * scaling, position_horisontal.y * scaling)
+		position_horisontal += Vector2(randf_range(-random_offset_max, random_offset_max), randf_range(-random_offset_max, random_offset_max))
 		
 		var checked = false
-		var placing_position = get_placement_point(position_horisontal) + Vector3(randf_range(-random_offset_max, random_offset_max), -0.2, randf_range(-random_offset_max, random_offset_max))
+		var placing_position = get_placement_point(position_horisontal)
+		placing_position += Vector3(0, z_offset, 0)
 		
 		for attempt in range(10):
 			checked = true  # Assume the position is valid until proven otherwise
@@ -204,14 +217,19 @@ func calculate_lods(group: Array, grouped_data: Array): # grouped data -> [[inde
 		print("Warning: LOD2 is missing a mesh")
 	if not mmi_lod_2.multimesh.mesh:
 		print("Warning: LOD3 is missing a mesh")
+	
 	for mmi: MultiMeshInstance3D in mesh_group:
 		if mmi.multimesh.TRANSFORM_3D != MultiMesh.TRANSFORM_3D:
 			print("WARNING: " + str(mmi.multimesh) + "has transform format set not to 3D")
 			mmi.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D) # tries to correct it but Godot is buggy
 	
+	for multi_mesh_instance in mesh_group:
+		multi_mesh_instance.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D)
+		multi_mesh_instance.multimesh.set_instance_count(obj_ammount)
+	
 	for i in range(mmi_lod_0.multimesh.get_instance_count()):
 		var saved_transform: Transform3D = grouped_data[i][1]
-		var unload_pos: Vector3 = Vector3(0, -10000, 0) # simple and effective way to make individual meshinstance not render
+		var unload_pos: Vector3 = Vector3(0, -10000, 0) # Simple and effective way to make individual meshinstance not render
 		var unload_transform: Transform3D = Transform3D(saved_transform.basis, unload_pos)
 		var saved_position: Vector3 = grouped_data[i][1].origin
 		
@@ -234,10 +252,75 @@ func calculate_lods(group: Array, grouped_data: Array): # grouped data -> [[inde
 			mmi_lod_1.multimesh.set_instance_transform(i, unload_transform)
 			mmi_lod_2.multimesh.set_instance_transform(i, unload_transform)
 		
-		if obj_distance_sqrd < collision_generation_range:
+		if obj_distance_sqrd < collision_generation_range and not all_collisions:
 			var collision_body: StaticBody3D = collision_shapes[group[1]].duplicate()
 			collision_body.transform = saved_transform
 			collision_body.set_script(coll_script)
 			collision_body.player = player
 			collision_body.range_squared = collision_generation_range
 			add_child(collision_body)
+		elif all_collisions:
+			var collision_body: StaticBody3D = collision_shapes[group[1]].duplicate()
+			collision_body.transform = saved_transform
+			collision_body.set_script(coll_script)
+			collision_body.player = player
+			collision_body.range_squared = collision_generation_range
+			add_child(collision_body)
+
+func saveout() -> Dictionary:
+	return {
+		"grouped_data" : grouped_data
+	}
+	
+	
+func loadin(save_data: Dictionary) -> void:
+	generated = true
+	grouped_data = save_data.get("grouped_data")
+	
+	group_names = []
+	for group in objects:
+		group_names.append(group.get_name())
+	
+	var new_grouped_data: Dictionary
+	
+	obj_ammount = obj_ammount / objects.size()
+	
+	for key in group_names:
+		var group_transforms = []
+		for i in range(obj_ammount):
+			var transform_string = grouped_data[key][i][1]
+			var new_transform = string_to_transform3d(transform_string)
+			group_transforms.append([i, new_transform])
+		new_grouped_data[key] = group_transforms
+	
+	grouped_data = new_grouped_data
+	data_loaded = true
+
+func string_to_transform3d(input_string: String) -> Transform3D:
+	# Use a regex pattern to match the vectors in the format: (x, y, z)
+	var regex = RegEx.new()
+	regex.compile(r"\(([^)]+)\)")
+	
+	# Find all matches in the input string
+	var matches = regex.search_all(input_string)
+	if matches.size() != 4:
+		print("Error: Expected exactly 4 vectors in the string.")
+		return Transform3D() # Return identity transform if parsing fails
+	
+	# Parse the vectors into Vector3
+	var vectors = []
+	for match in matches:
+		# Extract the matched string inside the parentheses
+		var vector_string = match.get_string(0).strip_edges()  # Strip whitespace
+		vector_string = vector_string.substr(1, vector_string.length() - 2) # Remove parentheses manually
+		
+		# Split by commas and convert to float
+		var vector_values = vector_string.split(",")
+		vectors.append(Vector3(
+			float(vector_values[0]),
+			float(vector_values[1]),
+			float(vector_values[2])
+		))
+	
+	# Create and return the Transform3D object
+	return Transform3D(vectors[0], vectors[1], vectors[2], vectors[3])
