@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://bbkgqkt615e7d"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_65k2c"]
+
+[resource]
+script = ExtResource("1_65k2c")
+title = "Anna"
+date = "17.4.1976"
+content_of_log = "hello my name is anna"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc2ca5kejlx7o"]
+[gd_scene load_steps=13 format=3 uid="uid://bc2ca5kejlx7o"]
 
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="1_mooo8"]
 [ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse/Warehouse.tscn" id="2_uj32t"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cv7vixmsbsgv" path="res://entities/Interactable/SdCard.tscn" id="5_ptwun"]
 [ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://InsideEnviroment.tres" id="6_vrj6l"]
 [ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="6_xj3sp"]
+[ext_resource type="Script" path="res://src/LogResource.gd" id="7_j7kug"]
+[ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/AnnaLogAlpha.tres" id="8_1d6dm"]
+[ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/IvanLogAlpha.tres" id="9_dqim2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
 size = Vector3(100, 0.3, 100)
@@ -41,7 +44,7 @@ mesh = SubResource("BoxMesh_fw0xp")
 skeleton = NodePath("../..")
 
 [node name="Player" parent="." instance=ExtResource("1_mooo8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8038, 3.78489, 37.0491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2411, 3.78489, -1.21042)
 running_speed = 300
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -64,6 +67,7 @@ downloadeble_positions = [NodePath("../Warehouse/Gameplay/JarryCan")]
 
 [node name="log_monitor" parent="." instance=ExtResource("6_xj3sp")]
 transform = Transform3D(0.804272, 0, -0.594262, 0, 1, 0, 0.594262, 0, 0.804272, 29.4024, 2.69303, -9.86567)
+logs = Array[ExtResource("7_j7kug")]([ExtResource("8_1d6dm"), ExtResource("9_dqim2")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." groups=["OutsideObj"]]
 transform = Transform3D(1, 0, 0, 0, 0.241854, 0.970313, 0, -0.970313, 0.241854, 0, 33.2697, 0)

@@ -3,6 +3,9 @@ extends StaticBody3D
 @export var log_mointor_transiton_speed = 1.0
 @export var outlines: Array[MeshInstance3D]
 
+@export var logs: Array[Log] = []
+
+var LogSystem: PackedScene = preload("res://scenes/2D/LogSystem.tscn")
 @onready var CameraPosition: Node3D = $CameraPosition
 
 func _ready() -> void:
@@ -22,6 +25,9 @@ func interact(player: CharacterBody3D) -> void:
 	
 	tween.tween_property(player_camera, "global_position", CameraPosition.global_position, log_mointor_transiton_speed)
 	tween.tween_property(player_camera, "global_rotation", CameraPosition.global_rotation, log_mointor_transiton_speed)
+	
+	tween.finished.connect(transition)
+
 
 func stop_showing_interaction() -> void:
 	
@@ -38,3 +44,9 @@ func show_interaction() -> void:
 		
 	for outline in outlines:
 		outline.visible = true
+		
+func transition() -> void:
+	var log_system_instance = LogSystem.instantiate()
+	log_system_instance.logs = logs
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().root.add_child(log_system_instance)

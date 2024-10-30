@@ -1,0 +1,62 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://0r3v8866d32d"]
+
+[ext_resource type="FontFile" uid="uid://df5o2tjdmcius" path="res://assets/Fonts/DS-TERM.TTF" id="1_pjl65"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppmau"]
+bg_color = Color(0.937255, 0.580392, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.937255, 0.580392, 0.2, 1)
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7vnu"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0941176, 0.0235294, 0, 1)
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2bx5"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.937255, 0.580392, 0.2, 1)
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4cxn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1clj"]
+bg_color = Color(0.937255, 0.580392, 0.2, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[resource]
+Button/colors/font_color = Color(0.937255, 0.580392, 0.2, 1)
+Button/colors/font_focus_color = Color(0.0941176, 0.0235294, 0, 1)
+Button/colors/font_hover_color = Color(0.990463, 0.737726, 0.511335, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_pjl65")
+Button/styles/focus = SubResource("StyleBoxFlat_ppmau")
+Button/styles/hover = SubResource("StyleBoxFlat_d7vnu")
+Button/styles/normal = SubResource("StyleBoxFlat_b2bx5")
+Button/styles/pressed = SubResource("StyleBoxFlat_y4cxn")
+Label/colors/font_color = Color(0.935907, 0.57948, 0.206117, 1)
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_pjl65")
+RichTextLabel/colors/default_color = Color(0.937255, 0.580392, 0.2, 1)
+RichTextLabel/font_sizes/normal_font_size = 18
+RichTextLabel/fonts/normal_font = ExtResource("1_pjl65")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_r1clj")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_r1clj")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_r1clj")
