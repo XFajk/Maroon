@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://5ar3xxtyurg8"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_24tlt"]
+
+[resource]
+script = ExtResource("1_24tlt")
+title = "Eva Ivanova"
+date = "18.9.1976"
+content_of_log = "I am so excited about our mission in this base it will be life changing for comarads in the Soviet Union of course only if we succeed but we are Russion so this will be no problem for us
+
+but the Captain is very lazy he is not the ideal Russian man but maybe trough out the course of this mission I will have a different outlook on him"

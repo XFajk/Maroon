@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://cr4ufudw5wbhm"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_boxuh"]
+
+[resource]
+script = ExtResource("1_boxuh")
+title = "Matej Petrovic Goc"
+date = "17.4.1976"
+content_of_log = ""

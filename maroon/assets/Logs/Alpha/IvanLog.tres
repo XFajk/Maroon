@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://i144mw65n4bk"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_f71ut"]
+
+[resource]
+script = ExtResource("1_f71ut")
+title = "Ivan Rudolfovic"
+date = "19.4.1976"
+content_of_log = "I dont know why I agreed to go to this mission this planet is literal hell there is no life no oxigen we have to rely on few plants an some soviet \"scientific\" mold that makes it in this poarly build base that is held by sticks and stones nothing wokrs here not even the doors I have to fix them constantly 
+
+The Captain is also super weird he never leaves is room I think he is not telling us something important"

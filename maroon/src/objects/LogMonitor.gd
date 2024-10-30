@@ -7,12 +7,15 @@ extends StaticBody3D
 
 var LogSystem: PackedScene = preload("res://scenes/2D/LogSystem.tscn")
 @onready var CameraPosition: Node3D = $CameraPosition
+@onready var TitleSound: AudioStreamPlayer3D = $TitleSound
+
 
 func _ready() -> void:
 	stop_showing_interaction()
 
 func interact(player: CharacterBody3D) -> void:
 	Saving.save()
+	TitleSound.play()
 	var tween: Tween = get_tree().create_tween()
 	tween.set_parallel()
 	

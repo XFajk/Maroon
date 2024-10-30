@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=28 format=4 uid="uid://dj241vy41r8u8"]
 
 [ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/Enviroment/Buildings/BaseAlpha/textures/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="2_g88ia"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dsvfqow30ymyu" path="res://entities/Buildings/Furniture/Chair_1.tscn" id="8_nnc7h"]
 [ext_resource type="PackedScene" uid="uid://dehwnnkg4wlq8" path="res://entities/Buildings/Furniture/Table1.tscn" id="9_yt1vd"]
 [ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="10_34tm8"]
+[ext_resource type="Script" path="res://src/LogResource.gd" id="10_po2x0"]
+[ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="11_fxawo"]
+[ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/Alpha/IvanLog.tres" id="12_lsv1r"]
+[ext_resource type="Resource" uid="uid://5ar3xxtyurg8" path="res://assets/Logs/Alpha/EvaLog.tres" id="13_r3kdr"]
+[ext_resource type="Resource" uid="uid://c15nccfq41nj5" path="res://assets/Logs/Alpha/FilipLog.tres" id="14_josum"]
+[ext_resource type="Resource" uid="uid://cr4ufudw5wbhm" path="res://assets/Logs/Alpha/MatejLog.tres" id="15_mr1nk"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rgnpo"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -232,6 +238,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.3
 
 [node name="LogMonitor" parent="." instance=ExtResource("10_34tm8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.3828, 1.29003, -2.21866)
+logs = Array[ExtResource("10_po2x0")]([ExtResource("11_fxawo"), ExtResource("12_lsv1r"), ExtResource("13_r3kdr"), ExtResource("14_josum"), ExtResource("15_mr1nk")])
 
 [connection signal="decompresing" from="Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="decompresing" from="Decompression" to="Cullable" method="_on_decompression_decompresing"]

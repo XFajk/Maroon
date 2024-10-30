@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://vbvbsmfjuejb"]
+[gd_scene load_steps=13 format=4 uid="uid://vbvbsmfjuejb"]
 
 [ext_resource type="Texture2D" uid="uid://y3f7ci5cfu2q" path="res://assets/Objects/log_monitor_log_display_color_baked.png" id="1_4yy5i"]
 [ext_resource type="Script" path="res://src/objects/LogMonitor.gd" id="1_cgas0"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_qlc53"]
+[ext_resource type="Texture2D" uid="uid://dpybjvbfota2" path="res://assets/Misc/screen_texture.png" id="3_1epdc"]
+[ext_resource type="AudioStream" uid="uid://dmxm862x7xrgu" path="res://assets/Sounds/matej_goc.wav" id="5_p1kre"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmv21"]
 resource_name = "Material.004"
@@ -72,10 +74,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_330ia")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoxnl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oro53"]
+albedo_texture = ExtResource("3_1epdc")
 emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 16.0
+emission_energy_multiplier = 3.85
+emission_texture = ExtResource("3_1epdc")
+uv1_scale = Vector3(-2.42, -2.42, -2.42)
+uv1_offset = Vector3(0.8, 0.32, 0)
+uv1_triplanar_sharpness = 2.63902
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gnvgl"]
 _surfaces = [{
@@ -102,7 +108,7 @@ outlines = [NodePath("LogMonitor/OutlineMesh")]
 transform = Transform3D(0.00656428, 0, 0, 0, 0.00656428, 0, 0, 0, 0.00656428, 0.277863, -0.183458, 0.119051)
 mesh = SubResource("ArrayMesh_tbchc")
 skeleton = NodePath("")
-surface_material_override/1 = SubResource("StandardMaterial3D_yoxnl")
+surface_material_override/1 = SubResource("StandardMaterial3D_oro53")
 
 [node name="OutlineMesh" type="MeshInstance3D" parent="LogMonitor"]
 mesh = SubResource("ArrayMesh_gnvgl")
@@ -114,3 +120,7 @@ shape = SubResource("BoxShape3D_2qv3x")
 
 [node name="CameraPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0488706, 0.0689765, 0.246528)
+
+[node name="TitleSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_p1kre")
+max_distance = 10.0
