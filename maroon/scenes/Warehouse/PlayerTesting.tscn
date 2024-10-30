@@ -7,8 +7,8 @@
 [ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://InsideEnviroment.tres" id="6_vrj6l"]
 [ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="6_xj3sp"]
 [ext_resource type="Script" path="res://src/LogResource.gd" id="7_j7kug"]
-[ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/AnnaLogAlpha.tres" id="8_1d6dm"]
-[ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/IvanLogAlpha.tres" id="9_dqim2"]
+[ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="8_1d6dm"]
+[ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/Alpha/IvanLog.tres" id="9_dqim2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6n38a"]
 size = Vector3(100, 0.3, 100)

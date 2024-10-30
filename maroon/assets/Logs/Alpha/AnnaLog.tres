@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://bbkgqkt615e7d"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_ee2lu"]
+
+[resource]
+script = ExtResource("1_ee2lu")
+title = "Anna Jozufovicova"
+date = "12.10.1976"
+content_of_log = "My mission on Base Alpha is to reorganize warehouse and find a smaple form 1975
+that contains the composition of the Atmospher on this cruel and lifeless planet I dont know why I was chosen for this mission I hate tidying stuff 
+
+thankfully they have a bed here for me so I will go out tomorrow the Captain of this Base is very lazy so I dont know how they managed to get another bed here I guees it was an efort from other people on this base"

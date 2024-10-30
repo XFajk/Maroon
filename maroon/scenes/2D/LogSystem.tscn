@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ivangfjirdyr"]
+[gd_scene load_steps=5 format=3 uid="uid://ivangfjirdyr"]
 
 [ext_resource type="Theme" uid="uid://0r3v8866d32d" path="res://LogSystemUiTheme.tres" id="1_l8yyt"]
 [ext_resource type="Script" path="res://src/2d_scenes/LogSystem.gd" id="1_ufjdd"]
+[ext_resource type="AudioStream" uid="uid://bq4dt4cuv8cpp" path="res://assets/Sounds/select.wav" id="4_elx4t"]
 [ext_resource type="Script" path="res://src/2d_scenes/LogSystemTemplateButton.gd" id="5_6gstm"]
 
 [node name="LogSystem" type="Control"]
@@ -45,7 +46,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("1_l8yyt")
 bbcode_enabled = true
-text = "ERROR NO TEXT FOUND"
+text = "ERROR NO TEXT FOUND PLEASE SELECT A LOG FROM THE LIST"
 
 [node name="DevisionLine" type="ColorRect" parent="Text"]
 layout_mode = 1
@@ -120,3 +121,6 @@ layout_mode = 0
 size_flags_horizontal = 0
 theme = ExtResource("1_l8yyt")
 script = ExtResource("5_6gstm")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="TemplateButton"]
+stream = ExtResource("4_elx4t")

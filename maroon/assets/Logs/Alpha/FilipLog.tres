@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://c15nccfq41nj5"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_lnj6t"]
+
+[resource]
+script = ExtResource("1_lnj6t")
+title = "Filip Stefanovic (Kapitan)"
+date = "16.4.1976"
+content_of_log = "I am happy to announce that log that integration to this old but good Soviet base was successful now the crew has to do some finishing touches while I do my work and make the plan we need to take to finsih our mission "
