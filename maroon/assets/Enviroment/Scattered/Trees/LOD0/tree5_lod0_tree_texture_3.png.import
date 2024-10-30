@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpeceilar5md6"
-path.s3tc="res://.godot/imported/tree2_lod1_tree_texture_1.png-496b35a3fa6560de12741b411cb3f8cf.s3tc.ctex"
+uid="uid://cumwcmm1v3cv5"
+path.s3tc="res://.godot/imported/tree5_lod0_tree_texture_3.png-c0a2f113cc1f67e2b24bac69b143582c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4907da54c169237215bb87c00ff378c4"
+}
 
 [deps]
 
-source_file="res://assets/Enviroment/Scattered/Trees/LOD1/tree2_lod1_tree_texture_1.png"
-dest_files=["res://.godot/imported/tree2_lod1_tree_texture_1.png-496b35a3fa6560de12741b411cb3f8cf.s3tc.ctex"]
+source_file="res://assets/Enviroment/Scattered/Trees/LOD0/tree5_lod0_tree_texture_3.png"
+dest_files=["res://.godot/imported/tree5_lod0_tree_texture_3.png-c0a2f113cc1f67e2b24bac69b143582c.s3tc.ctex"]
 
 [params]
 
