@@ -7,4 +7,3 @@ extends NavigationRegion3D
 func create_navigation_mesh() -> void:
 	if TreesPermanent.all_collisions: 
 		bake_navigation_mesh(true)
-	timer.queue_free()
