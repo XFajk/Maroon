@@ -114,10 +114,11 @@ func _on_event_trigger_4_body_entered(body: Node3D) -> void:
 	EventTrigger4.queue_free()
 	
 func _on_event_trigger_5_area_entered(area: Area3D) -> void:
-	if not area.is_in_group("Player"):
+	if not area.is_in_group("Player") and track_player:
 		return
 	
 	EventTrigger5.queue_free()
+	EventTrigger1.queue_free()
 	track_player = false
 	tween_finish()
 	
