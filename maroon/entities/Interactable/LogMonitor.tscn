@@ -123,4 +123,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0488706, 0.0689765, 0.2465
 
 [node name="TitleSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_p1kre")
+volume_db = -80.0
 max_distance = 10.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0344812, 0.0677955, 0.144107)
+light_color = Color(1, 0.715053, 0.539703, 1)
+light_energy = 0.1
+omni_range = 0.5
