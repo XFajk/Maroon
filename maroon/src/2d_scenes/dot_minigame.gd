@@ -10,8 +10,17 @@ var colors: Array = []
 
 var should_draw = false
 
+var attemts = 5
+
 func _ready():
 	print("READY")
+	
+func _process(delta):
+	if attemts == 0:
+		_retry()
+		
+	if dotsConnected == 5:
+		print("COMPLETED")
 
 func on_dot_clicked(dot):
 	if first_dot == null:
@@ -33,6 +42,7 @@ func check_for_connection():
 		else:
 			first_dot = null
 			second_dot = null
+			attemts -= 1
 
 func connect_dots(dot1, dot2):
 	print("BODKY SPOJENE")
@@ -46,8 +56,24 @@ func connect_dots(dot1, dot2):
 func _draw():
 	if should_draw:
 		for x in range(dotsConnected):
-			print("DRAW")
 			draw_line(positionsA[x], positionsB[x], colors[x], 2)
 		should_draw = false
 		first_dot = null
 		second_dot = null
+
+func _retry():
+	print("Retry")
+	attemts = 5
+	dotsConnected = 0
+	var children = get_children()
+	
+	positionsA = []
+	positionsB = []
+	colors = []
+	
+	for child in children:
+		child.get_child(0).connected = false
+		child.get_child(0).timer = 0.5
+	
+	should_draw = true
+	queue_redraw()
