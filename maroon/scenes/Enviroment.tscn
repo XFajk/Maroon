@@ -241,7 +241,7 @@ mesh = ExtResource("19_gh8dd")
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.167, 23.0438, 77.0071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.536, 9.03877, 77.0071)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
