@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pscgdq12w388"
-path.s3tc="res://.godot/imported/table_1_table_1_color_baked_lo.png-3c7eda3ae5dcc824802868bdc8435d45.s3tc.ctex"
+uid="uid://b53c62p2gcq1b"
+path.s3tc="res://.godot/imported/computer_computer_texture_color_baked.png-fad950b16becdff6b4871041cd2887fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "51ee0a0b009b7a36f43c5270ef8dcdb4"
+"md5": "eb1adc775bb0d76532df20fedf1599b4"
 }
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/table_1_table_1_color_baked_lo.png"
-dest_files=["res://.godot/imported/table_1_table_1_color_baked_lo.png-3c7eda3ae5dcc824802868bdc8435d45.s3tc.ctex"]
+source_file="res://assets/Objects/computer_computer_texture_color_baked.png"
+dest_files=["res://.godot/imported/computer_computer_texture_color_baked.png-fad950b16becdff6b4871041cd2887fc.s3tc.ctex"]
 
 [params]
 

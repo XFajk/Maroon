@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pscgdq12w388"
-path.s3tc="res://.godot/imported/table_1_table_1_color_baked_lo.png-3c7eda3ae5dcc824802868bdc8435d45.s3tc.ctex"
+uid="uid://j521t3m5wkdp"
+path.s3tc="res://.godot/imported/lockers_1opened_lockers_texture.png-ccf1bed6bb09e60cd45096a1398689c9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "51ee0a0b009b7a36f43c5270ef8dcdb4"
+"md5": "de4ff5f86af439f2677294b66d557529"
 }
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/table_1_table_1_color_baked_lo.png"
-dest_files=["res://.godot/imported/table_1_table_1_color_baked_lo.png-3c7eda3ae5dcc824802868bdc8435d45.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/lockers_1opened_lockers_texture.png"
+dest_files=["res://.godot/imported/lockers_1opened_lockers_texture.png-ccf1bed6bb09e60cd45096a1398689c9.s3tc.ctex"]
 
 [params]
 

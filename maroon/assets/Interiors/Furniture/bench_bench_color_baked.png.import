@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7uv1jfflpgph"
-path.s3tc="res://.godot/imported/halogen_semi_metal.png-9bbf072ac704807fd68d2e1c55c0cdab.s3tc.ctex"
+uid="uid://c5ffskycoeuiq"
+path.s3tc="res://.godot/imported/bench_bench_color_baked.png-f0b8fe45878678fbac69022c82da22b5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "0464c19eed23e1626edfd4220a3d9177"
+"md5": "4175a08addecfe2f3257e9b1c550ea7b"
 }
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/halogen_semi_metal.png"
-dest_files=["res://.godot/imported/halogen_semi_metal.png-9bbf072ac704807fd68d2e1c55c0cdab.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/bench_bench_color_baked.png"
+dest_files=["res://.godot/imported/bench_bench_color_baked.png-f0b8fe45878678fbac69022c82da22b5.s3tc.ctex"]
 
 [params]
 
