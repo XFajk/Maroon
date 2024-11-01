@@ -9,6 +9,7 @@ func _ready() -> void:
 	stop_showing_interaction()
 
 func interact(player: CharacterBody3D) -> void:
+	
 	for pos in downloadeble_positions:
 		if pos == null:
 			continue
@@ -16,7 +17,7 @@ func interact(player: CharacterBody3D) -> void:
 		pos.add_to_group("OnRadar")
 		
 	player.cansiters_picked_up += 1
-		
+	
 	deleted = true
 	Saving.save()
 	queue_free()

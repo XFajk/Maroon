@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=4 uid="uid://4nwnlfj6nevh"]
+[gd_scene load_steps=105 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]
@@ -54,6 +54,7 @@
 [ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="49_7p11j"]
 [ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/Alpha/IvanLog.tres" id="50_3s0px"]
 [ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="54_2cqvd"]
+[ext_resource type="PackedScene" uid="uid://qioh4h73bott" path="res://entities/Interactable/VoiceLineTrigger.tscn" id="55_w6okh"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_claj8"]
 transform_format = 1
@@ -260,6 +261,12 @@ mesh = ExtResource("19_gh8dd")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qg02k"]
 radius = 8.74764
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ojnr"]
+size = Vector3(160.481, 100, 256.757)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ru7rv"]
+size = Vector3(150.481, 100, 246.757)
 
 [node name="Enviroment" type="Node3D"]
 
@@ -584,10 +591,11 @@ Home = NodePath("../Home")
 transform = Transform3D(-0.414058, 0, -0.91025, 0, 1, 0, 0.910251, 0, -0.414058, 15.2609, -0.109267, 32.8854)
 
 [node name="SdCard" parent="BaseAlpha" index="8" node_paths=PackedStringArray("downloadeble_positions")]
-downloadeble_positions = [NodePath("../../RadarArea")]
+downloadeble_positions = [NodePath("../../ForestRadarTrigger")]
 
 [node name="SdCard2" parent="BaseAlpha" index="9" node_paths=PackedStringArray("downloadeble_positions")]
 downloadeble_positions = [NodePath("../../RadioTower/RadioPanel/SdCard")]
+voice_line_line = "Wow this card shows me where the radio tower is"
 
 [node name="PlaceHolderMonster" parent="." instance=ExtResource("45_pjwgb")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -64.6583, 0)
@@ -610,6 +618,7 @@ downloadeble_positions = [NodePath("../Gameplay/JarryCan")]
 [node name="log_monitor" parent="Warehouse" instance=ExtResource("47_22ntc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.2196, 1.51108, 5.16657)
 logs = Array[ExtResource("48_nxcy2")]([ExtResource("49_7p11j"), ExtResource("50_3s0px")])
+voice_line_line = "Hello"
 
 [node name="RadioTower" parent="." instance=ExtResource("46_4slr4")]
 transform = Transform3D(0.711082, 0, 0.703109, 0, 1, 0, -0.703109, 0, 0.711082, -162.139, 51.4708, -71.3655)
@@ -626,36 +635,53 @@ downloadeble_positions = [NodePath("../../../Warehouse/SdCard")]
 [node name="BaseBeta" parent="." instance=ExtResource("47_cx2n5")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 151, 2, 134)
 
-[node name="RadarArea" parent="." node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("54_2cqvd")]
+[node name="ForestRadarTrigger" parent="." node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.242, 2.34423, -92.0209)
-downloadeble_positions = [NodePath("../RadarArea2"), NodePath("../RadarArea3"), NodePath("../RadarArea4"), NodePath("../RadarArea5")]
+downloadeble_positions = [NodePath("../ForestRadarTrigger2"), NodePath("../ForestRadarTrigger3"), NodePath("../ForestRadarTrigger4"), NodePath("../ForestRadarTrigger5")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestRadarTrigger"]
 shape = SubResource("SphereShape3D_qg02k")
 
-[node name="RadarArea2" parent="." instance=ExtResource("54_2cqvd")]
+[node name="ForestRadarTrigger2" parent="." instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.314, 2.34423, -36.8393)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestRadarTrigger2"]
 shape = SubResource("SphereShape3D_qg02k")
 
-[node name="RadarArea3" parent="." instance=ExtResource("54_2cqvd")]
+[node name="ForestRadarTrigger3" parent="." instance=ExtResource("54_2cqvd")]
 transform = Transform3D(0.85148, 0, 0.524387, 0, 1, 0, -0.524387, 0, 0.85148, 207.419, 2.34423, 17.2245)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestRadarTrigger3"]
 shape = SubResource("SphereShape3D_qg02k")
 
-[node name="RadarArea4" parent="." instance=ExtResource("54_2cqvd")]
+[node name="ForestRadarTrigger4" parent="." instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.711, 2.34423, 62.8221)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestRadarTrigger4"]
 shape = SubResource("SphereShape3D_qg02k")
 
-[node name="RadarArea5" parent="." instance=ExtResource("54_2cqvd")]
+[node name="ForestRadarTrigger5" parent="." instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.488, 2.93985, 134.454)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestRadarTrigger5"]
 shape = SubResource("SphereShape3D_qg02k")
+
+[node name="ForestVoiceLineTrigger" parent="." instance=ExtResource("55_w6okh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.341, 0, 9.31831)
+voice_line_line = "I cant go into the forest I will get lost"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestVoiceLineTrigger"]
+transform = Transform3D(0.841541, -0.00539044, -0.540167, 0.00640531, 0.999979, 2.32831e-10, 0.540156, -0.00345994, 0.841558, 16.9245, 35.3259, -73.783)
+shape = SubResource("BoxShape3D_6ojnr")
+
+[node name="ForestBorder" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.341, 0, 9.31831)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestBorder"]
+transform = Transform3D(0.841541, -0.00539044, -0.540167, 0.00640531, 0.999979, 2.32831e-10, 0.540156, -0.00345994, 0.841558, 16.9245, 35.3259, -73.783)
+shape = SubResource("BoxShape3D_ru7rv")
 
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]

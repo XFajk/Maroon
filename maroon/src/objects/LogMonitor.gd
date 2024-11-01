@@ -9,13 +9,21 @@ var LogSystem: PackedScene = preload("res://scenes/2D/LogSystem.tscn")
 @onready var CameraPosition: Node3D = $CameraPosition
 @onready var TitleSound: AudioStreamPlayer3D = $TitleSound
 
+@export var voice_line: AudioStreamPlayer = null
+@export_multiline var voice_line_line: String = ""
+
 
 func _ready() -> void:
 	stop_showing_interaction()
 
 func interact(player: CharacterBody3D) -> void:
 	Saving.save()
+	
 	TitleSound.play()
+	
+	player.voice_line = voice_line
+	player.voice_line_line = voice_line_line
+	
 	var tween: Tween = get_tree().create_tween()
 	tween.set_parallel()
 	
