@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3gar4wh2k8s8"
-path.s3tc="res://.godot/imported/decomp_vent_decomp_vent.png-9f574aecab2b380454887b876c59852c.s3tc.ctex"
+path.s3tc="res://.godot/imported/decomp_vent_decomp_vent.png-a85745c3efeac5a35155748f4c7a5f5d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/Interiors/Decompression/textures/decomp_vent_decomp_vent.png"
-dest_files=["res://.godot/imported/decomp_vent_decomp_vent.png-9f574aecab2b380454887b876c59852c.s3tc.ctex"]
+source_file="res://assets/Interiors/Decompression/decomp_vent_decomp_vent.png"
+dest_files=["res://.godot/imported/decomp_vent_decomp_vent.png-a85745c3efeac5a35155748f4c7a5f5d.s3tc.ctex"]
 
 [params]
 

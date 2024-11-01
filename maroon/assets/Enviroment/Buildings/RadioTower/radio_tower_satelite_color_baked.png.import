@@ -2,23 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjrhwosbe36si"
-path="res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-b8fefbaf9f247bfaf0dae22e675fa89a.ctex"
+uid="uid://dv6ug5yab81s"
+path.s3tc="res://.godot/imported/radio_tower_satelite_color_baked.png-f516ff5e237ecbe5e0b31990bf13f618.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
-"md5": "7bc35851395ade86b2b2f145271b994b"
+"md5": "50e6cea59c758356d608c1f1b138f667"
 }
 
 [deps]
 
-source_file="res://assets/Interiors/Decompression/decomp_pannel_decomp_panel_baked_hi.png"
-dest_files=["res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-b8fefbaf9f247bfaf0dae22e675fa89a.ctex"]
+source_file="res://assets/Enviroment/Buildings/RadioTower/radio_tower_satelite_color_baked.png"
+dest_files=["res://.godot/imported/radio_tower_satelite_color_baked.png-f516ff5e237ecbe5e0b31990bf13f618.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
