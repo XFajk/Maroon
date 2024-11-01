@@ -11,7 +11,7 @@ var state: PlayerState = PlayerState.STANDING
 
 # movement variables
 @export var movment_speed = 200
-@export var running_speed = 250
+@export var running_speed = 400
 @export var acceleration = 15
 var direction = Vector3.ZERO
 
@@ -64,7 +64,6 @@ func _input(event: InputEvent) -> void:
 		Head.rotation.x = deg_to_rad(clamp(Head.rotation_degrees.x, -70, 70))
 		
 func _physics_process(delta: float) -> void:
-	
 	match state:
 		PlayerState.STANDING:
 			standing(delta)
@@ -180,7 +179,7 @@ func moving(delta: float) -> void:
 		if Input.is_action_pressed("sprint") and StaminaBar.value > 0:
 			StaminaBar.value -= stamina_depletion_speed*delta
 			goal_speed = running_speed*delta
-		else:
+		elif not Input.is_action_pressed("sprint"):
 			StaminaBar.value += stamina_recharge_speed*delta
 
 		velocity = velocity.move_toward(direction*goal_speed, acceleration*delta)
@@ -203,8 +202,8 @@ func reading_logs(delta: float) -> void:
 		tween.set_parallel()
 		tween.finished.connect(return_to_standing)
 		
-		tween.tween_property(Eyes, "global_position", Head.global_position, 0.5)
-		tween.tween_property(Eyes, "global_rotation", Head.global_rotation, 0.5)
+		tween.tween_property(Eyes, "position", Vector3.ZERO, 0.5)
+		tween.tween_property(Eyes, "rotation", Vector3.ZERO, 0.5)
 		PlayerUI.show()
 		
 	StaminaBar.value += stamina_recharge_speed*delta

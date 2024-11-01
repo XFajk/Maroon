@@ -41,7 +41,7 @@ var collision_shapes: Dictionary
 var generated = false
 var data_loaded = false
 
-var all_collisions = true
+var all_collisions = false
 var failed_objects = 0
 signal all_loaded
 
@@ -228,6 +228,7 @@ func calculate_lods(group: Array, grouped_data: Array): # grouped data -> [[inde
 			mmi.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D) # tries to correct it but Godot is buggy
 	
 	for multi_mesh_instance in mesh_group:
+		multi_mesh_instance.multimesh.set_instance_count(0)
 		multi_mesh_instance.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D)
 		multi_mesh_instance.multimesh.set_instance_count(obj_ammount)
 	

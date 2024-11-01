@@ -1,9 +1,10 @@
 extends NavigationRegion3D
 
 @onready var TreesPermanent: Node3D = $TreesPermanent
-@onready var Ground: StaticBody3D = $Ground
 
-		
-func create_navigation_mesh() -> void:
-	if TreesPermanent.all_collisions: 
-		bake_navigation_mesh(true)
+func _ready() -> void:
+	TreesPermanent.all_collisions = true
+
+func _on_trees_permanent_all_loaded() -> void:
+	bake_navigation_mesh(true)
+	TreesPermanent.all_collisions = false
