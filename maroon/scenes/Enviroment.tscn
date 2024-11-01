@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://4nwnlfj6nevh"]
+[gd_scene load_steps=94 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]
@@ -43,6 +43,10 @@
 [ext_resource type="Script" path="res://src/enviroment/NavigationMeshGeneration.gd" id="41_2vmo6"]
 [ext_resource type="Image" uid="uid://bpn38k27nx6a5" path="res://assets/Enviroment/Scattered/Areas/tree_area_pernament.png" id="41_w1rk7"]
 [ext_resource type="PackedScene" path="res://entities/Monster.tscn" id="43_8ai3a"]
+[ext_resource type="PackedScene" uid="uid://dj241vy41r8u8" path="res://scenes/BaseAlpha/BaseAlpha.tscn" id="44_qvkm8"]
+[ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse/Warehouse.tscn" id="45_ew67e"]
+[ext_resource type="PackedScene" uid="uid://dp0nf5vqk41sf" path="res://scenes/RadioTower/RadioTower.tscn" id="46_4slr4"]
+[ext_resource type="PackedScene" uid="uid://deae6cg2jkye3" path="res://scenes/BaseBeta/BaseBeta.tscn" id="47_cx2n5"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_claj8"]
 transform_format = 1
@@ -250,9 +254,9 @@ mesh = ExtResource("19_gh8dd")
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.0747, 23.0438, -96.3412)
+transform = Transform3D(-0.255395, 0, 0.966837, 0, 1, 0, -0.966837, 0, -0.255395, -67.6382, 3.14101, 105.094)
 
-[node name="Scattering" type="Node3D" parent="."]
+[node name="Scattering" type="Node3D" parent="." groups=["OutsideObj"]]
 
 [node name="Trees" type="Node3D" parent="Scattering" node_paths=PackedStringArray("ground", "player", "objects") groups=["Savable"]]
 script = ExtResource("7_bb35f")
@@ -566,4 +570,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.172, 3.2185, -104.275)
 Player = NodePath("../Player")
 Home = NodePath("../Home")
 
+[node name="BaseAlpha" parent="." instance=ExtResource("44_qvkm8")]
+transform = Transform3D(-0.414058, 0, -0.91025, 0, 1, 0, 0.910251, 0, -0.414058, 15.2609, -0.109267, 32.8854)
+
+[node name="Warehouse" parent="." node_paths=PackedStringArray("Player", "Monster") instance=ExtResource("45_ew67e")]
+transform = Transform3D(-0.803306, 0, 0.595566, 0, 1, 0, -0.595566, 0, -0.803306, -76.4712, 0.460763, 124.841)
+Player = NodePath("../Player")
+Monster = NodePath("../Monster")
+
+[node name="RadioTower" parent="." instance=ExtResource("46_4slr4")]
+transform = Transform3D(0.711082, 0, 0.703109, 0, 1, 0, -0.703109, 0, 0.711082, -162.139, 51.4708, -71.3655)
+
+[node name="BaseBeta" parent="." instance=ExtResource("47_cx2n5")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 151, 2, 134)
+
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
+[connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]
+
+[editable path="BaseAlpha"]
+[editable path="BaseAlpha/Decompression"]
+[editable path="BaseAlpha/Cullable/Lights/CapitanLight"]
+[editable path="Warehouse"]

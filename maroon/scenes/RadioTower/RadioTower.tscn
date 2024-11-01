@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp0nf5vqk41sf"]
+
+[ext_resource type="PackedScene" uid="uid://lbtp2tgmktkv" path="res://scenes/RadioTower/Radio.tscn" id="1_w4nbs"]
+
+[node name="RadioTower" type="Node3D"]
+
+[node name="Radio" parent="." instance=ExtResource("1_w4nbs")]
