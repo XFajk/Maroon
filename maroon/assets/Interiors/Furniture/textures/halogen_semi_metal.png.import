@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7uv1jfflpgph"
-path.s3tc="res://.godot/imported/halogen_semi_metal.png-9bbf072ac704807fd68d2e1c55c0cdab.s3tc.ctex"
+path.s3tc="res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/halogen_semi_metal.png"
-dest_files=["res://.godot/imported/halogen_semi_metal.png-9bbf072ac704807fd68d2e1c55c0cdab.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/textures/halogen_semi_metal.png"
+dest_files=["res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"]
 
 [params]
 
