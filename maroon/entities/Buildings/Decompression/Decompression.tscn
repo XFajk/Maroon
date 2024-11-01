@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx5iid1dm86vb"]
+[gd_scene load_steps=10 format=3 uid="uid://bx5iid1dm86vb"]
 
 [ext_resource type="Script" path="res://src/objects/decompression/Decompression.gd" id="1_fq67e"]
 [ext_resource type="PackedScene" uid="uid://de0g4m3hjcojg" path="res://entities/Buildings/Decompression/DecompPanel.tscn" id="1_llf4b"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Buildings/Doors.tscn" id="5_x10vh"]
 [ext_resource type="PackedScene" uid="uid://be868v3fbfw58" path="res://assets/Interiors/Decompression/decomp_vent.glb" id="7_xedbw"]
 [ext_resource type="PackedScene" uid="uid://br7ws6jj4qwx1" path="res://vfx/DecompresionSmoke.tscn" id="8_gthfr"]
+[ext_resource type="PackedScene" uid="uid://ddesspdqmg1yl" path="res://entities/Buildings/Decompression/MainDoorB.tscn" id="9_l4hka"]
 
 [node name="Decompression" type="Node3D"]
 script = ExtResource("1_fq67e")
@@ -45,6 +46,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.99824)
 
 [node name="DecompresionSmoke" parent="DecompWent" instance=ExtResource("8_gthfr")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.62521, -5.46576e-08)
+
+[node name="MainDoor2" parent="." instance=ExtResource("9_l4hka")]
+door_height = 2.3
 
 [connection signal="button_pressed" from="DecompPanel" to="." method="_on_button_pressed"]
 [connection signal="button_pressed" from="OutsideButton" to="." method="_on_button_pressed"]

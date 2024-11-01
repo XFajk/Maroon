@@ -172,6 +172,9 @@ is_locked = true
 [node name="DecompWent" parent="Decompression" index="8"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.33013e-08, 2.33999, 4.69394)
 
+[node name="MainDoor2" parent="Decompression" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2451.47, 0)
+
 [node name="Cullable" type="Node3D" parent="." groups=["InsideObj"]]
 
 [node name="Lights" type="Node3D" parent="Cullable"]

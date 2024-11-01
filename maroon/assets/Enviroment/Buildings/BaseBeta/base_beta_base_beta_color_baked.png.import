@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv4ow5paarf7r"
-path.s3tc="res://.godot/imported/enviroment_terrain_mask_rgb_layers.png-fc0c543efbbf0bcec2708d596f20a6b5.s3tc.ctex"
+uid="uid://bop2toe55xm71"
+path.s3tc="res://.godot/imported/base_beta_base_beta_color_baked.png-ea96c9004774061a5efb67ad418930f6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "fe4b99b220f3e96a053106289d35aac1"
+"md5": "234daf70f4be9d3823186d1355d88340"
 }
 
 [deps]
 
-source_file="res://assets/Enviroment/Ground/enviroment_terrain_mask_rgb_layers.png"
-dest_files=["res://.godot/imported/enviroment_terrain_mask_rgb_layers.png-fc0c543efbbf0bcec2708d596f20a6b5.s3tc.ctex"]
+source_file="res://assets/Enviroment/Buildings/BaseBeta/base_beta_base_beta_color_baked.png"
+dest_files=["res://.godot/imported/base_beta_base_beta_color_baked.png-ea96c9004774061a5efb67ad418930f6.s3tc.ctex"]
 
 [params]
 
