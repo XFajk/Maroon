@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://6nptorqhdoj0"]
+[gd_scene load_steps=13 format=4 uid="uid://6nptorqhdoj0"]
 
 [ext_resource type="Texture2D" uid="uid://djbwl5ekbpjda" path="res://assets/Enviroment/Buildings/RadioTower/radio_room_radio_room_color_baked.png" id="1_10r4a"]
 [ext_resource type="Texture2D" uid="uid://cr86pohx1005e" path="res://assets/Enviroment/Buildings/RadioTower/radio_room_wires.png" id="2_wpfo4"]
+[ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="3_ty4rk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihj7s"]
 resource_name = "radio_room_baked"
@@ -136,3 +137,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441144, 0.0198669, -0.0305176)
 shape = SubResource("BoxShape3D_rfiy7")
+
+[node name="LogMonitor" parent="." instance=ExtResource("3_ty4rk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.963774, 1.18023, 1.49761)

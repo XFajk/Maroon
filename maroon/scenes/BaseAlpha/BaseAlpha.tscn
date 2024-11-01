@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=34 format=4 uid="uid://dj241vy41r8u8"]
 
 [ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/Enviroment/Buildings/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b1000stgxfqoa" path="res://scenes/BaseAlpha/BaseAlpha.occ" id="3_m4vrc"]
@@ -6,21 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://bx5iid1dm86vb" path="res://entities/Buildings/Decompression/Decompression.tscn" id="4_wprk7"]
 [ext_resource type="PackedScene" uid="uid://bhxyebbl7k6p2" path="res://entities/Buildings/LightSources/OmniBarLight.tscn" id="5_8baq3"]
 [ext_resource type="PackedScene" uid="uid://dsvfqow30ymyu" path="res://entities/Buildings/Furniture/Chair_1.tscn" id="8_nnc7h"]
-[ext_resource type="PackedScene" uid="uid://oufd0d6lhfem" path="res://entities/Buildings/Furniture/OfficeDesk.tscn" id="9_u34ao"]
+[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/OfficeDesk.tscn" id="9_u34ao"]
 [ext_resource type="PackedScene" uid="uid://dehwnnkg4wlq8" path="res://entities/Buildings/Furniture/Table1.tscn" id="9_yt1vd"]
-[ext_resource type="PackedScene" uid="uid://cl888cyknoahk" path="res://entities/Buildings/Furniture/BunkBed.tscn" id="10_0xtr1"]
+[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/BunkBed.tscn" id="10_0xtr1"]
 [ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="10_34tm8"]
 [ext_resource type="Script" path="res://src/LogResource.gd" id="10_po2x0"]
 [ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="11_fxawo"]
-[ext_resource type="PackedScene" uid="uid://hnlbsdj1mjnn" path="res://entities/Buildings/Furniture/Bench.tscn" id="11_hlpup"]
+[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Bench.tscn" id="11_hlpup"]
 [ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/Alpha/IvanLog.tres" id="12_lsv1r"]
 [ext_resource type="Resource" uid="uid://5ar3xxtyurg8" path="res://assets/Logs/Alpha/EvaLog.tres" id="13_r3kdr"]
 [ext_resource type="Resource" uid="uid://c15nccfq41nj5" path="res://assets/Logs/Alpha/FilipLog.tres" id="14_josum"]
 [ext_resource type="Resource" uid="uid://cr4ufudw5wbhm" path="res://assets/Logs/Alpha/MatejLog.tres" id="15_mr1nk"]
-[ext_resource type="PackedScene" uid="uid://ckgwsi3mlhb65" path="res://entities/Interactable/Computer.tscn" id="17_pofa3"]
-[ext_resource type="PackedScene" uid="uid://ded47hgkqaers" path="res://entities/Buildings/Furniture/Table2.tscn" id="20_vw5bt"]
-[ext_resource type="PackedScene" uid="uid://dgvvglvhdauej" path="res://entities/Buildings/Furniture/Lockers.tscn" id="21_ck55l"]
-[ext_resource type="PackedScene" uid="uid://b0y5xma8yunr2" path="res://entities/Buildings/Furniture/Lockers1Opened.tscn" id="22_sn8hm"]
+[ext_resource type="PackedScene" uid="uid://boiiqh6bdeirf" path="res://entities/Interactable/Computer.tscn" id="17_pofa3"]
+[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Table2.tscn" id="20_vw5bt"]
+[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Lockers.tscn" id="21_ck55l"]
+[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Lockers1Opened.tscn" id="22_sn8hm"]
+[ext_resource type="PackedScene" uid="uid://cv7vixmsbsgv" path="res://entities/Interactable/SdCard.tscn" id="22_vwksr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t07op"]
 resource_name = "base"
@@ -240,7 +241,7 @@ transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, -15.2647
 transform = Transform3D(-0.0168494, 0.000559246, -1.23989, 0.0411341, 1.23932, -1.79803e-09, 1.2392, -0.0411303, -0.0168587, -8.69372, 0.46506, -4.15634)
 
 [node name="Bench2" parent="Cullable/Furniture" instance=ExtResource("11_hlpup")]
-transform = Transform3D(0.25244, -0.00837872, -1.214, 0.0411341, 1.23932, -1.86809e-09, 1.21334, -0.0402717, 0.252579, -8.69372, 0.46506, -1.50354)
+transform = Transform3D(0.25244, -0.00837872, -1.214, 0.0411341, 1.23932, -1.86809e-09, 1.21334, -0.0402717, 0.252579, -8.69701, 0.46506, -1.49553)
 
 [node name="Chairs" type="Node3D" parent="Cullable/Furniture"]
 
@@ -268,6 +269,7 @@ logs = Array[ExtResource("10_po2x0")]([ExtResource("11_fxawo"), ExtResource("12_
 
 [node name="computer" parent="." instance=ExtResource("17_pofa3")]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 8.21332, 0.800778, -3.33298)
+log_mointor_transiton_speed = 0.5
 
 [node name="Table2" parent="." instance=ExtResource("20_vw5bt")]
 transform = Transform3D(0.0564632, 0, -1.16363, 0, 1.165, 0, 1.16363, 0, 0.0564632, -8.86511, 0.00387911, -2.92034)
@@ -277,6 +279,12 @@ transform = Transform3D(0.999843, 0, -0.0177316, 0, 1, 0, 0.0177316, 0, 0.999843
 
 [node name="Lockers1Open" parent="." instance=ExtResource("22_sn8hm")]
 transform = Transform3D(-0.999776, 0, 0.0211868, 0, 1, 0, -0.0211868, 0, -0.999776, -12.8792, 0.0345299, -3.10874)
+
+[node name="SdCard" parent="." instance=ExtResource("22_vwksr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.317384, -3.49861)
+
+[node name="SdCard2" parent="." groups=["OnRadar"] instance=ExtResource("22_vwksr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 0.869092, -2.8497)
 
 [connection signal="decompresing" from="Decompression" to="Cullable" method="_on_decompression_decompresing"]
 

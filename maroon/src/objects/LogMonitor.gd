@@ -29,11 +29,11 @@ func interact(player: CharacterBody3D) -> void:
 	var goal_rotation: Vector3 = CameraPosition.global_rotation
 	
 	# GODOT BULSHIT
-	if player_camera.global_rotation_degrees.y >= 0 and CameraPosition.global_rotation_degrees.y < 0:
-		goal_rotation.y += PI*2
-	elif player_camera.global_rotation_degrees.y < 0 and CameraPosition.global_rotation_degrees.y >= 0:
-		goal_rotation.y -= PI*2
-		
+	if abs(player.global_rotation.y - goal_rotation.y) > 180:
+		if player_camera.global_rotation_degrees.y >= 0 and CameraPosition.global_rotation_degrees.y < 0:
+			goal_rotation.y += PI*2
+		elif player_camera.global_rotation_degrees.y < 0 and CameraPosition.global_rotation_degrees.y >= 0:
+			goal_rotation.y -= PI*2
 	
 	tween.tween_property(player_camera, "global_position", CameraPosition.global_position, log_mointor_transiton_speed)
 	tween.tween_property(player_camera, "global_rotation", goal_rotation, log_mointor_transiton_speed)

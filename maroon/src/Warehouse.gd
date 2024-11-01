@@ -31,6 +31,11 @@ func _physics_process(delta: float) -> void:
 		EventTrigger5.position.z = local_player_pos.z
 		MonsterStartSpot3.position.z = local_player_pos.z
 		
+		if Player.state == Player.PlayerState.MOVING:
+			Monster.get_node("AnimationManager").play("Walk")
+		else:
+			Monster.get_node("AnimationManager").pause()
+		
 		Monster.global_position = MonsterStartSpot3.global_position
 		Monster.global_rotation = MonsterStartSpot3.global_rotation
 	
@@ -75,6 +80,8 @@ func _on_event_trigger_3_body_entered(body: Node3D) -> void:
 	Monster.global_position = MonsterStartSpot2.global_position
 	Monster.global_rotation = MonsterStartSpot2.global_rotation
 	
+	Monster.get_node("AnimationManager").play("Idle")
+	
 	tween.tween_property(
 		Monster,
 		"global_position",
@@ -100,6 +107,8 @@ func _on_event_trigger_4_body_entered(body: Node3D) -> void:
 		
 	Monster.global_position = MonsterStartSpot1.global_position
 	Monster.global_rotation = MonsterStartSpot1.global_rotation
+	
+	Monster.get_node("AnimationManager").play("Idle")
 	
 	tween.tween_property(
 		Monster,

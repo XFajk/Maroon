@@ -42,12 +42,16 @@ var interactible_object: Object = null
 
 @onready var PlayerUI: Control = $Head/Eyes/PlayerUI
 
+# warehouse variables
+var cansiters_picked_up = 0
+
 # enviroment transition variables
 var InEnv = preload("res://InsideEnviroment.tres")
 var OutEnv = preload("res://OutsideEnviroment.tres")
 var inside: bool = false
 
 func _ready() -> void:
+	Eyes.environment = OutEnv
 	for obj in get_tree().get_nodes_in_group("InsideObj"):
 		obj.hide()
 	for obj in get_tree().get_nodes_in_group("OutsideObj"):
@@ -257,6 +261,8 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -
 	tween.tween_property(Env, "background_energy_multiplier", goal_env.background_energy_multiplier, transition_speed)
 	tween.tween_property(Env, "fog_light_color", goal_env.fog_light_color, transition_speed)
 	tween.tween_property(Env, "fog_density", goal_env.fog_density, transition_speed)
+	tween.tween_property(Env, "fog_light_energy", goal_env.fog_light_energy, transition_speed)
+	tween.tween_property(Env, "fog_sun_scatter", goal_env.fog_sun_scatter, transition_speed)
 	
 	# set the new planned to change enviroment to the cameras enviroment
 	Eyes.environment = Env
@@ -271,6 +277,7 @@ func saveout() -> Dictionary:
 		"rotation": global_rotation,
 		"state": state,
 		"inside": inside,
+		"cansiters_picked_up": cansiters_picked_up
 	}
 	
 	
@@ -294,4 +301,6 @@ func loadin(save_data: Dictionary) -> void:
 			obj.hide()
 		for obj in get_tree().get_nodes_in_group("OutsideObj"):
 			obj.show()
+			
+	cansiters_picked_up = int(save_data.get("cansiters_picked_up"))
 	

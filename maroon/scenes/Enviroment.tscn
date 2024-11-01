@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://4nwnlfj6nevh"]
+[gd_scene load_steps=102 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]
@@ -42,11 +42,18 @@
 [ext_resource type="Shape3D" uid="uid://cnmvsgcuboun5" path="res://assets/Enviroment/Scattered/Tubes/collisions/tube5_coll.tres" id="39_4h1lu"]
 [ext_resource type="Script" path="res://src/enviroment/NavigationMeshGeneration.gd" id="41_2vmo6"]
 [ext_resource type="Image" uid="uid://bpn38k27nx6a5" path="res://assets/Enviroment/Scattered/Areas/tree_area_pernament.png" id="41_w1rk7"]
-[ext_resource type="PackedScene" path="res://entities/Monster.tscn" id="43_8ai3a"]
+[ext_resource type="PackedScene" uid="uid://bfxw416vbl0nc" path="res://entities/Monster.tscn" id="43_8ai3a"]
 [ext_resource type="PackedScene" uid="uid://dj241vy41r8u8" path="res://scenes/BaseAlpha/BaseAlpha.tscn" id="44_qvkm8"]
 [ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse/Warehouse.tscn" id="45_ew67e"]
+[ext_resource type="PackedScene" uid="uid://dk3c3mk1dndvq" path="res://entities/PlaceHolderMonster.tscn" id="45_pjwgb"]
 [ext_resource type="PackedScene" uid="uid://dp0nf5vqk41sf" path="res://scenes/RadioTower/RadioTower.tscn" id="46_4slr4"]
+[ext_resource type="PackedScene" uid="uid://cv7vixmsbsgv" path="res://entities/Interactable/SdCard.tscn" id="46_xoegy"]
+[ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="47_22ntc"]
 [ext_resource type="PackedScene" uid="uid://deae6cg2jkye3" path="res://scenes/BaseBeta/BaseBeta.tscn" id="47_cx2n5"]
+[ext_resource type="Script" path="res://src/LogResource.gd" id="48_nxcy2"]
+[ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="49_7p11j"]
+[ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/Alpha/IvanLog.tres" id="50_3s0px"]
+[ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="54_2cqvd"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_claj8"]
 transform_format = 1
@@ -158,7 +165,7 @@ geometry_parsed_geometry_type = 1
 agent_height = 2.1
 agent_radius = 1.0
 agent_max_slope = 20.0
-filter_baking_aabb = AABB(90, 0, -138.96, 135.39, 10, 261.6)
+filter_baking_aabb = AABB(114.82, 0, -138.96, 105.9, 10, 261.6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tat6"]
 render_priority = 0
@@ -251,10 +258,13 @@ mesh = ExtResource("18_xs7ye")
 transform_format = 1
 mesh = ExtResource("19_gh8dd")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qg02k"]
+radius = 8.74764
+
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(-0.255395, 0, 0.966837, 0, 1, 0, -0.966837, 0, -0.255395, -67.6382, 3.14101, 105.094)
+transform = Transform3D(-0.624439, 0, -0.781074, 0, 1, 0, 0.781074, 0, -0.624439, 2.13862, 1.71479, 18.3075)
 
 [node name="Scattering" type="Node3D" parent="." groups=["OutsideObj"]]
 
@@ -556,7 +566,7 @@ multimesh = SubResource("MultiMesh_nqj0d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TreesPermanent/Tree5/Collider"]
 shape = ExtResource("24_topo3")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." groups=["OutsideObj"]]
 transform = Transform3D(1, 0, 0, 0, 0.0218847, 0.999761, 0, -0.999761, 0.0218847, 0, 246.225, 59.4289)
 light_color = Color(0.458405, 0.458405, 0.458405, 1)
 light_energy = 0.1
@@ -566,17 +576,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.619, 3.2185, -72.9156)
 gizmo_extents = 3.35
 
 [node name="Monster" parent="." node_paths=PackedStringArray("Player", "Home") instance=ExtResource("43_8ai3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.172, 3.2185, -104.275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.619, 3.2185, -72.9156)
 Player = NodePath("../Player")
 Home = NodePath("../Home")
 
 [node name="BaseAlpha" parent="." instance=ExtResource("44_qvkm8")]
 transform = Transform3D(-0.414058, 0, -0.91025, 0, 1, 0, 0.910251, 0, -0.414058, 15.2609, -0.109267, 32.8854)
 
+[node name="SdCard" parent="BaseAlpha" index="8" node_paths=PackedStringArray("downloadeble_positions")]
+downloadeble_positions = [NodePath("../../RadarArea")]
+
+[node name="SdCard2" parent="BaseAlpha" index="9" node_paths=PackedStringArray("downloadeble_positions")]
+downloadeble_positions = [NodePath("../../RadioTower/RadioPanel/SdCard")]
+
+[node name="PlaceHolderMonster" parent="." instance=ExtResource("45_pjwgb")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -64.6583, 0)
+
 [node name="Warehouse" parent="." node_paths=PackedStringArray("Player", "Monster") instance=ExtResource("45_ew67e")]
 transform = Transform3D(-0.803306, 0, 0.595566, 0, 1, 0, -0.595566, 0, -0.803306, -76.4712, 0.460763, 124.841)
 Player = NodePath("../Player")
-Monster = NodePath("../Monster")
+Monster = NodePath("../PlaceHolderMonster")
+
+[node name="JarryCan" parent="Warehouse/Gameplay" index="11" node_paths=PackedStringArray("downloadeble_positions")]
+downloadeble_positions = [NodePath("../JarryCan2")]
+
+[node name="JarryCan2" parent="Warehouse/Gameplay" index="12" node_paths=PackedStringArray("downloadeble_positions")]
+downloadeble_positions = [NodePath("../JarryCan3")]
+
+[node name="SdCard" parent="Warehouse" node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("46_xoegy")]
+transform = Transform3D(0.99988, -0.000425684, -0.0154796, 0.000369821, 0.999994, -0.0036114, 0.015481, 0.00360524, 0.999875, 17.2218, 1.1303, 7.51978)
+downloadeble_positions = [NodePath("../Gameplay/JarryCan")]
+
+[node name="log_monitor" parent="Warehouse" instance=ExtResource("47_22ntc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.2196, 1.51108, 5.16657)
+logs = Array[ExtResource("48_nxcy2")]([ExtResource("49_7p11j"), ExtResource("50_3s0px")])
 
 [node name="RadioTower" parent="." instance=ExtResource("46_4slr4")]
 transform = Transform3D(0.711082, 0, 0.703109, 0, 1, 0, -0.703109, 0, 0.711082, -162.139, 51.4708, -71.3655)
@@ -587,14 +620,51 @@ transform = Transform3D(-0.315831, 0, 0.948815, 0, 1, 0, -0.948815, 0, -0.315831
 [node name="RadioPanel" parent="RadioTower" index="2"]
 transform = Transform3D(-0.315831, 0, 0.948815, 0, 1, 0, -0.948815, 0, -0.315831, 28.2223, -0.186562, 6.20425)
 
+[node name="SdCard" parent="RadioTower/RadioPanel" index="10" node_paths=PackedStringArray("downloadeble_positions")]
+downloadeble_positions = [NodePath("../../../Warehouse/SdCard")]
+
 [node name="BaseBeta" parent="." instance=ExtResource("47_cx2n5")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 151, 2, 134)
 
+[node name="RadarArea" parent="." node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("54_2cqvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.242, 2.34423, -92.0209)
+downloadeble_positions = [NodePath("../RadarArea2"), NodePath("../RadarArea3"), NodePath("../RadarArea4"), NodePath("../RadarArea5")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea"]
+shape = SubResource("SphereShape3D_qg02k")
+
+[node name="RadarArea2" parent="." instance=ExtResource("54_2cqvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.314, 2.34423, -36.8393)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea2"]
+shape = SubResource("SphereShape3D_qg02k")
+
+[node name="RadarArea3" parent="." instance=ExtResource("54_2cqvd")]
+transform = Transform3D(0.85148, 0, 0.524387, 0, 1, 0, -0.524387, 0, 0.85148, 207.419, 2.34423, 17.2245)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea3"]
+shape = SubResource("SphereShape3D_qg02k")
+
+[node name="RadarArea4" parent="." instance=ExtResource("54_2cqvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.711, 2.34423, 62.8221)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea4"]
+shape = SubResource("SphereShape3D_qg02k")
+
+[node name="RadarArea5" parent="." instance=ExtResource("54_2cqvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.488, 2.93985, 134.454)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea5"]
+shape = SubResource("SphereShape3D_qg02k")
+
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]
+[connection signal="body_entered" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_entered"]
+[connection signal="body_exited" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_exited"]
 
 [editable path="BaseAlpha"]
 [editable path="BaseAlpha/Decompression"]
 [editable path="BaseAlpha/Cullable/Lights/CapitanLight"]
 [editable path="Warehouse"]
 [editable path="RadioTower"]
+[editable path="RadioTower/RadioPanel"]
