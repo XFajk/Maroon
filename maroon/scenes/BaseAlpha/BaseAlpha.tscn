@@ -1,7 +1,6 @@
-[gd_scene load_steps=35 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=33 format=4 uid="uid://dj241vy41r8u8"]
 
-[ext_resource type="Texture2D" uid="uid://c6dn1kh7norj1" path="res://assets/Enviroment/Buildings/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
-[ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="2_g88ia"]
+[ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/Enviroment/Buildings/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b1000stgxfqoa" path="res://scenes/BaseAlpha/BaseAlpha.occ" id="3_m4vrc"]
 [ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Buildings/Doors.tscn" id="3_s32fk"]
 [ext_resource type="PackedScene" uid="uid://bx5iid1dm86vb" path="res://entities/Buildings/Decompression/Decompression.tscn" id="4_wprk7"]
@@ -22,11 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://ded47hgkqaers" path="res://entities/Buildings/Furniture/Table2.tscn" id="20_vw5bt"]
 [ext_resource type="PackedScene" uid="uid://dgvvglvhdauej" path="res://entities/Buildings/Furniture/Lockers.tscn" id="21_ck55l"]
 [ext_resource type="PackedScene" uid="uid://b0y5xma8yunr2" path="res://entities/Buildings/Furniture/Lockers1Opened.tscn" id="22_sn8hm"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rgnpo"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_bpn6a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t07op"]
 resource_name = "base"
@@ -126,21 +120,10 @@ height = 0.32
 radial_segments = 6
 rings = 4
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ydd5"]
+size = Vector3(1.97626, 0.237793, 1.46521)
+
 [node name="BaseAlpha" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("2_g88ia")]
-transform = Transform3D(0.998908, 0, -0.0467229, 0, 1, 0, 0.0467229, 0, 0.998908, 0, 1.13426, 11.6897)
-
-[node name="temp_floor" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temp_floor"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -0.0309653, 0)
-shape = SubResource("ConcavePolygonShape3D_rgnpo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="temp_floor"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -0.0309653, 0)
-mesh = SubResource("PlaneMesh_bpn6a")
-skeleton = NodePath("../..")
 
 [node name="BaseAlpha" type="StaticBody3D" parent="."]
 
@@ -163,6 +146,10 @@ shape = SubResource("ConcavePolygonShape3D_br4we")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BaseAlpha"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00877, 11.2565, -0.768568)
 mesh = SubResource("SphereMesh_jxccw")
+
+[node name="entrance_ramp" type="CollisionShape3D" parent="BaseAlpha"]
+transform = Transform3D(1, 0, 0, 0, 0.963975, -0.265994, 0, 0.265994, 0.963975, 0.0190735, -0.309375, 6.60718)
+shape = SubResource("BoxShape3D_0ydd5")
 
 [node name="Decompression" parent="." instance=ExtResource("4_wprk7")]
 
@@ -291,7 +278,6 @@ transform = Transform3D(0.999843, 0, -0.0177316, 0, 1, 0, 0.0177316, 0, 0.999843
 [node name="Lockers1Open" parent="." instance=ExtResource("22_sn8hm")]
 transform = Transform3D(-0.999776, 0, 0.0211868, 0, 1, 0, -0.0211868, 0, -0.999776, -12.8792, 0.0345299, -3.10874)
 
-[connection signal="decompresing" from="Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="decompresing" from="Decompression" to="Cullable" method="_on_decompression_decompresing"]
 
 [editable path="Decompression"]
