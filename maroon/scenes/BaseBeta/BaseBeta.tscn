@@ -96,6 +96,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.1913
 
 [node name="MainDoor2" parent="Decompression" index="9"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.182246, -0.00819844, 1.08428)
+door_height = 2.31
 
 [node name="Occlusion" type="Node3D" parent="." groups=["InsideObj"]]
 

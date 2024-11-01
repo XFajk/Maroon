@@ -598,6 +598,15 @@ transform = Transform3D(-0.892861, 0, 0.450332, 0, 1, 0, -0.450332, 0, -0.892861
 [node name="Plane" parent="BaseBeta/Occlusion/SpotBarLight" index="0"]
 surface_material_override/1 = SubResource("StandardMaterial3D_h6orp")
 
+[node name="OfficeDesk" parent="BaseBeta/Occlusion" index="2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.0112604, -10.7466)
+
+[node name="Chair1" parent="BaseBeta/Occlusion" index="3"]
+transform = Transform3D(0.839459, 0, 0.543424, 0, 1, 0, -0.543424, 0, 0.839459, -0.503008, 0.532876, -12)
+
+[node name="computer" parent="BaseBeta" index="3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.435352, 0.758205, -10.5638)
+
 [node name="RadioTower" parent="." instance=ExtResource("46_4slr4")]
 transform = Transform3D(0.262391, 0, 0.964962, 0, 1, 0, -0.964962, 0, 0.262391, -154.558, 51.4465, -76.7497)
 
