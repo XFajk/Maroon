@@ -581,6 +581,12 @@ Monster = NodePath("../Monster")
 [node name="RadioTower" parent="." instance=ExtResource("46_4slr4")]
 transform = Transform3D(0.711082, 0, 0.703109, 0, 1, 0, -0.703109, 0, 0.711082, -162.139, 51.4708, -71.3655)
 
+[node name="RadioRoom" parent="RadioTower" index="1"]
+transform = Transform3D(-0.315831, 0, 0.948815, 0, 1, 0, -0.948815, 0, -0.315831, 28.3295, -0.186546, 6.57306)
+
+[node name="RadioPanel" parent="RadioTower" index="2"]
+transform = Transform3D(-0.315831, 0, 0.948815, 0, 1, 0, -0.948815, 0, -0.315831, 28.2223, -0.186562, 6.20425)
+
 [node name="BaseBeta" parent="." instance=ExtResource("47_cx2n5")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 151, 2, 134)
 
@@ -591,3 +597,4 @@ transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 151, 2, 13
 [editable path="BaseAlpha/Decompression"]
 [editable path="BaseAlpha/Cullable/Lights/CapitanLight"]
 [editable path="Warehouse"]
+[editable path="RadioTower"]
