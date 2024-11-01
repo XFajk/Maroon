@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/objects/Button.gd" id="1_hbds1"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_0syav"]
-[ext_resource type="Texture2D" uid="uid://bels7fuyq2nhc" path="res://assets/Interiors/Buttons/textures/button_btn_color_baked.png" id="2_iwepi"]
+[ext_resource type="Texture2D" uid="uid://b2pjmm6e4qinc" path="res://assets/Interiors/Buttons/button_btn_color_baked.png" id="2_iwepi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdr0m"]
 resource_name = "button_baked"

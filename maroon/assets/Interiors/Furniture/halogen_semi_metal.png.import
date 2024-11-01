@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csq5cwikcr8mj"
-path.s3tc="res://.godot/imported/chair_1_chair_1_color_baked.png-cb83c93a490b5d9b64fcb8aae94b203f.s3tc.ctex"
+uid="uid://b7uv1jfflpgph"
+path.s3tc="res://.godot/imported/halogen_semi_metal.png-9bbf072ac704807fd68d2e1c55c0cdab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c7cfcf95cb1e9792453521e4cfbeda37"
+"md5": "0464c19eed23e1626edfd4220a3d9177"
 }
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/textures/chair_1_chair_1_color_baked.png"
-dest_files=["res://.godot/imported/chair_1_chair_1_color_baked.png-cb83c93a490b5d9b64fcb8aae94b203f.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/halogen_semi_metal.png"
+dest_files=["res://.godot/imported/halogen_semi_metal.png-9bbf072ac704807fd68d2e1c55c0cdab.s3tc.ctex"]
 
 [params]
 

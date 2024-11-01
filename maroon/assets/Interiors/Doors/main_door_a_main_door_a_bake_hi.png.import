@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br1qt31waq5km"
-path.s3tc="res://.godot/imported/main_door_a_main_door_a_bake_hi.png-821c1d204683fe0be98eaf705cbed375.s3tc.ctex"
+uid="uid://3gvd6vxs85bw"
+path.s3tc="res://.godot/imported/main_door_a_main_door_a_bake_hi.png-dc8688bea86d5c3699dcad091655c967.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/Interiors/Doors/main_door_a_main_door_a_bake_hi.png"
-dest_files=["res://.godot/imported/main_door_a_main_door_a_bake_hi.png-821c1d204683fe0be98eaf705cbed375.s3tc.ctex"]
+source_file="res://assets/Interiors/Doors/textures/main_door_a_main_door_a_bake_hi.png"
+dest_files=["res://.godot/imported/main_door_a_main_door_a_bake_hi.png-dc8688bea86d5c3699dcad091655c967.s3tc.ctex"]
 
 [params]
 

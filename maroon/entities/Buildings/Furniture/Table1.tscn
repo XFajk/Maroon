@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://dehwnnkg4wlq8"]
 
-[ext_resource type="Texture2D" uid="uid://pscgdq12w388" path="res://assets/Interiors/Furniture/textures/table_1_table_1_color_baked_lo.png" id="1_alght"]
+[ext_resource type="Texture2D" uid="uid://pscgdq12w388" path="res://assets/Interiors/Furniture/table_1_table_1_color_baked_lo.png" id="1_alght"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uhlx"]
 resource_name = "table_baked"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://cuymiuyqg0pji"]
 
 [ext_resource type="Script" path="res://src/objects/MainDoor.gd" id="1_pcqlw"]
-[ext_resource type="Texture2D" uid="uid://3gvd6vxs85bw" path="res://assets/Interiors/Doors/textures/main_door_a_main_door_a_bake_hi.png" id="2_8cdtc"]
+[ext_resource type="Texture2D" uid="uid://br1qt31waq5km" path="res://assets/Interiors/Doors/main_door_a_main_door_a_bake_hi.png" id="2_8cdtc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb6s7"]
 resource_name = "main_door_a_baked"

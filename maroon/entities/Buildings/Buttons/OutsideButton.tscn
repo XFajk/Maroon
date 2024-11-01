@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://tt2tb8hreau4"]
 
 [ext_resource type="Script" path="res://src/objects/Button.gd" id="1_bgltr"]
-[ext_resource type="Texture2D" uid="uid://dug41xpo0ga5e" path="res://assets/Interiors/Buttons/textures/button_on_pole_btn_on_pole_baked.png" id="1_yu5yg"]
+[ext_resource type="Texture2D" uid="uid://ckho7kfsuenv5" path="res://assets/Interiors/Buttons/button_on_pole_btn_on_pole_baked.png" id="1_yu5yg"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_1s24e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkljm"]

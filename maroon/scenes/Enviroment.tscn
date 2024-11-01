@@ -42,7 +42,7 @@
 [ext_resource type="Shape3D" uid="uid://cnmvsgcuboun5" path="res://assets/Enviroment/Scattered/Tubes/collisions/tube5_coll.tres" id="39_4h1lu"]
 [ext_resource type="Script" path="res://src/enviroment/NavigationMeshGeneration.gd" id="41_2vmo6"]
 [ext_resource type="Image" uid="uid://bpn38k27nx6a5" path="res://assets/Enviroment/Scattered/Areas/tree_area_pernament.png" id="41_w1rk7"]
-[ext_resource type="PackedScene" uid="uid://bfxw416vbl0nc" path="res://entities/Monster.tscn" id="43_8ai3a"]
+[ext_resource type="PackedScene" path="res://entities/Monster.tscn" id="43_8ai3a"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_claj8"]
 transform_format = 1
@@ -250,17 +250,7 @@ mesh = ExtResource("19_gh8dd")
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.536, 9.03877, 77.0071)
-
-[node name="Ground" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("ConcavePolygonShape3D_hktal")
-
-[node name="terrain" type="MeshInstance3D" parent="Ground"]
-material_override = SubResource("ShaderMaterial_4tat6")
-mesh = SubResource("ArrayMesh_r35y1")
-skeleton = NodePath("")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.0747, 23.0438, -96.3412)
 
 [node name="Scattering" type="Node3D" parent="."]
 

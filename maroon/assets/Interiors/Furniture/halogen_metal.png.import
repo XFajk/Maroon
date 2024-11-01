@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpmldoglfifvt"
-path.s3tc="res://.godot/imported/table_warehouse_table_warehouse_color_baked.png-f7465d1b88fc1516624db0fdffbb47c2.s3tc.ctex"
+uid="uid://dqmhn6j6jsdeq"
+path.s3tc="res://.godot/imported/halogen_metal.png-6cb12deb5c81c9d9b3610206cec1a177.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "b0bf5a98bc31f09d46a1d31fd0a2ee5f"
+}
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/textures/table_warehouse_table_warehouse_color_baked.png"
-dest_files=["res://.godot/imported/table_warehouse_table_warehouse_color_baked.png-f7465d1b88fc1516624db0fdffbb47c2.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/halogen_metal.png"
+dest_files=["res://.godot/imported/halogen_metal.png-6cb12deb5c81c9d9b3610206cec1a177.s3tc.ctex"]
 
 [params]
 

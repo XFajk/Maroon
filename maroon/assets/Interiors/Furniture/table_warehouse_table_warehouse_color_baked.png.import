@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pscgdq12w388"
-path.s3tc="res://.godot/imported/table_1_table_1_color_baked_lo.png-ced97305fa9304a6999950ced9f65b96.s3tc.ctex"
+uid="uid://cpmldoglfifvt"
+path.s3tc="res://.godot/imported/table_warehouse_table_warehouse_color_baked.png-dbea26071101a8d159188efdff6c3fcf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "51ee0a0b009b7a36f43c5270ef8dcdb4"
-}
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/textures/table_1_table_1_color_baked_lo.png"
-dest_files=["res://.godot/imported/table_1_table_1_color_baked_lo.png-ced97305fa9304a6999950ced9f65b96.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/table_warehouse_table_warehouse_color_baked.png"
+dest_files=["res://.godot/imported/table_warehouse_table_warehouse_color_baked.png-dbea26071101a8d159188efdff6c3fcf.s3tc.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://dnadaqr1i786c"]
 
-[ext_resource type="Texture2D" uid="uid://p8712eo2n4xh" path="res://assets/Interiors/Furniture/textures/halogen_semi_metal.png" id="2_kgf8m"]
+[ext_resource type="Texture2D" uid="uid://b7uv1jfflpgph" path="res://assets/Interiors/Furniture/halogen_semi_metal.png" id="2_kgf8m"]
 [ext_resource type="Script" path="res://src/functions/FlickeringLight.gd" id="2_spwiq"]
-[ext_resource type="Texture2D" uid="uid://bg7ppqd8epygw" path="res://assets/Interiors/Furniture/textures/halogen_metal.png" id="3_you5x"]
+[ext_resource type="Texture2D" uid="uid://dqmhn6j6jsdeq" path="res://assets/Interiors/Furniture/halogen_metal.png" id="3_you5x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aifwd"]
 resource_name = "cover"

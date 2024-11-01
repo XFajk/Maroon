@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/objects/DecompPanel.gd" id="1_56x41"]
 [ext_resource type="PackedScene" uid="uid://cyb5uhhpsmsbv" path="res://entities/Buildings/Decompression/DecompViewport.tscn" id="3_1tfpc"]
-[ext_resource type="Texture2D" uid="uid://bjrhwosbe36si" path="res://assets/Interiors/Decompression/textures/decomp_pannel_decomp_panel_baked_hi.png" id="3_f0kk1"]
+[ext_resource type="Texture2D" uid="uid://6vwa804xd80x" path="res://assets/Interiors/Decompression/decomp_pannel_decomp_panel_baked_hi.png" id="3_f0kk1"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="3_l66rc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pujtk"]

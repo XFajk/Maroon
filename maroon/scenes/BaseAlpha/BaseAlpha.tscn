@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=4 uid="uid://dj241vy41r8u8"]
 
-[ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/Enviroment/Buildings/BaseAlpha/textures/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
+[ext_resource type="Texture2D" uid="uid://c6dn1kh7norj1" path="res://assets/Enviroment/Buildings/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="PackedScene" uid="uid://b0jnnj2b0u0cg" path="res://entities/Player.tscn" id="2_g88ia"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b1000stgxfqoa" path="res://scenes/BaseAlpha/BaseAlpha.occ" id="3_m4vrc"]
 [ext_resource type="PackedScene" uid="uid://dbg3fgwakxv88" path="res://entities/Buildings/Doors.tscn" id="3_s32fk"]
