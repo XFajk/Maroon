@@ -578,17 +578,20 @@ transform = Transform3D(-0.803306, 0, 0.595566, 0, 1, 0, -0.595566, 0, -0.803306
 Player = NodePath("../Player")
 Monster = NodePath("../Monster")
 
-[node name="RadioTower" parent="." instance=ExtResource("46_4slr4")]
-transform = Transform3D(0.711082, 0, 0.703109, 0, 1, 0, -0.703109, 0, 0.711082, -162.139, 51.4708, -71.3655)
-
-[node name="RadioRoom" parent="RadioTower" index="1"]
-transform = Transform3D(-0.315831, 0, 0.948815, 0, 1, 0, -0.948815, 0, -0.315831, 28.3295, -0.186546, 6.57306)
-
-[node name="RadioPanel" parent="RadioTower" index="2"]
-transform = Transform3D(-0.315831, 0, 0.948815, 0, 1, 0, -0.948815, 0, -0.315831, 28.2223, -0.186562, 6.20425)
-
 [node name="BaseBeta" parent="." instance=ExtResource("47_cx2n5")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 151, 2, 134)
+
+[node name="RadioTower" parent="." instance=ExtResource("46_4slr4")]
+transform = Transform3D(0.262391, 0, 0.964962, 0, 1, 0, -0.964962, 0, 0.262391, -154.558, 51.4465, -76.7497)
+
+[node name="Radio" parent="RadioTower" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.61125, -0.196594, -8.52518)
+
+[node name="RadioRoom" parent="RadioTower" index="1"]
+transform = Transform3D(0.305064, 0, 0.952332, 0, 1, 0, -0.952332, 0, 0.305064, 21.6234, -0.442604, 9.10768)
+
+[node name="RadioPanel" parent="RadioTower" index="2"]
+transform = Transform3D(0.305064, 0, 0.952332, 0, 1, 0, -0.952332, 0, 0.305064, 21.6427, -0.442619, 9.09558)
 
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]

@@ -12,4 +12,4 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.585)
 
 [node name="RadioPanel" parent="." instance=ExtResource("3_t7406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383831, -1.68979e-05, 14.5997)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0174395, -1.68979e-05, 14.5997)
