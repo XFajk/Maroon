@@ -69,7 +69,6 @@ func save(save_file_name: String = "user://gamedata.save") -> void:
 			save_data[str(node.get_path())] = {"on_radar": true}
 	
 	var json_string: String = JSON.stringify(save_data)
-	#print(json_string)
 	save_file.store_string(json_string)
 	
 func delete(save_file_name: String = "user://gamedata.save") -> void:
@@ -78,7 +77,7 @@ func delete(save_file_name: String = "user://gamedata.save") -> void:
 	
 func parse_file(file: FileAccess) -> Dictionary:
 	if file == null:
-		return{}
+		return {}
 	
 	var json = JSON.new()
 	var parse_result: Error = json.parse(file.get_as_text())

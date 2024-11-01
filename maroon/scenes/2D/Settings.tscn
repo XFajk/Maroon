@@ -1,72 +1,133 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw3f8paoawyo1"]
+[gd_scene load_steps=3 format=3 uid="uid://cw3f8paoawyo1"]
 
-[ext_resource type="FontFile" uid="uid://dnna625fx6e6x" path="res://assets/Fonts/Begok.ttf" id="1_gjdwx"]
 [ext_resource type="Script" path="res://src/2d_scenes/SettingsManager.gd" id="1_jib34"]
+[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="2_f4v6k"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k7yd"]
-bg_color = Color(0.176471, 0.176471, 0.176471, 1)
-
-[node name="Settings" type="Panel"]
-offset_right = 680.0
-offset_bottom = 420.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_1k7yd")
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jib34")
 
-[node name="BackToMainMenu" type="Button" parent="."]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 320.0
-offset_right = 620.0
-offset_bottom = 390.0
-theme_override_fonts/font = ExtResource("1_gjdwx")
-theme_override_font_sizes/font_size = 40
-text = "back to main menu"
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278708, 0.113657, 0, 0.631373)
 
-[node name="SoundsLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 100.0
-offset_right = 259.0
-offset_bottom = 133.0
-theme_override_fonts/font = ExtResource("1_gjdwx")
-theme_override_font_sizes/font_size = 30
+[node name="BackToMainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256977
+anchor_top = 0.769318
+anchor_right = 0.743023
+anchor_bottom = 0.955682
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_f4v6k")
+text = "BACK TO MENU"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sounds" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0906977
+anchor_top = -0.0636364
+anchor_right = 0.439535
+anchor_bottom = 0.390909
+grow_horizontal = 2
+theme = ExtResource("2_f4v6k")
+value = 100.0
+rounded = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SoundsLabel" type="Label" parent="Sounds"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -33.0
+offset_right = 82.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "sounds
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 420.0
-offset_top = 100.0
-offset_right = 584.0
-offset_bottom = 133.0
-theme_override_fonts/font = ExtResource("1_gjdwx")
-theme_override_font_sizes/font_size = 30
+[node name="Music" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.590698
+anchor_top = -0.0636364
+anchor_right = 0.939535
+anchor_bottom = 0.390909
+offset_left = 1.52588e-05
+grow_horizontal = 2
+theme = ExtResource("2_f4v6k")
+value = 100.0
+rounded = true
+scrollable = false
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicLabel" type="Label" parent="Music"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -33.0
+offset_right = 82.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "music
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sounds" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 10.0
-offset_right = 250.0
-offset_bottom = 110.0
+[node name="MouseSensitivity" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.325581
+anchor_top = 0.272727
+anchor_right = 0.674419
+anchor_bottom = 0.727273
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_f4v6k")
 value = 100.0
 rounded = true
+metadata/_edit_use_anchors_ = true
 
-[node name="Music" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 430.0
-offset_top = 20.0
-offset_right = 580.0
-offset_bottom = 120.0
-value = 100.0
-rounded = true
-scrollable = false
+[node name="SoundsLabel" type="Label" parent="MouseSensitivity"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -33.0
+offset_right = 82.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "mouse sensitiviy
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
 [connection signal="value_changed" from="Sounds" to="." method="_on_sounds_value_changed"]
 [connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="MouseSensitivity" to="." method="_on_mouse_sensitivity_value_changed"]

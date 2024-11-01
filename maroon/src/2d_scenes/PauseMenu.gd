@@ -1,5 +1,6 @@
 extends Control
 
+@export var Settings: Control = null
 
 func _on_resume_pressed() -> void:
 	Engine.time_scale = 1.0
@@ -8,7 +9,9 @@ func _on_resume_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	print("options")
+	Settings.show()
+	hide()
 
 
 func _on_quit_pressed() -> void:

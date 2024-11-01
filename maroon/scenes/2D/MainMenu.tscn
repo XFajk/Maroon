@@ -1,74 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://6l403w5tj2f4"]
+[gd_scene load_steps=5 format=3 uid="uid://6l403w5tj2f4"]
 
 [ext_resource type="Script" path="res://src/2d_scenes/MainMenuManager.gd" id="1_2oy5o"]
-[ext_resource type="FontFile" uid="uid://dnna625fx6e6x" path="res://assets/Fonts/Begok.ttf" id="2_egh73"]
+[ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://InsideEnviroment.tres" id="1_tq315"]
+[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="2_a3ftg"]
 [ext_resource type="PackedScene" uid="uid://cw3f8paoawyo1" path="res://scenes/2D/Settings.tscn" id="3_3my8l"]
 
-[node name="MainMenu" type="Control"]
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.833354, -0.235357, 0.500129, 0.0272173, 0.921192, 0.388155, -0.55207, -0.309858, 0.774085, 3.67458, 2.37668, 3.29964)
+environment = ExtResource("1_tq315")
+
+[node name="MainMenu" type="Control" parent="Camera3D" node_paths=PackedStringArray("settings")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_a3ftg")
 script = ExtResource("1_2oy5o")
+settings = NodePath("../Settings")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 300.0
-offset_top = 200.0
-offset_right = 980.0
-offset_bottom = 620.0
+[node name="ColorRect" type="ColorRect" parent="Camera3D/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278708, 0.113657, 0, 0.631373)
 
-[node name="Start" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 52.5
-offset_right = 500.0
-offset_bottom = 122.5
-theme_override_fonts/font = ExtResource("2_egh73")
-theme_override_font_sizes/font_size = 40
-text = "start"
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.223958
+anchor_top = 0.335667
+anchor_right = 0.776042
+anchor_bottom = 0.894926
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_a3ftg")
+metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 175.0
-offset_right = 500.0
-offset_bottom = 245.0
-theme_override_fonts/font = ExtResource("2_egh73")
-theme_override_font_sizes/font_size = 40
-text = "settings"
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainMenu/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_a3ftg")
 
-[node name="Exit" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 297.5
-offset_right = 500.0
-offset_bottom = 367.5
-theme_override_fonts/font = ExtResource("2_egh73")
-theme_override_font_sizes/font_size = 40
-text = "exit"
+[node name="Start" type="Button" parent="Camera3D/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_a3ftg")
+text = "START
+"
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 300.0
-offset_right = 980.0
-offset_bottom = 200.0
-theme_override_fonts/font = ExtResource("2_egh73")
-theme_override_font_sizes/font_size = 117
-text = "maroon"
+[node name="Settings" type="Button" parent="Camera3D/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_a3ftg")
+text = "SETTINGS"
+
+[node name="Quit" type="Button" parent="Camera3D/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_a3ftg")
+text = "QUIT"
+
+[node name="Title" type="Label" parent="Camera3D/MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.214583
+anchor_top = 0.0375556
+anchor_right = 0.785417
+anchor_bottom = 0.289407
+grow_horizontal = 2
+theme = ExtResource("2_a3ftg")
+theme_override_font_sizes/font_size = 61
+text = "MAROON"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Settings" parent="." instance=ExtResource("3_3my8l")]
+[node name="Settings" parent="Camera3D" node_paths=PackedStringArray("Menu") instance=ExtResource("3_3my8l")]
 visible = false
-layout_mode = 0
-offset_left = 300.0
-offset_top = 200.0
-offset_right = 980.0
-offset_bottom = 620.0
+Menu = NodePath("../MainMenu")
 
-[connection signal="pressed" from="Panel/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Panel/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Camera3D/MainMenu/MarginContainer/VBoxContainer/Start" to="Camera3D/MainMenu" method="_on_start_pressed"]
+[connection signal="pressed" from="Camera3D/MainMenu/MarginContainer/VBoxContainer/Settings" to="Camera3D/MainMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="Camera3D/MainMenu/MarginContainer/VBoxContainer/Quit" to="Camera3D/MainMenu" method="_on_quit_pressed"]
