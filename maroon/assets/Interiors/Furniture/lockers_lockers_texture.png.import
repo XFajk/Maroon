@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7uv1jfflpgph"
-path.s3tc="res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"
+uid="uid://chnc8w1mcevd5"
+path.s3tc="res://.godot/imported/lockers_lockers_texture.png-9ae954e0eed3721884944a6e5fdd4b7f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "0464c19eed23e1626edfd4220a3d9177"
+"md5": "de4ff5f86af439f2677294b66d557529"
 }
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/textures/halogen_semi_metal.png"
-dest_files=["res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/lockers_lockers_texture.png"
+dest_files=["res://.godot/imported/lockers_lockers_texture.png-9ae954e0eed3721884944a6e5fdd4b7f.s3tc.ctex"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7uv1jfflpgph"
-path.s3tc="res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"
+uid="uid://fwuua1al0wkq"
+path.s3tc="res://.godot/imported/bunk_bed_bed_color_baked.png-55c9d258f8543a4d4cb65da72a36d239.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "0464c19eed23e1626edfd4220a3d9177"
+"md5": "17480bbb79bc100347a8a3e352365650"
 }
 
 [deps]
 
-source_file="res://assets/Interiors/Furniture/textures/halogen_semi_metal.png"
-dest_files=["res://.godot/imported/halogen_semi_metal.png-f84561c0c200c135d0128aae939ab381.s3tc.ctex"]
+source_file="res://assets/Interiors/Furniture/bunk_bed_bed_color_baked.png"
+dest_files=["res://.godot/imported/bunk_bed_bed_color_baked.png-55c9d258f8543a4d4cb65da72a36d239.s3tc.ctex"]
 
 [params]
 

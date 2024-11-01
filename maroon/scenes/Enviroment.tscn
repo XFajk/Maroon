@@ -250,7 +250,17 @@ mesh = ExtResource("19_gh8dd")
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.0747, 23.0438, -96.3412)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.536, 9.03877, 77.0071)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("ConcavePolygonShape3D_hktal")
+
+[node name="terrain" type="MeshInstance3D" parent="Ground"]
+material_override = SubResource("ShaderMaterial_4tat6")
+mesh = SubResource("ArrayMesh_r35y1")
+skeleton = NodePath("")
 
 [node name="Scattering" type="Node3D" parent="."]
 

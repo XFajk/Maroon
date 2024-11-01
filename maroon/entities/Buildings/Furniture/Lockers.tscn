@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=4 uid="uid://dgvvglvhdauej"]
+
+[ext_resource type="Texture2D" uid="uid://chnc8w1mcevd5" path="res://assets/Interiors/Furniture/lockers_lockers_texture.png" id="1_erm73"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubjiw"]
+resource_name = "lockers"
+cull_mode = 2
+albedo_texture = ExtResource("1_erm73")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1f07g"]
+_surfaces = [{
+"aabb": AABB(-0.210363, -0.987809, -1.5, 0.420725, 1.97562, 3),
+"format": 34896613377,
+"index_count": 384,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAUAAMAAgATABQAKAABACcAKAAAAAEAAAATAAIAAAAXABMAKQAAACgAIwAAACkAAAAbABcAHwAAACMAGwAAAB8AGAADABQAAwAnAAEAAwAmACcAHAADABgAIAADABwAAwAkACYAAwAgACQAFQAxAA4AFQAwADEACgAzABYACgAyADMABgAsAAcABgArACwACwAvABIACwAuAC8ADAArAAYADAAqACsAIgA+ACUAIgBBAD4ABgAXAAwABgATABcABwATAAYABwAUABMADQAUAAcADQAYABQADAAYAA0ADAAXABgAEgAbAAsAEgAXABsADgAYABUADgAcABgAFQAXABIAFQAYABcACwAcAA4ACwAbABwAFgAfAAoAFgAbAB8ADwAcABkADwAgABwAGQAbABYAGQAcABsACgAgAA8ACgAfACAAGgAjAAkAGgAfACMAEAAgAB0AEAAkACAAHQAfABoAHQAgAB8ACQAkABAACQAjACQAHgApAAgAHgAjACkAEQAkACEAEQAmACQAIQAjAB4AIQAkACMACAAmABEACAApACYABQAmACUABQAnACYAIgAoAAQAIgApACgABAAnAAUABAAoACcAJQApACIAJQAmACkAOwA9ADwAOwA6AD0AKwAtACwAKwAqAC0ALwAxADAALwAuADEAMwA1ADQAMwAyADUANwA5ADgANwA2ADkAQQA/AD4AQQBAAD8ACQA3ABoACQA2ADcABwAtAA0ABwAsAC0AGQA1AA8AGQA0ADUACAA7AB4ACAA6ADsAEgAwABUAEgAvADAAHQA5ABAAHQA4ADkAJQA/AAUAJQA+AD8ADQAqAAwADQAtACoAFgA0ABkAFgAzADQAIQA9ABEAIQA8AD0ADgAuAAsADgAxAC4AGgA4AB0AGgA3ADgABABBACIABABAAEEADwAyAAoADwA1ADIAHgA8ACEAHgA7ADwAEAA2AAkAEAA5ADYABQBAAAQABQA/AEAAEQA6AAgAEQA9ADoA"),
+"name": "lockers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 66,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAAAAAAAAAAAAAAD//wAAAAD//+MDb/0AAP//G/xv/QAA///jA48CAAD//xv8jwIAAP//4wPF0gAA///jAxqoAAD//+MDcH0AAP//4wPFUgAA///jAxsoAAD//xv8GygAAP//G/zFUgAA//8b/HB9AAD//xv8GqgAAP//G/zF0gAA///jAzktAAD//wAAAAAAAP////8AAAAA//8b/DktAAD//+MD5FcAAP//AACqKgAA/////6oqAAD//xv85FcAAP//4wOOggAA//8AAFVVAAD/////VVUAAP//G/yOggAA///jAzmtAAD//wAA/38AAP//////fwAA//8b/DmtAAD//+MD49cAAP//AACqqgAA/////6qqAAD//xv849cAAP////9U1QAA////////AAD//wAA//8AAP//AABU1QAAJfbjAxsoAAAl9uMDjwIAACX2G/yPAgAAJfYb/BsoAAAl9uMDxVIAACX24wM5LQAAJfYb/DktAAAl9hv8xVIAACX24wNwfQAAJfbjA+RXAAAl9hv85FcAACX2G/xwfQAAJfbjAxqoAAAl9uMDjoIAACX2G/yOggAAJfYb/BqoAAAl9uMDxdIAACX24wM5rQAAJfYb/DmtAAAl9hv8xdIAACX2G/zj1wAAJfYb/G/9AAAl9uMDb/0AACX24wPj1wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bmvq0"]
+resource_name = "lockers_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.210363, -0.987809, -1.5, 0.420725, 1.97562, 3),
+"attribute_data": PackedByteArray("HrMAAPDg//+lZaVlHrOlZfDg//8AAKVl1IcAAPDgpWWlZf7/1IelZfDgpWUAAP//lftvnci5pWW/yXP+lfv//0m3pWUwZ3P+lfZvnZ61AU+/yTBnlfb//561AU8wZzBnlfvgOkm3pWW/ybrkv/rgOnO7pWW/yQDL6vngOp66pWW/yUexFfngOsm0pWW/yY2XQPjgOp61pWW/ydN9QPhvnZ61pWUwZ9N9FflvnR6zpWUwZ42X6vlvnXO7pWUwZ0exv/pvnUi8pWUwZwDLlftvnR64pWUwZ7rkavdvncm0AU+/yeqAeZ0AAErLpWVKy6VleZ2lZZX2pWWlZaVlavf//x6zAU8wZ+qAQPhvnZ66AU+/yaOaSstef0rLXn+V9l5/pWVef0D4//9zuwFPMGejmhX5b51zuwFPv8ldtErLGJlKyxiZlfYYmaVlGJkV+f//SLwBTzBnXbTq+W+dSbcBT7/JFs5Ky9KySsvSspX20rKlZdKy6vn//x64AU8wZxbOlfbgOsi5AU+/ydDnSsuLzErLi8yV9ovMpWWLzJX2b51JtwFPMGfQ55X2RealZUXmeZ2lZZX2//+lZf//eZ0AAErL//9Ky/7/SstF5krLReZq9+A6ybSlZUYtFgNq92+dybQBT6MWFgNq9///c7YBT6MWpWVq92+dc7alZUYtpWVA+OA69LOlZepDFgNA+G+d9LMBT0YtFgNA+P//9LMBT0YtpWVA+G+d9LOlZepDpWUV+eA6yLmlZTBxFgMV+W+dyLkBT41aFgMV+f//SLwBT41apWUV+W+dSLylZTBxpWXq+eA6nrqlZdSHFgPq+W+dnroBTzBxFgPq+f//Hb0BTzBxpWXq+W+dHb2lZdSHpWW/+uA6c7alZaMWFgO/+m+dc7YBTwAAFgO/+v//87gBTwAApWW/+m+d87ilZaMWpWVq92+dHrgBT+pDpWW/+v//HrilZY1apWW/+m+d87ilZY1aFgNq9+A687gBT+pDFgM="),
+"format": 34896613399,
+"index_count": 384,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgA8AAkABgA5ADwAbwADAGwAbwAAAAMAAQA6AAcAAQBFADoAcgABAHAAYwABAHIAAQBPAEUAWQABAGMATwABAFkARwAKAD0ACgBtAAQACgBqAG0AUQAKAEcAWwAKAFEACgBlAGoACgBbAGUAQACKACsAQACHAIoAHwCQAEMAHwCNAJAAEgB6ABUAEgB3AHoAIgCEADcAIgCBAIQAJQB4ABMAJQB1AHgAYACwAGcAYAC5ALAAFABGACYAFAA7AEYAFwA7ABQAFwA+ADsAKQA+ABcAKQBIAD4AJgBIACkAJgBGAEgAOABQACMAOABGAFAALABIAEEALABSAEgAQQBGADgAQQBIAEYAIwBSACwAIwBQAFIARABaACAARABQAFoALwBSAEsALwBcAFIASwBQAEQASwBSAFAAIABcAC8AIABaAFwATgBkAB0ATgBaAGQAMgBcAFUAMgBmAFwAVQBaAE4AVQBcAFoAHQBmADIAHQBkAGYAWABzABoAWABkAHMANQBmAF8ANQBrAGYAXwBkAFgAXwBmAGQAGgBrADUAGgBzAGsAEQBrAGkAEQBuAGsAYgBxAA4AYgBzAHEADgBuABEADgBxAG4AaQBzAGIAaQBrAHMAqQCvAKwAqQCmAK8AeQB/AHwAeQB2AH8AhQCLAIgAhQCCAIsAkQCXAJQAkQCOAJcAnQCjAKAAnQCaAKMAuwC1ALIAuwC4ALUAHACcAE0AHACZAJwAFgB+ACgAFgB7AH4ASgCWAC4ASgCTAJYAGQCoAFcAGQClAKgANgCGAD8ANgCDAIYAVACiADEAVACfAKIAaAC0ABAAaACxALQAJwB0ACQAJwB9AHQAQgCSAEkAQgCPAJIAXgCuADQAXgCrAK4AKgCAACEAKgCJAIAATACeAFMATACbAJ4ADQC6AGEADQC3ALoALQCMAB4ALQCVAIwAVgCqAF0AVgCnAKoAMACYABsAMAChAJgADwC2AAwADwCzALYAMwCkABgAMwCtAKQA"),
+"material": SubResource("StandardMaterial3D_ubjiw"),
+"name": "lockers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 188,
+"vertex_data": PackedByteArray("AAAAAP////8AAAAA/////wAAAAD//1TVAAD///////8AAP//////vwAA/////1TVAAAAAAAA//8AAAAAAAD//wAAAAAAAFTVAAD//wAA//8AAP//AAD/vwAA//8AAFTV///jA2/9/////+MDb/3/v///4wNv/VTV//8b/G/9/////xv8b/3/////G/xv/VTV///jA48C/////+MDjwL/v///4wOPAlTV//8b/I8C/////xv8jwL/////G/yPAlTV///jA8XS/////+MDxdL/v///4wPF0lTV///jAxqo/////+MDGqj/v///4wMaqFTV///jA3B9/////+MDcH3/v///4wNwfVTV///jA8VS/////+MDxVL/v///4wPFUlTV///jAxso/////+MDGyj/v///4wMbKFTV//8b/Bso/////xv8Gyj/////G/wbKFTV//8b/MVS/////xv8xVL/////G/zFUlTV//8b/HB9/////xv8cH3/////G/xwfVTV//8b/Bqo/////xv8Gqj/////G/waqFTV//8b/MXS/////xv8xdL/////G/zF0lTV///jAzkt/////+MDOS3/v///4wM5LVTV//8AAAAA/////wAAAAD/////AAAAAFTV/////wAA////////AAD/v/////8AAFTV//8b/Dkt/////xv8OS3/////G/w5LVTV///jA+RX/////+MD5Ff/v///4wPkV1TV//8AAKoq/////wAAqipU1f////+qKv+//////6oqVNX//xv85Ff/////G/zkV/////8b/ORXVNX//+MDjoL/////4wOOgv+////jA46CVNX//wAAVVX/////AABVVVTV/////1VV/7//////VVVU1f//G/yOgv////8b/I6C/////xv8joJU1f//4wM5rf/////jAzmt/7///+MDOa1U1f//AAD/f/////8AAP9/VNX//////3//v///////f1TV//8b/Dmt/////xv8Oa3/////G/w5rVTV///jA+PX/////+MD49f/v///4wPj11TV//8AAKqq/////wAAqqpU1f////+qqv+//////6qqVNX//xv849f/////G/zj1/////8b/OPXVNX/////VNX/v/////9U1VTV////////////////////v////////1TV//8AAP///////wAA////////AAD//1TV//8AAFTV/////wAAVNVU1SX24wMbKP//JfbjAxso/78l9uMDGyj//yX24wOPAv//JfbjA48C/78l9uMDjwL//yX2G/yPAv//JfYb/I8C//8l9hv8jwL//yX2G/wbKP//JfYb/Bso//8l9hv8Gyj//yX24wPFUv//JfbjA8VS/78l9uMDxVL//yX24wM5Lf//JfbjAzkt/78l9uMDOS3//yX2G/w5Lf//JfYb/Dkt//8l9hv8OS3//yX2G/zFUv//JfYb/MVS//8l9hv8xVL//yX24wNwff//JfbjA3B9/78l9uMDcH3//yX24wPkV///JfbjA+RX/78l9uMD5Ff//yX2G/zkV///JfYb/ORX//8l9hv85Ff//yX2G/xwff//JfYb/HB9//8l9hv8cH3//yX24wMaqP//JfbjAxqo/78l9uMDGqj//yX24wOOgv//JfbjA46C/78l9uMDjoL//yX2G/yOgv//JfYb/I6C//8l9hv8joL//yX2G/waqP//JfYb/Bqo//8l9hv8Gqj//yX24wPF0v//JfbjA8XS/78l9uMDxdL//yX24wM5rf//JfbjAzmt/78l9uMDOa3//yX2G/w5rf//JfYb/Dmt//8l9hv8Oa3//yX2G/zF0v//JfYb/MXS//8l9hv8xdL//yX2G/zj1///JfYb/OPX//8l9hv849f//yX2G/xv/f//JfYb/G/9//8l9hv8b/3//yX24wNv/f//JfbjA2/9/78l9uMDb/3//yX24wPj1///JfbjA+PX/78l9uMD49f///9//3//f/8/VFWqqv9//3////9/VFWqqv///3//f/8/VFWpqv///3/+//9/VFWpqv///3////9/qqpVVf///3//f/8/qqpVVf9//3////9/qapUVf9//3//f/8/qapUVf///3////9/qapUVf///3////9/qapUVf///3////9/qapUVf///3////9/qqpVVf///3////9/qapUVf///3//f/8/qapUVf///3//f/8/qqpVVf///3//f/8/qqpVVf///3//f/8/qapUVf///3//f/8/qapUVf9//3////9/qapUVf///3//f/8/qapUVf///3////9/qapUVf9//3//f/8/qqpVVf9//3////9/qqpVVf9//z+pqlRV/v//f6qqVFX/f/9//3//P6mqVFX/f/9/////f6qqVVX/f/8/qqpVVf7//3+qqlVV/3//f/9//z+qqlVV/3//f////3+pqlRV/3//P6qqVVX+//9/qqpVVf9//3//f/8/qapUVf9//3////9/qapUVf9//z+pqlRV/v//f6mqVFX/f/9//3//P6mqVFX+//9/qapUVf9//3////9/qqpVVf9//3//f/8/qqpVVf9//z+pqlRV////f////3//v/9//3//f////3//v/9//3//f/9//z//v/9/////f/9//z//v/9/////f////3//v/9//3//f////3//v/9//3//f/9//z//v/9/////f/9//z//v/9/////f////3//v/9//3//f////3//v/9//3//f/9//z//v/9/////f/9//z//v/9/////f////3//v/9//3//f////3//v/9//3//f/9//z//v/9/////f/9//z//v/9/////f////3//v/9//3//f////3//v/9//3//f/9//z//v/9/////f/9//z//v/9//3//f/9//z//v/9/////f/9//z//v/9/////f////3//v/9//3//f////3//v/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1f07g")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lmiue"]
+size = Vector3(0.428467, 1.98236, 3.00427)
+
+[node name="Lockers" type="StaticBody3D"]
+
+[node name="Lockers" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.95445, 0)
+mesh = SubResource("ArrayMesh_bmvq0")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00183105, 0.953033, 0.00164795)
+shape = SubResource("BoxShape3D_lmiue")
