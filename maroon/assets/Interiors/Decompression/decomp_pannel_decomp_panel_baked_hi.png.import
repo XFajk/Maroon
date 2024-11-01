@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjrhwosbe36si"
-path="res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-a93b1a5bd8d2e433f75d1cb877f72f48.ctex"
+path="res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-b8fefbaf9f247bfaf0dae22e675fa89a.ctex"
 metadata={
 "vram_texture": false
 }
@@ -13,8 +13,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/Interiors/Decompression/textures/decomp_pannel_decomp_panel_baked_hi.png"
-dest_files=["res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-a93b1a5bd8d2e433f75d1cb877f72f48.ctex"]
+source_file="res://assets/Interiors/Decompression/decomp_pannel_decomp_panel_baked_hi.png"
+dest_files=["res://.godot/imported/decomp_pannel_decomp_panel_baked_hi.png-b8fefbaf9f247bfaf0dae22e675fa89a.ctex"]
 
 [params]
 
