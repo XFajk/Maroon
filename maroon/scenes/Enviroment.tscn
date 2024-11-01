@@ -588,10 +588,10 @@ transform = Transform3D(0.262391, 0, 0.964962, 0, 1, 0, -0.964962, 0, 0.262391, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.61125, -0.196594, -8.52518)
 
 [node name="RadioRoom" parent="RadioTower" index="1"]
-transform = Transform3D(0.305064, 0, 0.952332, 0, 1, 0, -0.952332, 0, 0.305064, 21.6234, -0.442604, 9.10768)
+transform = Transform3D(0.304987, 0.0164704, 0.952214, -0.00928969, 0.999854, -0.0143191, -0.952311, -0.00447863, 0.305096, 21.6234, -0.442417, 9.10767)
 
 [node name="RadioPanel" parent="RadioTower" index="2"]
-transform = Transform3D(0.305064, 0, 0.952332, 0, 1, 0, -0.952332, 0, 0.305064, 21.6427, -0.442619, 9.09558)
+transform = Transform3D(0.304987, 0.0164704, 0.952214, -0.00928966, 0.999854, -0.0143191, -0.952311, -0.00447861, 0.305096, 21.6427, -0.442806, 9.09557)
 
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]
