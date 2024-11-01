@@ -44,14 +44,14 @@ mesh = SubResource("BoxMesh_fw0xp")
 skeleton = NodePath("../..")
 
 [node name="Player" parent="." instance=ExtResource("1_mooo8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2411, 3.78489, -1.21042)
+transform = Transform3D(0.868407, 0, 0.495853, 0, 1, 0, -0.495853, 0, 0.868407, 33.0951, 3.78489, -4.44387)
 running_speed = 300
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_vrj6l")
 
 [node name="Warehouse" parent="." node_paths=PackedStringArray("Player", "Monster") instance=ExtResource("2_uj32t")]
-transform = Transform3D(0.594261, 0, 0.804272, 0, 1, 0, -0.804272, 0, 0.594261, 14.2196, 1.33567, 1.50925)
+transform = Transform3D(0.11726, 0, 0.993101, 0, 1, 0, -0.993101, 0, 0.11726, 18.7937, 1.33567, 6.85392)
 Player = NodePath("../Player")
 Monster = NodePath("../Monster")
 
@@ -62,11 +62,11 @@ downloadeble_positions = [NodePath("../JarryCan2")]
 downloadeble_positions = [NodePath("../JarryCan3")]
 
 [node name="SdCard" parent="." node_paths=PackedStringArray("downloadeble_positions") groups=["OnRadar"] instance=ExtResource("5_ptwun")]
-transform = Transform3D(0.594257, -0.00215733, 0.804272, 0.00363028, 0.999993, 0, -0.804266, 0.00291973, 0.594261, 30.4416, 2.48357, -8.17768)
+transform = Transform3D(0.117259, -0.000425683, 0.993102, 0.00363028, 0.999994, -2.56238e-09, -0.993094, 0.00360524, 0.11726, 28.0777, 2.48357, -9.602)
 downloadeble_positions = [NodePath("../Warehouse/Gameplay/JarryCan")]
 
 [node name="log_monitor" parent="." instance=ExtResource("6_xj3sp")]
-transform = Transform3D(0.804272, 0, -0.594262, 0, 1, 0, 0.594262, 0, 0.804272, 29.4024, 2.69303, -9.86567)
+transform = Transform3D(-0.999848, 0, 0.0174525, 0, 1, 0, -0.0174525, 0, -0.999848, 26.3382, 2.69303, -6.13185)
 logs = Array[ExtResource("7_j7kug")]([ExtResource("8_1d6dm"), ExtResource("9_dqim2")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." groups=["OutsideObj"]]

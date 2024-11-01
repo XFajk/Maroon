@@ -42,8 +42,11 @@ var generated = false
 var data_loaded = false
 
 var all_collisions = false
+var failed_objects = 0
+signal all_loaded
 
 func _ready() -> void:
+	print(self)
 	# Squaring all directional ranges because later distance_squared_to() is used for performance
 	close_correction_range = close_correction_range * close_correction_range
 	lod_0_end = lod_0_end * lod_0_end
@@ -79,6 +82,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for group in unpacked_groups:
 		calculate_lods(group, grouped_data[group[1]])
+	if all_collisions:
+		all_loaded.emit()
 
 func load_placement_map():
 	white_pixel_positions = []
@@ -154,7 +159,6 @@ func spawn_objects(group: Array):
 		multi_mesh_instance.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D)
 		multi_mesh_instance.multimesh.set_instance_count(obj_ammount)
 	
-	var failed_objects = 0
 	for i in range(obj_ammount):
 		randomize()
 		var position_horisontal = get_random_point() # random horisontal pos from the map
@@ -224,6 +228,7 @@ func calculate_lods(group: Array, grouped_data: Array): # grouped data -> [[inde
 			mmi.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D) # tries to correct it but Godot is buggy
 	
 	for multi_mesh_instance in mesh_group:
+		multi_mesh_instance.multimesh.set_instance_count(0)
 		multi_mesh_instance.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D)
 		multi_mesh_instance.multimesh.set_instance_count(obj_ammount)
 	

@@ -3,11 +3,11 @@
 [resource]
 background_mode = 1
 background_color = Color(0.576365, 0.296044, 0.067004, 1)
-background_energy_multiplier = 0.6
+background_energy_multiplier = 0.1
 glow_enabled = true
 glow_intensity = 8.0
 fog_enabled = true
 fog_light_color = Color(0.765696, 0.304688, 6.73831e-07, 1)
 fog_light_energy = 0.1
-fog_density = 0.011
+fog_density = 0.03
 fog_depth_end = 620.5
