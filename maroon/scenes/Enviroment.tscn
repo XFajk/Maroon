@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://4nwnlfj6nevh"]
+[gd_scene load_steps=109 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]
@@ -42,7 +42,6 @@
 [ext_resource type="Script" path="res://src/enviroment/NavigationMeshGeneration.gd" id="41_2vmo6"]
 [ext_resource type="Image" uid="uid://bpn38k27nx6a5" path="res://assets/Enviroment/Scattered/Areas/tree_area_pernament.png" id="41_w1rk7"]
 [ext_resource type="Texture2D" uid="uid://ycs6hlg8358a" path="res://assets/Enviroment/Ground/terrain_mask_rgb_layers.png" id="42_bxwvu"]
-[ext_resource type="PackedScene" uid="uid://bfxw416vbl0nc" path="res://entities/Monster.tscn" id="43_8ai3a"]
 [ext_resource type="PackedScene" uid="uid://dj241vy41r8u8" path="res://scenes/BaseAlpha/BaseAlpha.tscn" id="44_qvkm8"]
 [ext_resource type="PackedScene" uid="uid://cndlcny5sc2yd" path="res://scenes/Warehouse/Warehouse.tscn" id="45_ew67e"]
 [ext_resource type="PackedScene" uid="uid://dk3c3mk1dndvq" path="res://entities/PlaceHolderMonster.tscn" id="45_pjwgb"]
@@ -56,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="54_2cqvd"]
 [ext_resource type="Script" path="res://src/misc/ChaseSceneStarter.gd" id="55_pfqdh"]
 [ext_resource type="PackedScene" uid="uid://qioh4h73bott" path="res://entities/Interactable/VoiceLineTrigger.tscn" id="55_w6okh"]
+[ext_resource type="Script" path="res://src/misc/ChaseSceneEnder.gd" id="56_65vum"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_claj8"]
 transform_format = 1
@@ -167,7 +167,7 @@ geometry_parsed_geometry_type = 1
 agent_height = 2.1
 agent_radius = 1.0
 agent_max_slope = 20.0
-filter_baking_aabb = AABB(114.82, 0, -138.96, 105.9, 10, 261.6)
+filter_baking_aabb = AABB(114.82, 0, -138.96, 105.9, 10, 257.37)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5aa12"]
 render_priority = 0
@@ -283,10 +283,13 @@ size = Vector3(172.89, 110, 256.757)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ru7rv"]
 size = Vector3(162.89, 100, 246.757)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbt3w"]
+size = Vector3(158.283, 37.193, 3.176)
+
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(-0.624439, 0, -0.781074, 0, 1, 0, 0.781074, 0, -0.624439, -145.342, 51.9138, -97.2033)
+transform = Transform3D(-0.624439, 0, -0.781074, 0, 1, 0, 0.781074, 0, -0.624439, -0.605232, 3.08393, 12.042)
 
 [node name="Scattering" type="Node3D" parent="." groups=["OutsideObj"]]
 
@@ -596,7 +599,7 @@ light_energy = 0.1
 [node name="MonsterHomes" type="Node3D" parent="."]
 
 [node name="Home" type="Marker3D" parent="MonsterHomes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.619, 2.44912, -72.9156)
+transform = Transform3D(0.296742, 0, 0.954958, 0, 1, 0, -0.954958, 0, 0.296742, 175.619, 2.44912, -72.9156)
 gizmo_extents = 3.35
 
 [node name="Home2" type="Marker3D" parent="MonsterHomes"]
@@ -615,20 +618,15 @@ gizmo_extents = 3.35
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.776, 2.44912, 84.7559)
 gizmo_extents = 3.35
 
-[node name="Monster" parent="." node_paths=PackedStringArray("Player", "Homes") instance=ExtResource("43_8ai3a")]
-transform = Transform3D(0.458774, 0, 0.888553, 0, 1, 0, -0.888553, 0, 0.458774, 175.619, 2.3291, -72.9156)
-visible = false
-Player = NodePath("../Player")
-Homes = NodePath("../MonsterHomes")
-
 [node name="BaseAlpha" parent="." instance=ExtResource("44_qvkm8")]
 transform = Transform3D(-0.414058, 0, -0.91025, 0, 1, 0, 0.910251, 0, -0.414058, 15.2609, -0.109267, 32.8854)
 
 [node name="Plane" parent="BaseAlpha/Cullable/Lights/CapitanLight" index="0"]
 surface_material_override/1 = SubResource("StandardMaterial3D_kgwbt")
 
-[node name="SdCard" parent="BaseAlpha" index="8" node_paths=PackedStringArray("downloadeble_positions")]
+[node name="SdCard" parent="BaseAlpha" index="8" node_paths=PackedStringArray("downloadeble_positions", "object_to_delete")]
 downloadeble_positions = [NodePath("../../ForestRadarTrigger")]
+object_to_delete = [NodePath("../../ForestVoiceLineTrigger"), NodePath("../../ForestBorder")]
 
 [node name="SdCard2" parent="BaseAlpha" index="9" node_paths=PackedStringArray("downloadeble_positions")]
 downloadeble_positions = [NodePath("../../RadioTower/RadioPanel/SdCard")]
@@ -695,10 +693,12 @@ downloadeble_positions = [NodePath("../ForestRadarTrigger2"), NodePath("../Fores
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForestRadarTrigger"]
 shape = SubResource("SphereShape3D_qg02k")
 
-[node name="ChaseSceneStarter" type="Area3D" parent="." node_paths=PackedStringArray("Monster")]
+[node name="ChaseSceneStarter" type="Area3D" parent="." node_paths=PackedStringArray("MonsterSpawnPoint", "PlayerRespawnPoint", "MonsterHomes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.242, 2.34423, -92.0209)
 script = ExtResource("55_pfqdh")
-Monster = NodePath("../Monster")
+MonsterSpawnPoint = NodePath("../MonsterHomes/Home")
+PlayerRespawnPoint = NodePath("../PlayerRespawn")
+MonsterHomes = NodePath("../MonsterHomes")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseSceneStarter"]
 transform = Transform3D(0.895634, 0, -0.444792, 0, 1, 0, 0.444792, 0, 0.895634, 0, 1.13979, 0)
@@ -745,12 +745,25 @@ collision_mask = 4
 transform = Transform3D(0.914899, -0.00586033, -0.403641, 0.00640531, 0.999979, 4.65662e-10, 0.403633, -0.00258545, 0.914917, 11.5289, 35.2862, -76.8096)
 shape = SubResource("BoxShape3D_ru7rv")
 
+[node name="PlayerRespawn" type="Marker3D" parent="."]
+transform = Transform3D(-0.359655, 0, -0.933085, 0, 1, 0, 0.933085, 0, -0.359655, 127.481, 3.97536, -93.8559)
+gizmo_extents = 1.33
+
+[node name="ChaseSceneEnder" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.136, 0, 117.207)
+script = ExtResource("56_65vum")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseSceneEnder"]
+transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999995, 19.0917, 11.7, 0.946968)
+shape = SubResource("BoxShape3D_kbt3w")
+
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="body_entered" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_entered"]
 [connection signal="body_exited" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_exited"]
 [connection signal="decompresing" from="BaseBeta/Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="body_entered" from="ChaseSceneStarter" to="ChaseSceneStarter" method="_on_body_entered"]
+[connection signal="body_exited" from="ChaseSceneEnder" to="ChaseSceneEnder" method="_on_body_exited"]
 
 [editable path="BaseAlpha"]
 [editable path="BaseAlpha/Decompression"]

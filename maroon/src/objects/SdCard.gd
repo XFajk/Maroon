@@ -1,9 +1,10 @@
 extends StaticBody3D
 
 @export var downloadeble_positions: Array[Node3D]
+@export var object_to_delete: Array[Node]
+var paths_to_deleted_objects: Array[String]
 
 @export var outlines: Array[MeshInstance3D]
-
 
 @export var voice_line: AudioStreamPlayer = null
 @export_multiline var voice_line_line: String = ""
@@ -23,6 +24,10 @@ func interact(player: CharacterBody3D) -> void:
 			continue
 			
 		pos.add_to_group("OnRadar")
+	
+	for obj in object_to_delete:
+		paths_to_deleted_objects.append(str(obj.get_path()))
+		obj.queue_free()
 		
 	deleted = true
 	Saving.save()
@@ -45,12 +50,14 @@ func show_interaction() -> void:
 		outline.visible = true
 		
 func saveout() -> Dictionary:
-	
 	return {
 		"deleted": deleted,
+		"paths_to_deleted_objects": paths_to_deleted_objects
 	}
 	
 func loadin(save_data: Dictionary) -> void:
 	stop_showing_interaction()
 	if bool(save_data.get('deleted')):
 		queue_free()
+		for node_path in save_data.get("paths_to_deleted_objects"):
+			get_tree().root.get_node(node_path).queue_free()

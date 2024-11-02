@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/objects/RadarArea.gd" id="1_533go"]
 
-[node name="RadarArea" type="Area3D"]
+[node name="RadarArea" type="Area3D" groups=["Savable"]]
 script = ExtResource("1_533go")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

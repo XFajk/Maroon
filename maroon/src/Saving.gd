@@ -2,6 +2,8 @@ extends Node
 
 var default_file = "user://gamedata.save"
 
+var disable_saving: bool = false
+
 func load(save_file_name: String = "user://gamedata.save") -> void:
 	print("loading")
 	if not FileAccess.file_exists(save_file_name):
@@ -15,6 +17,9 @@ func load(save_file_name: String = "user://gamedata.save") -> void:
 	
 	for saved_node_path in saved_data.keys():
 		var saved_node = get_node(saved_node_path)
+		if saved_node == null:
+			print(saved_node_path + " is not in scene")
+			continue;
 		if not saved_node.has_method("loadin"):
 			print(saved_node_path, "this savable object does not have a loadin function")
 			continue
@@ -38,6 +43,9 @@ func load(save_file_name: String = "user://gamedata.save") -> void:
 			
 	
 func save(save_file_name: String = "user://gamedata.save") -> void:
+	if disable_saving:
+		print("SAVING IS DISABLED")
+		return
 	print("saving")
 	var savables: Array[Node] = get_tree().get_nodes_in_group("Savable")
 	

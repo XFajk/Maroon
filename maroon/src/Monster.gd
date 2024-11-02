@@ -17,7 +17,9 @@ var state: MonsterState = MonsterState.SCREAMING
 
 # AI variables
 @export var Player: CharacterBody3D = null
+@export var PlayerRespawnPoint: Node3D = null
 @export var Homes: Node3D = null
+@export var ChaseStarter: Area3D = null
 
 @onready var Agent: NavigationAgent3D = $Agent
 @onready var LookingTimer: Timer = $LookingTimer
@@ -26,7 +28,6 @@ var chosen_home: Node3D = null
 var go_home: bool = false
 
 func _ready() -> void:
-	hide()
 	AnimationManager.animation_finished.connect(change_state_after_animation)
 	
 func _physics_process(delta: float) -> void:
@@ -111,7 +112,19 @@ func select_closest_home():
 		if distance_to_target < closest_target:
 			closest_target = distance_to_target
 			chosen_home = home
-			
 
 func _on_looking_timer_timeout() -> void:
 	state = MonsterState.LOOKING
+
+
+func _on_kill_area_body_entered(body: Node3D) -> void:
+	if not body.is_in_group("Player"):
+		return
+		
+	ChaseStarter.monitoring = true
+	Player.global_position = PlayerRespawnPoint.global_position
+	Player.global_rotation = PlayerRespawnPoint.global_rotation
+	Player.StaminaBar.value = 100
+	Saving.disable_saving = false
+	queue_free()
+	

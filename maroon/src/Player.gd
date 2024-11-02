@@ -62,8 +62,8 @@ func _ready() -> void:
 	for obj in get_tree().get_nodes_in_group("InsideObj"):
 		obj.hide()
 	for obj in get_tree().get_nodes_in_group("OutsideObj"):
-		obj.show()
-	Saving.delete()
+		obj.show()	
+	#Saving.delete()
 	Saving.load()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	PauseMenu.hide()
