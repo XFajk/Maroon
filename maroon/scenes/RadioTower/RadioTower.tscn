@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp0nf5vqk41sf"]
+[gd_scene load_steps=5 format=3 uid="uid://dp0nf5vqk41sf"]
 
 [ext_resource type="PackedScene" uid="uid://lbtp2tgmktkv" path="res://entities/Buildings/RadioTower/Radio.tscn" id="1_w4nbs"]
 [ext_resource type="PackedScene" uid="uid://6nptorqhdoj0" path="res://entities/Buildings/RadioTower/RadioRoom.tscn" id="2_sb4b8"]
 [ext_resource type="PackedScene" uid="uid://c42rayupj0avx" path="res://entities/Buildings/RadioTower/RadioPanel.tscn" id="3_t7406"]
+[ext_resource type="PackedScene" uid="uid://dus8q2cdthtw4" path="res://entities/Interactable/Generator.tscn" id="4_3uebh"]
 
 [node name="RadioTower" type="Node3D"]
 
@@ -13,3 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.585)
 
 [node name="RadioPanel" parent="." instance=ExtResource("3_t7406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0174395, -1.68979e-05, 14.5997)
+
+[node name="Generator" parent="." instance=ExtResource("4_3uebh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.5339)
