@@ -286,7 +286,7 @@ size = Vector3(162.89, 100, 246.757)
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(-0.624439, 0, -0.781074, 0, 1, 0, 0.781074, 0, -0.624439, 90.7386, 6.21479, -104.192)
+transform = Transform3D(-0.624439, 0, -0.781074, 0, 1, 0, 0.781074, 0, -0.624439, -145.342, 51.9138, -97.2033)
 
 [node name="Scattering" type="Node3D" parent="." groups=["OutsideObj"]]
 
@@ -682,6 +682,12 @@ transform = Transform3D(0.98844, -0.011602, -0.151168, 0.0876999, 0.857082, 0.50
 transform = Transform3D(-0.00918043, 0, 0.999958, 0, 1, 0, -0.999958, 0, -0.00918043, -0.962128, 0.462734, 0.722492)
 downloadeble_positions = [NodePath("../../../Warehouse/SdCard")]
 
+[node name="Generator" parent="RadioTower" index="3"]
+transform = Transform3D(-0.834184, 0, 0.551485, 0, 1, 0, -0.551485, 0, -0.834184, 12.7995, 0.000526428, -24.3472)
+
+[node name="generator_panel" parent="RadioTower/Generator" index="0" node_paths=PackedStringArray("RadioTowerLight")]
+RadioTowerLight = NodePath("../../Radio/MeshInstance3D")
+
 [node name="ForestRadarTrigger" parent="." node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.242, 2.34423, -92.0209)
 downloadeble_positions = [NodePath("../ForestRadarTrigger2"), NodePath("../ForestRadarTrigger3"), NodePath("../ForestRadarTrigger4"), NodePath("../ForestRadarTrigger5")]
@@ -739,9 +745,6 @@ collision_mask = 4
 transform = Transform3D(0.914899, -0.00586033, -0.403641, 0.00640531, 0.999979, 4.65662e-10, 0.403633, -0.00258545, 0.914917, 11.5289, 35.2862, -76.8096)
 shape = SubResource("BoxShape3D_ru7rv")
 
-[node name="Generator" parent="RadioTower" index="3"]
-transform = Transform3D(-0.834184, 0, 0.551485, 0, 1, 0, -0.551485, 0, -0.834184, 12.7995, 0.000526428, -24.3472)
-
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="body_entered" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_entered"]
@@ -757,4 +760,7 @@ transform = Transform3D(-0.834184, 0, 0.551485, 0, 1, 0, -0.551485, 0, -0.834184
 [editable path="BaseBeta/Decompression"]
 [editable path="BaseBeta/Occlusion/SpotBarLight"]
 [editable path="RadioTower"]
+[editable path="RadioTower/Radio"]
 [editable path="RadioTower/RadioPanel"]
+[editable path="RadioTower/Generator"]
+[editable path="RadioTower/Generator/EngineSmoke"]

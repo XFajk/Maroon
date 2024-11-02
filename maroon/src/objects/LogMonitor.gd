@@ -19,6 +19,7 @@ func _ready() -> void:
 func interact(player: CharacterBody3D) -> void:
 	Saving.save()
 	
+	TitleSound.volume_db =  linear_to_db(Global.sound_volume*db_to_linear(TitleSound.volume_db)) 
 	TitleSound.play()
 	
 	player.voice_line = voice_line
