@@ -673,13 +673,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.61125, -0.196594, -8.52518)
 transform = Transform3D(0.304987, 0.0164704, 0.952214, -0.00928969, 0.999854, -0.0143191, -0.952311, -0.00447863, 0.305096, 21.6234, -0.442417, 9.10767)
 
 [node name="RadioPanel" parent="RadioTower" index="2"]
-transform = Transform3D(-0.315831, 0, 0.948815, 0, 1, 0, -0.948815, 0, -0.315831, 28.2223, -0.186562, 6.20425)
+transform = Transform3D(0.20089, 0, 0.979613, 0, 1, 0, -0.979613, 0, 0.20089, 21.6234, -0.442417, 9.10767)
+
+[node name="ControlPanel" parent="RadioTower/RadioPanel" index="8"]
+transform = Transform3D(0.98844, -0.011602, -0.151168, 0.0876999, 0.857082, 0.507661, 0.123673, -0.515051, 0.848191, -0.908829, 0.519291, 0.904594)
 
 [node name="SdCard" parent="RadioTower/RadioPanel" index="10" node_paths=PackedStringArray("downloadeble_positions")]
+transform = Transform3D(-0.00918043, 0, 0.999958, 0, 1, 0, -0.999958, 0, -0.00918043, -0.962128, 0.462734, 0.722492)
 downloadeble_positions = [NodePath("../../../Warehouse/SdCard")]
-
-[node name="BaseBeta2" parent="." instance=ExtResource("47_cx2n5")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 151, 2, 134)
 
 [node name="ForestRadarTrigger" parent="." node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.242, 2.34423, -92.0209)
