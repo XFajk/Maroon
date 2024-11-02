@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=37 format=4 uid="uid://dj241vy41r8u8"]
 
 [ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/Enviroment/Buildings/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b1000stgxfqoa" path="res://scenes/BaseAlpha/BaseAlpha.occ" id="3_m4vrc"]
@@ -6,22 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://bx5iid1dm86vb" path="res://entities/Buildings/Decompression/Decompression.tscn" id="4_wprk7"]
 [ext_resource type="PackedScene" uid="uid://bhxyebbl7k6p2" path="res://entities/Buildings/LightSources/OmniBarLight.tscn" id="5_8baq3"]
 [ext_resource type="PackedScene" uid="uid://dsvfqow30ymyu" path="res://entities/Buildings/Furniture/Chair_1.tscn" id="8_nnc7h"]
-[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/OfficeDesk.tscn" id="9_u34ao"]
+[ext_resource type="PackedScene" uid="uid://oufd0d6lhfem" path="res://entities/Buildings/Furniture/OfficeDesk.tscn" id="9_u34ao"]
 [ext_resource type="PackedScene" uid="uid://dehwnnkg4wlq8" path="res://entities/Buildings/Furniture/Table1.tscn" id="9_yt1vd"]
-[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/BunkBed.tscn" id="10_0xtr1"]
+[ext_resource type="PackedScene" uid="uid://cl888cyknoahk" path="res://entities/Buildings/Furniture/BunkBed.tscn" id="10_0xtr1"]
 [ext_resource type="PackedScene" uid="uid://vbvbsmfjuejb" path="res://entities/Interactable/LogMonitor.tscn" id="10_34tm8"]
 [ext_resource type="Script" path="res://src/LogResource.gd" id="10_po2x0"]
 [ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="11_fxawo"]
-[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Bench.tscn" id="11_hlpup"]
+[ext_resource type="PackedScene" uid="uid://hnlbsdj1mjnn" path="res://entities/Buildings/Furniture/Bench.tscn" id="11_hlpup"]
 [ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/Alpha/IvanLog.tres" id="12_lsv1r"]
 [ext_resource type="Resource" uid="uid://5ar3xxtyurg8" path="res://assets/Logs/Alpha/EvaLog.tres" id="13_r3kdr"]
 [ext_resource type="Resource" uid="uid://c15nccfq41nj5" path="res://assets/Logs/Alpha/FilipLog.tres" id="14_josum"]
 [ext_resource type="Resource" uid="uid://cr4ufudw5wbhm" path="res://assets/Logs/Alpha/MatejLog.tres" id="15_mr1nk"]
 [ext_resource type="PackedScene" uid="uid://boiiqh6bdeirf" path="res://entities/Interactable/Computer.tscn" id="17_pofa3"]
-[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Table2.tscn" id="20_vw5bt"]
-[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Lockers.tscn" id="21_ck55l"]
-[ext_resource type="PackedScene" path="res://entities/Buildings/Furniture/Lockers1Opened.tscn" id="22_sn8hm"]
+[ext_resource type="PackedScene" uid="uid://ded47hgkqaers" path="res://entities/Buildings/Furniture/Table2.tscn" id="20_vw5bt"]
+[ext_resource type="PackedScene" uid="uid://dgvvglvhdauej" path="res://entities/Buildings/Furniture/Lockers.tscn" id="21_ck55l"]
+[ext_resource type="PackedScene" uid="uid://b0y5xma8yunr2" path="res://entities/Buildings/Furniture/Lockers1Opened.tscn" id="22_sn8hm"]
 [ext_resource type="PackedScene" uid="uid://cv7vixmsbsgv" path="res://entities/Interactable/SdCard.tscn" id="22_vwksr"]
+[ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="23_f86m7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t07op"]
 resource_name = "base"
@@ -124,6 +125,17 @@ rings = 4
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ydd5"]
 size = Vector3(1.97626, 0.237793, 1.46521)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xo03l"]
+resource_local_to_scene = true
+cull_mode = 1
+emission_enabled = true
+emission = Color(0.843128, 1, 0.412127, 1)
+emission_energy_multiplier = 16.0
+rim_tint = 0.89
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5d1ya"]
+radius = 20.0686
+
 [node name="BaseAlpha" type="Node3D"]
 
 [node name="BaseAlpha" type="StaticBody3D" parent="."]
@@ -194,6 +206,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.73813, 2.7, -1.3736)
 chance_of_flickering = 6.0
 off_value = 0.0
 chance_of_sparks = 0.1
+
+[node name="Plane" parent="Cullable/Lights/CapitanLight" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_xo03l")
 
 [node name="Light" parent="Cullable/Lights/CapitanLight" index="1"]
 light_energy = 0.13
@@ -286,8 +301,13 @@ transform = Transform3D(-0.999776, 0, 0.0211868, 0, 1, 0, -0.0211868, 0, -0.9997
 [node name="SdCard" parent="." instance=ExtResource("22_vwksr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.317384, -3.49861)
 
-[node name="SdCard2" parent="." groups=["OnRadar"] instance=ExtResource("22_vwksr")]
+[node name="SdCard2" parent="." instance=ExtResource("22_vwksr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 0.869092, -2.8497)
+
+[node name="RadarArea" parent="." groups=["OnRadar"] instance=ExtResource("23_f86m7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea"]
+shape = SubResource("SphereShape3D_5d1ya")
 
 [connection signal="decompresing" from="Decompression" to="Cullable" method="_on_decompression_decompresing"]
 
