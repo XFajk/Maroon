@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://cndlcny5sc2yd"]
+[gd_scene load_steps=62 format=4 uid="uid://cndlcny5sc2yd"]
 
 [ext_resource type="Script" path="res://src/Warehouse.gd" id="1_dxulc"]
 [ext_resource type="Texture2D" uid="uid://bxou6jtg6nx7w" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_warehouse_color_bake.png" id="1_ghtl6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://du1stjwyesaku" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_3_color_bake.png" id="4_7rie7"]
 [ext_resource type="Texture2D" uid="uid://g3277iirb8yl" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_4_color_bake.png" id="5_mncbx"]
 [ext_resource type="PackedScene" uid="uid://cijyfmplcl8b4" path="res://entities/Buildings/Furniture/TableWarehouse.tscn" id="12_75hd6"]
+[ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="13_kmqdn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gqqg3"]
 size = Vector3(37.8, 7.7, 27.7)
@@ -585,6 +586,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3s5wd")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_seus0"]
+radius = 27.1359
+
 [node name="Warehouse" type="StaticBody3D" node_paths=PackedStringArray("FallingBox", "MonsterStartSpot1", "MonsterStartSpot2", "MonsterStartSpot3", "MonsterFinishSpot1", "MonsterFinishSpot2", "EventTrigger1", "EventTrigger2", "EventTrigger3", "EventTrigger4", "EventTrigger5")]
 script = ExtResource("1_dxulc")
 FallingBox = NodePath("Gameplay/FallingBox")
@@ -898,6 +902,11 @@ chance_of_sparks = 2.0
 
 [node name="table_warehouse" parent="." instance=ExtResource("12_75hd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.583, 1.09197, 8.55585)
+
+[node name="RadarArea" parent="." instance=ExtResource("13_kmqdn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea"]
+shape = SubResource("SphereShape3D_seus0")
 
 [connection signal="body_entered" from="Gameplay/EventTrigger1" to="." method="_on_event_trigger_1_body_entered"]
 [connection signal="body_exited" from="Gameplay/EventTrigger1" to="." method="_on_event_trigger_1_body_exited"]

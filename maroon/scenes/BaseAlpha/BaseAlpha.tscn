@@ -226,6 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08183, 0, 0.296031)
 
 [node name="Doors2" parent="Cullable/Doors" instance=ExtResource("3_s32fk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14089, 0, -1.50789)
+is_locked = true
 
 [node name="Doors3" parent="Cullable/Doors" instance=ExtResource("3_s32fk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27218, 0, 0.296031)

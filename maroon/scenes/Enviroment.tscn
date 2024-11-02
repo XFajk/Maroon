@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://4nwnlfj6nevh"]
+[gd_scene load_steps=110 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]
@@ -270,6 +270,9 @@ emission_enabled = true
 emission = Color(0.843128, 1, 0.412127, 1)
 emission_energy_multiplier = 16.0
 rim_tint = 0.89
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ff4h1"]
+radius = 4.77419
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qg02k"]
 radius = 8.74764
@@ -629,8 +632,11 @@ downloadeble_positions = [NodePath("../../ForestRadarTrigger")]
 object_to_delete = [NodePath("../../ForestVoiceLineTrigger"), NodePath("../../ForestBorder")]
 
 [node name="SdCard2" parent="BaseAlpha" index="9" node_paths=PackedStringArray("downloadeble_positions")]
-downloadeble_positions = [NodePath("../../RadioTower/RadioPanel/SdCard")]
+downloadeble_positions = [NodePath("../../RadioTower/RadarArea2")]
 voice_line_line = "Wow this card shows me where the radio tower is"
+
+[node name="RadarArea" parent="BaseAlpha" index="10"]
+voice_line_line = "What is this place? who built this"
 
 [node name="PlaceHolderMonster" parent="." instance=ExtResource("45_pjwgb")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -64.6583, 0)
@@ -645,6 +651,10 @@ downloadeble_positions = [NodePath("../JarryCan2")]
 
 [node name="JarryCan2" parent="Warehouse/Gameplay" index="12" node_paths=PackedStringArray("downloadeble_positions")]
 downloadeble_positions = [NodePath("../JarryCan3")]
+
+[node name="JarryCan3" parent="Warehouse/Gameplay" index="13" node_paths=PackedStringArray("downloadeble_positions")]
+downloadeble_positions = [NodePath("../../../RadioTower/RadarArea")]
+voice_line_line = "Now I can start up the generator at the radio tower"
 
 [node name="SdCard" parent="Warehouse" node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("46_xoegy")]
 transform = Transform3D(0.99988, -0.000425684, -0.0154796, 0.000369821, 0.999994, -0.0036114, 0.015481, 0.00360524, 0.999875, 17.2218, 1.1303, 7.51978)
@@ -678,13 +688,27 @@ transform = Transform3D(0.98844, -0.011602, -0.151168, 0.0876999, 0.857082, 0.50
 
 [node name="SdCard" parent="RadioTower/RadioPanel" index="10" node_paths=PackedStringArray("downloadeble_positions")]
 transform = Transform3D(-0.00918043, 0, 0.999958, 0, 1, 0, -0.999958, 0, -0.00918043, -0.962128, 0.462734, 0.722492)
-downloadeble_positions = [NodePath("../../../Warehouse/SdCard")]
+downloadeble_positions = [NodePath("../../../Warehouse/RadarArea")]
 
 [node name="Generator" parent="RadioTower" index="3"]
 transform = Transform3D(-0.834184, 0, 0.551485, 0, 1, 0, -0.551485, 0, -0.834184, 12.7995, 0.000526428, -24.3472)
 
 [node name="generator_panel" parent="RadioTower/Generator" index="0" node_paths=PackedStringArray("RadioTowerLight")]
 RadioTowerLight = NodePath("../../Radio/MeshInstance3D")
+
+[node name="RadarArea2" parent="RadioTower" instance=ExtResource("54_2cqvd")]
+transform = Transform3D(-0.270903, 0, -0.962606, 0, 1, 0, 0.962606, 0, -0.270903, 21.6695, -1.21699, 9.8022)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadioTower/RadarArea2"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 1.52588e-05, 0, 0)
+shape = SubResource("SphereShape3D_ff4h1")
+
+[node name="RadarArea" parent="RadioTower" instance=ExtResource("54_2cqvd")]
+transform = Transform3D(-0.270903, 0, -0.962606, 0, 1, 0, 0.962606, 0, -0.270903, 13.4656, -0.225895, -24.1911)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RadioTower/RadarArea"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 1.52588e-05, 0, 0)
+shape = SubResource("SphereShape3D_ff4h1")
 
 [node name="ForestRadarTrigger" parent="." node_paths=PackedStringArray("downloadeble_positions") instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.242, 2.34423, -92.0209)

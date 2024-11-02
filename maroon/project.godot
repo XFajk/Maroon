@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Maroon"
-run/main_scene="res://entities/Player.tscn"
+run/main_scene="res://scenes/2D/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/Misc/icon.svg"
 
