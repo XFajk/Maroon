@@ -739,6 +739,9 @@ collision_mask = 4
 transform = Transform3D(0.841541, -0.00539044, -0.540167, 0.00640531, 0.999979, 2.32831e-10, 0.540156, -0.00345994, 0.841558, 16.9245, 35.3259, -73.783)
 shape = SubResource("BoxShape3D_ru7rv")
 
+[node name="Generator" parent="RadioTower" index="3"]
+transform = Transform3D(-0.834184, 0, 0.551485, 0, 1, 0, -0.551485, 0, -0.834184, 12.7995, 0.000526428, -24.3472)
+
 [connection signal="all_loaded" from="NavigationRegion3D/TreesPermanent" to="NavigationRegion3D" method="_on_trees_permanent_all_loaded"]
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="body_entered" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_entered"]
