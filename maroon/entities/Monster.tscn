@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bfxw416vbl0nc"]
+[gd_scene load_steps=17 format=4 uid="uid://bfxw416vbl0nc"]
 
 [ext_resource type="Texture2D" uid="uid://cwcnwju56bnbr" path="res://assets/Monster/monster_monster_monster.png" id="1_ebr5y"]
 [ext_resource type="Script" path="res://src/Monster.gd" id="1_l6tpu"]
@@ -2262,6 +2262,9 @@ _data = {
 "screaming": SubResource("Animation_rmgf6")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5vmkh"]
+radius = 1.70306
+
 [node name="Monster" type="CharacterBody3D"]
 script = ExtResource("1_l6tpu")
 
@@ -2646,4 +2649,10 @@ transform = Transform3D(1, 0, 0, 0, 0.912399, 0.409302, 0, -0.409302, 0.912399, 
 [node name="CameraPosition2" type="Node3D" parent="."]
 transform = Transform3D(-0.965523, 0.0711202, 0.250416, 1.49012e-08, 0.961956, -0.273204, -0.260319, -0.263784, -0.92879, 0.559392, 0.0984348, -2.20523)
 
+[node name="KillArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillArea"]
+shape = SubResource("SphereShape3D_5vmkh")
+
 [connection signal="timeout" from="LookingTimer" to="." method="_on_looking_timer_timeout"]
+[connection signal="body_entered" from="KillArea" to="." method="_on_kill_area_body_entered"]

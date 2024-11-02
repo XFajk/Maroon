@@ -1,20 +1,30 @@
 extends Area3D
 
-@export var Monster: CharacterBody3D = null
+@export var MonsterSpawnPoint: Node3D = null
+@export var PlayerRespawnPoint: Node3D = null
+@export var MonsterHomes: Node3D = null
+
+var monster_scene: PackedScene = preload("res://entities/Monster.tscn")
 
 var player: CharacterBody3D = null
 
 func _on_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("Player"):
 		return
-	if Monster == null:
+	if MonsterSpawnPoint == null:
 		return
 	
-	Monster.show()
-	Monster.state = Monster.MonsterState.SCREAMING
+	var Monster: CharacterBody3D = monster_scene.instantiate()
+	get_parent().add_child(Monster)
+	Monster.Player = body
+	Monster.Homes = MonsterHomes
+	Monster.PlayerRespawnPoint = PlayerRespawnPoint
+	Monster.ChaseStarter = self
+	Monster.global_position = MonsterSpawnPoint.global_position
+	Monster.global_rotation = MonsterSpawnPoint.global_rotation
+	
 	body.state = body.PlayerState.IN_LOG_MONITOR
 	var camera_destination: Node3D = Monster.get_node("CameraPosition2")
-	
 	player = body
 	
 	player.velocity = Vector3.ZERO
@@ -44,3 +54,5 @@ func return_back() -> void:
 		
 		tween.tween_property(player.Eyes, "position", Vector3.ZERO, 0.5).set_delay(2.0)
 		tween.tween_property(player.Eyes, "rotation", Vector3.ZERO, 0.5).set_delay(2.0)
+		monitoring = false
+		Saving.disable_saving = true
