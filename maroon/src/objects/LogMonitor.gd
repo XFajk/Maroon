@@ -9,13 +9,21 @@ var LogSystem: PackedScene = preload("res://scenes/2D/LogSystem.tscn")
 @onready var CameraPosition: Node3D = $CameraPosition
 @onready var TitleSound: AudioStreamPlayer3D = $TitleSound
 
+@export var voice_line: AudioStreamPlayer = null
+@export_multiline var voice_line_line: String = ""
+
 
 func _ready() -> void:
 	stop_showing_interaction()
 
 func interact(player: CharacterBody3D) -> void:
 	Saving.save()
+	
 	TitleSound.play()
+	
+	player.voice_line = voice_line
+	player.voice_line_line = voice_line_line
+	
 	var tween: Tween = get_tree().create_tween()
 	tween.set_parallel()
 	
@@ -29,11 +37,11 @@ func interact(player: CharacterBody3D) -> void:
 	var goal_rotation: Vector3 = CameraPosition.global_rotation
 	
 	# GODOT BULSHIT
-	if player_camera.global_rotation_degrees.y >= 0 and CameraPosition.global_rotation_degrees.y < 0:
-		goal_rotation.y += PI*2
-	elif player_camera.global_rotation_degrees.y < 0 and CameraPosition.global_rotation_degrees.y >= 0:
-		goal_rotation.y -= PI*2
-		
+	if abs(player_camera.global_rotation.y - goal_rotation.y) > 180:
+		if player_camera.global_rotation_degrees.y >= 0 and CameraPosition.global_rotation_degrees.y < 0:
+			goal_rotation.y += PI*2
+		elif player_camera.global_rotation_degrees.y < 0 and CameraPosition.global_rotation_degrees.y >= 0:
+			goal_rotation.y -= PI*2
 	
 	tween.tween_property(player_camera, "global_position", CameraPosition.global_position, log_mointor_transiton_speed)
 	tween.tween_property(player_camera, "global_rotation", goal_rotation, log_mointor_transiton_speed)

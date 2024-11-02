@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://lbtp2tgmktkv"]
+[gd_scene load_steps=9 format=4 uid="uid://lbtp2tgmktkv"]
 
 [ext_resource type="Texture2D" uid="uid://dv6ug5yab81s" path="res://assets/Enviroment/Buildings/RadioTower/radio_tower_satelite_color_baked.png" id="1_a32iv"]
 
@@ -46,6 +46,16 @@ size = Vector3(12.083, 13.392, 12.0447)
 [sub_resource type="BoxShape3D" id="BoxShape3D_68qd0"]
 size = Vector3(0.511719, 2.64063, 1)
 
+[sub_resource type="SphereMesh" id="SphereMesh_bl33g"]
+radius = 0.4
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15l7x"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 10000.0
+
 [node name="Radio" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.08951)
 
@@ -60,3 +70,8 @@ shape = SubResource("BoxShape3D_ajbwk")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10139, 0.820313, -1.23326)
 shape = SubResource("BoxShape3D_68qd0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00978267, 58.9319, 0)
+mesh = SubResource("SphereMesh_bl33g")
+surface_material_override/0 = SubResource("StandardMaterial3D_15l7x")

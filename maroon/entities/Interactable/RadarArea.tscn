@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhmyy1cjja6ha"]
+
+[ext_resource type="Script" path="res://src/objects/RadarArea.gd" id="1_533go"]
+
+[node name="RadarArea" type="Area3D"]
+script = ExtResource("1_533go")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
