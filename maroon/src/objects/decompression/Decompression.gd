@@ -1,10 +1,13 @@
 extends Node3D
 
+@export var base: int = 0 # 0 -> alpha, 1 -> beta
+
 @onready var DecompWent = $DecompWent
 @onready var DecompSmoke = $DecompWent/DecompresionSmoke
 
 @onready var inside_door = $Doors
-@onready var outside_door = $MainDoor
+@onready var outside_doors = [$MainDoor, $MainDoor2]
+var outside_door: StaticBody3D
 
 @onready var decomp_panel = $DecompPanel
 @export var decomp_text_color: Color
@@ -28,6 +31,16 @@ signal decompresing(entering: bool)
 
 func _ready() -> void:
 	DecompSmoke.get_node("Smoke").emitting = false
+	outside_door = outside_doors[base]
+	var inverted_base
+	if base == 1:
+		inverted_base = 0
+	else:
+		inverted_base = 1
+	var false_doors: StaticBody3D = outside_doors[inverted_base]
+	false_doors.queue_free()
+	outside_door.is_locked = true
+	inside_door.is_locked = true
 
 func _process(delta: float) -> void:
 	if is_decompressing:

@@ -102,6 +102,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qr0f1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiqdm"]
+resource_local_to_scene = true
 cull_mode = 1
 emission_enabled = true
 emission = Color(0.843128, 1, 0.412127, 1)
