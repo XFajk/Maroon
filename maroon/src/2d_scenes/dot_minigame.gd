@@ -10,17 +10,32 @@ var colors: Array = []
 
 var should_draw = false
 
-var attemts = 5
+var attempts = 5
+var completed = 0
 
 func _ready():
 	print("READY")
 	
 func _process(delta):
-	if attemts == 0:
+	if attempts == 0:
 		_retry()
 		
+	$Attempts.text = "Attempts: " + str(attempts)
+	$Completed.text = "Completed: " + str(completed) + "/" + str(3)
+	
+	if get_child(0).get_child(0).canClick ==  true:
+		$GetReady.text = ""
+	else:
+		$GetReady.text = "GET READY"
+		
 	if dotsConnected == 5:
-		print("COMPLETED")
+		if completed < 2:
+			$GetReady.text = "NEXT"
+			_next()
+		else:
+			$GetReady.text = "COMPLETED"
+			completed = 3
+
 
 func on_dot_clicked(dot):
 	if first_dot == null:
@@ -42,7 +57,7 @@ func check_for_connection():
 		else:
 			first_dot = null
 			second_dot = null
-			attemts -= 1
+			attempts -= 1
 
 func connect_dots(dot1, dot2):
 	print("BODKY SPOJENE")
@@ -63,9 +78,10 @@ func _draw():
 
 func _retry():
 	print("Retry")
-	attemts = 5
+	attempts = 5
 	dotsConnected = 0
-	var children = get_children()
+	var _children = get_children()
+	var children = _children.slice(0, _children.size() - 3)
 	
 	positionsA = []
 	positionsB = []
@@ -74,6 +90,27 @@ func _retry():
 	for child in children:
 		child.get_child(0).connected = false
 		child.get_child(0).timer = 0.5
+	
+	should_draw = true
+	queue_redraw()
+
+func _next():
+	completed += 1
+	print("Next")
+	attempts = 5
+	dotsConnected = 0
+	var _children = get_children()
+	var children = _children.slice(0, _children.size() - 3)
+	
+	positionsA = []
+	positionsB = []
+	colors = []
+	
+	for child in children:
+		child.get_child(0).connected = false
+		child.modulate = child.get_child(0).myColor
+		child.get_child(0).changedColor = false
+		child.get_child(0).timer = 5
 	
 	should_draw = true
 	queue_redraw()

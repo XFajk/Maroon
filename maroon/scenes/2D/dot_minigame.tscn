@@ -139,6 +139,27 @@ script = ExtResource("3_q2n3s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dot10/Area2D"]
 shape = SubResource("CircleShape2D_ns4aj")
 
+[node name="Attempts" type="Label" parent="."]
+offset_left = 195.0
+offset_top = 235.0
+offset_right = 285.0
+offset_bottom = 258.0
+text = "Attempts: 5"
+
+[node name="Completed" type="Label" parent="."]
+offset_left = 182.5
+offset_top = 15.0
+offset_right = 296.5
+offset_bottom = 38.0
+text = "Completed 0/3"
+
+[node name="GetReady" type="Label" parent="."]
+offset_left = 195.0
+offset_top = 125.0
+offset_right = 285.0
+offset_bottom = 148.0
+text = "GET READY"
+
 [connection signal="input_event" from="Dot/Area2D" to="Dot/Area2D" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Dot2/Area2D" to="Dot2/Area2D" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Dot3/Area2D" to="Dot3/Area2D" method="_on_Area2D_input_event"]
