@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://4nwnlfj6nevh"]
+[gd_scene load_steps=107 format=4 uid="uid://4nwnlfj6nevh"]
 
 [ext_resource type="Shader" path="res://TerrainMixer.gdshader" id="1_cn00u"]
 [ext_resource type="Texture2D" uid="uid://4tcs5wpp15ht" path="res://assets/Enviroment/Ground/textures/sand.png" id="2_sktpo"]
@@ -54,6 +54,7 @@
 [ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="49_7p11j"]
 [ext_resource type="Resource" uid="uid://i144mw65n4bk" path="res://assets/Logs/Alpha/IvanLog.tres" id="50_3s0px"]
 [ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="54_2cqvd"]
+[ext_resource type="Script" path="res://src/misc/ChaseSceneStarter.gd" id="55_pfqdh"]
 [ext_resource type="PackedScene" uid="uid://qioh4h73bott" path="res://entities/Interactable/VoiceLineTrigger.tscn" id="55_w6okh"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_claj8"]
@@ -262,6 +263,9 @@ mesh = ExtResource("19_gh8dd")
 [sub_resource type="SphereShape3D" id="SphereShape3D_qg02k"]
 radius = 8.74764
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8jkq"]
+size = Vector3(1, 3.11, 180.9)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ojnr"]
 size = Vector3(160.481, 100, 256.757)
 
@@ -271,7 +275,7 @@ size = Vector3(150.481, 100, 246.757)
 [node name="Enviroment" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("10_3rsh4")]
-transform = Transform3D(-0.624439, 0, -0.781074, 0, 1, 0, 0.781074, 0, -0.624439, 2.13862, 1.71479, 18.3075)
+transform = Transform3D(-0.624439, 0, -0.781074, 0, 1, 0, 0.781074, 0, -0.624439, 90.7386, 6.21479, -104.192)
 
 [node name="Scattering" type="Node3D" parent="." groups=["OutsideObj"]]
 
@@ -578,14 +582,33 @@ transform = Transform3D(1, 0, 0, 0, 0.0218847, 0.999761, 0, -0.999761, 0.0218847
 light_color = Color(0.458405, 0.458405, 0.458405, 1)
 light_energy = 0.1
 
-[node name="Home" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.619, 3.2185, -72.9156)
+[node name="MonsterHomes" type="Node3D" parent="."]
+
+[node name="Home" type="Marker3D" parent="MonsterHomes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.619, 2.44912, -72.9156)
 gizmo_extents = 3.35
 
-[node name="Monster" parent="." node_paths=PackedStringArray("Player", "Home") instance=ExtResource("43_8ai3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.619, 3.2185, -72.9156)
+[node name="Home2" type="Marker3D" parent="MonsterHomes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.877, 2.44912, -19.4159)
+gizmo_extents = 3.35
+
+[node name="Home3" type="Marker3D" parent="MonsterHomes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.619, 2.44912, -2.45325)
+gizmo_extents = 3.35
+
+[node name="Home4" type="Marker3D" parent="MonsterHomes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.326, 2.44912, 37.0193)
+gizmo_extents = 3.35
+
+[node name="Home5" type="Marker3D" parent="MonsterHomes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.776, 2.44912, 84.7559)
+gizmo_extents = 3.35
+
+[node name="Monster" parent="." node_paths=PackedStringArray("Player", "Homes") instance=ExtResource("43_8ai3a")]
+transform = Transform3D(0.458774, 0, 0.888553, 0, 1, 0, -0.888553, 0, 0.458774, 175.619, 2.3291, -72.9156)
+visible = false
 Player = NodePath("../Player")
-Home = NodePath("../Home")
+Homes = NodePath("../MonsterHomes")
 
 [node name="BaseAlpha" parent="." instance=ExtResource("44_qvkm8")]
 transform = Transform3D(-0.414058, 0, -0.91025, 0, 1, 0, 0.910251, 0, -0.414058, 15.2609, -0.109267, 32.8854)
@@ -642,6 +665,15 @@ downloadeble_positions = [NodePath("../ForestRadarTrigger2"), NodePath("../Fores
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForestRadarTrigger"]
 shape = SubResource("SphereShape3D_qg02k")
 
+[node name="ChaseSceneStarter" type="Area3D" parent="." node_paths=PackedStringArray("Monster")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.242, 2.34423, -92.0209)
+script = ExtResource("55_pfqdh")
+Monster = NodePath("../Monster")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseSceneStarter"]
+transform = Transform3D(0.895634, 0, -0.444792, 0, 1, 0, 0.444792, 0, 0.895634, 0, 1.13979, 0)
+shape = SubResource("BoxShape3D_i8jkq")
+
 [node name="ForestRadarTrigger2" parent="." instance=ExtResource("54_2cqvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.314, 2.34423, -36.8393)
 
@@ -667,7 +699,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.488, 2.93985, 134.454)
 shape = SubResource("SphereShape3D_qg02k")
 
 [node name="ForestVoiceLineTrigger" parent="." instance=ExtResource("55_w6okh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.341, 0, 9.31831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.386, 0, -0.753572)
 voice_line_line = "I cant go into the forest I will get lost"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForestVoiceLineTrigger"]
@@ -675,7 +707,7 @@ transform = Transform3D(0.841541, -0.00539044, -0.540167, 0.00640531, 0.999979, 
 shape = SubResource("BoxShape3D_6ojnr")
 
 [node name="ForestBorder" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.341, 0, 9.31831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.386, 0, -0.753572)
 collision_layer = 4
 collision_mask = 4
 
@@ -687,6 +719,7 @@ shape = SubResource("BoxShape3D_ru7rv")
 [connection signal="decompresing" from="BaseAlpha/Decompression" to="Player" method="_on_decompression_decompresing"]
 [connection signal="body_entered" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_entered"]
 [connection signal="body_exited" from="Warehouse/MainCollision" to="Player" method="_on_in_warehouse_detector_body_exited"]
+[connection signal="body_entered" from="ChaseSceneStarter" to="ChaseSceneStarter" method="_on_body_entered"]
 
 [editable path="BaseAlpha"]
 [editable path="BaseAlpha/Decompression"]

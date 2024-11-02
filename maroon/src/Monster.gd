@@ -17,14 +17,16 @@ var state: MonsterState = MonsterState.SCREAMING
 
 # AI variables
 @export var Player: CharacterBody3D = null
-@export var Home: Node3D = null
+@export var Homes: Node3D = null
 
 @onready var Agent: NavigationAgent3D = $Agent
 @onready var LookingTimer: Timer = $LookingTimer
 
+var chosen_home: Node3D = null
 var go_home: bool = false
 
 func _ready() -> void:
+	hide()
 	AnimationManager.animation_finished.connect(change_state_after_animation)
 	
 func _physics_process(delta: float) -> void:
@@ -52,9 +54,12 @@ func manage_path_finding() -> void:
 			if LookingTimer.is_stopped():
 				LookingTimer.start()
 		else:
-			Agent.target_position = Home.global_position
+			Agent.target_position = chosen_home.global_position
+			if not Agent.is_target_reachable():
+				state = MonsterState.SCREAMING 
 	else:
 		go_home = false
+		chosen_home = null
 		LookingTimer.stop()
 	
 	direction = Agent.get_next_path_position() - global_position
@@ -89,16 +94,24 @@ func change_state_after_animation(animation_name: StringName) -> void:
 			if Agent.is_target_reachable():
 				state = MonsterState.RUNNING
 			else:
-				if Home == null:
-					print("MONSTER SCRIPT: No home assigned")
+				if Homes == null:
+					print("MONSTER SCRIPT: No homes assigned")
 					return
+				select_closest_home()
 				go_home = true
 				state = MonsterState.RUNNING
-		
-	
-	
-	
 
+func select_closest_home():
+	var closest_target = 10000.0
+	for home in Homes.get_children():
+		Agent.target_position = home.global_position
+		
+		var distance_to_target = Agent.distance_to_target()
+		
+		if distance_to_target < closest_target:
+			closest_target = distance_to_target
+			chosen_home = home
+			
 
 func _on_looking_timer_timeout() -> void:
 	state = MonsterState.LOOKING
