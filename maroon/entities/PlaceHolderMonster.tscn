@@ -1,16 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://bfxw416vbl0nc"]
+[gd_scene load_steps=14 format=4 uid="uid://dk3c3mk1dndvq"]
 
-[ext_resource type="Texture2D" uid="uid://cwcnwju56bnbr" path="res://assets/Monster/monster_monster_monster.png" id="1_ebr5y"]
-[ext_resource type="Script" path="res://src/Monster.gd" id="1_l6tpu"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yoqpo"]
-radius = 1.0
-height = 2.1
+[ext_resource type="Texture2D" uid="uid://cwcnwju56bnbr" path="res://assets/Monster/monster_monster_monster.png" id="1_v43j4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jpo7t"]
 resource_name = "Material.001"
 cull_mode = 2
-albedo_texture = ExtResource("1_ebr5y")
+albedo_texture = ExtResource("1_v43j4")
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8kntv"]
@@ -19,7 +14,7 @@ cull_mode = 2
 albedo_color = Color(0.779021, 0.779021, 0.779021, 1)
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_6md7t"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ycwto"]
 resource_name = "monster_Cube_001"
 _surfaces = [{
 "aabb": AABB(-3.42565, -0.013517, -1.4757, 6.8513, 3.48154, 2.78843),
@@ -53,7 +48,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_2sr4v"]
+[sub_resource type="Skin" id="Skin_ylxbl"]
 resource_name = "Skin"
 bind_count = 50
 bind/0/name = &"Bone.001"
@@ -207,7 +202,7 @@ bind/49/name = &"Bone.014_R.007"
 bind/49/bone = -1
 bind/49/pose = Transform3D(0.207597, -0.780924, -0.570897, 0.0299647, -0.583096, 0.80973, -0.801895, -0.223957, -0.117538, 0.222025, 0.18498, -0.185162)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d230u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2dit"]
 emission_enabled = true
 emission = Color(0.751812, 0.79866, 0.628919, 1)
 emission_energy_multiplier = 8.0
@@ -2262,12 +2257,7 @@ _data = {
 "screaming": SubResource("Animation_rmgf6")
 }
 
-[node name="Monster" type="CharacterBody3D"]
-script = ExtResource("1_l6tpu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128686, 0)
-shape = SubResource("CapsuleShape3D_yoqpo")
+[node name="PlaceHolderMonster" type="Node3D"]
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(-0.736, 0, -5.34153e-08, 0, 0.61, 0, 6.43432e-08, 0, -0.611, 0, -0.652368, 0)
@@ -2625,25 +2615,16 @@ bones/49/rotation = Quaternion(-0.0737534, -0.00810204, 0.417131, 0.905813)
 bones/49/scale = Vector3(1, 1, 1)
 
 [node name="Monster" type="MeshInstance3D" parent="Armature/Skeleton3D"]
-mesh = SubResource("ArrayMesh_6md7t")
-skin = SubResource("Skin_2sr4v")
-surface_material_override/1 = SubResource("StandardMaterial3D_d230u")
+mesh = SubResource("ArrayMesh_ycwto")
+skin = SubResource("Skin_ylxbl")
+surface_material_override/1 = SubResource("StandardMaterial3D_n2dit")
 
 [node name="AnimationManager" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_kstxd")
 }
 
-[node name="Agent" type="NavigationAgent3D" parent="."]
-
-[node name="LookingTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[node name="CameraPosistion1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.912399, 0.409302, 0, -0.409302, 0.912399, -0.0671693, 0.356885, -1.2953)
-
-[node name="CameraPosition2" type="Node3D" parent="."]
-transform = Transform3D(-0.965523, 0.0711202, 0.250416, 1.49012e-08, 0.961956, -0.273204, -0.260319, -0.263784, -0.92879, 0.559392, 0.0984348, -2.20523)
-
-[connection signal="timeout" from="LookingTimer" to="." method="_on_looking_timer_timeout"]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.562241)
+light_energy = 0.25
+omni_range = 0.93477

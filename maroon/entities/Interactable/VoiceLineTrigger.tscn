@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qioh4h73bott"]
+
+[ext_resource type="Script" path="res://src/objects/VoiceLineTrigger.gd" id="1_63qwf"]
+
+[node name="VoiceLineTrigger" type="Area3D"]
+script = ExtResource("1_63qwf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -42,12 +42,23 @@ var interactible_object: Object = null
 
 @onready var PlayerUI: Control = $Head/Eyes/PlayerUI
 
+# subtitles and voicelines variables
+@onready var SubTitles: Label = $Head/Eyes/PlayerUI/SubTitles
+
+var voice_line: AudioStreamPlayer = null
+var voice_line_line: String = ""
+var subtitles_timer: Timer = Timer.new()
+
+# warehouse variables
+var cansiters_picked_up = 0
+
 # enviroment transition variables
 var InEnv = preload("res://InsideEnviroment.tres")
 var OutEnv = preload("res://OutsideEnviroment.tres")
 var inside: bool = false
 
 func _ready() -> void:
+	Eyes.environment = OutEnv
 	for obj in get_tree().get_nodes_in_group("InsideObj"):
 		obj.hide()
 	for obj in get_tree().get_nodes_in_group("OutsideObj"):
@@ -205,6 +216,8 @@ func reading_logs(delta: float) -> void:
 		tween.tween_property(Eyes, "position", Vector3.ZERO, 0.5)
 		tween.tween_property(Eyes, "rotation", Vector3.ZERO, 0.5)
 		PlayerUI.show()
+		if not voice_line_line.is_empty():
+			say_voice_line()
 		
 	StaminaBar.value += stamina_recharge_speed*delta
 
@@ -212,37 +225,25 @@ func reading_logs(delta: float) -> void:
 func _on_in_warehouse_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		inside = true
-		for obj in get_tree().get_nodes_in_group("OutsideObj"):
-			obj.hide()
-		for obj in get_tree().get_nodes_in_group("InsideObj"):
-			obj.show()
+		hide_all_outside_objects()
 		tween_camera_env_to(InEnv)
 		
 
 func _on_in_warehouse_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		inside = false
-		for obj in get_tree().get_nodes_in_group("InsideObj"):
-			obj.hide()
-		for obj in get_tree().get_nodes_in_group("OutsideObj"):
-			obj.show()
+		hide_all_inside_objects()
 		tween_camera_env_to(OutEnv)
 
 
 func _on_decompression_decompresing(entering: bool) -> void:
 	if entering:
 		inside = true
-		for obj in get_tree().get_nodes_in_group("OutsideObj"):
-			obj.hide()
-		for obj in get_tree().get_nodes_in_group("InsideObj"):
-			obj.show()
+		hide_all_outside_objects()
 		tween_camera_env_to(InEnv)
 	else:
 		inside = false
-		for obj in get_tree().get_nodes_in_group("InsideObj"):
-			obj.hide()
-		for obj in get_tree().get_nodes_in_group("OutsideObj"):
-			obj.show()
+		hide_all_inside_objects()
 		tween_camera_env_to(OutEnv)
 	
 func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -> void:
@@ -257,6 +258,8 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -
 	tween.tween_property(Env, "background_energy_multiplier", goal_env.background_energy_multiplier, transition_speed)
 	tween.tween_property(Env, "fog_light_color", goal_env.fog_light_color, transition_speed)
 	tween.tween_property(Env, "fog_density", goal_env.fog_density, transition_speed)
+	tween.tween_property(Env, "fog_light_energy", goal_env.fog_light_energy, transition_speed)
+	tween.tween_property(Env, "fog_sun_scatter", goal_env.fog_sun_scatter, transition_speed)
 	
 	# set the new planned to change enviroment to the cameras enviroment
 	Eyes.environment = Env
@@ -264,6 +267,39 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -
 func return_to_standing() -> void:
 	state = PlayerState.STANDING
 	
+func hide_all_inside_objects() -> void:
+	for obj in get_tree().get_nodes_in_group("InsideObj"):
+		obj.hide()
+	for obj in get_tree().get_nodes_in_group("OutsideObj"):
+		obj.show()
+		
+func hide_all_outside_objects() -> void:
+	for obj in get_tree().get_nodes_in_group("OutsideObj"):
+		obj.hide()
+	for obj in get_tree().get_nodes_in_group("InsideObj"):
+		obj.show()
+	
+	
+func say_voice_line() -> void:
+	SubTitles.text = voice_line_line
+	
+	if voice_line == null:
+		subtitles_timer.autostart = false
+		subtitles_timer.one_shot = true
+		subtitles_timer.timeout.connect(delete_after_voice_line_finish)
+		add_child(subtitles_timer)
+		subtitles_timer.start(voice_line_line.length()*0.1)
+		return
+		
+	voice_line.play()
+	voice_line.finished.connect(delete_after_voice_line_finish)
+	
+func delete_after_voice_line_finish() -> void:
+	SubTitles.text = ""
+	voice_line_line = ""
+	if voice_line != null:
+		voice_line.queue_free()
+
 	
 func saveout() -> Dictionary:
 	return {
@@ -271,6 +307,7 @@ func saveout() -> Dictionary:
 		"rotation": global_rotation,
 		"state": state,
 		"inside": inside,
+		"cansiters_picked_up": cansiters_picked_up
 	}
 	
 	
@@ -294,4 +331,6 @@ func loadin(save_data: Dictionary) -> void:
 			obj.hide()
 		for obj in get_tree().get_nodes_in_group("OutsideObj"):
 			obj.show()
+			
+	cansiters_picked_up = int(save_data.get("cansiters_picked_up"))
 	

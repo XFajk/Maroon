@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0jnnj2b0u0cg"]
+[gd_scene load_steps=14 format=3 uid="uid://b0jnnj2b0u0cg"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_dqc7k"]
-[ext_resource type="Environment" uid="uid://dympl0t5gddd1" path="res://OutsideEnviroment.tres" id="2_lqr8s"]
 [ext_resource type="PackedScene" uid="uid://dtmo3ahg8vh6x" path="res://entities/Radar.tscn" id="3_obdw2"]
 [ext_resource type="FontFile" uid="uid://lfke2fc11udm" path="res://assets/Fonts/prstartk.ttf" id="4_xb8ew"]
 [ext_resource type="Texture2D" uid="uid://3ekwtx6picii" path="res://assets/Misc/circle.svg" id="5_74ql2"]
@@ -39,7 +38,10 @@ outline_color = Color(0, 0, 0, 1)
 size = Vector3(0.01, 0.01, 10)
 
 [node name="Player" type="CharacterBody3D" groups=["Player", "Savable"]]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_dqc7k")
+running_speed = 300
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_4jeoj")
@@ -53,7 +55,6 @@ shape = SubResource("CapsuleShape3D_52p76")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.598592, 0)
 
 [node name="Eyes" type="Camera3D" parent="Head"]
-environment = ExtResource("2_lqr8s")
 
 [node name="PlayerUI" type="Control" parent="Head/Eyes"]
 layout_mode = 3
@@ -92,8 +93,7 @@ grow_vertical = 0
 [node name="Points" parent="Head/Eyes/PlayerUI/Radar" index="1"]
 zoom = 2.0
 
-[node name="Label" type="Label" parent="Head/Eyes/PlayerUI"]
-visible = false
+[node name="SubTitles" type="Label" parent="Head/Eyes/PlayerUI"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
@@ -107,7 +107,6 @@ offset_right = 112.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "hello my name is jeff I love playing games can we play  a game no go fuck your self you dirty bitch I hope you die dont show your face you god dam bitch "
 label_settings = SubResource("LabelSettings_shxdg")
 horizontal_alignment = 1
 vertical_alignment = 1

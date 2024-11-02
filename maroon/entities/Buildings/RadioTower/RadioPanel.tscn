@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://c42rayupj0avx"]
+[gd_scene load_steps=31 format=4 uid="uid://c42rayupj0avx"]
 
 [ext_resource type="Texture2D" uid="uid://ipsmrgvd0t5g" path="res://assets/Enviroment/Buildings/RadioTower/radio_panel_control_panel_color_baked.png" id="1_x4po1"]
+[ext_resource type="PackedScene" uid="uid://cv7vixmsbsgv" path="res://entities/Interactable/SdCard.tscn" id="2_7y376"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0odd"]
 resource_name = "light"
@@ -530,3 +531,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.994829, -0.0746661, -0.0688459, 0.0997129, 0.846819, 0.522451, 0.0192906, -0.526615, 0.849885, -0.816983, 0.51929, 0.994603)
 shape = SubResource("ConcavePolygonShape3D_rr2j6")
+
+[node name="SdCard" parent="." instance=ExtResource("2_7y376")]
+transform = Transform3D(-0.00918034, 0, 0.999958, 0, 1, 0, -0.999958, 0, -0.00918034, -0.962126, 0.459817, 0.722498)

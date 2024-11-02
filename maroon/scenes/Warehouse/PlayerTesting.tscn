@@ -45,7 +45,6 @@ skeleton = NodePath("../..")
 
 [node name="Player" parent="." instance=ExtResource("1_mooo8")]
 transform = Transform3D(0.868407, 0, 0.495853, 0, 1, 0, -0.495853, 0, 0.868407, 33.0951, 3.78489, -4.44387)
-running_speed = 300
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_vrj6l")
