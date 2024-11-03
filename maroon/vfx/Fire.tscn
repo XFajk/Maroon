@@ -6,14 +6,14 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.690647, 0.58), -2.085, -2.085, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_ijsv6"]
+[sub_resource type="CurveTexture" id="CurveTexture_x1swm"]
 curve = SubResource("Curve_6eylj")
 
 [sub_resource type="Curve" id="Curve_a5nwu"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_qefga"]
+[sub_resource type="CurveTexture" id="CurveTexture_rxl43"]
 curve = SubResource("Curve_a5nwu")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m7ylk"]
@@ -24,11 +24,11 @@ spread = 40.0
 initial_velocity_max = 1.1
 gravity = Vector3(0, 0.3, 0)
 scale_min = 0.5
-scale_curve = SubResource("CurveTexture_qefga")
+scale_curve = SubResource("CurveTexture_rxl43")
 color = Color(0.43712, 0.43712, 0.43712, 1)
-alpha_curve = SubResource("CurveTexture_ijsv6")
+alpha_curve = SubResource("CurveTexture_x1swm")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ea7x"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87agw"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
@@ -41,7 +41,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_w1yl0"]
-material = SubResource("StandardMaterial3D_2ea7x")
+material = SubResource("StandardMaterial3D_87agw")
 
 [sub_resource type="Curve" id="Curve_l73j4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

@@ -42,11 +42,11 @@ curve = SubResource("Curve_4023o")
 
 [node name="Sparks" type="Node3D"]
 script = ExtResource("1_pox72")
-free_after = 3.0
+free_after = 1.0
 
 [node name="Sparks" type="GPUParticles3D" parent="."]
+visibility_range_end = 10.0
 amount = 30
-lifetime = 3.0
 explosiveness = 1.0
 trail_enabled = true
 trail_lifetime = 0.1

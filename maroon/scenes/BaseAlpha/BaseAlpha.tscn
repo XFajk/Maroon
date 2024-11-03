@@ -305,7 +305,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.317384, -3.49861)
 [node name="SdCard2" parent="." instance=ExtResource("22_vwksr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 0.869092, -2.8497)
 
-[node name="RadarArea" parent="." groups=["OnRadar"] instance=ExtResource("23_f86m7")]
+[node name="RadarArea" parent="." instance=ExtResource("23_f86m7")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea"]
 shape = SubResource("SphereShape3D_5d1ya")
