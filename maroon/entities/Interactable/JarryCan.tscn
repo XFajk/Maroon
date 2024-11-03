@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://duqmxbq43pmj3"]
+[gd_scene load_steps=10 format=4 uid="uid://duqmxbq43pmj3"]
 
 [ext_resource type="Texture2D" uid="uid://d3bgu8wtc2vch" path="res://assets/Objects/jerry_can_jerry_can_color_baked.png" id="1_wnnam"]
 [ext_resource type="Script" path="res://src/objects/JarryCan.gd" id="1_ymdd0"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_ch0do"]
+[ext_resource type="AudioStream" uid="uid://cu1yasqycocjm" path="res://assets/Sounds/pickup.wav" id="4_0u01v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nlpyg"]
 size = Vector3(0.352386, 0.426697, 0.121956)
@@ -76,3 +77,10 @@ skeleton = NodePath("")
 [node name="OutlineMesh" type="MeshInstance3D" parent="JerryCan"]
 mesh = SubResource("ArrayMesh_1hfiq")
 surface_material_override/0 = ExtResource("2_ch0do")
+
+[node name="PickUpSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_0u01v")
+volume_db = -5.0
+max_distance = 10.0
+
+[connection signal="finished" from="PickUpSound" to="." method="_on_pick_up_sound_finished"]

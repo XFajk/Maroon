@@ -6,7 +6,7 @@ var paths_to_deleted_objects: Array[String]
 
 @export var outlines: Array[MeshInstance3D]
 
-@export var voice_line: AudioStreamPlayer = null
+@export var voice_line: AudioStream = null
 @export_multiline var voice_line_line: String = ""
 
 var deleted = false
@@ -18,6 +18,8 @@ func interact(player: CharacterBody3D) -> void:
 	player.voice_line = voice_line
 	player.voice_line_line = voice_line_line
 	player.say_voice_line()
+	 
+	$PickUpSound.play()
 	
 	for pos in downloadeble_positions:
 		if pos == null:
@@ -31,7 +33,8 @@ func interact(player: CharacterBody3D) -> void:
 		
 	deleted = true
 	Saving.save()
-	queue_free()
+	hide()
+	
 
 func stop_showing_interaction() -> void:
 	
@@ -61,3 +64,7 @@ func loadin(save_data: Dictionary) -> void:
 		queue_free()
 		for node_path in save_data.get("paths_to_deleted_objects"):
 			get_tree().root.get_node(node_path).queue_free()
+
+
+func _on_pick_up_sound_finished() -> void:
+	queue_free()

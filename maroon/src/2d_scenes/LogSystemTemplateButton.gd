@@ -9,8 +9,6 @@ extends Button
 @onready var SelectSound: AudioStreamPlayer = $SelectSound
 
 func _pressed() -> void:
-	SelectSound.volume_db = linear_to_db(Global.sound_volume*db_to_linear(SelectSound.volume_db)) 
-	SelectSound
 	SelectSound.play()
 	Name.text = log.title
 	Date.text = log.date

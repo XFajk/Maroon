@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/objects/LogMonitor.gd" id="1_cgas0"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_qlc53"]
 [ext_resource type="Texture2D" uid="uid://dpybjvbfota2" path="res://assets/Misc/screen_texture.png" id="3_1epdc"]
-[ext_resource type="AudioStream" uid="uid://dmxm862x7xrgu" path="res://assets/Sounds/matej_goc.wav" id="5_p1kre"]
+[ext_resource type="AudioStream" uid="uid://cqbjbemxq6f6n" path="res://assets/Sounds/log_monitor.wav" id="5_gab4p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmv21"]
 resource_name = "Material.004"
@@ -122,9 +122,9 @@ shape = SubResource("BoxShape3D_2qv3x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0488706, 0.0689765, 0.246528)
 
 [node name="TitleSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_p1kre")
-volume_db = -80.0
+stream = ExtResource("5_gab4p")
 max_distance = 10.0
+bus = &"Sounds"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0344812, 0.0677955, 0.144107)

@@ -2,7 +2,7 @@ extends Area3D
 
 @export var downloadeble_positions: Array[Node3D]
 
-@export var voice_line: AudioStreamPlayer = null
+@export var voice_line: AudioStream = null
 @export_multiline var voice_line_line: String = ""
 
 var deleted: bool = false

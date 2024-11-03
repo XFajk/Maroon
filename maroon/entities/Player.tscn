@@ -145,4 +145,9 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 shape = SubResource("BoxShape3D_001jw")
 
+[node name="VoiceLinePlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[connection signal="finished" from="VoiceLinePlayer" to="." method="delete_after_voice_line_finish"]
+
 [editable path="Head/Eyes/PlayerUI/Radar"]

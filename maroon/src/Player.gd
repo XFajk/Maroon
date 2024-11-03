@@ -45,7 +45,7 @@ var interactible_object: Object = null
 # subtitles and voicelines variables
 @onready var SubTitles: Label = $Head/Eyes/PlayerUI/SubTitles
 
-var voice_line: AudioStreamPlayer = null
+var voice_line: AudioStream = null
 var voice_line_line: String = ""
 var subtitles_timer: Timer = Timer.new()
 
@@ -290,9 +290,8 @@ func say_voice_line() -> void:
 		add_child(subtitles_timer)
 		subtitles_timer.start(voice_line_line.length()*0.1)
 		return
-		
-	voice_line.play()
-	voice_line.finished.connect(delete_after_voice_line_finish)
+	$VoiceLinePlayer.stream = voice_line
+	$VoiceLinePlayer.play()
 	
 func delete_after_voice_line_finish() -> void:
 	SubTitles.text = ""

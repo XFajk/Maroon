@@ -3,7 +3,7 @@ extends StaticBody3D
 @export var downloadeble_positions: Array[Node3D]
 @export var outlines: Array[MeshInstance3D]
 
-@export var voice_line: AudioStreamPlayer = null
+@export var voice_line: AudioStream = null
 @export_multiline var voice_line_line: String = ""
 
 var deleted = false
@@ -15,6 +15,8 @@ func interact(player: CharacterBody3D) -> void:
 	player.voice_line = voice_line
 	player.voice_line_line = voice_line_line
 	player.say_voice_line()
+	 
+	$PickUpSound.play()
 	
 	for pos in downloadeble_positions:
 		if pos == null:
@@ -26,7 +28,7 @@ func interact(player: CharacterBody3D) -> void:
 	
 	deleted = true
 	Saving.save()
-	queue_free()
+	hide()
 
 func stop_showing_interaction() -> void:
 	
@@ -53,3 +55,7 @@ func loadin(save_data: Dictionary) -> void:
 	stop_showing_interaction()
 	if bool(save_data.get('deleted')):
 		queue_free()
+
+
+func _on_pick_up_sound_finished() -> void:
+	queue_free()

@@ -125,3 +125,4 @@ script = ExtResource("5_6gstm")
 [node name="SelectSound" type="AudioStreamPlayer" parent="TemplateButton"]
 stream = ExtResource("4_elx4t")
 volume_db = -30.0
+bus = &"Sounds"

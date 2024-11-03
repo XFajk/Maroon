@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://6l403w5tj2f4"]
+[gd_scene load_steps=8 format=3 uid="uid://6l403w5tj2f4"]
 
 [ext_resource type="Script" path="res://src/2d_scenes/MainMenuManager.gd" id="1_2oy5o"]
 [ext_resource type="Environment" uid="uid://d2mkmjurxnrdp" path="res://InsideEnviroment.tres" id="1_tq315"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="2_a3ftg"]
 [ext_resource type="PackedScene" uid="uid://cw3f8paoawyo1" path="res://scenes/2D/Settings.tscn" id="3_3my8l"]
 [ext_resource type="PackedScene" uid="uid://dyxqtmlhlxhkx" path="res://scenes/2D/ContinuePopUp.tscn" id="4_iqrh4"]
+[ext_resource type="AudioStream" uid="uid://op6n1v2yyg32" path="res://assets/Music/main_menu.wav" id="5_o4srb"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -15,6 +16,11 @@
 transform = Transform3D(0.788552, -0.235357, 0.56815, -0.0053785, 0.921192, 0.389071, -0.614946, -0.309858, 0.725142, 3.67458, 2.37668, 3.29964)
 environment = ExtResource("1_tq315")
 fov = 60.0
+
+[node name="Music" type="AudioStreamPlayer" parent="Camera3D"]
+stream = ExtResource("5_o4srb")
+autoplay = true
+bus = &"Music"
 
 [node name="MainMenu" type="Control" parent="Camera3D" node_paths=PackedStringArray("settings", "continue_pop_up")]
 layout_mode = 3
