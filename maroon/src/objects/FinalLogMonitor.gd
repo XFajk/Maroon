@@ -1,0 +1,83 @@
+extends StaticBody3D
+
+@export var log_mointor_transiton_speed = 1.0
+@export var outlines: Array[MeshInstance3D]
+
+@export var logs: Array[Log] = []
+
+var LogSystem: PackedScene = preload("res://scenes/2D/LogSystem.tscn")
+@onready var CameraPosition: Node3D = $CameraPosition
+@onready var TitleSound: AudioStreamPlayer3D = $TitleSound
+
+@export var voice_line: AudioStreamPlayer = null
+@export_multiline var voice_line_line: String = ""
+
+@export_subgroup("Monster Stuff")
+@export var monster_spawn_point: Node3D = null
+var monster_scene: PackedScene = preload("res://entities/PlaceHolderMonster.tscn")
+var player: CharacterBody3D = null
+
+func _ready() -> void:
+	stop_showing_interaction()
+
+func interact(player: CharacterBody3D) -> void:
+	Saving.save()
+	self.player = player
+	TitleSound.play()
+	
+	player.voice_line = voice_line
+	player.voice_line_line = voice_line_line
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.set_parallel()
+	
+	player.state = player.PlayerState.IN_LOG_MONITOR
+	player.PlayerUI.hide()
+	player.direction = Vector3.ZERO
+	player.velocity = Vector3.ZERO
+	player.die_after = true
+	
+	var player_camera: Camera3D = player.Eyes
+	
+	var goal_rotation: Vector3 = CameraPosition.global_rotation
+	
+	# GODOT BULSHIT
+	if abs(player_camera.global_rotation.y - goal_rotation.y) > 180:
+		if player_camera.global_rotation_degrees.y >= 0 and CameraPosition.global_rotation_degrees.y < 0:
+			goal_rotation.y += PI*2
+		elif player_camera.global_rotation_degrees.y < 0 and CameraPosition.global_rotation_degrees.y >= 0:
+			goal_rotation.y -= PI*2
+	
+	tween.tween_property(player_camera, "global_position", CameraPosition.global_position, log_mointor_transiton_speed)
+	tween.tween_property(player_camera, "global_rotation", goal_rotation, log_mointor_transiton_speed)
+	
+	tween.finished.connect(transition)
+
+
+func stop_showing_interaction() -> void:
+	
+	if outlines.size() < 1:
+		return
+		
+	for outline in outlines:
+		outline.visible = false
+	
+func show_interaction() -> void:
+	
+	if outlines.size() < 1:
+		return
+		
+	for outline in outlines:
+		outline.visible = true
+		
+func transition() -> void:
+	var log_system_instance = LogSystem.instantiate()
+	log_system_instance.logs = logs
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().root.add_child(log_system_instance)
+	var monster_instance: Node3D = monster_scene.instantiate()
+	monster_spawn_point.add_child(monster_instance)
+	player.Monster = monster_instance
+	
+	
+	

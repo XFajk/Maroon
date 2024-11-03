@@ -7,7 +7,8 @@ var loading: PackedScene = preload("res://scenes/2D/Loading.tscn")
 
 func _ready() -> void:
 	settings.hide()
-
+	
+	
 func _on_start_pressed() -> void:
 	if FileAccess.file_exists("user://gamedata.save"):
 		continue_pop_up.show()

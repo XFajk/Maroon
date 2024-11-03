@@ -15,6 +15,10 @@ run/main_scene="res://scenes/2D/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/Misc/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://MyBusLayout.tres"
+
 [autoload]
 
 Global="*res://src/Global.gd"

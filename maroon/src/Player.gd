@@ -4,7 +4,8 @@ enum PlayerState {
 	STANDING,
 	MOVING,
 	JUMPING,
-	IN_LOG_MONITOR
+	IN_LOG_MONITOR,
+	NOTHING,
 }
 
 var state: PlayerState = PlayerState.STANDING
@@ -45,7 +46,7 @@ var interactible_object: Object = null
 # subtitles and voicelines variables
 @onready var SubTitles: Label = $Head/Eyes/PlayerUI/SubTitles
 
-var voice_line: AudioStreamPlayer = null
+var voice_line: AudioStream = null
 var voice_line_line: String = ""
 var subtitles_timer: Timer = Timer.new()
 
@@ -56,6 +57,11 @@ var cansiters_picked_up = 0
 var InEnv = preload("res://InsideEnviroment.tres")
 var OutEnv = preload("res://OutsideEnviroment.tres")
 var inside: bool = false
+
+# final cutscene variables
+var die_after: bool = false
+var Monster: Node3D = null
+var end_scene: PackedScene = preload("res://scenes/2D/End.tscn")
 
 func _ready() -> void:
 	Eyes.environment = OutEnv
@@ -69,7 +75,7 @@ func _ready() -> void:
 	PauseMenu.hide()
 	
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and state != PlayerState.IN_LOG_MONITOR and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and state != PlayerState.IN_LOG_MONITOR and state != PlayerState.NOTHING and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(deg_to_rad(-event.relative.x*Global.mouse_sens))
 		Head.rotate_x(deg_to_rad(-event.relative.y*Global.mouse_sens))
 		Head.rotation.x = deg_to_rad(clamp(Head.rotation_degrees.x, -70, 70))
@@ -208,7 +214,7 @@ func jumping(delta: float) -> void:
 	StaminaBar.value += stamina_recharge_speed*delta
 	
 func reading_logs(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and not die_after:
 		var tween = get_tree().create_tween()
 		tween.set_parallel()
 		tween.finished.connect(return_to_standing)
@@ -218,6 +224,23 @@ func reading_logs(delta: float) -> void:
 		PlayerUI.show()
 		if not voice_line_line.is_empty():
 			say_voice_line()
+	elif Input.is_action_just_pressed("ui_cancel") and die_after:
+		var tween = get_tree().create_tween()
+		tween.set_parallel()
+		tween.finished.connect(kill)
+		
+		var CameraPosition: Node3D = Monster.get_node("CameraPosistion1")
+		var goal_rotation: Vector3 = CameraPosition.global_rotation
+		
+		# GODOT BULSHIT
+		if abs(Eyes.global_rotation.y - goal_rotation.y) > 180:
+			if Eyes.global_rotation_degrees.y >= 0 and CameraPosition.global_rotation_degrees.y < 0:
+				goal_rotation.y += PI*2
+			elif Eyes.global_rotation_degrees.y < 0 and CameraPosition.global_rotation_degrees.y >= 0:
+				goal_rotation.y -= PI*2
+		
+		tween.tween_property(Eyes, "global_position", CameraPosition.global_position, 2)
+		tween.tween_property(Eyes, "global_rotation", goal_rotation, 2)
 		
 	StaminaBar.value += stamina_recharge_speed*delta
 
@@ -252,7 +275,6 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -
 	
 	# get the Camera enviroment
 	var Env: Environment = Eyes.environment.duplicate()
-	
 	# transition the enviroment to the desired envirioment
 	tween.tween_property(Env, "background_color", goal_env.background_color, transition_speed)
 	tween.tween_property(Env, "background_energy_multiplier", goal_env.background_energy_multiplier, transition_speed)
@@ -266,6 +288,15 @@ func tween_camera_env_to(goal_env: Environment, transition_speed: float = 0.2) -
 	
 func return_to_standing() -> void:
 	state = PlayerState.STANDING
+	
+func kill() -> void:
+	var animation_manager: AnimationPlayer = Monster.get_node("AnimationManager")
+	animation_manager.play("Slapp", -1, 2.0)
+	animation_manager.animation_finished.connect(transition_to_end)
+	
+func transition_to_end(am: StringName) -> void:
+	get_tree().root.add_child(end_scene.instantiate())
+	get_parent().queue_free()
 	
 func hide_all_inside_objects() -> void:
 	for obj in get_tree().get_nodes_in_group("InsideObj"):
@@ -290,9 +321,8 @@ func say_voice_line() -> void:
 		add_child(subtitles_timer)
 		subtitles_timer.start(voice_line_line.length()*0.1)
 		return
-		
-	voice_line.play()
-	voice_line.finished.connect(delete_after_voice_line_finish)
+	$VoiceLinePlayer.stream = voice_line
+	$VoiceLinePlayer.play()
 	
 func delete_after_voice_line_finish() -> void:
 	SubTitles.text = ""

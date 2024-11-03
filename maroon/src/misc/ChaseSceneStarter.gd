@@ -48,11 +48,11 @@ func _on_body_entered(body: Node3D) -> void:
 	tween.finished.connect(return_back)
 
 func return_back() -> void:
-		var tween = get_tree().create_tween()
-		tween.set_parallel()
-		tween.finished.connect(player.return_to_standing)
-		
-		tween.tween_property(player.Eyes, "position", Vector3.ZERO, 0.5).set_delay(2.0)
-		tween.tween_property(player.Eyes, "rotation", Vector3.ZERO, 0.5).set_delay(2.0)
-		monitoring = false
-		Saving.disable_saving = true
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.finished.connect(player.return_to_standing)
+	
+	tween.tween_property(player.Eyes, "position", Vector3.ZERO, 0.5).set_delay(2.0)
+	tween.tween_property(player.Eyes, "rotation", Vector3.ZERO, 0.5).set_delay(2.0)
+	monitoring = false
+	Saving.disable_saving = true

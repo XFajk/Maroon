@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://cv7vixmsbsgv"]
+[gd_scene load_steps=10 format=4 uid="uid://cv7vixmsbsgv"]
 
 [ext_resource type="Texture2D" uid="uid://b1k5vpm55mnsq" path="res://assets/Objects/sd_card_sd_color_baked.png" id="1_35dey"]
 [ext_resource type="Script" path="res://src/objects/SdCard.gd" id="1_sfbrs"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_1u4jt"]
+[ext_resource type="AudioStream" uid="uid://cu1yasqycocjm" path="res://assets/Sounds/pickup.wav" id="4_jb6im"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxsll"]
 size = Vector3(0.0997086, 0.00958252, 0.127075)
@@ -81,3 +82,11 @@ light_color = Color(0.595321, 0.758514, 1, 1)
 light_energy = 0.3
 light_indirect_energy = 0.0
 omni_range = 0.5
+
+[node name="PickUpSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_jb6im")
+volume_db = -5.0
+max_distance = 10.0
+bus = &"Sounds"
+
+[connection signal="finished" from="PickUpSound" to="." method="_on_pick_up_sound_finished"]
