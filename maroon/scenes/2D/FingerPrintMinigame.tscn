@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://cch17lbbnth42"]
+
+[ext_resource type="Texture2D" uid="uid://dicyxlm1d45qk" path="res://assets/minigame/finger_print_minigame/fingerPrintUI.png" id="1_gpyet"]
+[ext_resource type="Script" path="res://src/2d_scenes/FingerPrintMinigame.gd" id="1_n2rdv"]
+[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="2_86xfu"]
+[ext_resource type="Script" path="res://src/2d_scenes/FigerPrintSectionSelection.gd" id="4_pclu0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77ajp"]
+size = Vector2(64, 64)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rwoul"]
+
+[node name="FingerPrintMinigame" type="Node2D"]
+script = ExtResource("1_n2rdv")
+
+[node name="FingerPrintUi" type="Sprite2D" parent="."]
+position = Vector2(240, 135)
+texture = ExtResource("1_gpyet")
+
+[node name="Label" type="Label" parent="FingerPrintUi"]
+offset_left = -11.0
+offset_top = -121.0
+offset_right = 222.0
+offset_bottom = -90.0
+theme = ExtResource("2_86xfu")
+text = "PICK 2 MATCHING"
+
+[node name="MainFigerPrint" type="Sprite2D" parent="."]
+position = Vector2(344, 134)
+
+[node name="FigerPrintSectionSelection" type="Area2D" parent="."]
+position = Vector2(74, 60)
+script = ExtResource("4_pclu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FigerPrintSectionSelection"]
+shape = SubResource("RectangleShape2D_77ajp")
+
+[node name="SelectedRect" type="MeshInstance2D" parent="FigerPrintSectionSelection"]
+visible = false
+position = Vector2(3.57628e-06, -5.60284e-06)
+scale = Vector2(68, 68)
+mesh = SubResource("QuadMesh_rwoul")
+
+[node name="Image" type="Sprite2D" parent="FigerPrintSectionSelection"]
+position = Vector2(32, 32)
+
+[node name="FigerPrintSectionSelection2" type="Area2D" parent="."]
+position = Vector2(162, 59)
+script = ExtResource("4_pclu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FigerPrintSectionSelection2"]
+shape = SubResource("RectangleShape2D_77ajp")
+
+[node name="SelectedRect" type="MeshInstance2D" parent="FigerPrintSectionSelection2"]
+visible = false
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(68, 68)
+mesh = SubResource("QuadMesh_rwoul")
+
+[node name="Image" type="Sprite2D" parent="FigerPrintSectionSelection2"]
+position = Vector2(32, 32)
+
+[node name="FigerPrintSectionSelection3" type="Area2D" parent="."]
+position = Vector2(74, 137)
+script = ExtResource("4_pclu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FigerPrintSectionSelection3"]
+shape = SubResource("RectangleShape2D_77ajp")
+
+[node name="SelectedRect" type="MeshInstance2D" parent="FigerPrintSectionSelection3"]
+visible = false
+scale = Vector2(68, 68)
+mesh = SubResource("QuadMesh_rwoul")
+
+[node name="Image" type="Sprite2D" parent="FigerPrintSectionSelection3"]
+position = Vector2(32, 32)
+
+[node name="FigerPrintSectionSelection4" type="Area2D" parent="."]
+position = Vector2(161, 137)
+script = ExtResource("4_pclu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FigerPrintSectionSelection4"]
+shape = SubResource("RectangleShape2D_77ajp")
+
+[node name="SelectedRect" type="MeshInstance2D" parent="FigerPrintSectionSelection4"]
+visible = false
+scale = Vector2(68, 68)
+mesh = SubResource("QuadMesh_rwoul")
+
+[node name="Image" type="Sprite2D" parent="FigerPrintSectionSelection4"]
+position = Vector2(32, 32)
+
+[node name="FigerPrintSectionSelection5" type="Area2D" parent="."]
+position = Vector2(161, 213)
+script = ExtResource("4_pclu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FigerPrintSectionSelection5"]
+shape = SubResource("RectangleShape2D_77ajp")
+
+[node name="SelectedRect" type="MeshInstance2D" parent="FigerPrintSectionSelection5"]
+visible = false
+scale = Vector2(68, 68)
+mesh = SubResource("QuadMesh_rwoul")
+
+[node name="Image" type="Sprite2D" parent="FigerPrintSectionSelection5"]
+position = Vector2(32, 32)
+
+[node name="FigerPrintSectionSelection6" type="Area2D" parent="."]
+position = Vector2(74, 214)
+script = ExtResource("4_pclu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FigerPrintSectionSelection6"]
+shape = SubResource("RectangleShape2D_77ajp")
+
+[node name="SelectedRect" type="MeshInstance2D" parent="FigerPrintSectionSelection6"]
+visible = false
+scale = Vector2(68, 68)
+mesh = SubResource("QuadMesh_rwoul")
+
+[node name="Image" type="Sprite2D" parent="FigerPrintSectionSelection6"]
+position = Vector2(32, 32)
