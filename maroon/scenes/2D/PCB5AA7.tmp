@@ -18,19 +18,21 @@ data = {
 image = SubResource("Image_7p12t")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3io6"]
-size = Vector2(6, 6)
+size = Vector2(8, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdnbd"]
-size = Vector2(15.375, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k72ct"]
+size = Vector2(12, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xre3c"]
-size = Vector2(18, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grr4b"]
+size = Vector2(13, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8abp"]
-size = Vector2(32, 17.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fbfx"]
+size = Vector2(32, 13)
 
 [node name="PcbMinigame" type="Node2D"]
 script = ExtResource("1_olomh")
+speed = null
+ground_color = null
 
 [node name="Level1" type="Sprite2D" parent="."]
 position = Vector2(240, 135)
@@ -55,7 +57,7 @@ position = Vector2(31, 237)
 [node name="level_3_start" type="Node2D" parent="."]
 position = Vector2(430, 32)
 
-[node name="Dot" type="CharacterBody2D" parent="."]
+[node name="Dot" type="StaticBody2D" parent="."]
 
 [node name="Dot" type="Sprite2D" parent="Dot"]
 texture = ExtResource("5_5feye")
@@ -65,27 +67,32 @@ shape = SubResource("RectangleShape2D_c3io6")
 
 [node name="End1" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="End1"]
-position = Vector2(455.313, 233)
-shape = SubResource("RectangleShape2D_mdnbd")
+[node name="end_1" type="CollisionShape2D" parent="End1"]
+position = Vector2(454, 233)
+shape = SubResource("RectangleShape2D_k72ct")
 
 [node name="End2" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="End2"]
-position = Vector2(456, 128)
-shape = SubResource("RectangleShape2D_xre3c")
+[node name="end_2" type="CollisionShape2D" parent="End2"]
+position = Vector2(454.5, 128)
+shape = SubResource("RectangleShape2D_grr4b")
 
 [node name="End3" type="Area2D" parent="."]
-position = Vector2(273, 135)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="End3"]
-position = Vector2(-224, -111.625)
-shape = SubResource("RectangleShape2D_w8abp")
+[node name="end_3" type="CollisionShape2D" parent="End3"]
+position = Vector2(49, 25.5)
+shape = SubResource("RectangleShape2D_6fbfx")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 3.0
 
 [node name="DrawnLine" type="Line2D" parent="."]
 width = 2.0
 default_color = Color(1, 0.72549, 0, 1)
 
 [connection signal="body_entered" from="End1" to="." method="_on_end_1_body_entered"]
+[connection signal="body_exited" from="End1" to="." method="_on_end_1_body_exited"]
 [connection signal="body_entered" from="End2" to="." method="_on_end_2_body_entered"]
+[connection signal="body_exited" from="End2" to="." method="_on_end_2_body_exited"]
 [connection signal="body_entered" from="End3" to="." method="_on_end_3_body_entered"]
+[connection signal="body_exited" from="End3" to="." method="_on_end_3_body_exited"]
