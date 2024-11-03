@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://b76mgrdpcw7vg"
+path="res://.godot/imported/level1.png-9831c8595499aa9a4d2f26860fe7a72d.image"
+
+[deps]
+
+source_file="res://assets/PCBMinigame/images/level1.png"
+dest_files=["res://.godot/imported/level1.png-9831c8595499aa9a4d2f26860fe7a72d.image"]
+
+[params]
+
