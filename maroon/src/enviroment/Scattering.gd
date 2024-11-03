@@ -156,6 +156,7 @@ func spawn_objects(group: Array):
 	var mesh_group = group[0]
 	var group_name = group[1]
 	for multi_mesh_instance in mesh_group:
+		multi_mesh_instance.multimesh.set_instance_count(0)
 		multi_mesh_instance.multimesh.set_transform_format(MultiMesh.TRANSFORM_3D)
 		multi_mesh_instance.multimesh.set_instance_count(obj_ammount)
 	

@@ -248,6 +248,7 @@ func reading_logs(delta: float) -> void:
 func _on_in_warehouse_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		inside = true
+		$MusicPlayer.stop()
 		hide_all_outside_objects()
 		tween_camera_env_to(InEnv)
 		
@@ -255,6 +256,8 @@ func _on_in_warehouse_detector_body_entered(body: Node3D) -> void:
 func _on_in_warehouse_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		inside = false
+		$MusicPlayer.autoplay = true
+		$MusicPlayer.play()
 		hide_all_inside_objects()
 		tween_camera_env_to(OutEnv)
 
@@ -262,10 +265,13 @@ func _on_in_warehouse_detector_body_exited(body: Node3D) -> void:
 func _on_decompression_decompresing(entering: bool) -> void:
 	if entering:
 		inside = true
+		$MusicPlayer.stop()
 		hide_all_outside_objects()
 		tween_camera_env_to(InEnv)
 	else:
 		inside = false
+		$MusicPlayer.autoplay = true
+		$MusicPlayer.play()
 		hide_all_inside_objects()
 		tween_camera_env_to(OutEnv)
 	
@@ -350,12 +356,15 @@ func loadin(save_data: Dictionary) -> void:
 	
 	inside = bool(save_data.get("inside"))
 	if inside:
+		$MusicPlayer.stop()
 		Eyes.environment = InEnv.duplicate()
 		for obj in get_tree().get_nodes_in_group("OutsideObj"):
 			obj.hide()
 		for obj in get_tree().get_nodes_in_group("InsideObj"):
 			obj.show()
 	else:
+		$MusicPlayer.autoplay = true
+		$MusicPlayer.play()
 		Eyes.environment = OutEnv.duplicate()
 		for obj in get_tree().get_nodes_in_group("InsideObj"):
 			obj.hide()

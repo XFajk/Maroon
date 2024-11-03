@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0jnnj2b0u0cg"]
+[gd_scene load_steps=15 format=3 uid="uid://b0jnnj2b0u0cg"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_dqc7k"]
 [ext_resource type="PackedScene" uid="uid://dtmo3ahg8vh6x" path="res://entities/Radar.tscn" id="3_obdw2"]
 [ext_resource type="FontFile" uid="uid://lfke2fc11udm" path="res://assets/Fonts/prstartk.ttf" id="4_xb8ew"]
 [ext_resource type="Texture2D" uid="uid://3ekwtx6picii" path="res://assets/Misc/circle.svg" id="5_74ql2"]
-[ext_resource type="PackedScene" path="res://scenes/2D/PauseMenu.tscn" id="6_mq37b"]
+[ext_resource type="AudioStream" uid="uid://cfq14d5oud0no" path="res://assets/Music/ambience_outside.wav" id="6_cjgtg"]
+[ext_resource type="PackedScene" uid="uid://t66mrmfhd273" path="res://scenes/2D/PauseMenu.tscn" id="6_mq37b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jeoj"]
 albedo_color = Color(1, 0, 0, 1)
@@ -149,6 +150,11 @@ shape = SubResource("BoxShape3D_001jw")
 
 [node name="VoiceLinePlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Sounds"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cjgtg")
+autoplay = true
+bus = &"Music"
 
 [connection signal="finished" from="VoiceLinePlayer" to="." method="delete_after_voice_line_finish"]
 
