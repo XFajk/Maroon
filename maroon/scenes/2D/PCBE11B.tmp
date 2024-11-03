@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c328wrnifftne"]
+[gd_scene load_steps=11 format=3 uid="uid://c328wrnifftne"]
 
 [ext_resource type="Texture2D" uid="uid://ccixel1kme2f8" path="res://assets/PCBMinigame/level1.png" id="1_6t4s7"]
 [ext_resource type="Script" path="res://src/2d_scenes/pcb_minigame.gd" id="1_olomh"]
 [ext_resource type="Texture2D" uid="uid://cbdrffo0ignx5" path="res://assets/PCBMinigame/level2.png" id="2_uyk0a"]
-[ext_resource type="FontFile" uid="uid://df5o2tjdmcius" path="res://assets/Fonts/DS-TERM.TTF" id="5_0d6ft"]
 [ext_resource type="Texture2D" uid="uid://sll70rqtui1o" path="res://assets/PCBMinigame/dot.png" id="5_5feye"]
-[ext_resource type="Texture2D" uid="uid://cpybo2j53mpyd" path="res://assets/PCBMinigame/opening screen.png" id="6_7u0hl"]
 
 [sub_resource type="Image" id="Image_d1js1"]
 data = {
@@ -31,18 +29,10 @@ size = Vector2(18, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8abp"]
 size = Vector2(32, 17.25)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ldg3n"]
-font = ExtResource("5_0d6ft")
-font_size = 38
-shadow_size = 10
-shadow_color = Color(0.573253, 0.687491, 0.148929, 0.333333)
-shadow_offset = Vector2(0, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_hijg0"]
-font = ExtResource("5_0d6ft")
-
 [node name="PcbMinigame" type="Node2D"]
 script = ExtResource("1_olomh")
+speed = null
+ground_color = null
 
 [node name="Level1" type="Sprite2D" parent="."]
 position = Vector2(240, 135)
@@ -98,46 +88,6 @@ shape = SubResource("RectangleShape2D_w8abp")
 width = 2.0
 default_color = Color(1, 0.72549, 0, 1)
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 480.0
-offset_bottom = 270.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "CONNECTION SUCCESSFUL"
-label_settings = SubResource("LabelSettings_ldg3n")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FlickerTimer" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="OpeningScreen" type="Sprite2D" parent="."]
-position = Vector2(240, 135)
-texture = ExtResource("6_7u0hl")
-
-[node name="ScreenTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Tutorial" type="Label" parent="."]
-offset_top = 248.0
-offset_right = 480.0
-offset_bottom = 271.0
-text = "use WASD to move"
-label_settings = SubResource("LabelSettings_hijg0")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="body_entered" from="End1" to="." method="_on_end_1_body_entered"]
 [connection signal="body_entered" from="End2" to="." method="_on_end_2_body_entered"]
 [connection signal="body_entered" from="End3" to="." method="_on_end_3_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="FlickerTimer" to="." method="_on_flicker_timer_timeout"]
-[connection signal="timeout" from="ScreenTimer" to="." method="_on_screen_timer_timeout"]

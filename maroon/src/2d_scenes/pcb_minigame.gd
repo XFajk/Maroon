@@ -9,6 +9,12 @@ extends Node2D
 var level = 0
 @onready var dot = $Dot
 @onready var drawn_line = $DrawnLine
+@onready var label = $Label
+@onready var timer = $Timer
+@onready var flicker_timer = $FlickerTimer
+@onready var screen = $OpeningScreen
+@onready var screen_timer = $ScreenTimer
+@onready var tutorial = $Tutorial
 
 var starting_directions: Array = [Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 @onready var starting_positions: Array = [$level_1_start, $level_2_start, $level_3_start]
@@ -17,43 +23,29 @@ var direction
 @export var ground_color: Color = Color(0.0745, 0.1608, 0.0353, 1)
 
 var segments: Array = []
-
 var last_action: String
+var stopped = false
+var label_flickering = false
+var end_animation = false
 
 func _ready() -> void:
+	screen.visible = true
+	tutorial.visible = true
+	screen_timer.start(3.5)
+	label.visible = false
 	restart()
 	for sprite in level_sprites:
 		sprite.visible = false
 	level_sprites[level].visible = true
 
 func _process(delta: float) -> void:
-	var previous_pos = dot.global_position
-	
-	# Move the dot
-	dot.global_position += direction * speed * delta
-	
-	# Check for out-of-bounds
-	if dot.global_position.x < 0 or dot.global_position.x > 480 or dot.global_position.y < 0 or dot.global_position.y > 270:
-		print("Out of bounds!")
-		restart()
-		return  # Exit the process if out of bounds
-		
-	
-	# Check if dot is on ground color
-	if get_color_under().r < 0.0749 and get_color_under().r > 0.0742:
-		if check_collision_with_trail(dot.global_position, previous_pos):
-			restart()
-	else:
-		restart()
-
-	# Add new point only if moved enough
-	if drawn_line.points[-1].distance_to(dot.global_position) > 1:  # Reduced threshold
-		drawn_line.add_point(dot.global_position)
-		# Only append a new segment if there's a previous point
-		if drawn_line.points.size() > 1:
-			var floored_vector1 = Vector2(floor(drawn_line.points[-2].x), floor(drawn_line.points[-2].y))
-			var floored_vector2 = Vector2(floor(drawn_line.points[-1].x), floor(drawn_line.points[-1].y))
-			segments.append([floored_vector1, floored_vector2])
+	if not stopped:
+		game_going(delta)
+	if label_flickering and flicker_timer.is_stopped():
+		flicker_timer.wait_time = 0.7
+		flicker_timer.start()
+	elif not label_flickering:
+		flicker_timer.stop()
 
 func _input(event: InputEvent) -> void:
 	# Skip processing if the same action was already triggered
@@ -113,15 +105,73 @@ func restart():
 
 func _on_end_1_body_entered(body: Node2D) -> void:
 	if level == 0:
+		level_complete()
 		level = 1
-		level_sprites[level].visible = true
-		restart()
 
 func _on_end_2_body_entered(body: Node2D) -> void:
 	if level == 1:
 		level = 2
-		level_sprites[level].visible = true
-		restart()
+		level_complete()
 
 func _on_end_3_body_entered(body: Node2D) -> void:
-	pass
+	if level == 2:
+		level_complete()
+		end_animation = true
+
+func game_going(delta):
+	var previous_pos = dot.global_position
+	
+	# Move the dot
+	dot.global_position += direction * speed * delta
+	
+	# Check for out-of-bounds
+	if dot.global_position.x < 0 or dot.global_position.x > 480 or dot.global_position.y < 0 or dot.global_position.y > 270:
+		restart()
+		return  # Exit the process if out of bounds
+		
+	
+	# Check if dot is on ground color
+	if get_color_under().r < 0.0749 and get_color_under().r > 0.0742:
+		if check_collision_with_trail(dot.global_position, previous_pos):
+			restart()
+	else:
+		restart()
+
+	# Add new point only if moved enough
+	if drawn_line.points[-1].distance_to(dot.global_position) > 1:  # Reduced threshold
+		drawn_line.add_point(dot.global_position)
+		# Only append a new segment if there's a previous point
+		if drawn_line.points.size() > 1:
+			var floored_vector1 = Vector2(floor(drawn_line.points[-2].x), floor(drawn_line.points[-2].y))
+			var floored_vector2 = Vector2(floor(drawn_line.points[-1].x), floor(drawn_line.points[-1].y))
+			segments.append([floored_vector1, floored_vector2])
+
+func level_complete():
+	stopped = true
+	timer.start(4.9)
+	label_flickering = true
+
+
+func _on_timer_timeout() -> void:
+	level_sprites[level].visible = true
+	restart()
+	if not end_animation:
+		stopped = false
+	label_flickering = false
+	label.visible = false
+	if end_animation:
+		screen.visible = true
+		screen_timer.start(3.5)
+
+
+func _on_flicker_timer_timeout() -> void:
+	if label_flickering:
+		label.visible = not label.visible
+
+
+func _on_screen_timer_timeout() -> void:
+	screen.visible = false
+	tutorial.visible = false
+	restart()
+	if end_animation:
+		pass # END OF MINIGAME
