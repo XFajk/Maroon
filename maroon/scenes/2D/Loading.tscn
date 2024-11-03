@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp8fmi1o34i0s"]
+
+[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="1_c5tee"]
+[ext_resource type="Script" path="res://src/2d_scenes/loading.gd" id="2_71kk3"]
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c5tee")
+script = ExtResource("2_71kk3")
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0930766, 0.025166, 0, 1)
+
+[node name="Loading" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.380208
+anchor_top = 0.442593
+anchor_right = 0.619792
+anchor_bottom = 0.557407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 101
+text = "LOADING"
+metadata/_edit_use_anchors_ = true
+
+[node name="StartLoadingTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="StartLoadingTimer" to="." method="_on_start_loading_timer_timeout"]

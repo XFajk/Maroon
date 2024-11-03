@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxqtmlhlxhkx"]
+
+[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="1_1043b"]
+[ext_resource type="Script" path="res://src/2d_scenes/ContinuePopUp.gd" id="2_r8mlb"]
+
+[node name="ContinuePopUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1043b")
+script = ExtResource("2_r8mlb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278708, 0.113657, 0, 0.631373)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116667
+anchor_top = 0.296296
+anchor_right = 0.885417
+anchor_bottom = 0.411111
+grow_horizontal = 2
+text = "DO YOU WANT TO CONTINUE?"
+metadata/_edit_use_anchors_ = true
+
+[node name="Yes" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133333
+anchor_top = 0.503704
+anchor_right = 0.441667
+anchor_bottom = 0.681481
+grow_horizontal = 2
+grow_vertical = 2
+text = "YES
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="No" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.503704
+anchor_right = 0.858333
+anchor_bottom = 0.681481
+grow_horizontal = 2
+grow_vertical = 2
+text = "NO"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]
