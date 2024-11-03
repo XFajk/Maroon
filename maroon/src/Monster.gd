@@ -4,7 +4,8 @@ enum MonsterState {
 	SCREAMING,
 	RUNNING,
 	LOOKING, # for a different path to the player
-	IDLE
+	IDLE,
+	KILLING,
 }
 
 var state: MonsterState = MonsterState.SCREAMING
@@ -121,10 +122,45 @@ func _on_kill_area_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("Player"):
 		return
 		
+	var player_camera: Camera3D = body.Eyes
+	var camera_destination: Node3D = $CameraPosistion1
+	
+	var goal_rotation: Vector3 = camera_destination.global_rotation
+	
+	# GODOT BULSHIT
+	if abs(player_camera.global_rotation.y - goal_rotation.y) > 180:
+		if player_camera.global_rotation_degrees.y >= 0 and camera_destination.global_rotation_degrees.y < 0:
+			goal_rotation.y += PI*2
+		elif player_camera.global_rotation_degrees.y < 0 and camera_destination.global_rotation_degrees.y >= 0:
+			goal_rotation.y -= PI*2
+	
+	state = MonsterState.KILLING
+	velocity = Vector3.ZERO
+	
+	Player.state = Player.PlayerState.NOTHING
+	Player.velocity = Vector3.ZERO
+	
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	
+	tween.tween_property(player_camera, "global_position", camera_destination.global_position, 0.2)
+	tween.tween_property(player_camera, "global_rotation", goal_rotation, 0.2)
+	
+	tween.finished.connect(play_slap)
+	
+func play_slap():
+	AnimationManager.play("Slapp")
+	AnimationManager.animation_finished.connect(reset_chase)
+	
+func reset_chase(animation_name: StringName) -> void:
 	ChaseStarter.monitoring = true
+	Player.state = Player.PlayerState.STANDING
 	Player.global_position = PlayerRespawnPoint.global_position
 	Player.global_rotation = PlayerRespawnPoint.global_rotation
+	Player.Eyes.position = Vector3.ZERO
+	Player.Eyes.rotation = Vector3.ZERO
 	Player.StaminaBar.value = 100
 	Saving.disable_saving = false
 	queue_free()
+	
 	

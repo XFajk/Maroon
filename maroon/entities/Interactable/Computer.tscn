@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dpybjvbfota2" path="res://assets/Misc/screen_texture.png" id="2_wk4sk"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="3_nee3a"]
 [ext_resource type="Resource" uid="uid://bbkgqkt615e7d" path="res://assets/Logs/Alpha/AnnaLog.tres" id="3_ytmoe"]
-[ext_resource type="AudioStream" uid="uid://dmxm862x7xrgu" path="res://assets/Sounds/matej_goc.wav" id="7_sl61a"]
+[ext_resource type="AudioStream" uid="uid://cqbjbemxq6f6n" path="res://assets/Sounds/log_monitor.wav" id="7_qfamg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6bkq"]
 resource_name = "computer_baked"
@@ -121,6 +121,6 @@ shape = SubResource("BoxShape3D_i7m06")
 transform = Transform3D(-0.5655, 0, -0.824748, 0, 1, 0, 0.824748, 0, -0.5655, -0.23154, 0.362356, -0.0824208)
 
 [node name="TitleSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("7_sl61a")
-volume_db = -80.0
+stream = ExtResource("7_qfamg")
 max_distance = 10.0
+bus = &"Sounds"

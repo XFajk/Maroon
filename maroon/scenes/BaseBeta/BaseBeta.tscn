@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhxyebbl7k6p2" path="res://entities/Buildings/LightSources/OmniBarLight.tscn" id="4_lkefv"]
 [ext_resource type="PackedScene" uid="uid://oufd0d6lhfem" path="res://entities/Buildings/Furniture/OfficeDesk.tscn" id="5_l2sdo"]
 [ext_resource type="PackedScene" uid="uid://dsvfqow30ymyu" path="res://entities/Buildings/Furniture/Chair_1.tscn" id="6_0knn4"]
-[ext_resource type="PackedScene" uid="uid://ckgwsi3mlhb65" path="res://entities/Interactable/Computer.tscn" id="7_s1c2x"]
+[ext_resource type="PackedScene" uid="uid://brahdu0givhoq" path="res://entities/Interactable/FinalComputer.tscn" id="7_xu261"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg0gn"]
 resource_name = "base_beta_baked"
@@ -131,8 +131,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.
 [node name="Chair1" parent="Occlusion" instance=ExtResource("6_0knn4")]
 transform = Transform3D(0.839459, 0, 0.543424, 0, 1, 0, -0.543424, 0, 0.839459, -0.503008, 0.532876, -12)
 
-[node name="computer" parent="." instance=ExtResource("7_s1c2x")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.435352, 0.758205, -10.5638)
+[node name="FinalComputer" parent="." node_paths=PackedStringArray("monster_spawn_point") instance=ExtResource("7_xu261")]
+transform = Transform3D(0.107427, 0, -0.994213, 0, 1, 0, 0.994213, 0, 0.107427, -0.266372, 0.759382, -10.7653)
+monster_spawn_point = NodePath("../MonsterSpawnPoint")
+
+[node name="MonsterSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(0.179008, 0, 0.983848, 0, 1, 0, -0.983848, 0, 0.179008, 2.20693, 1.25943, -11.7828)
+gizmo_extents = 1.0
 
 [editable path="Decompression"]
 [editable path="Occlusion/SpotBarLight"]
