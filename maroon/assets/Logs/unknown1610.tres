@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://dpj85boxd2lq1"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_yr8tk"]
+
+[resource]
+script = ExtResource("1_yr8tk")
+title = "Unknown"
+date = "16.10.1976"
+content_of_log = "SOS THE BASE HAS BEEEN BREACHED. IT GOT IN AND AND THERES SCREAMS AND IM LOCKED HERE I HOPE IT DOESNT GO FOR ME.
+
+ITS BANGING ON THE DOOR GOD PLEAascv vfx"

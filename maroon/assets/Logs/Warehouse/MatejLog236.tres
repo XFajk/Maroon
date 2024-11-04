@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://ia78ha733wsk"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_lbrmo"]
+
+[resource]
+script = ExtResource("1_lbrmo")
+title = "Matej Petrov."
+date = "23.6.1976"
+content_of_log = ""

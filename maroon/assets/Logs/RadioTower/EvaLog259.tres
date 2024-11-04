@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://b02ipvhtbsvpv"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_mfomu"]
+
+[resource]
+script = ExtResource("1_mfomu")
+title = "Eva Ivanova"
+date = "25.9.1976"
+content_of_log = "Captain sent me here to fix his doors, his fingerprint scanner is acting up again and for security reasons it has to be reset over here. What a great system. I shouldn't be the one doing this in the first place, the captain just doesn't want to take the hike up here. Either that or he is scared about the whole \"forest\" thing. I feel safe because I know that the comrades at Base Beta have it all under control."

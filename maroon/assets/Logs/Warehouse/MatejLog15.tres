@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://c8pbiask5n5rk"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_k6rj8"]
+
+[resource]
+script = ExtResource("1_k6rj8")
+title = "Matej Petrov."
+date = "1.5.1976"
+content_of_log = "So this is my main workplace. Well, could have been worse. I don't have any supervision here and as long as I can find most of the stuff noone even cares."

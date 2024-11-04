@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://bfsi6m21aij41"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_2prnt"]
+
+[resource]
+script = ExtResource("1_2prnt")
+title = "Filip (Captain)"
+date = "14.10.1976"
+content_of_log = "The new girl, Anna I think, hasn't returned from the warehouse. After some convincing I got Matej to go check it out but he says she wasn't there. This is all getting quite weird. My superior, leader of the entire program, Sergej Matejovic stationed at Base Beta ordered all research teams to investigate the recent disappearances and anything related."

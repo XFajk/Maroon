@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://cletrkx4siga2"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_vhnr3"]
+
+[resource]
+script = ExtResource("1_vhnr3")
+title = "Anna Jozufov."
+date = "13.10.1976"
+content_of_log = "Is this a joke? Who is responsible for this?!
+
+There is absolutely ZERO order in here. We work like dogs over at Beta to keep everything labeled and sorted and here they just dont give a crap. I can't be bothered with taking the inventory. Finding the sample will take long enough and I don't want to spend a second longer here than I have to. I feel so wrong in this place, like something's about to go really bad."

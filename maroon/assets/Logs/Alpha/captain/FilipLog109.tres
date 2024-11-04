@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://p6cv7dewlk6s"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_up5ow"]
+
+[resource]
+script = ExtResource("1_up5ow")
+title = "Filip (Captain)"
+date = "10.9.1976"
+content_of_log = "Base Beta reached to us again. They are planning to send some personel for research and what not. The crazy scientists keep warning us about the damn forest. I haven't seen anything, however I do not go there so often..."

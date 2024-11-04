@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://bls3cb548uxc3"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_4pn5d"]
+
+[resource]
+script = ExtResource("1_4pn5d")
+title = "Matej Petrov."
+date = "25.9.1976"
+content_of_log = "The superiors wont be happy about this. Under the insane G-forces I lost control over the forklift and pierced a wall. I'll try to cover it up with some boxes. The forklift seems undamaged."

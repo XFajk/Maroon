@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://lqoettj37osc"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_lmx17"]
+
+[resource]
+script = ExtResource("1_lmx17")
+title = "Filip (Captain)"
+date = "21.8.1976"
+content_of_log = "Ivan is complaining about the generator. The machine itself is working good but he criticises the system. He want's to connect it to the main grid. How ungrateful, he can be happy that he got here in the first place and now he's trying to be the new leader. I'm the one giving commands!
+
+He has also told me that he doesnt fell safe on his way to the tower. Especially around the forest. Normaly I'd think he has something wrong in his head but the team at Beta warned me about some unusual readings on forest scans. They advise us not to go near it. Ivan will be fine..."

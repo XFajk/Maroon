@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://bs3srkdt82txy"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_awwyb"]
+
+[resource]
+script = ExtResource("1_awwyb")
+title = "Filip (Captain)"
+date = "16.4.1976"
+content_of_log = "The mission is going well. People are getting alone without me having to do anything. Those idiots will work their asses off while I enjoy hot tee in my office. The higher ups really have it good in our system..."

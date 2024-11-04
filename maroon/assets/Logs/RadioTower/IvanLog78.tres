@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://cynr4qfu2dwj0"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_1fga8"]
+
+[resource]
+script = ExtResource("1_1fga8")
+title = "Ivan Rudolfovic"
+date = "7.8.1976"
+content_of_log = "Up, and down, and up, and down... because why would we run a single wire when I can carry gas canisters all day. The generator is working \"okay..\", well to the Soviet standard, otherwise it's quite shit. But because it's so simple it is also no too hard to repair."

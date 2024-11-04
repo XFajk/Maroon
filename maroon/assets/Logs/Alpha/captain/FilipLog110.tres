@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://c1svt7poy4tsf"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_i4m24"]
+
+[resource]
+script = ExtResource("1_i4m24")
+title = "Filip (Captain)"
+date = "1.10.1976"
+content_of_log = "Eva and Ivan are arguing again. As long as they do their work I don't care.
+
+They will be sending the temporary staff from Base Beta soon. Some woman for organizing the warehouse. I guess Matej's job wansn't up to the standards. Whatever. She can be happy the he brought her a bed from the warehouse, otherwise she would be sleeping on the floor.
+
+Ivan mentioned that the generators are running out of fuel. I should report this to the Earth so they send us a rocket full of fresh fuel."

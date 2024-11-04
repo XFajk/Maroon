@@ -17,3 +17,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0174395, -1.68979e-05, 14.5
 
 [node name="Generator" parent="." instance=ExtResource("4_3uebh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.5339)
+
+[editable path="Radio"]
+[editable path="RadioRoom"]
+[editable path="RadioPanel"]

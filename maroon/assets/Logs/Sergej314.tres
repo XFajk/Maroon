@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://3vs4icsdmr8r"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_05imu"]
+
+[resource]
+script = ExtResource("1_05imu")
+title = "Sergej Matejovic"
+date = "31.4.1976"
+content_of_log = "The new crew is here. They all look so positive and excited. Oh how they don't know whats's waiting for them at Base Alpha. I doubt that the last crew bothered cleaning it up before leaving.
+
+Meanwhile, the research is going... I can't mention too much here because it is extremely classified. Even though I doubt someone would hack into a alien planet to read some logs."

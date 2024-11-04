@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Log" load_steps=2 format=3 uid="uid://c5uy01wvnv556"]
+
+[ext_resource type="Script" path="res://src/LogResource.gd" id="1_2ixd4"]
+
+[resource]
+script = ExtResource("1_2ixd4")
+title = "Sergej Matejovic"
+date = "23.2.1976"
+content_of_log = "Arrangements are being made for the arrival of Base Alpha staff. General Filip Stefanovic was asigned as the base leader. I think they just had enough of him on earth. The building should be in good enough state and the warehouse is also stocked. Hopefuly, their flight here will go without any problems."
