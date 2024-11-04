@@ -158,6 +158,7 @@ bus = &"Music"
 
 [node name="FeetSounds" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.697032, 0)
+volume_db = -5.0
 max_distance = 5.0
 bus = &"Sounds"
 
