@@ -32,6 +32,7 @@ func _on_body_entered(body: Node3D) -> void:
 	player.velocity = Vector3.ZERO
 	var player_camera: Camera3D  = player.Eyes
 	player.get_node("MusicPlayer").stream = chase_music
+	player.get_node("MusicPlayer").play()
 	
 	var goal_rotation: Vector3 = camera_destination.global_rotation
 	

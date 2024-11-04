@@ -46,7 +46,7 @@ script = ExtResource("1_pox72")
 free_after = 1.0
 
 [node name="Sparks" type="GPUParticles3D" parent="."]
-visibility_range_end = 10.0
+visibility_range_end = 20.0
 amount = 30
 explosiveness = 1.0
 trail_enabled = true
@@ -58,5 +58,5 @@ draw_pass_1 = SubResource("RibbonTrailMesh_evlqx")
 stream = ExtResource("2_0lqxr")
 volume_db = -5.0
 autoplay = true
-max_distance = 5.0
+max_distance = 20.0
 bus = &"Sounds"

@@ -11,5 +11,6 @@ func _on_body_exited(body: Node3D) -> void:
 	new_static_body.add_child($CollisionShape3D.duplicate())
 	
 	body.get_node("MusicPlayer").stream = outside_music
+	body.get_node("MusicPlayer").play()
 	
 	Saving.disable_saving = false

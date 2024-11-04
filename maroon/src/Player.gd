@@ -30,13 +30,12 @@ var indoor_running: Array[AudioStream] = [
 ]
 
 var outdoor_walking: Array[AudioStream] = [
-	preload("res://assets/Sounds/walk_0_outwav.wav"),
-	preload("res://assets/Sounds/walk_1_outwav.wav"),
+	preload("res://assets/Sounds/walk_0_out.wav"),
+	preload("res://assets/Sounds/walk_1_out.wav"),
 	preload("res://assets/Sounds/walk_2_out.wav")
 ]
 
 var outdoor_running: Array[AudioStream] = [
-	preload("res://assets/Sounds/run_0_out.wav"),
 	preload("res://assets/Sounds/run_1_out.wav")
 ]
 
@@ -166,33 +165,39 @@ func manage_mouse() -> void:
 			PauseMenu.hide()
 			
 func manage_walking_sound() -> void:
+	if not is_on_floor():
+		return
 	if inside:
-		if Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("sprint") and StaminaBar.value > 0:
 			if not was_running:
 				$FeetSounds.stop()
-			else:
+				was_running = true
+			if was_running:
 				if not $FeetSounds.playing:
 					$FeetSounds.stream = indoor_running.pick_random()
 					$FeetSounds.play()
 		else:
 			if was_running:
 				$FeetSounds.stop()
-			else: 
+				was_running = false
+			if not was_running: 
 				if not $FeetSounds.playing:
 					$FeetSounds.stream = indoor_walking.pick_random()
 					$FeetSounds.play()
 	else:
-		if Input.is_action_pressed("sprint"):
+		if Input.is_action_pressed("sprint") and StaminaBar.value > 0:
 			if not was_running:
 				$FeetSounds.stop()
-			else:
+				was_running = true
+			if was_running:
 				if not $FeetSounds.playing:
 					$FeetSounds.stream = outdoor_running.pick_random()
 					$FeetSounds.play()
 		else:
 			if was_running:
 				$FeetSounds.stop()
-			else: 
+				was_running = false
+			if not was_running: 
 				if not $FeetSounds.playing:
 					$FeetSounds.stream = outdoor_walking.pick_random()
 					$FeetSounds.play()
