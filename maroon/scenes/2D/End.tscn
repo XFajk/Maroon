@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://baji4m58e6oe4"]
+[gd_scene load_steps=2 format=3 uid="uid://baji4m58e6oe4"]
+
+[ext_resource type="Script" path="res://src/2d_scenes/End.gd" id="1_1yx7i"]
 
 [node name="End" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1yx7i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -16,3 +19,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
