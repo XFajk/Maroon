@@ -1,5 +1,7 @@
 extends Area3D
 
+var chase_music = preload("res://assets/Music/chase_music.wav")
+
 @export var MonsterSpawnPoint: Node3D = null
 @export var PlayerRespawnPoint: Node3D = null
 @export var MonsterHomes: Node3D = null
@@ -29,6 +31,7 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	player.velocity = Vector3.ZERO
 	var player_camera: Camera3D  = player.Eyes
+	player.get_node("MusicPlayer").stream = chase_music
 	
 	var goal_rotation: Vector3 = camera_destination.global_rotation
 	

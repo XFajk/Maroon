@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ko1eww0i6u2q"
 path.s3tc="res://.godot/imported/table_2_table_2_color_baked.png-a5bb6be942961e02e9948de5b995b0d7.s3tc.ctex"
+path.etc2="res://.godot/imported/table_2_table_2_color_baked.png-a5bb6be942961e02e9948de5b995b0d7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Interiors/Furniture/table_2_table_2_color_baked.png"
-dest_files=["res://.godot/imported/table_2_table_2_color_baked.png-a5bb6be942961e02e9948de5b995b0d7.s3tc.ctex"]
+dest_files=["res://.godot/imported/table_2_table_2_color_baked.png-a5bb6be942961e02e9948de5b995b0d7.s3tc.ctex", "res://.godot/imported/table_2_table_2_color_baked.png-a5bb6be942961e02e9948de5b995b0d7.etc2.ctex"]
 
 [params]
 

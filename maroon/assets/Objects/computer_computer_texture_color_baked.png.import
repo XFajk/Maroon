@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b53c62p2gcq1b"
 path.s3tc="res://.godot/imported/computer_computer_texture_color_baked.png-fad950b16becdff6b4871041cd2887fc.s3tc.ctex"
+path.etc2="res://.godot/imported/computer_computer_texture_color_baked.png-fad950b16becdff6b4871041cd2887fc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Objects/computer_computer_texture_color_baked.png"
-dest_files=["res://.godot/imported/computer_computer_texture_color_baked.png-fad950b16becdff6b4871041cd2887fc.s3tc.ctex"]
+dest_files=["res://.godot/imported/computer_computer_texture_color_baked.png-fad950b16becdff6b4871041cd2887fc.s3tc.ctex", "res://.godot/imported/computer_computer_texture_color_baked.png-fad950b16becdff6b4871041cd2887fc.etc2.ctex"]
 
 [params]
 

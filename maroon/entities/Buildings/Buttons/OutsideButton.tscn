@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://tt2tb8hreau4"]
+[gd_scene load_steps=14 format=4 uid="uid://tt2tb8hreau4"]
 
 [ext_resource type="Script" path="res://src/objects/Button.gd" id="1_bgltr"]
-[ext_resource type="Texture2D" uid="uid://ckho7kfsuenv5" path="res://assets/Interiors/Buttons/button_on_pole_btn_on_pole_baked.png" id="1_yu5yg"]
+[ext_resource type="Texture2D" uid="uid://dug41xpo0ga5e" path="res://assets/Interiors/Buttons/button_on_pole_btn_on_pole_baked.png" id="1_yu5yg"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_1s24e"]
+[ext_resource type="AudioStream" uid="uid://b6y8wwhjy1y7s" path="res://assets/Sounds/button.wav" id="4_hq3le"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkljm"]
 resource_name = "pole_baked"
@@ -141,3 +142,9 @@ surface_material_override/0 = ExtResource("2_1s24e")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999959, 0, -0.00909296, 0, 1, 0, 0.00909296, 0, 0.999959, -1.43812, -0.733795, -0.964929)
 shape = SubResource("BoxShape3D_uiaj3")
+
+[node name="ButtonPress" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_hq3le")
+volume_db = 3.0
+max_distance = 2.0
+bus = &"Sounds"

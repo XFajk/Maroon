@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq7gjiqrismnk"
 path.bptc="res://.godot/imported/radar.png-53ca95928b1dec226af8e1df2cc550b0.bptc.ctex"
+path.astc="res://.godot/imported/radar.png-53ca95928b1dec226af8e1df2cc550b0.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Misc/radar.png"
-dest_files=["res://.godot/imported/radar.png-53ca95928b1dec226af8e1df2cc550b0.bptc.ctex"]
+dest_files=["res://.godot/imported/radar.png-53ca95928b1dec226af8e1df2cc550b0.bptc.ctex", "res://.godot/imported/radar.png-53ca95928b1dec226af8e1df2cc550b0.astc.ctex"]
 
 [params]
 

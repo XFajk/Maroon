@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://g3277iirb8yl"
 path.s3tc="res://.godot/imported/warehouse_regal_4_color_bake.png-fb324651d5eaf3107fa6de4c9632b406.s3tc.ctex"
+path.etc2="res://.godot/imported/warehouse_regal_4_color_bake.png-fb324651d5eaf3107fa6de4c9632b406.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_4_color_bake.png"
-dest_files=["res://.godot/imported/warehouse_regal_4_color_bake.png-fb324651d5eaf3107fa6de4c9632b406.s3tc.ctex"]
+dest_files=["res://.godot/imported/warehouse_regal_4_color_bake.png-fb324651d5eaf3107fa6de4c9632b406.s3tc.ctex", "res://.godot/imported/warehouse_regal_4_color_bake.png-fb324651d5eaf3107fa6de4c9632b406.etc2.ctex"]
 
 [params]
 

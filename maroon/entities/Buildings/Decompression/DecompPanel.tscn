@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://de0g4m3hjcojg"]
+[gd_scene load_steps=17 format=4 uid="uid://de0g4m3hjcojg"]
 
 [ext_resource type="Script" path="res://src/objects/DecompPanel.gd" id="1_56x41"]
 [ext_resource type="PackedScene" uid="uid://cyb5uhhpsmsbv" path="res://entities/Buildings/Decompression/DecompViewport.tscn" id="3_1tfpc"]
-[ext_resource type="Texture2D" uid="uid://6vwa804xd80x" path="res://assets/Interiors/Decompression/decomp_pannel_decomp_panel_baked_hi.png" id="3_f0kk1"]
+[ext_resource type="Texture2D" uid="uid://bjrhwosbe36si" path="res://assets/Interiors/Decompression/decomp_pannel_decomp_panel_baked_hi.png" id="3_f0kk1"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="3_l66rc"]
+[ext_resource type="AudioStream" uid="uid://b6y8wwhjy1y7s" path="res://assets/Sounds/button.wav" id="5_40a4o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pujtk"]
 resource_name = "panel_baked"
@@ -157,3 +158,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0218506, 0.000732422, 0.000
 shape = SubResource("BoxShape3D_j0g6q")
 
 [node name="DecompViewport" parent="." instance=ExtResource("3_1tfpc")]
+
+[node name="ButtonPress" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_40a4o")
+volume_db = 3.0
+max_distance = 2.0
+bus = &"Sounds"

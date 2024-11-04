@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://fwuua1al0wkq"
 path.s3tc="res://.godot/imported/bunk_bed_bed_color_baked.png-55c9d258f8543a4d4cb65da72a36d239.s3tc.ctex"
+path.etc2="res://.godot/imported/bunk_bed_bed_color_baked.png-55c9d258f8543a4d4cb65da72a36d239.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Interiors/Furniture/bunk_bed_bed_color_baked.png"
-dest_files=["res://.godot/imported/bunk_bed_bed_color_baked.png-55c9d258f8543a4d4cb65da72a36d239.s3tc.ctex"]
+dest_files=["res://.godot/imported/bunk_bed_bed_color_baked.png-55c9d258f8543a4d4cb65da72a36d239.s3tc.ctex", "res://.godot/imported/bunk_bed_bed_color_baked.png-55c9d258f8543a4d4cb65da72a36d239.etc2.ctex"]
 
 [params]
 

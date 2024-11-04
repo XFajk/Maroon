@@ -22,8 +22,8 @@ var flicker_count = 0
 
 var is_decompressing: bool = false
 var is_unlocked: bool = false
-@export var decompressing_time = 5 #seconds
-@export var unlocked_time = 7 #seconds
+@export var decompressing_time: float = 5 #seconds
+@export var unlocked_time: float = 7 #seconds
 
 var entering: bool #used to determine which door to open after decompressing
 
@@ -31,6 +31,7 @@ signal decompresing(entering: bool)
 
 func _ready() -> void:
 	DecompSmoke.get_node("Smoke").emitting = false
+	$DecompWent/AirSound.stop()
 	outside_door = outside_doors[base]
 	var inverted_base
 	if base == 1:
@@ -76,6 +77,10 @@ func _on_button_pressed(button_name) -> void:
 		if not is_decompressing:
 			
 			DecompSmoke.get_node("Smoke").emitting = true
+			$DecompWent/AirSound.play()
+			$DecompWent/AirSound.max_db = 20
+			$DecompWent/AirSound.volume_db = 20
+	
 			decompresing.emit(entering)
 			
 			inside_door.is_locked = true
@@ -87,6 +92,7 @@ func _on_button_pressed(button_name) -> void:
 
 func _on_decomp_timer_timeout() -> void:
 	DecompSmoke.get_node("Smoke").emitting = false
+	$DecompWent/AirSound.stop()
 	is_decompressing = false
 	is_unlocked = true
 	if entering:

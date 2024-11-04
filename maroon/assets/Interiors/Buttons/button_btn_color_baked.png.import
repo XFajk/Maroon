@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bels7fuyq2nhc"
 path.s3tc="res://.godot/imported/button_btn_color_baked.png-5f3d73a2b8e4cf415778d6cb56a90bc7.s3tc.ctex"
+path.etc2="res://.godot/imported/button_btn_color_baked.png-5f3d73a2b8e4cf415778d6cb56a90bc7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Interiors/Buttons/button_btn_color_baked.png"
-dest_files=["res://.godot/imported/button_btn_color_baked.png-5f3d73a2b8e4cf415778d6cb56a90bc7.s3tc.ctex"]
+dest_files=["res://.godot/imported/button_btn_color_baked.png-5f3d73a2b8e4cf415778d6cb56a90bc7.s3tc.ctex", "res://.godot/imported/button_btn_color_baked.png-5f3d73a2b8e4cf415778d6cb56a90bc7.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://chnc8w1mcevd5"
 path.s3tc="res://.godot/imported/lockers_lockers_texture.png-9ae954e0eed3721884944a6e5fdd4b7f.s3tc.ctex"
+path.etc2="res://.godot/imported/lockers_lockers_texture.png-9ae954e0eed3721884944a6e5fdd4b7f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Interiors/Furniture/lockers_lockers_texture.png"
-dest_files=["res://.godot/imported/lockers_lockers_texture.png-9ae954e0eed3721884944a6e5fdd4b7f.s3tc.ctex"]
+dest_files=["res://.godot/imported/lockers_lockers_texture.png-9ae954e0eed3721884944a6e5fdd4b7f.s3tc.ctex", "res://.godot/imported/lockers_lockers_texture.png-9ae954e0eed3721884944a6e5fdd4b7f.etc2.ctex"]
 
 [params]
 

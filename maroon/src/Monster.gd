@@ -28,6 +28,8 @@ var state: MonsterState = MonsterState.SCREAMING
 var chosen_home: Node3D = null
 var go_home: bool = false
 
+var outside_music = preload("res://assets/Music/ambience_outside.wav")
+
 func _ready() -> void:
 	AnimationManager.animation_finished.connect(change_state_after_animation)
 	
@@ -153,6 +155,7 @@ func play_slap():
 	AnimationManager.animation_finished.connect(reset_chase)
 	
 func reset_chase(animation_name: StringName) -> void:
+	
 	ChaseStarter.monitoring = true
 	Player.state = Player.PlayerState.STANDING
 	Player.global_position = PlayerRespawnPoint.global_position
@@ -160,7 +163,11 @@ func reset_chase(animation_name: StringName) -> void:
 	Player.Eyes.position = Vector3.ZERO
 	Player.Eyes.rotation = Vector3.ZERO
 	Player.StaminaBar.value = 100
+	
+	Player.get_node("MusicPlayer").stream = outside_music
+	
 	Saving.disable_saving = false
+	
 	queue_free()
 	
 	

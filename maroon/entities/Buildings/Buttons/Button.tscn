@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://clc0dq31ycx4u"]
+[gd_scene load_steps=15 format=4 uid="uid://clc0dq31ycx4u"]
 
 [ext_resource type="Script" path="res://src/objects/Button.gd" id="1_hbds1"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_0syav"]
-[ext_resource type="Texture2D" uid="uid://b2pjmm6e4qinc" path="res://assets/Interiors/Buttons/button_btn_color_baked.png" id="2_iwepi"]
+[ext_resource type="Texture2D" uid="uid://bels7fuyq2nhc" path="res://assets/Interiors/Buttons/button_btn_color_baked.png" id="2_iwepi"]
+[ext_resource type="AudioStream" uid="uid://b6y8wwhjy1y7s" path="res://assets/Sounds/button.wav" id="4_o62pm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdr0m"]
 resource_name = "button_baked"
@@ -140,3 +141,8 @@ surface_material_override/0 = ExtResource("2_0syav")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, -0.000671387, 0)
 shape = SubResource("BoxShape3D_2c6er")
+
+[node name="ButtonPress" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_o62pm")
+volume_db = 3.0
+bus = &"Sounds"

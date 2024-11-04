@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bop2toe55xm71"
 path.s3tc="res://.godot/imported/base_beta_base_beta_color_baked.png-ea96c9004774061a5efb67ad418930f6.s3tc.ctex"
+path.etc2="res://.godot/imported/base_beta_base_beta_color_baked.png-ea96c9004774061a5efb67ad418930f6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Enviroment/Buildings/BaseBeta/base_beta_base_beta_color_baked.png"
-dest_files=["res://.godot/imported/base_beta_base_beta_color_baked.png-ea96c9004774061a5efb67ad418930f6.s3tc.ctex"]
+dest_files=["res://.godot/imported/base_beta_base_beta_color_baked.png-ea96c9004774061a5efb67ad418930f6.s3tc.ctex", "res://.godot/imported/base_beta_base_beta_color_baked.png-ea96c9004774061a5efb67ad418930f6.etc2.ctex"]
 
 [params]
 

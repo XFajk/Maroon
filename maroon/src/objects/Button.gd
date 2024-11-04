@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 
 func interact(player: CharacterBody3D) -> void:
 	button_pressed.emit(button_name)
+	$ButtonPress.play()
 	button_state = 1
 
 func stop_showing_interaction() -> void:

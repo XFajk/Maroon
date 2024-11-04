@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bys0hftsifilr"
 path.s3tc="res://.godot/imported/tree3_lod1_tree_texture_5.png-66ffaa19e577a19c10545f9fb9621b0b.s3tc.ctex"
+path.etc2="res://.godot/imported/tree3_lod1_tree_texture_5.png-66ffaa19e577a19c10545f9fb9621b0b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Enviroment/Scattered/Trees/LOD1/tree3_lod1_tree_texture_5.png"
-dest_files=["res://.godot/imported/tree3_lod1_tree_texture_5.png-66ffaa19e577a19c10545f9fb9621b0b.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree3_lod1_tree_texture_5.png-66ffaa19e577a19c10545f9fb9621b0b.s3tc.ctex", "res://.godot/imported/tree3_lod1_tree_texture_5.png-66ffaa19e577a19c10545f9fb9621b0b.etc2.ctex"]
 
 [params]
 

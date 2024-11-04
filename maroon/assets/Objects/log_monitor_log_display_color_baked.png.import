@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://y3f7ci5cfu2q"
 path.s3tc="res://.godot/imported/log_monitor_log_display_color_baked.png-3a9864899be41547bf2214fafbfd833a.s3tc.ctex"
+path.etc2="res://.godot/imported/log_monitor_log_display_color_baked.png-3a9864899be41547bf2214fafbfd833a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Objects/log_monitor_log_display_color_baked.png"
-dest_files=["res://.godot/imported/log_monitor_log_display_color_baked.png-3a9864899be41547bf2214fafbfd833a.s3tc.ctex"]
+dest_files=["res://.godot/imported/log_monitor_log_display_color_baked.png-3a9864899be41547bf2214fafbfd833a.s3tc.ctex", "res://.godot/imported/log_monitor_log_display_color_baked.png-3a9864899be41547bf2214fafbfd833a.etc2.ctex"]
 
 [params]
 

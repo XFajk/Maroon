@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://beqntg3c5vgtu"
 path.s3tc="res://.godot/imported/radio_panel_control_panel_color_baked.png-6744d3a8d397ac6607261bbde70f3636.s3tc.ctex"
+path.etc2="res://.godot/imported/radio_panel_control_panel_color_baked.png-6744d3a8d397ac6607261bbde70f3636.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Enviroment/Buildings/RadioTower/radio_panel_control_panel_color_baked.png"
-dest_files=["res://.godot/imported/radio_panel_control_panel_color_baked.png-6744d3a8d397ac6607261bbde70f3636.s3tc.ctex"]
+dest_files=["res://.godot/imported/radio_panel_control_panel_color_baked.png-6744d3a8d397ac6607261bbde70f3636.s3tc.ctex", "res://.godot/imported/radio_panel_control_panel_color_baked.png-6744d3a8d397ac6607261bbde70f3636.etc2.ctex"]
 
 [params]
 

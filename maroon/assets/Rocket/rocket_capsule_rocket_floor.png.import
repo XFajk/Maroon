@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hsys6d6cbu5t"
 path.s3tc="res://.godot/imported/rocket_capsule_rocket_floor.png-7dff8143f68e33cffd96e8b13cbb1219.s3tc.ctex"
+path.etc2="res://.godot/imported/rocket_capsule_rocket_floor.png-7dff8143f68e33cffd96e8b13cbb1219.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Rocket/rocket_capsule_rocket_floor.png"
-dest_files=["res://.godot/imported/rocket_capsule_rocket_floor.png-7dff8143f68e33cffd96e8b13cbb1219.s3tc.ctex"]
+dest_files=["res://.godot/imported/rocket_capsule_rocket_floor.png-7dff8143f68e33cffd96e8b13cbb1219.s3tc.ctex", "res://.godot/imported/rocket_capsule_rocket_floor.png-7dff8143f68e33cffd96e8b13cbb1219.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://csq5cwikcr8mj"
 path.s3tc="res://.godot/imported/chair_1_chair_1_color_baked.png-541890a32e7df3f98da66103fa275805.s3tc.ctex"
+path.etc2="res://.godot/imported/chair_1_chair_1_color_baked.png-541890a32e7df3f98da66103fa275805.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Interiors/Furniture/chair_1_chair_1_color_baked.png"
-dest_files=["res://.godot/imported/chair_1_chair_1_color_baked.png-541890a32e7df3f98da66103fa275805.s3tc.ctex"]
+dest_files=["res://.godot/imported/chair_1_chair_1_color_baked.png-541890a32e7df3f98da66103fa275805.s3tc.ctex", "res://.godot/imported/chair_1_chair_1_color_baked.png-541890a32e7df3f98da66103fa275805.etc2.ctex"]
 
 [params]
 

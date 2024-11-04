@@ -95,5 +95,6 @@ left_click={
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 occlusion_culling/use_occlusion_culling=true
 mesh_lod/lod_change/threshold_pixels=0.0

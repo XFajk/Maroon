@@ -118,6 +118,7 @@ EngineParticles = NodePath("../EngineSmoke/GPUParticles3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.826566, -1.25371, -0.659803)
 stream = ExtResource("6_hbhd4")
 volume_db = -5.0
+max_distance = 30.0
 bus = &"Sounds"
 
 [node name="Controls" type="MeshInstance3D" parent="generator_panel"]

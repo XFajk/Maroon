@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy82mvf2s3lh5"
 path.s3tc="res://.godot/imported/fingerprint_scanner_fingerprint_panel_color_baked.png-15783cec99dafc22eded7dad9ba2ee65.s3tc.ctex"
+path.etc2="res://.godot/imported/fingerprint_scanner_fingerprint_panel_color_baked.png-15783cec99dafc22eded7dad9ba2ee65.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Objects/fingerprint_scanner_fingerprint_panel_color_baked.png"
-dest_files=["res://.godot/imported/fingerprint_scanner_fingerprint_panel_color_baked.png-15783cec99dafc22eded7dad9ba2ee65.s3tc.ctex"]
+dest_files=["res://.godot/imported/fingerprint_scanner_fingerprint_panel_color_baked.png-15783cec99dafc22eded7dad9ba2ee65.s3tc.ctex", "res://.godot/imported/fingerprint_scanner_fingerprint_panel_color_baked.png-15783cec99dafc22eded7dad9ba2ee65.etc2.ctex"]
 
 [params]
 

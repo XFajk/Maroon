@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://qepwl8pejupx"
 path.s3tc="res://.godot/imported/office_desk_office_table_color_bake_low.png-d250b6e71e9956a3a93f4966cee6e9f8.s3tc.ctex"
+path.etc2="res://.godot/imported/office_desk_office_table_color_bake_low.png-d250b6e71e9956a3a93f4966cee6e9f8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Interiors/Furniture/office_desk_office_table_color_bake_low.png"
-dest_files=["res://.godot/imported/office_desk_office_table_color_bake_low.png-d250b6e71e9956a3a93f4966cee6e9f8.s3tc.ctex"]
+dest_files=["res://.godot/imported/office_desk_office_table_color_bake_low.png-d250b6e71e9956a3a93f4966cee6e9f8.s3tc.ctex", "res://.godot/imported/office_desk_office_table_color_bake_low.png-d250b6e71e9956a3a93f4966cee6e9f8.etc2.ctex"]
 
 [params]
 
