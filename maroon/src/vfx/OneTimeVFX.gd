@@ -15,6 +15,9 @@ func _ready() -> void:
 func _on_free_timer_timeout() -> void:
 	if free:
 		queue_free()
+	else:
+		free_timer.start()
+		$Sound.play()
 	
 	
 	

@@ -32,8 +32,12 @@ func _process(delta: float) -> void:
 func _on_opening_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		is_opened = true
+		if not is_locked:
+			$Opening.play()
 
 
 func _on_opening_range_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		is_opened = false
+		if not is_locked:
+			$Closing.play()
