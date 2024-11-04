@@ -47,6 +47,7 @@ func interact(player: CharacterBody3D) -> void:
 	self.player = player
 	player.voice_line = voice_line
 	player.voice_line_line = voice_line_line
+	player.subtitles_timer.stop()
 	
 	var tween: Tween = get_tree().create_tween()
 	tween.set_parallel()

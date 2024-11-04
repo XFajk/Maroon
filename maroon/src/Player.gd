@@ -95,6 +95,10 @@ func _ready() -> void:
 	Saving.load()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	PauseMenu.hide()
+	subtitles_timer.autostart = false
+	subtitles_timer.one_shot = true
+	subtitles_timer.timeout.connect(delete_after_voice_line_finish)
+	add_child(subtitles_timer)
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and state != PlayerState.IN_LOG_MONITOR and state != PlayerState.NOTHING and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -381,24 +385,21 @@ func hide_all_outside_objects() -> void:
 	
 	
 func say_voice_line() -> void:
+	print("saying")
 	SubTitles.text = voice_line_line
 	
 	if voice_line == null:
-		subtitles_timer.autostart = false
-		subtitles_timer.one_shot = true
-		subtitles_timer.timeout.connect(delete_after_voice_line_finish)
-		add_child(subtitles_timer)
 		subtitles_timer.start(voice_line_line.length()*0.1)
 		return
 	$VoiceLinePlayer.stream = voice_line
 	$VoiceLinePlayer.play()
 	
 func delete_after_voice_line_finish() -> void:
+	print("deleting")
 	SubTitles.text = ""
 	voice_line_line = ""
 	if voice_line != null:
 		voice_line.queue_free()
-
 	
 func saveout() -> Dictionary:
 	return {
