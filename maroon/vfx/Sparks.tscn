@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://47nep8pvl6sm"]
+[gd_scene load_steps=9 format=3 uid="uid://47nep8pvl6sm"]
 
 [ext_resource type="Script" path="res://src/vfx/OneTimeVFX.gd" id="1_pox72"]
+[ext_resource type="AudioStream" uid="uid://dalurslpx1lpl" path="res://assets/Sounds/electrical_sparks.wav" id="2_0lqxr"]
 
 [sub_resource type="Curve" id="Curve_nbdqg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -52,3 +53,10 @@ trail_enabled = true
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_h5rft")
 draw_pass_1 = SubResource("RibbonTrailMesh_evlqx")
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_0lqxr")
+volume_db = -5.0
+autoplay = true
+max_distance = 5.0
+bus = &"Sounds"

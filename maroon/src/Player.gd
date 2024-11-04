@@ -15,6 +15,30 @@ var state: PlayerState = PlayerState.STANDING
 @export var running_speed = 400
 @export var acceleration = 15
 var direction = Vector3.ZERO
+var was_running = false
+
+var indoor_walking: Array[AudioStream] = [
+	preload("res://assets/Sounds/walk_0.wav"),
+	preload("res://assets/Sounds/walk_1.wav"),
+	preload("res://assets/Sounds/walk_2.wav")
+]
+
+var indoor_running: Array[AudioStream] = [
+	preload("res://assets/Sounds/run_0.wav"),
+	preload("res://assets/Sounds/run_1.wav"),
+	preload("res://assets/Sounds/run_2.wav")
+]
+
+var outdoor_walking: Array[AudioStream] = [
+	preload("res://assets/Sounds/walk_0_outwav.wav"),
+	preload("res://assets/Sounds/walk_1_outwav.wav"),
+	preload("res://assets/Sounds/walk_2_out.wav")
+]
+
+var outdoor_running: Array[AudioStream] = [
+	preload("res://assets/Sounds/run_0_out.wav"),
+	preload("res://assets/Sounds/run_1_out.wav")
+]
 
 # stamina variables
 @onready var StaminaBar: HSlider = $Head/Eyes/PlayerUI/StaminaBar
@@ -141,8 +165,41 @@ func manage_mouse() -> void:
 			Engine.time_scale = 1.0
 			PauseMenu.hide()
 			
+func manage_walking_sound() -> void:
+	if inside:
+		if Input.is_action_pressed("sprint"):
+			if not was_running:
+				$FeetSounds.stop()
+			else:
+				if not $FeetSounds.playing:
+					$FeetSounds.stream = indoor_running.pick_random()
+					$FeetSounds.play()
+		else:
+			if was_running:
+				$FeetSounds.stop()
+			else: 
+				if not $FeetSounds.playing:
+					$FeetSounds.stream = indoor_walking.pick_random()
+					$FeetSounds.play()
+	else:
+		if Input.is_action_pressed("sprint"):
+			if not was_running:
+				$FeetSounds.stop()
+			else:
+				if not $FeetSounds.playing:
+					$FeetSounds.stream = outdoor_running.pick_random()
+					$FeetSounds.play()
+		else:
+			if was_running:
+				$FeetSounds.stop()
+			else: 
+				if not $FeetSounds.playing:
+					$FeetSounds.stream = outdoor_walking.pick_random()
+					$FeetSounds.play()
+			
 func standing(delta: float) -> void:
 	
+	$FeetSounds.stop()
 	state = PlayerState.STANDING
 	
 	if Input.is_action_pressed("forward"):
@@ -188,14 +245,18 @@ func moving(delta: float) -> void:
 		state = PlayerState.JUMPING
 		
 	manage_gravity(delta)
+	
+	manage_walking_sound()
 		
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		var goal_speed = movment_speed*delta
 		if Input.is_action_pressed("sprint") and StaminaBar.value > 0:
+			was_running = true
 			StaminaBar.value -= stamina_depletion_speed*delta
 			goal_speed = running_speed*delta
 		elif not Input.is_action_pressed("sprint"):
+			was_running = false
 			StaminaBar.value += stamina_recharge_speed*delta
 
 		velocity = velocity.move_toward(direction*goal_speed, acceleration*delta)
@@ -203,7 +264,6 @@ func moving(delta: float) -> void:
 	manage_interaction()
 	manage_radar()
 	manage_mouse()
-	
 	
 func jumping(delta: float) -> void:
 	vertical_speed = jump_height*delta

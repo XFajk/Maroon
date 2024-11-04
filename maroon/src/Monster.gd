@@ -75,6 +75,7 @@ func manage_path_finding() -> void:
 			
 func screaming(delta: float) -> void:
 	AnimationManager.play("screaming")
+	$Scream.play()
 	velocity = Vector3.ZERO
 	
 func running(delta: float) -> void:
@@ -86,6 +87,7 @@ func running(delta: float) -> void:
 	
 func looking(delta: float) -> void:
 	AnimationManager.play("looking", -1, 1.5)
+	$Looking.play()
 	velocity = Vector3.ZERO
 	Agent.target_position = Player.global_position
 	
