@@ -13,7 +13,7 @@ config_version=5
 config/name="Maroon"
 run/main_scene="res://scenes/2D/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://assets/Misc/icon.svg"
+config/icon="res://assets/Misc/Icon.png"
 
 [audio]
 
@@ -28,7 +28,7 @@ Saving="*res://src/Saving.gd"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/mode=2
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [file_customization]

@@ -286,8 +286,7 @@ func reading_logs(delta: float) -> void:
 		tween.tween_property(Eyes, "position", Vector3.ZERO, 0.5)
 		tween.tween_property(Eyes, "rotation", Vector3.ZERO, 0.5)
 		PlayerUI.show()
-		if not voice_line_line.is_empty():
-			say_voice_line()
+		say_voice_line()
 	elif Input.is_action_just_pressed("ui_cancel") and die_after:
 		var tween = get_tree().create_tween()
 		tween.set_parallel()

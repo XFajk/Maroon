@@ -187,9 +187,7 @@ func _on_screen_timer_timeout() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
 		player.PlayerUI.show()
-		if not player.voice_line_line.is_empty():
-			player.say_voice_line()
-			
+		player.say_voice_line()
 		panel.done = true
 			
 		Saving.save()
