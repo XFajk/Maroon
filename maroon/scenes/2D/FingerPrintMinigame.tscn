@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cch17lbbnth42"]
+[gd_scene load_steps=7 format=3 uid="uid://cvvk8exhftjfe"]
 
 [ext_resource type="Texture2D" uid="uid://dicyxlm1d45qk" path="res://assets/minigame/finger_print_minigame/fingerPrintUI.png" id="1_gpyet"]
 [ext_resource type="Script" path="res://src/2d_scenes/FingerPrintMinigame.gd" id="1_n2rdv"]
-[ext_resource type="Theme" uid="uid://cvoh8axe570dh" path="res://DefaultUiTheme.tres" id="2_86xfu"]
+[ext_resource type="Theme" uid="uid://daojatfurb2vh" path="res://DefaultUiTheme.tres" id="2_86xfu"]
 [ext_resource type="Script" path="res://src/2d_scenes/FigerPrintSectionSelection.gd" id="4_pclu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77ajp"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://dus8q2cdthtw4"]
+[gd_scene load_steps=16 format=4 uid="uid://dus8q2cdthtw4"]
 
 [ext_resource type="Texture2D" uid="uid://blruhnmeg83e3" path="res://assets/Objects/generator_generator_controlls.png" id="1_6gju1"]
 [ext_resource type="Script" path="res://src/objects/GeneratoPanel.gd" id="1_gin2w"]
 [ext_resource type="Texture2D" uid="uid://dqy30sp0sn7sr" path="res://assets/Objects/generator_generator_color_baked_hi.png" id="2_q3bnl"]
 [ext_resource type="Material" uid="uid://dakurplvudynv" path="res://assets/Misc/Materials/InteractionOutline.tres" id="2_rntjs"]
 [ext_resource type="PackedScene" uid="uid://bo7nfx4hjt8tr" path="res://vfx/EngineSmoke.tscn" id="3_6q1pt"]
+[ext_resource type="AudioStream" uid="uid://cmbmtbnm0kmc7" path="res://assets/Sounds/generator_sound.wav" id="6_hbhd4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ml4r6"]
 resource_name = "controls"
@@ -113,6 +114,12 @@ dosent_have_gas_voice_line_line = "I dont have gas I cant do anyting with this g
 has_gas_voice_line_line = "Yes the Radio should be working now"
 EngineParticles = NodePath("../EngineSmoke/GPUParticles3D")
 
+[node name="Sound" type="AudioStreamPlayer3D" parent="generator_panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.826566, -1.25371, -0.659803)
+stream = ExtResource("6_hbhd4")
+volume_db = -5.0
+bus = &"Sounds"
+
 [node name="Controls" type="MeshInstance3D" parent="generator_panel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01196, 0.000929952, 2.5034e-05)
 mesh = SubResource("ArrayMesh_2iq0t")
@@ -143,5 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246191, 3.16008, 1.91709)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.963377, 1.26554, 0.662679)
 light_color = Color(0.54779, 0.659739, 1, 1)
 omni_range = 0.2
+
+[connection signal="finished" from="generator_panel/Sound" to="generator_panel" method="_on_sound_finished"]
 
 [editable path="EngineSmoke"]

@@ -12,6 +12,7 @@ extends StaticBody3D
 
 @export var RadioTowerLight: MeshInstance3D = null
 @export var EngineParticles: GPUParticles3D = null
+@export var RadioPanel: StaticBody3D = null
 
 var deleted = false
 
@@ -26,6 +27,9 @@ func interact(player: CharacterBody3D) -> void:
 		player.voice_line_line = dosent_have_gas_voice_line_line
 		player.say_voice_line()
 	else:
+		$Sound.play()
+		$Sound.autoplay = true
+		RadioPanel.acessible = true
 		player.voice_line = has_gas_voice_line
 		player.voice_line_line = has_gas_voice_line_line
 		player.say_voice_line()
@@ -59,3 +63,7 @@ func loadin(save_data: Dictionary) -> void:
 	stop_showing_interaction()
 	if bool(save_data.get('deleted')):
 		queue_free()
+
+
+func _on_sound_finished() -> void:
+	$Sound.play()

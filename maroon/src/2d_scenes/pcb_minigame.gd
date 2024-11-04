@@ -28,6 +28,9 @@ var stopped = false
 var label_flickering = false
 var end_animation = false
 
+var player: CharacterBody3D = null
+var panel: StaticBody3D = null
+
 func _ready() -> void:
 	screen.visible = true
 	tutorial.visible = true
@@ -174,4 +177,20 @@ func _on_screen_timer_timeout() -> void:
 	tutorial.visible = false
 	restart()
 	if end_animation:
-		pass # END OF MINIGAME
+		var tween = get_tree().create_tween()
+		tween.set_parallel()
+		player.state = player.PlayerState.STANDING
+		
+		tween.tween_property(player.Eyes, "position", Vector3.ZERO, 0.5)
+		tween.tween_property(player.Eyes, "rotation", Vector3.ZERO, 0.5)
+		
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+		player.PlayerUI.show()
+		if not player.voice_line_line.is_empty():
+			player.say_voice_line()
+			
+		panel.done = true
+			
+		Saving.save()
+		queue_free()

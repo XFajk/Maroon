@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dj241vy41r8u8"]
+[gd_scene load_steps=38 format=4 uid="uid://dj241vy41r8u8"]
 
 [ext_resource type="Texture2D" uid="uid://cwm8gupu7rgbb" path="res://assets/Enviroment/Buildings/BaseAlpha/base_alpha_base_1_bake_color_FINAL.png" id="1_787qr"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b1000stgxfqoa" path="res://scenes/BaseAlpha/BaseAlpha.occ" id="3_m4vrc"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b0y5xma8yunr2" path="res://entities/Buildings/Furniture/Lockers1Opened.tscn" id="22_sn8hm"]
 [ext_resource type="PackedScene" uid="uid://cv7vixmsbsgv" path="res://entities/Interactable/SdCard.tscn" id="22_vwksr"]
 [ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="23_f86m7"]
+[ext_resource type="PackedScene" uid="uid://drpdijbv74gqn" path="res://entities/Interactable/FingerprintPanel.tscn" id="24_fk8ag"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t07op"]
 resource_name = "base"
@@ -309,6 +310,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1501, 0.869092, -2.8497)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RadarArea"]
 shape = SubResource("SphereShape3D_5d1ya")
+
+[node name="FingerprintPanel" parent="." node_paths=PackedStringArray("door_to_open") instance=ExtResource("24_fk8ag")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.99902, 1.16708, -0.283754)
+not_acessible_voice_line_line = "this dosent seem to be working"
+door_to_open = NodePath("../Cullable/Doors/Doors2")
 
 [connection signal="decompresing" from="Decompression" to="Cullable" method="_on_decompression_decompresing"]
 

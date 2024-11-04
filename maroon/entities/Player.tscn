@@ -157,5 +157,6 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="finished" from="VoiceLinePlayer" to="." method="delete_after_voice_line_finish"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 
 [editable path="Head/Eyes/PlayerUI/Radar"]

@@ -40,7 +40,6 @@ var interactible_object: Object = null
 
 # pause variables
 @onready var PauseMenu: Control = $Head/Eyes/PlayerUI/PauseMenu
-
 @onready var PlayerUI: Control = $Head/Eyes/PlayerUI
 
 # subtitles and voicelines variables
@@ -373,3 +372,7 @@ func loadin(save_data: Dictionary) -> void:
 			
 	cansiters_picked_up = int(save_data.get("cansiters_picked_up"))
 	
+
+
+func _on_music_player_finished() -> void:
+	$MusicPlayer.play()

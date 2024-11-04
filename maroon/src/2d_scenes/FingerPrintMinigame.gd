@@ -47,6 +47,9 @@ var fourth_figers_sections: Array[CompressedTexture2D] = [
 var mandatory_images: Array = []
 var number_of_games = 0
 
+var player: CharacterBody3D = null
+var door_to_open: Node3D = null
+
 func _ready() -> void:
 	reroll()
 	
@@ -65,8 +68,28 @@ func _process(delta: float) -> void:
 		number_of_games += 1
 		reroll()
 	if number_of_games == 4:
+		var tween = get_tree().create_tween()
+		tween.set_parallel()
+		player.state = player.PlayerState.STANDING
+		
+		tween.tween_property(player.Eyes, "position", Vector3.ZERO, 0.5)
+		tween.tween_property(player.Eyes, "rotation", Vector3.ZERO, 0.5)
+		
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+		player.PlayerUI.show()
+		if not player.voice_line_line.is_empty():
+			player.say_voice_line()
+			
+		door_to_open.is_locked = false
+		Saving.save()
 		queue_free()
-	
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		player.state = player.PlayerState.STANDING
+		queue_free()
+		
 	
 func reroll() -> void:
 	MainFingerPrint.texture = main_figers.pick_random()
