@@ -22,7 +22,12 @@ func _ready() -> void:
 
 func interact(player: CharacterBody3D) -> void:
 	Saving.save()
+	
+	player.voice_line = voice_line
+	player.voice_line_line = voice_line_line
+	player.subtitles_timer.stop()
 	self.player = player
+	
 	TitleSound.play()
 	
 	player.voice_line = voice_line

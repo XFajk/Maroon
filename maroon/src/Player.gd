@@ -306,8 +306,10 @@ func reading_logs(delta: float) -> void:
 			elif Eyes.global_rotation_degrees.y < 0 and CameraPosition.global_rotation_degrees.y >= 0:
 				goal_rotation.y -= PI*2
 		
-		tween.tween_property(Eyes, "global_position", CameraPosition.global_position, 2)
-		tween.tween_property(Eyes, "global_rotation", goal_rotation, 2)
+		tween.tween_property(Eyes, "global_position", CameraPosition.global_position, 1)
+		tween.tween_property(Eyes, "global_rotation", goal_rotation, 1)
+		PlayerUI.show()
+		say_voice_line()
 		
 	StaminaBar.value += stamina_recharge_speed*delta
 

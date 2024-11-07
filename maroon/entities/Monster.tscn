@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=4 uid="uid://bfxw416vbl0nc"]
+[gd_scene load_steps=21 format=4 uid="uid://bfxw416vbl0nc"]
 
 [ext_resource type="Script" path="res://src/Monster.gd" id="1_l6tpu"]
 [ext_resource type="Texture2D" uid="uid://byg12hqc3ny34" path="res://assets/Monster/monster_monster_monster.png" id="2_y1gne"]
 [ext_resource type="AudioStream" uid="uid://3kjbf06afein" path="res://assets/Sounds/monster_scream.wav" id="3_b6dr5"]
 [ext_resource type="AudioStream" uid="uid://bbw1pjl26f4fd" path="res://assets/Sounds/looking_sound.wav" id="3_jo1nu"]
-[ext_resource type="AudioStream" uid="uid://dabuh0npbqjbe" path="res://assets/Sounds/run_1_out.wav" id="6_3rrmv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yoqpo"]
 radius = 1.0
@@ -908,18 +907,6 @@ tracks/48/path = NodePath("Armature")
 tracks/48/interp = 1
 tracks/48/loop_wrap = true
 tracks/48/keys = PackedFloat32Array(0, 1, 0, -1.31346, 0)
-tracks/49/type = "value"
-tracks/49/imported = false
-tracks/49/enabled = true
-tracks/49/path = NodePath("Run:playing")
-tracks/49/interp = 1
-tracks/49/loop_wrap = true
-tracks/49/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_p46ds"]
 resource_name = "Slapp"
@@ -3056,7 +3043,7 @@ radius = 1.70306
 
 [node name="Monster" type="CharacterBody3D"]
 script = ExtResource("1_l6tpu")
-running_speed = 5.8
+running_speed = 6.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.184948, 0)
@@ -3460,13 +3447,6 @@ bus = &"Sounds"
 
 [node name="Hit" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.20507)
-bus = &"Sounds"
-
-[node name="Run" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14631, 0)
-stream = ExtResource("6_3rrmv")
-volume_db = -5.0
-max_distance = 20.0
 bus = &"Sounds"
 
 [connection signal="timeout" from="LookingTimer" to="." method="_on_looking_timer_timeout"]
