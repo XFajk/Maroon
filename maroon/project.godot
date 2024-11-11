@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="Maroon"
-run/main_scene="res://scenes/2D/MainMenu.tscn"
+run/main_scene="res://scenes/2D/SplashScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://assets/Misc/Icon.png"
 
 [audio]

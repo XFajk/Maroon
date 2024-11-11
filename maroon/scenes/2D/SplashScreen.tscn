@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://gnv0fo7861q2"]
+
+[ext_resource type="VideoStream" path="res://assets/Misc/SplashScreen.ogv" id="1_3boqc"]
+[ext_resource type="Script" path="res://src/2d_scenes/SplashScreen.gd" id="1_t44kg"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t44kg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -107.5
+offset_right = 135.0
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_3boqc")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

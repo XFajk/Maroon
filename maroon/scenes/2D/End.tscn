@@ -85,6 +85,16 @@ theme_override_font_sizes/font_size = 18
 text = "Matej Kecka"
 metadata/_edit_use_anchors_ = true
 
+[node name="FilipStefko" type="Label" parent="CreditsOne/TitleOne"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 2.87097
+anchor_right = 1.25424
+anchor_bottom = 3.64516
+theme_override_font_sizes/font_size = 18
+text = "Filip Stefko"
+metadata/_edit_use_anchors_ = true
+
 [node name="TitleTwo" type="Label" parent="CreditsOne"]
 layout_mode = 1
 anchors_preset = -1
@@ -223,6 +233,16 @@ anchor_right = 1.76623
 anchor_bottom = 1.93548
 theme_override_font_sizes/font_size = 18
 text = "Rudolf Vrbensky"
+metadata/_edit_use_anchors_ = true
+
+[node name="FilipStefko" type="Label" parent="CreditsTwo/TitleTwo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 2.09677
+anchor_right = 1.25423
+anchor_bottom = 2.87096
+theme_override_font_sizes/font_size = 18
+text = "Filip Stefko"
 metadata/_edit_use_anchors_ = true
 
 [node name="TitleThree" type="Label" parent="CreditsTwo"]
