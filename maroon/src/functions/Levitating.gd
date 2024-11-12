@@ -1,4 +1,4 @@
-extends StaticBody3D #do not put @tool it breaks it
+extends Node3D #do not put @tool it breaks it
 
 @export var speed = 0.05
 @export var lev_range = 0.1 #meters

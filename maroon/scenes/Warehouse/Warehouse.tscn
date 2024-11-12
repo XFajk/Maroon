@@ -1,15 +1,17 @@
-[gd_scene load_steps=62 format=4 uid="uid://cndlcny5sc2yd"]
+[gd_scene load_steps=64 format=4 uid="uid://cndlcny5sc2yd"]
 
 [ext_resource type="Script" path="res://src/Warehouse.gd" id="1_dxulc"]
 [ext_resource type="Texture2D" uid="uid://bxou6jtg6nx7w" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_warehouse_color_bake.png" id="1_ghtl6"]
 [ext_resource type="Texture2D" uid="uid://d1ay0fpdvl3ya" path="res://assets/Enviroment/Buildings/Warehouse/crate_texture_3.png" id="1_lk8tp"]
 [ext_resource type="ArrayOccluder3D" uid="uid://7d7mmartbobl" path="res://scenes/Warehouse/Warehouse.occ" id="2_7ksrf"]
+[ext_resource type="Script" path="res://src/objects/RigidBox.gd" id="2_8agvw"]
 [ext_resource type="Shape3D" uid="uid://mwelf35gy3rk" path="res://assets/Enviroment/Buildings/Warehouse/regal_collision.tres" id="2_ph8kx"]
 [ext_resource type="Texture2D" uid="uid://dcaccthm2rnva" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_1_color_bake.png" id="2_s8bgt"]
 [ext_resource type="Texture2D" uid="uid://danq6yqnudif0" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_2_color_bake.png" id="3_7hn0i"]
 [ext_resource type="PackedScene" uid="uid://duqmxbq43pmj3" path="res://entities/Interactable/JarryCan.tscn" id="3_sin5p"]
 [ext_resource type="PackedScene" uid="uid://dnadaqr1i786c" path="res://entities/Buildings/LightSources/SpotBarLight.tscn" id="3_xh3qg"]
 [ext_resource type="Texture2D" uid="uid://du1stjwyesaku" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_3_color_bake.png" id="4_7rie7"]
+[ext_resource type="AudioStream" uid="uid://bgp1hvqdnflkx" path="res://assets/Sounds/crate-break.wav" id="4_8wf27"]
 [ext_resource type="Texture2D" uid="uid://g3277iirb8yl" path="res://assets/Enviroment/Buildings/Warehouse/warehouse_regal_4_color_bake.png" id="5_mncbx"]
 [ext_resource type="PackedScene" uid="uid://cijyfmplcl8b4" path="res://entities/Buildings/Furniture/TableWarehouse.tscn" id="12_75hd6"]
 [ext_resource type="PackedScene" uid="uid://dhmyy1cjja6ha" path="res://entities/Interactable/RadarArea.tscn" id="13_kmqdn"]
@@ -24,7 +26,7 @@ size = Vector3(8.2, 5.1, 8.355)
 size = Vector3(8.17234, 5.1, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sj8xr"]
-size = Vector3(2.03203, 4.76318, 2.1)
+size = Vector3(2.03203, 4.76318, 2.83219)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dcbmx"]
 size = Vector3(4.9, 5.2, 5.5)
@@ -628,7 +630,7 @@ shape = SubResource("BoxShape3D_iu83a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.85906, 2.56765, 7.51854)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/EventTrigger3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133984, -0.131592, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133984, -0.131592, 0.366095)
 shape = SubResource("BoxShape3D_sj8xr")
 
 [node name="EventTrigger4" type="Area3D" parent="Gameplay"]
@@ -646,7 +648,10 @@ collision_mask = 2
 shape = SubResource("BoxShape3D_t4pn8")
 
 [node name="FallingBox" type="RigidBody3D" parent="Gameplay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 6, -5.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 5.60368, -4.88115)
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_8agvw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gameplay/FallingBox"]
 shape = SubResource("BoxShape3D_otfk5")
@@ -655,6 +660,14 @@ shape = SubResource("BoxShape3D_otfk5")
 mesh = SubResource("BoxMesh_35kvv")
 surface_material_override/0 = SubResource("StandardMaterial3D_5totr")
 
+[node name="CrateSound" type="AudioStreamPlayer3D" parent="Gameplay/FallingBox"]
+stream = ExtResource("4_8wf27")
+volume_db = 6.0
+max_db = 6.0
+pitch_scale = 0.8
+max_distance = 40.0
+bus = &"Sounds"
+
 [node name="MonsterFinishSpot1" type="Node3D" parent="Gameplay"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.9, 1.00581, -8.7)
 
@@ -662,7 +675,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.9, 
 transform = Transform3D(-0.885337, -0.422436, 0.194234, -0.430637, 0.902525, 0, -0.175301, -0.0836444, -0.980955, -12.7958, 1.07066, -8.53382)
 
 [node name="MonsterFinishSpot2" type="Node3D" parent="Gameplay"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.54253, 0.850603, -11.9528)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.54253, 0.850603, -4.84447)
 
 [node name="MonsterStartSpot2" type="Node3D" parent="Gameplay"]
 transform = Transform3D(-0.608593, -0.324331, -0.724172, -0.470304, 0.882505, 1.49012e-08, 0.639085, 0.340581, -0.68962, -3.05952, 1.13908, 1.41588)
@@ -718,6 +731,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.999805, 0, 0.0197433, 0, 1, 0, -0.0197433, 0, 0.999805, 8.15406, 2.6717, -0.593324)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="regal_collision_016"]
+transform = Transform3D(1, 0, -9.49949e-08, 0, 1, 0, 9.49949e-08, 0, 1, 0, -0.148803, 0)
 shape = ExtResource("2_ph8kx")
 
 [node name="regal_002" type="MeshInstance3D" parent="regal_collision_016"]
@@ -915,3 +929,4 @@ shape = SubResource("SphereShape3D_seus0")
 [connection signal="body_entered" from="Gameplay/EventTrigger3" to="." method="_on_event_trigger_3_body_entered"]
 [connection signal="body_entered" from="Gameplay/EventTrigger4" to="." method="_on_event_trigger_4_body_entered"]
 [connection signal="area_entered" from="Gameplay/EventTrigger5" to="." method="_on_event_trigger_5_area_entered"]
+[connection signal="body_entered" from="Gameplay/FallingBox" to="Gameplay/FallingBox" method="_on_body_entered"]
